@@ -120,6 +120,10 @@ function initWordCycle() {
   const words = $$('.hero-word-swap .word');
   if (!words.length) return;
 
+  // Set starting positions: first word visible, rest below
+  gsap.set(words, { y: '105%' });
+  gsap.set(words[0], { y: '0%' });
+
   let current = 0;
 
   function next() {
@@ -127,23 +131,22 @@ function initWordCycle() {
     current = (current + 1) % words.length;
     const curr = words[current];
 
-    // Out
-    gsap.to(prev, { y: '-110%', opacity: 0, duration: 0.55, ease: 'power3.in',
-      onComplete: () => {
-        prev.classList.remove('active');
-        gsap.set(prev, { y: '110%', opacity: 1 });
-      }
+    // Slide current word UP and out
+    gsap.to(prev, {
+      y: '-105%',
+      duration: 0.55,
+      ease: 'power3.in',
+      onComplete: () => gsap.set(prev, { y: '105%' }) // reset to below
     });
 
-    // In
-    curr.classList.add('active');
+    // Slide next word UP from below
     gsap.fromTo(curr,
-      { y: '110%', opacity: 1 },
-      { y: '0%',   opacity: 1, duration: 0.65, ease: 'power3.out', delay: 0.1 }
+      { y: '105%' },
+      { y: '0%', duration: 0.65, ease: 'power3.out', delay: 0.1 }
     );
   }
 
-  setInterval(next, 2400);
+  setInterval(next, 2600);
 }
 
 /* ── Section Header Animation (inner pages) ─────────────────── */
