@@ -286,7 +286,7 @@ footer a:hover { color: var(--black); }
 .hero-word--orange   { color: var(--orange); }
 .hero-word--green    { color: var(--green); }
 .hero-word--yellow   { color: var(--yellow); }
-.hero-word--ghost    { color: rgba(0,0,0,0.08); }
+.hero-word--ghost    { color: rgba(0,0,0,0.38); }
 
 .hero-by {
   font-size: clamp(1rem, 2.5vw, 2rem);
