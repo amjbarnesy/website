@@ -266,7 +266,7 @@ footer a:hover { color: var(--black); }
 .hero-word-swap {
   display: block;
   position: relative;
-  height: 1em;       /* one line tall */
+  height: 1.15em;    /* slightly taller than 1em to allow for font metrics */
   overflow: hidden;  /* clips words sliding in/out */
 }
 .hero-word-swap .word {
