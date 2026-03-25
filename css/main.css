@@ -275,14 +275,11 @@ footer a:hover { color: var(--black); }
 
 .hero-word-swap {
   display: block;
-  overflow: hidden;  /* clips the single word sliding in/out vertically */
-  /* no fixed height — sized naturally by the single word element inside */
 }
 .hero-word-swap .word {
   display: block;
   text-align: center;
   white-space: nowrap;
-  /* No absolute positioning — single element, GSAP drives y transform */
 }
 
 .hero-word--orange   { color: var(--orange); }

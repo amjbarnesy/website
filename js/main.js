@@ -122,32 +122,32 @@ function initWordCycle() {
   if (!el) return;
 
   const sequence = [
-    { text: 'Creative',      cls: 'hero-word--ghost'  },
+    { text: 'Creative',        cls: 'hero-word--ghost'  },
     { text: 'Web\u00a0Design', cls: 'hero-word--orange' },
-    { text: 'Photography',   cls: 'hero-word--green'  },
-    { text: 'Clients',       cls: 'hero-word--yellow' },
+    { text: 'Photography',     cls: 'hero-word--green'  },
+    { text: 'Clients',         cls: 'hero-word--yellow' },
   ];
   let current = 0;
 
-  // Single element swaps its own text — nothing else in the DOM to bleed through
   function next() {
     const nxt = sequence[(current + 1) % sequence.length];
 
-    // Slide current word UP and out of the overflow:hidden container
+    // Fade + lift out
     gsap.to(el, {
-      y: '-110%',
-      duration: 0.5,
-      ease: 'power3.in',
+      opacity: 0,
+      y: -20,
+      duration: 0.4,
+      ease: 'power2.in',
       onComplete: () => {
-        // Swap text and colour class while invisible above the container
+        // Swap content while invisible
         el.textContent = nxt.text;
         el.className   = `word ${nxt.cls}`;
-        // Drop instantly to below, then slide up into view
+        current        = (current + 1) % sequence.length;
+        // Fade + rise in from below
         gsap.fromTo(el,
-          { y: '110%' },
-          { y: '0%', duration: 0.6, ease: 'power3.out' }
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
         );
-        current = (current + 1) % sequence.length;
       }
     });
   }
