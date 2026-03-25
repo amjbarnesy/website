@@ -244,9 +244,8 @@ footer a:hover { color: var(--black); }
 }
 
 .hero-text .line { overflow: hidden; display: block; }
-/* line-inner starts off-screen; GSAP animates it in. Without JS it falls back to visible */
-.hero-text .line-inner { display: block; transform: translateY(110%); }
-.no-js .hero-text .line-inner { transform: none; }
+/* No default transform — GSAP sets the start position itself via fromTo() */
+.hero-text .line-inner { display: block; }
 
 .hero-word-swap {
   display: inline-block;

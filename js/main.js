@@ -100,24 +100,17 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const heroText = $('.hero-text');
   if (!heroText) return;
 
-  // Animate lines in from below after the page transition finishes
-  gsap.from('.hero-text .line-inner', {
-    y: '100%',
-    duration: 1.0,
-    ease: 'power4.out',
-    stagger: 0.1,
-    delay: 0.7  // starts as overlay finishes sliding away
-  });
+  // Animate lines in from below — fromTo() explicitly sets start AND end
+  gsap.fromTo('.hero-text .line-inner',
+    { y: '110%' },
+    { y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8 }
+  );
 
   // Animated horizontal lines
-  gsap.from('.hero-lines span', {
-    scaleX: 0,
-    transformOrigin: 'left center',
-    duration: 1.0,
-    ease: 'power4.out',
-    stagger: 0.08,
-    delay: 0.95
-  });
+  gsap.fromTo('.hero-lines span',
+    { scaleX: 0 },
+    { scaleX: 1, transformOrigin: 'left center', duration: 1.0, ease: 'power4.out', stagger: 0.08, delay: 1.05 }
+  );
 
   // Word cycle — starts after hero finishes animating in
   setTimeout(initWordCycle, 2500);
