@@ -104,12 +104,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   // onComplete removes overflow:hidden from lines so tall words aren't clipped
   gsap.fromTo('.hero-text .line-inner',
     { y: '110%' },
-    {
-      y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8,
-      onComplete: () => {
-        $$('.hero-text .line').forEach(l => l.style.overflow = 'visible');
-      }
-    }
+    { y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8 }
   );
 
   // Animated horizontal lines
@@ -123,33 +118,38 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 })();
 
 function initWordCycle() {
-  const words = $$('.hero-word-swap .word');
-  if (!words.length) return;
+  const el = $('#word-swap-text');
+  if (!el) return;
 
-  // Set starting positions: first word visible, rest below
-  gsap.set(words, { y: '105%' });
-  gsap.set(words[0], { y: '0%' });
-
+  const sequence = [
+    { text: 'Creative',      cls: 'hero-word--ghost'  },
+    { text: 'Web\u00a0Design', cls: 'hero-word--orange' },
+    { text: 'Photography',   cls: 'hero-word--green'  },
+    { text: 'Clients',       cls: 'hero-word--yellow' },
+  ];
   let current = 0;
 
+  // Single element swaps its own text — nothing else in the DOM to bleed through
   function next() {
-    const prev = words[current];
-    current = (current + 1) % words.length;
-    const curr = words[current];
+    const nxt = sequence[(current + 1) % sequence.length];
 
-    // Slide current word UP and out
-    gsap.to(prev, {
-      y: '-105%',
-      duration: 0.55,
+    // Slide current word UP and out of the overflow:hidden container
+    gsap.to(el, {
+      y: '-110%',
+      duration: 0.5,
       ease: 'power3.in',
-      onComplete: () => gsap.set(prev, { y: '105%' }) // reset to below
+      onComplete: () => {
+        // Swap text and colour class while invisible above the container
+        el.textContent = nxt.text;
+        el.className   = `word ${nxt.cls}`;
+        // Drop instantly to below, then slide up into view
+        gsap.fromTo(el,
+          { y: '110%' },
+          { y: '0%', duration: 0.6, ease: 'power3.out' }
+        );
+        current = (current + 1) % sequence.length;
+      }
     });
-
-    // Slide next word UP from below
-    gsap.fromTo(curr,
-      { y: '105%' },
-      { y: '0%', duration: 0.65, ease: 'power3.out', delay: 0.1 }
-    );
   }
 
   setInterval(next, 2600);

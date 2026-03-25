@@ -57,14 +57,11 @@
     <div class="hero-text" aria-label="Inspired Creative by Adam">
       <span class="line"><span class="line-inner" id="hero-inspired">Inspired</span></span>
 
-      <!-- The middle word cycles: Creative → Web Design → Photography → Clients -->
+      <!-- Single element — JS swaps text+class, nothing leaks through -->
       <span class="line">
         <span class="line-inner">
-          <span class="hero-word-swap" id="word-swap" aria-live="polite">
-            <span class="word hero-word--ghost" data-index="0">Creative</span>
-            <span class="word hero-word--orange"       data-index="1">Web&nbsp;Design</span>
-            <span class="word hero-word--green"        data-index="2">Photography</span>
-            <span class="word hero-word--yellow"       data-index="3">Clients</span>
+          <span class="hero-word-swap" aria-live="polite">
+            <span class="word hero-word--ghost" id="word-swap-text">Creative</span>
           </span>
         </span>
       </span>

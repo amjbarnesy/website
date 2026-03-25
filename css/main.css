@@ -275,21 +275,14 @@ footer a:hover { color: var(--black); }
 
 .hero-word-swap {
   display: block;
-  position: relative;
-  height: 1.15em;
-  /* clip-path instead of overflow:hidden — clips top/bottom for the slide
-     animation but allows words to overflow horizontally so long words
-     like PHOTOGRAPHY and WEB DESIGN are never cut off on the sides */
-  clip-path: inset(0 -50vw);
+  overflow: hidden;  /* clips the single word sliding in/out vertically */
+  /* no fixed height — sized naturally by the single word element inside */
 }
 .hero-word-swap .word {
   display: block;
-  position: absolute;
-  top: 0; left: 0; right: 0;
   text-align: center;
   white-space: nowrap;
-  /* All words start below — GSAP manages positions */
-  transform: translateY(105%);
+  /* No absolute positioning — single element, GSAP drives y transform */
 }
 
 .hero-word--orange   { color: var(--orange); }
