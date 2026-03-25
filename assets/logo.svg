@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 60" fill="none">
+  <!--
+    ADAM BARNES — WEBRANDESIGN
+    The custom arch letterform replaces the D in ADAM.
+    When you have your actual SVG, swap this file out — same filename, drop-in replacement.
+    Font basis: Jost 700, tracked at 0.25em, all caps.
+    The arch-D is a custom path approximating your hand-drawn concept.
+  -->
+  <text
+    font-family="Jost, sans-serif"
+    font-weight="700"
+    font-size="48"
+    letter-spacing="6"
+    fill="currentColor"
+    dominant-baseline="auto"
+    y="48"
+  >
+    <!-- We split ADAM so we can replace the D with a custom glyph -->
+    <tspan x="0">A</tspan>
+  </text>
+
+  <!-- Custom arch-D letterform (x offset after A + spacing) -->
+  <!-- Arch/doorway shape: outer rectangle with inner arch cutout, like Ω geometric -->
+  <g transform="translate(40, 4)">
+    <!-- Outer: two pillars + arch connecting at top -->
+    <!-- Left pillar -->
+    <rect x="0"  y="12" width="9" height="36" fill="currentColor"/>
+    <!-- Right pillar -->
+    <rect x="29" y="12" width="9" height="36" fill="currentColor"/>
+    <!-- Top arch connecting pillars (filled semicircle at top) -->
+    <path d="M 0 24 Q 0 0 19 0 Q 38 0 38 24 L 29 24 Q 29 10 19 10 Q 9 10 9 24 Z" fill="currentColor"/>
+    <!-- Bottom crossbar -->
+    <rect x="0" y="44" width="38" height="4" fill="currentColor"/>
+  </g>
+
+  <!-- AM BARNES after the arch-D -->
+  <text
+    font-family="Jost, sans-serif"
+    font-weight="700"
+    font-size="48"
+    letter-spacing="6"
+    fill="currentColor"
+    dominant-baseline="auto"
+    y="48"
+  >
+    <tspan x="102">AM BARNES</tspan>
+  </text>
+</svg>

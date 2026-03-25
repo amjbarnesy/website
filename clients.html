@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients — Adam Barnes</title>
+  <meta name="description" content="Brands and people Adam Barnes has had the pleasure of working with.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="page-clients">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes">ADAM</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970035">07725 970035</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <header class="section-header">
+      <div class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Clients</span>
+        <span class="by-line">by Adam</span>
+      </div>
+      <p class="section-intro">
+        <!-- EDIT: Update this intro text -->
+        People and brands who trust me to make them look extraordinary. Here's what some of them have to say.
+      </p>
+    </header>
+
+    <!--
+      TESTIMONIALS — HOW TO EDIT:
+      - Update the <blockquote> text with the real testimonial
+      - Update .testimonial-author and .testimonial-company
+      - Replace .testimonial-logo-placeholder with an <img> tag when you have logos
+      - Duplicate the whole <article> block to add more testimonials
+    -->
+    <section class="testimonials">
+
+      <article class="testimonial reveal">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="testimonial-body">
+          <blockquote>
+            <!-- EDIT: Replace with real testimonial text -->
+            Working with Adam transformed our brand completely. His attention to detail and creative vision is unlike anything we'd experienced before. The website he built is not only stunning — it's fast, functional and our customers love it.
+          </blockquote>
+          <p class="testimonial-author">Client Name <!-- EDIT --></p>
+          <p class="testimonial-company">Company, Role <!-- EDIT --></p>
+        </div>
+        <div class="testimonial-logo-placeholder" aria-label="Client logo placeholder">Logo</div>
+      </article>
+
+      <article class="testimonial reveal">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="testimonial-body">
+          <blockquote>
+            <!-- EDIT: Replace with real testimonial text -->
+            Adam photographed our event and the results were incredible. He captured the atmosphere and energy perfectly — images we'll use for years to come. Professional, talented and genuinely great to work with.
+          </blockquote>
+          <p class="testimonial-author">Client Name <!-- EDIT --></p>
+          <p class="testimonial-company">Company, Role <!-- EDIT --></p>
+        </div>
+        <div class="testimonial-logo-placeholder" aria-label="Client logo placeholder">Logo</div>
+      </article>
+
+      <article class="testimonial reveal">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="testimonial-body">
+          <blockquote>
+            <!-- EDIT: Replace with real testimonial text -->
+            From our logo to our full brand identity, Adam understood exactly what we needed — even when we weren't entirely sure ourselves. He has that rare ability to translate ideas into something that just works.
+          </blockquote>
+          <p class="testimonial-author">Client Name <!-- EDIT --></p>
+          <p class="testimonial-company">Company, Role <!-- EDIT --></p>
+        </div>
+        <div class="testimonial-logo-placeholder" aria-label="Client logo placeholder">Logo</div>
+      </article>
+
+      <article class="testimonial reveal">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="testimonial-body">
+          <blockquote>
+            <!-- EDIT: Replace with real testimonial text -->
+            The branding Adam created for us stands head and shoulders above the competition. It's bold, it's unique and it's unmistakably us. Couldn't recommend him more highly.
+          </blockquote>
+          <p class="testimonial-author">Client Name <!-- EDIT --></p>
+          <p class="testimonial-company">Company, Role <!-- EDIT --></p>
+        </div>
+        <div class="testimonial-logo-placeholder" aria-label="Client logo placeholder">Logo</div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes · Company Reg No. 07235?? <!-- EDIT --></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970035">07725 970035</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

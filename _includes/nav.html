@@ -1,0 +1,40 @@
+<!-- Navigation — included in every page -->
+<div class="cursor" id="cursor"></div>
+<div class="page-transition" id="page-transition"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Adam Barnes Home">
+    <!-- Swap this text logo for your SVG file when ready:
+         <img src="assets/logo.svg" alt="Adam Barnes"> -->
+    A<span style="display:inline-block;width:0.55em;height:0.75em;border:0.12em solid currentColor;border-radius:50% 50% 0 0 / 60% 60% 0 0;border-bottom:none;vertical-align:middle;margin:0 0.04em 0.05em;"></span>AM
+  </a>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="menu-overlay" id="menu-overlay" role="dialog" aria-label="Navigation menu">
+  <nav class="menu-nav" aria-label="Main navigation">
+    <a href="index.html"       data-page="home">        <span>Home</span></a>
+    <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+    <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+    <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+    <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+  </nav>
+
+  <div class="menu-footer">
+    <div class="menu-contact">
+      <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+      <a href="tel:+447725970035">07725 970035</a>
+    </div>
+    <div class="menu-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </div>
+</div>

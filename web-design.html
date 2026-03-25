@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design — Adam Barnes</title>
+  <meta name="description" content="Branding, web design and clever coding by Adam Barnes. Beautiful, fast websites built to work hard for your business.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="page-webdesign">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes">ADAM</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970035">07725 970035</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page header -->
+    <header class="section-header">
+      <div class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Web Design</span>
+        <span class="by-line">by Adam</span>
+      </div>
+      <p class="section-intro">
+        <!-- EDIT: Update this intro text -->
+        Branding, websites and clever coding. I create digital experiences that are fast, beautiful and built to make your business work harder. From logo to launch — and everything in between.
+      </p>
+    </header>
+
+    <!-- Client / work grid -->
+    <!--
+      HOW TO ADD A CLIENT:
+      1. Copy one <article class="client-card"> block
+      2. Replace the logo placeholder div with: <img src="assets/images/your-logo.svg" alt="Client Name" class="client-logo">
+      3. Update the client-name, client-desc, and client-tags
+    -->
+    <section class="clients-grid" aria-label="Client work">
+
+      <!-- Client 1 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <!-- Replace above with: <img src="assets/images/client-1-logo.svg" alt="Client Name" class="client-logo"> -->
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          A short description of the work done for this client and what makes their brand special. Keep it punchy — two or three sentences. <!-- EDIT -->
+        </p>
+        <ul class="client-tags" aria-label="Services provided">
+          <li>Branding</li>
+          <li>Web Design</li>
+          <li>Photography</li>
+        </ul>
+      </article>
+
+      <!-- Client 2 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          Description of the project — what the brief was, what was delivered, and the impact it had. <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Branding</li>
+          <li>SEO</li>
+          <li>Web Design</li>
+        </ul>
+      </article>
+
+      <!-- Client 3 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          What you delivered and why it mattered. Focus on results and the relationship. <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Web Design</li>
+          <li>Coding</li>
+          <li>Branding</li>
+          <li>Photography</li>
+        </ul>
+      </article>
+
+      <!-- Client 4 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          The story of this project in two to three sentences. What made it interesting? <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Branding</li>
+          <li>Web Design</li>
+          <li>SEO</li>
+        </ul>
+      </article>
+
+      <!-- Client 5 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          Brief description of the client and work delivered. <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Photography</li>
+          <li>Branding</li>
+          <li>Web Design</li>
+        </ul>
+      </article>
+
+      <!-- Client 6 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          A brief description of the scope and result of this project. <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Web Design</li>
+          <li>Coding</li>
+          <li>SEO</li>
+          <li>Branding</li>
+        </ul>
+      </article>
+
+      <!-- Client 7 -->
+      <article class="client-card reveal">
+        <div class="client-logo-placeholder" aria-label="Logo placeholder">Logo</div>
+        <h3 class="client-name">Client Name <!-- EDIT --></h3>
+        <p class="client-desc">
+          Description of the work and client relationship. <!-- EDIT -->
+        </p>
+        <ul class="client-tags">
+          <li>Branding</li>
+          <li>Photography</li>
+        </ul>
+      </article>
+
+      <!-- Client 8 — CTA card -->
+      <article class="client-card client-card--cta reveal">
+        <p class="client-cta-text">Want to work together?</p>
+        <a href="contact.html" class="btn" style="margin-top: 1.5rem;">Get in touch</a>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes · Company Reg No. 07235?? <!-- EDIT --></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970035">07725 970035</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

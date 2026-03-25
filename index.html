@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Barnes — WebBrandDesign</title>
+  <meta name="description" content="Adam Barnes — Graphic Designer, Web Designer and Photographer based in the UK. Branding, web design, and event photography.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="page-home">
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <!-- Page transition overlay -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes">ADAM</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Full-screen menu -->
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970035">07725 970035</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main class="hero" id="hero">
+    <div class="hero-text" aria-label="Inspired Creative by Adam">
+      <span class="line"><span class="line-inner" id="hero-inspired">Inspired</span></span>
+
+      <!-- The middle word cycles: Creative → Web Design → Photography → Clients -->
+      <span class="line">
+        <span class="line-inner">
+          <span class="hero-word-swap" id="word-swap" aria-live="polite">
+            <span class="word hero-word--ghost active" data-index="0">Creative</span>
+            <span class="word hero-word--orange"       data-index="1">Web&nbsp;Design</span>
+            <span class="word hero-word--green"        data-index="2">Photography</span>
+            <span class="word hero-word--yellow"       data-index="3">Clients</span>
+          </span>
+        </span>
+      </span>
+
+      <span class="line">
+        <span class="line-inner" id="hero-by">
+          <span class="hero-by">by</span> Adam
+        </span>
+      </span>
+    </div>
+
+    <!-- Animated lines from the mockup -->
+    <div class="hero-lines" id="hero-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Scroll hint -->
+    <p class="hero-scroll-hint" aria-hidden="true">Scroll to explore</p>
+  </main>
+
+  <!-- Teaser sections linking to pages -->
+  <section class="teasers">
+    <a href="web-design.html" class="teaser teaser--webdesign reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">01</span>
+        <h2 class="teaser-title">Web <span class="teaser-accent">Design</span></h2>
+        <p class="teaser-desc">Branding, websites and clever coding that makes your business stand out.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+    <a href="photography.html" class="teaser teaser--photography reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">02</span>
+        <h2 class="teaser-title">Photo<span class="teaser-accent">graphy</span></h2>
+        <p class="teaser-desc">Events, festivals, portraits and theatrical — capturing energy and atmosphere.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+    <a href="clients.html" class="teaser teaser--clients reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">03</span>
+        <h2 class="teaser-title"><span class="teaser-accent">Clients</span></h2>
+        <p class="teaser-desc">Brands and people I've had the pleasure of working with.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes · Company Reg No. 07235?? <!-- update --></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970035">07725 970035</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
