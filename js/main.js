@@ -5,37 +5,64 @@
 
 'use strict';
 
-/* ── GSAP Setup ─────────────────────────────────────────────── */
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── Utilities ──────────────────────────────────────────────── */
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+/* ── Page Transition ────────────────────────────────────────── */
+// Runs first — slide the black overlay UP to reveal the page
+(function initPageTransition() {
+  const overlay = $('#page-transition');
+  if (!overlay) return;
+
+  // Overlay starts off-screen below (set in CSS), we pull it up over page, then push it off above
+  gsap.set(overlay, { yPercent: 0 }); // cover page immediately
+  gsap.to(overlay, {
+    yPercent: -100,
+    duration: 0.9,
+    ease: 'power3.inOut',
+    delay: 0.05,
+    onComplete: () => { overlay.style.display = 'none'; }
+  });
+
+  // Intercept internal link clicks — slide overlay back in then navigate
+  $$('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('mailto') ||
+        href.startsWith('tel') || href.startsWith('#')) return;
+
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      overlay.style.display = '';
+      gsap.fromTo(overlay,
+        { yPercent: 100 },
+        { yPercent: 0, duration: 0.6, ease: 'power3.inOut',
+          onComplete: () => { window.location.href = href; }
+        }
+      );
+    });
+  });
+})();
 
 /* ── Custom Cursor ──────────────────────────────────────────── */
 (function initCursor() {
   const cursor = $('#cursor');
-  if (!cursor) return;
+  if (!cursor || window.matchMedia('(pointer: coarse)').matches) return;
 
-  let mouseX = 0, mouseY = 0;
-  let curX = 0, curY = 0;
+  let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
 
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
+  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
-  // Smooth follow with RAF
   (function loop() {
     curX += (mouseX - curX) * 0.12;
     curY += (mouseY - curY) * 0.12;
-    gsap.set(cursor, { x: curX, y: curY });
+    cursor.style.left = curX + 'px';
+    cursor.style.top  = curY + 'px';
     requestAnimationFrame(loop);
   })();
 
-  // Expand on interactive elements
-  const hoverEls = $$('a, button, .client-card, .photo-item, .teaser, .btn, .btn-submit');
-  hoverEls.forEach(el => {
+  $$('a, button, .client-card, .photo-item, .teaser, .btn, .btn-submit').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('big'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
   });
@@ -49,90 +76,51 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   let open = false;
 
-  btn.addEventListener('click', () => {
+  const toggle = () => {
     open = !open;
     btn.classList.toggle('open', open);
     overlay.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  };
 
-  // Close on nav link click (with page transition)
+  btn.addEventListener('click', toggle);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) toggle(); });
+
+  // Close when a menu link is clicked
   $$('.menu-nav a', overlay).forEach(link => {
     link.addEventListener('click', () => {
-      open = false;
-      btn.classList.remove('open');
-      overlay.classList.remove('open');
-      btn.setAttribute('aria-expanded', false);
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && open) btn.click();
-  });
-})();
-
-/* ── Page Transitions ───────────────────────────────────────── */
-(function initPageTransitions() {
-  const overlay = $('#page-transition');
-  if (!overlay) return;
-
-  // Animate in on page load
-  gsap.fromTo(overlay,
-    { yPercent: 0 },
-    { yPercent: -100, duration: 0.8, ease: 'power3.inOut', delay: 0.1 }
-  );
-
-  // Intercept internal link clicks
-  $$('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    // Only internal .html links
-    if (!href || href.startsWith('http') || href.startsWith('mailto') ||
-        href.startsWith('tel') || href.startsWith('#')) return;
-
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      gsap.fromTo(overlay,
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          duration: 0.6,
-          ease: 'power3.inOut',
-          onComplete: () => { window.location.href = href; }
-        }
-      );
+      if (open) toggle();
     });
   });
 })();
 
 /* ── Hero Animations (index.html only) ─────────────────────── */
 (function initHero() {
-  const lineInners = $$('.line-inner');
-  if (!lineInners.length) return;
+  const heroText = $('.hero-text');
+  if (!heroText) return;
 
-  // Stagger the three lines of hero text in
-  gsap.to(lineInners, {
-    y: 0,
-    duration: 1.1,
-    ease: 'power4.out',
-    stagger: 0.12,
-    delay: 0.5
-  });
-
-  // Animate the three horizontal lines
-  const lines = $$('.hero-lines span');
-  gsap.to(lines, {
-    scaleX: 1,
-    duration: 1.2,
+  // Animate lines in from below after the page transition finishes
+  gsap.from('.hero-text .line-inner', {
+    y: '100%',
+    duration: 1.0,
     ease: 'power4.out',
     stagger: 0.1,
-    delay: 1.1
+    delay: 0.7  // starts as overlay finishes sliding away
   });
 
-  // Cycle the coloured middle word
-  initWordCycle();
+  // Animated horizontal lines
+  gsap.from('.hero-lines span', {
+    scaleX: 0,
+    transformOrigin: 'left center',
+    duration: 1.0,
+    ease: 'power4.out',
+    stagger: 0.08,
+    delay: 0.95
+  });
+
+  // Word cycle — starts after hero finishes animating in
+  setTimeout(initWordCycle, 2500);
 })();
 
 function initWordCycle() {
@@ -140,71 +128,41 @@ function initWordCycle() {
   if (!words.length) return;
 
   let current = 0;
-  const total = words.length;
 
-  // Word swap with GSAP
-  function swapTo(nextIndex) {
+  function next() {
+    const prev = words[current];
+    current = (current + 1) % words.length;
     const curr = words[current];
-    const next = words[nextIndex];
 
-    // Animate current out (up)
-    gsap.to(curr, {
-      y: '-110%',
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power3.in',
+    // Out
+    gsap.to(prev, { y: '-110%', opacity: 0, duration: 0.55, ease: 'power3.in',
       onComplete: () => {
-        curr.classList.remove('active');
-        gsap.set(curr, { y: '110%', opacity: 1 });
+        prev.classList.remove('active');
+        gsap.set(prev, { y: '110%', opacity: 1 });
       }
     });
 
-    // Animate next in (from below)
-    gsap.fromTo(next,
+    // In
+    curr.classList.add('active');
+    gsap.fromTo(curr,
       { y: '110%', opacity: 1 },
-      {
-        y: '0%',
-        opacity: 1,
-        duration: 0.7,
-        ease: 'power3.out',
-        delay: 0.1,
-        onStart: () => next.classList.add('active')
-      }
+      { y: '0%',   opacity: 1, duration: 0.65, ease: 'power3.out', delay: 0.1 }
     );
-
-    current = nextIndex;
   }
 
-  // Start cycling after initial load animation
-  let wordIndex = 0;
-  setTimeout(() => {
-    setInterval(() => {
-      wordIndex = (wordIndex + 1) % total;
-      swapTo(wordIndex);
-    }, 2200);
-  }, 2000);
+  setInterval(next, 2400);
 }
 
-/* ── Section Header Animation ───────────────────────────────── */
+/* ── Section Header Animation (inner pages) ─────────────────── */
 (function initSectionHeader() {
-  const header = $('.section-header');
-  if (!header) return;
+  if ($('.hero-text')) return; // skip on homepage
 
-  const title  = $('.section-title', header);
-  const intro  = $('.section-intro', header);
-
-  if (title) {
-    gsap.fromTo(title,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power4.out', delay: 0.3 }
-    );
-  }
-  if (intro) {
-    gsap.fromTo(intro,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power4.out', delay: 0.55 }
-    );
-  }
+  gsap.from('.section-title', {
+    y: 40, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.6
+  });
+  gsap.from('.section-intro', {
+    y: 25, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.75
+  });
 })();
 
 /* ── Scroll Reveal ──────────────────────────────────────────── */
@@ -212,17 +170,16 @@ function initWordCycle() {
   const items = $$('.reveal');
   if (!items.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger siblings that appear together
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), i * 55);
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
 
-  items.forEach(el => observer.observe(el));
+  items.forEach(el => io.observe(el));
 })();
 
 /* ── Contact Form ───────────────────────────────────────────── */
@@ -230,53 +187,8 @@ function initWordCycle() {
   const form = $('#contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', () => {
     const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    // Form submits normally via mailto: or your chosen backend
-    // For Formspree / Netlify, remove the action attr and handle here with fetch
-  });
-})();
-
-/* ── Marquee / Smooth scroll ────────────────────────────────── */
-(function initSmoothScroll() {
-  // Lerped scroll for ultra-smooth feel (lightweight, no library needed)
-  // Only applies if user hasn't opted for reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  let currentY = 0;
-  let targetY  = 0;
-  let running  = false;
-  const ease   = 0.1;
-
-  window.addEventListener('scroll', () => {
-    targetY = window.scrollY;
-    if (!running) {
-      running = true;
-      tick();
-    }
-  }, { passive: true });
-
-  function tick() {
-    currentY += (targetY - currentY) * ease;
-    if (Math.abs(targetY - currentY) < 0.5) {
-      running = false;
-      return;
-    }
-    requestAnimationFrame(tick);
-  }
-})();
-
-/* ── Client Card — cursor label ─────────────────────────────── */
-(function initClientCards() {
-  const cards = $$('.client-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      document.getElementById('cursor')?.classList.add('big');
-    });
-    card.addEventListener('mouseleave', () => {
-      document.getElementById('cursor')?.classList.remove('big');
-    });
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   });
 })();

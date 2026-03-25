@@ -31,7 +31,10 @@ body {
   background: var(--white);
   color: var(--black);
   overflow-x: hidden;
-  cursor: none;
+}
+/* Custom cursor only on non-touch devices */
+@media (pointer: fine) {
+  body { cursor: none; }
 }
 
 a { color: inherit; text-decoration: none; }
@@ -60,7 +63,8 @@ ul { list-style: none; }
   inset: 0;
   background: var(--black);
   z-index: 1000;
-  transform: translateY(100%);
+  /* Starts covering the page; GSAP slides it off upward */
+  transform: translateY(0);
   pointer-events: none;
 }
 
@@ -240,7 +244,9 @@ footer a:hover { color: var(--black); }
 }
 
 .hero-text .line { overflow: hidden; display: block; }
+/* line-inner starts off-screen; GSAP animates it in. Without JS it falls back to visible */
 .hero-text .line-inner { display: block; transform: translateY(110%); }
+.no-js .hero-text .line-inner { transform: none; }
 
 .hero-word-swap {
   display: inline-block;
