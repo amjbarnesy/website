@@ -1072,15 +1072,17 @@ body.page-about { --accent: var(--purple); }
 
 .about-photo-col {
   grid-column: 2;
+  align-self: stretch;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
 }
 .about-photo {
   width: 100%;
   display: block;
-  max-height: 55vh;
-  object-fit: contain;
-  object-position: bottom center;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .about-title-col {
