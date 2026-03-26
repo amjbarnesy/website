@@ -492,6 +492,42 @@ body.page-clients .btn-read-less:hover { color: var(--black); }
 body.page-clients .client-card:hover .btn-read-more { color: rgba(0,0,0,0.4); }
 body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black); }
 
+/* ── Client initials avatar ────────────────────────────────── */
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--yellow);
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+.client-card:hover .client-avatar {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+}
+
+.client-company {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  margin-bottom: 0.9rem;
+  transition: color 0.4s;
+}
+.client-card:hover .client-company { color: rgba(255,255,255,0.6); }
+body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); }
+
 .client-logo-placeholder {
   width: 80px;
   height: 44px;
