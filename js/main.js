@@ -186,6 +186,30 @@ function initWordCycle() {
 
 /* ── Client Read More ──────────────────────────────────────── */
 (function initReadMore() {
+  const COLLAPSE_DELAY = 5000;
+
+  function collapseCard(card) {
+    card.classList.remove('is-expanded');
+    const overlay = card.querySelector('.client-more');
+    const btn = card.querySelector('.btn-read-more');
+    if (overlay) overlay.setAttribute('aria-hidden', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+
+  document.querySelectorAll('.client-card').forEach(card => {
+    let timer = null;
+
+    card.addEventListener('mouseleave', () => {
+      if (!card.classList.contains('is-expanded')) return;
+      timer = setTimeout(() => collapseCard(card), COLLAPSE_DELAY);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      clearTimeout(timer);
+      timer = null;
+    });
+  });
+
   document.querySelectorAll('.btn-read-more').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -200,11 +224,7 @@ function initWordCycle() {
   document.querySelectorAll('.btn-read-less').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const card = btn.closest('.client-card');
-      const overlay = card.querySelector('.client-more');
-      card.classList.remove('is-expanded');
-      overlay.setAttribute('aria-hidden', 'true');
-      card.querySelector('.btn-read-more').setAttribute('aria-expanded', 'false');
+      collapseCard(btn.closest('.client-card'));
     });
   });
 })();
