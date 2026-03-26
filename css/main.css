@@ -367,7 +367,6 @@ footer a:hover { color: var(--black); }
   letter-spacing: 0.14em;
   display: block;
   margin-top: 0.2em;
-  margin-left: -0.06em;
 }
 
 .section-intro {
@@ -1116,7 +1115,6 @@ body.page-about { --accent: var(--purple); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-top: 0.6em;
-  margin-left: -0.06em;
   color: rgba(0,0,0,0.45);
 }
 
