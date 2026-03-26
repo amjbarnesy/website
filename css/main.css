@@ -291,10 +291,10 @@ footer a:hover { color: var(--black); }
 .hero-word--ghost    { color: rgba(0,0,0,0.38); }
 
 .hero-by {
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(0.85rem, 2vw, 1.5rem);
   font-weight: 300;
-  letter-spacing: 0.5em;
-  display: block;
+  letter-spacing: 0.15em;
+  display: inline; /* stays on same line as ADAM, no extra gap */
 }
 
 .hero-lines {
