@@ -184,6 +184,31 @@ function initWordCycle() {
   items.forEach(el => io.observe(el));
 })();
 
+/* ── Client Read More ──────────────────────────────────────── */
+(function initReadMore() {
+  document.querySelectorAll('.btn-read-more').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.client-card');
+      const overlay = card.querySelector('.client-more');
+      card.classList.add('is-expanded');
+      overlay.setAttribute('aria-hidden', 'false');
+      btn.setAttribute('aria-expanded', 'true');
+    });
+  });
+
+  document.querySelectorAll('.btn-read-less').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.client-card');
+      const overlay = card.querySelector('.client-more');
+      card.classList.remove('is-expanded');
+      overlay.setAttribute('aria-hidden', 'true');
+      card.querySelector('.btn-read-more').setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
 /* ── Contact Form ───────────────────────────────────────────── */
 (function initContactForm() {
   const form = $('#contact-form');
