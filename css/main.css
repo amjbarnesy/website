@@ -378,8 +378,8 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
 .clients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1px;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  gap: 0;
+  border: 1px solid rgba(0,0,0,0.1);
   margin: 0 3rem;
 }
 .clients-grid--two {
@@ -393,6 +393,7 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
   position: relative;
   padding: 2.5rem 2rem;
   border-right: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
   transition: background 0.4s var(--ease);
   overflow: hidden;
 }
