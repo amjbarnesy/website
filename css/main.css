@@ -383,7 +383,7 @@ footer a:hover { color: var(--black); }
 }
 
 /* ── Page: Web Design ──────────────────────────────────────── */
-body.page-webdesign { --accent: var(--orange); }
+body.page-webdesign { --orange: #fc9803; --accent: var(--orange); }
 body.page-webdesign .section-title .accent { color: var(--orange); }
 body.page-webdesign .client-avatar {
   background: #CCCCCC;
