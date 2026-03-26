@@ -382,6 +382,12 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
   border-top: 1px solid rgba(0,0,0,0.1);
   margin: 0 3rem;
 }
+.clients-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 600px) {
+  .clients-grid--two { grid-template-columns: 1fr; }
+}
 
 .client-card {
   position: relative;
@@ -390,18 +396,24 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
   transition: background 0.4s var(--ease);
   overflow: hidden;
 }
-.client-card:hover { background: var(--orange); }
+.client-card:hover { background: var(--accent, var(--orange)); }
 .client-card:hover .client-logo-placeholder,
 .client-card:hover .client-name,
+.client-card:hover .client-name a,
 .client-card:hover .client-desc,
 .client-card:hover .client-tags li { color: var(--white); border-color: rgba(255,255,255,0.3); }
+body.page-clients .client-card:hover { color: var(--black); }
+body.page-clients .client-card:hover .client-logo-placeholder,
+body.page-clients .client-card:hover .client-name,
+body.page-clients .client-card:hover .client-desc,
+body.page-clients .client-card:hover .client-tags li { color: var(--black); border-color: rgba(0,0,0,0.2); }
 
 /* ── Read-more overlay ─────────────────────────────────────── */
 .client-more {
   position: absolute;
   inset: 0;
   padding: 2.5rem 2rem;
-  background: var(--orange);
+  background: var(--accent, var(--orange));
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -467,6 +479,15 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
   margin-top: 0.5rem;
 }
 .btn-read-less:hover { color: var(--white); }
+body.page-clients .client-more { color: var(--black); }
+body.page-clients .client-more-text { color: rgba(0,0,0,0.75); }
+body.page-clients .client-more-name { color: var(--black); }
+body.page-clients .client-url { color: rgba(0,0,0,0.5); }
+body.page-clients .client-url:hover { color: var(--black); }
+body.page-clients .btn-read-less { color: rgba(0,0,0,0.5); }
+body.page-clients .btn-read-less:hover { color: var(--black); }
+body.page-clients .client-card:hover .btn-read-more { color: rgba(0,0,0,0.4); }
+body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black); }
 
 .client-logo-placeholder {
   width: 80px;
@@ -930,7 +951,10 @@ body.page-contact .nav-logo { color: var(--white); }
   background: var(--black);
   color: var(--white);
 }
-.client-card--cta:hover { background: var(--orange); }
+.client-card--cta:hover { background: var(--accent, var(--orange)); }
+body.page-clients .client-card--cta:hover { color: var(--white); }
+body.page-clients .client-card--cta:hover .client-cta-text,
+body.page-clients .client-card--cta:hover .btn { color: var(--white); border-color: var(--white); }
 .client-cta-text {
   font-family: var(--font-display);
   font-weight: 700;
