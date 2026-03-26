@@ -391,8 +391,7 @@ body.page-webdesign .client-card:hover .client-avatar {
 .clients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0;
-  overflow: hidden;
+  gap: 1rem;
   margin: 0 3rem;
 }
 .clients-grid--two {
@@ -406,9 +405,7 @@ body.page-webdesign .client-card:hover .client-avatar {
   position: relative;
   padding: 2.5rem 2rem;
   background: var(--white);
-  border-top: 1px solid rgba(0,0,0,0.1);
-  border-left: 1px solid rgba(0,0,0,0.1);
-  margin: -1px 0 0 -1px;
+  border: 1px solid rgba(0,0,0,0.1);
   transition: background 0.4s var(--ease);
   overflow: hidden;
 }
