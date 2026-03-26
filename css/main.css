@@ -154,28 +154,28 @@ body.page-contact .hamburger span { background: var(--white); }
   z-index: 400;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 5rem 3rem 10rem;
+  padding: 5rem 3rem 9rem;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.8s var(--ease);
 }
 .menu-overlay.open { clip-path: inset(0 0 0% 0); }
 
 .menu-nav {
+  margin: auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: clamp(0.15rem, 1.2vh, 1rem);
 }
 
 .menu-nav a {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2rem, 8vw, 5.5rem);
+  font-size: clamp(1.6rem, 5.5vh, 5.5rem);
   color: var(--white);
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.15;
   display: block;
   width: 100%;
   text-align: center;
