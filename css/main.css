@@ -365,6 +365,11 @@ footer a:hover { color: var(--black); }
   line-height: 1.7;
   color: rgba(0,0,0,0.55);
 }
+.intro-lead {
+  display: block; /* forces line break after it */
+  font-weight: 600;
+  color: rgba(0,0,0,0.75);
+}
 
 /* ── Page: Web Design ──────────────────────────────────────── */
 body.page-webdesign { --accent: var(--orange); }
