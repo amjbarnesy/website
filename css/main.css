@@ -376,6 +376,16 @@ footer a:hover { color: var(--black); }
 /* ── Page: Web Design ──────────────────────────────────────── */
 body.page-webdesign { --accent: var(--orange); }
 body.page-webdesign .section-title .accent { color: var(--orange); }
+body.page-webdesign .client-avatar {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+}
+body.page-webdesign .client-card:hover .client-avatar {
+  background: var(--black);
+  color: var(--orange);
+  border-color: var(--black);
+}
 
 .clients-grid {
   display: grid;
