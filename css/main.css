@@ -160,6 +160,9 @@ body.page-contact .hamburger span { background: var(--white); }
   transition: clip-path 0.8s var(--ease);
 }
 .menu-overlay.open { clip-path: inset(0 0 0% 0); }
+@media (orientation: landscape) and (max-height: 600px) {
+  .menu-overlay { padding-top: 8rem; }
+}
 
 .menu-nav {
   margin: auto 0;
