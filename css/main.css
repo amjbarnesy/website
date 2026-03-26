@@ -175,7 +175,9 @@ body.page-contact .hamburger span { background: var(--white); }
   color: var(--white);
   letter-spacing: -0.02em;
   line-height: 1.1;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  text-align: center;
   overflow: hidden;
   transition: color 0.3s;
 }
