@@ -355,9 +355,10 @@ footer a:hover { color: var(--black); }
 .section-title .by-line {
   font-size: 0.35em;
   font-weight: 300;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.14em;
   display: block;
   margin-top: 0.2em;
+  margin-left: -0.06em;
 }
 
 .section-intro {
@@ -1014,9 +1015,10 @@ body.page-about { --accent: var(--purple); }
   display: block;
   font-size: 0.32em;
   font-weight: 300;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-top: 0.6em;
+  margin-left: -0.06em;
   color: rgba(0,0,0,0.45);
 }
 
