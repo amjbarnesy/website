@@ -380,7 +380,7 @@ body.page-webdesign .section-title .accent { color: var(--orange); }
 body.page-webdesign .client-avatar {
   background: #CCCCCC;
   border-color: #CCCCCC;
-  color: var(--black);
+  color: var(--white);
 }
 body.page-webdesign .client-card:hover .client-avatar {
   background: var(--black);
@@ -517,7 +517,7 @@ body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  color: var(--black);
+  color: var(--white);
   margin-bottom: 1.25rem;
   flex-shrink: 0;
   transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
