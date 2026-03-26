@@ -89,16 +89,16 @@ nav {
   gap: 2rem;
 }
 
-.nav-logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--black);
-  flex-shrink: 0;
+/* ── Nav logo image ────────────────────────────────────────── */
+.nav-logo { flex-shrink: 0; }
+.nav-logo-img {
+  height: 18px;
+  width: auto;
+  display: block;
 }
-body.page-contact .nav-logo { color: var(--white); }
+body.page-contact .nav-logo-img {
+  filter: brightness(0) invert(1);
+}
 
 /* Desktop nav links */
 .nav-links {
@@ -751,14 +751,11 @@ body.page-contact .nav-logo { color: var(--white); }
 .contact-quote {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  line-height: 0.95;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
   margin-bottom: 2rem;
-}
-.contact-quote em {
-  font-style: normal;
-  color: rgba(255,255,255,0.2);
 }
 
 .contact-details {
@@ -826,7 +823,7 @@ body.page-contact .nav-logo { color: var(--white); }
   background: none;
   border: none;
   outline: none;
-  color: var(--white);
+  color: rgba(255,255,255,0.65);
   font-family: var(--font-body);
   font-size: 1rem;
   padding: 0.25rem 0 0.75rem;
