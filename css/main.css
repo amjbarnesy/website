@@ -142,6 +142,7 @@ body.page-contact .hamburger span { background: var(--white); }
 .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.hamburger.open span { background: var(--white); }
 
 /* Hide hamburger on desktop — must come after .hamburger { display: flex } to win the cascade */
 @media (min-width: 769px) { .hamburger { display: none; } }
