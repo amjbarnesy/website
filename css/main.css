@@ -290,11 +290,14 @@ footer a:hover { color: var(--black); }
 .hero-word--yellow   { color: var(--yellow); }
 .hero-word--ghost    { color: rgba(0,0,0,0.38); }
 
+.hero-by-line {
+  padding-left: 0.12em; /* small visual indent — pulls it in from INSPIRED's left edge */
+}
 .hero-by {
   font-size: clamp(0.85rem, 2vw, 1.5rem);
   font-weight: 300;
-  letter-spacing: 0.15em;
-  display: inline; /* stays on same line as ADAM, no extra gap */
+  letter-spacing: 0.04em; /* tight — both words in one span so no double-gap */
+  display: inline;
 }
 
 .hero-lines {
