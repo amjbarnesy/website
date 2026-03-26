@@ -378,8 +378,8 @@ footer a:hover { color: var(--black); }
 body.page-webdesign { --accent: var(--orange); }
 body.page-webdesign .section-title .accent { color: var(--orange); }
 body.page-webdesign .client-avatar {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: #B3B3B3;
+  border-color: #B3B3B3;
   color: var(--black);
 }
 body.page-webdesign .client-card:hover .client-avatar {
@@ -508,8 +508,8 @@ body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black);
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--yellow);
-  border: 1.5px solid var(--yellow);
+  background: #B3B3B3;
+  border: 1.5px solid #B3B3B3;
   display: flex;
   align-items: center;
   justify-content: center;
