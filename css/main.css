@@ -164,7 +164,8 @@ body.page-contact .hamburger span { background: var(--white); }
 .menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .menu-nav a {
