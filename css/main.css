@@ -600,6 +600,47 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 body.page-photography { --accent: var(--green); }
 body.page-photography .section-title .accent { color: var(--green); }
 
+/* ── Gallery sections ──────────────────────────────────────── */
+.gallery-section {
+  margin-bottom: 5rem;
+}
+
+.gallery-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 3rem;
+  margin: 0 3rem 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+.gallery-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.gallery-desc {
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  line-height: 1.75;
+  color: rgba(0,0,0,0.55);
+  max-width: 340px;
+  flex: 1;
+  min-width: 200px;
+  padding-bottom: 0.15em;
+}
+
+@media (max-width: 768px) {
+  .gallery-header { margin: 0 1.5rem 1.5rem; gap: 1rem; }
+  .gallery-desc { max-width: 100%; }
+  .gallery-section { margin-bottom: 3.5rem; }
+}
+
 .photo-grid {
   margin: 0 3rem 4rem;
   columns: 3;
