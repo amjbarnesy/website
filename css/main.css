@@ -970,7 +970,7 @@ body.page-contact .nav-logo { color: var(--white); }
 /* ── Teasers (Home) ────────────────────────────────────────── */
 .teasers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(0,0,0,0.1);
 }
 @media (max-width: 768px) { .teasers { grid-template-columns: 1fr; } }
@@ -1026,10 +1026,13 @@ body.page-contact .nav-logo { color: var(--white); }
 .teaser--photography:hover { color: var(--green); }
 .teaser--clients .teaser-accent,
 .teaser--clients:hover  { color: var(--yellow); }
+.teaser--about .teaser-accent,
+.teaser--about:hover    { color: var(--purple); }
 
 .teaser--webdesign:hover  .teaser-desc,
 .teaser--photography:hover .teaser-desc,
-.teaser--clients:hover .teaser-desc { color: rgba(0,0,0,0.7); }
+.teaser--clients:hover .teaser-desc,
+.teaser--about:hover .teaser-desc { color: rgba(0,0,0,0.7); }
 
 /* ── Client CTA card ───────────────────────────────────────── */
 .client-card--cta {
