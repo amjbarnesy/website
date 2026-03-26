@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Adam Barnes</title>
-  <meta name="description" content="Get in touch with Adam Barnes — WebBrandDesign and Photography.">
+  <title>About — Adam Barnes</title>
+  <meta name="description" content="25 years of getting brands, websites and ideas into shape. Adam Barnes — creative, web designer and photographer.">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
-<body class="page-contact">
+<body class="page-about">
 
   <div class="cursor" id="cursor"></div>
   <div class="page-transition" id="page-transition"></div>
@@ -17,10 +17,10 @@
     <a href="index.html" class="nav-logo" aria-label="Adam Barnes">ADAM BARNES</a>
     <div class="nav-links">
       <a href="web-design.html">Web Design</a>
-      <a href="about.html">About</a>
       <a href="photography.html">Photography</a>
+      <a href="about.html" class="active">About</a>
       <a href="clients.html">Clients</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -50,81 +50,46 @@
     </div>
   </div>
 
-  <main class="contact-page">
+  <main>
 
-    <!-- Left: quote + contact details -->
-    <div class="contact-left">
-      <div>
-        <p class="contact-quote">
-          <!-- EDIT: This is the "work that works" quote from your mockup -->
-          Good work<br>
-          <em>doesn't cost —</em><br>
-          it pays.
-        </p>
+    <section class="about-hero" aria-label="About Adam Barnes">
+
+      <!-- Title — bottom left -->
+      <div class="about-title-col reveal">
+        <h1 class="about-title">
+          <span>Inspired</span>
+          <span class="accent">Work that<br>works</span>
+          <span class="by-line">by Adam</span>
+        </h1>
       </div>
 
-      <div class="contact-details">
-        <strong>Email</strong>
-        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a>
-
-        <strong>Phone</strong>
-        <a href="tel:+447725970035">07725 970035</a>
-
-        <strong>Based in</strong>
-        UK <!-- EDIT: Add your location if you want -->
-
-        <strong>Socials</strong>
-        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a><br>
-        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a><br>
-        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a><br>
-        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a><br>
-        <a href="https://www.adamsphotos.co.uk"            target="_blank" rel="noopener">Adams Photos (prints)</a>
+      <!-- Portrait — centre -->
+      <div class="about-photo-col">
+        <img
+          src="assets/images/adam-portrait.jpg"
+          alt="Adam Barnes — graphic designer, web designer and photographer"
+          class="about-photo"
+        >
       </div>
-    </div>
 
-    <!-- Right: contact form -->
-    <div class="contact-right">
-      <!--
-        FORM ACTION:
-        This form uses a mailto: fallback by default.
-        For proper form handling, replace action="#" with a service like:
-        - Formspree: action="https://formspree.io/f/YOUR_ID" method="POST"
-        - Netlify: add data-netlify="true"
-        - Your own backend endpoint
-      -->
-      <form class="contact-form" id="contact-form" action="mailto:hello@adambarnes.biz" method="POST" enctype="text/plain" novalidate>
+      <!-- Bio — right -->
+      <div class="about-bio-col reveal">
+        <p class="about-bio">Hi, I'm Adam — a creative with 25 years of getting brands, websites and ideas into shape. Think of me as the creative equivalent of a good edit — I cut the waffle and keep what counts.</p>
+      </div>
 
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
-          <label for="name">Your Name</label>
+    </section>
+
+    <!-- Body copy -->
+    <section class="about-body reveal" aria-label="About Adam — full bio">
+      <div class="about-body-inner">
+        <div class="about-quote-mark" aria-hidden="true">"</div>
+        <div class="about-body-text">
+          <p>I work across branding, web, design and photography — helping businesses find their difference and make it visible. Whether you're starting from scratch or you just know something isn't quite clicking, that's exactly where I come in.</p>
+          <p>The work I love most sits at the intersection of sharp thinking and good craft. A well-chosen word. A layout that breathes. An image that does the talking before anyone reads a word. Getting that right isn't complicated — but it does take someone who genuinely cares about the details.</p>
+          <p>You don't do better until you do different. I've been helping people do different for a while now, and I'm still very much enjoying it.</p>
         </div>
-
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
-          <label for="email">Email Address</label>
-        </div>
-
-        <div class="form-group">
-          <input type="tel" id="phone" name="phone" placeholder=" " autocomplete="tel">
-          <label for="phone">Phone (optional)</label>
-        </div>
-
-        <div class="form-group">
-          <input type="text" id="subject" name="subject" placeholder=" " required>
-          <label for="subject">What are you looking for?</label>
-        </div>
-
-        <div class="form-group">
-          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
-          <label for="message">Tell me about your project</label>
-        </div>
-
-        <div class="form-submit">
-          <button type="submit" class="btn-submit">Send Message</button>
-        </div>
-
-      </form>
-    </div>
+      </div>
+    </section>
 
   </main>
 
