@@ -155,7 +155,8 @@ body.page-contact .hamburger span { background: var(--white); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 3rem 3rem;
+  align-items: center;
+  padding: 3rem;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.8s var(--ease);
 }
@@ -165,7 +166,7 @@ body.page-contact .hamburger span { background: var(--white); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
 .menu-nav a {
@@ -199,7 +200,10 @@ body.page-contact .hamburger span { background: var(--white); }
 .menu-nav a[data-page="clients"]:hover     { color: var(--yellow); }
 
 .menu-footer {
-  margin-top: auto;
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  right: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
