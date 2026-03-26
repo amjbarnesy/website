@@ -152,20 +152,17 @@ body.page-contact .hamburger span { background: var(--white); }
   inset: 0;
   background: var(--black);
   z-index: 400;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5rem 3rem 9rem;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.8s var(--ease);
 }
 .menu-overlay.open { clip-path: inset(0 0 0% 0); }
-@media (orientation: landscape) {
-  .menu-overlay { padding-top: 7rem; padding-bottom: 2rem; }
-}
 
 .menu-nav {
-  margin: auto 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
