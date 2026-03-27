@@ -55,7 +55,7 @@ ul { list-style: none; }
   transition: width 0.4s var(--ease), height 0.4s var(--ease), background 0.3s;
   will-change: transform;
 }
-.cursor.big { width: 64px; height: 64px; }
+.cursor.big { width: 64px; height: 64px; background: rgba(0,0,0,0.85); mix-blend-mode: multiply; }
 
 /* On dark (contact) page — white semi-transparent cursor */
 body.page-contact .cursor {
