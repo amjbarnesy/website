@@ -701,6 +701,7 @@ body.page-photography .section-title .accent { color: var(--green); }
   display: flex;
   align-items: flex-end;
   padding: 1rem;
+  pointer-events: none;
 }
 .photo-item:hover .photo-overlay { opacity: 0.85; }
 .photo-caption {
