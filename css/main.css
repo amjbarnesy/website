@@ -622,9 +622,37 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 body.page-photography { --accent: var(--green); }
 body.page-photography .section-title .accent { color: var(--green); }
 
+/* ── Gallery navigation ────────────────────────────────────── */
+.gallery-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 0 3rem 3.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.gallery-nav a {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.35;
+  transition: opacity 0.3s, color 0.3s;
+}
+.gallery-nav a:hover { opacity: 1; color: var(--green); }
+@media (max-width: 768px) { .gallery-nav { margin: 0 1.5rem 2.5rem; } }
+
+/* Smooth scroll with reduced-motion respect */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 /* ── Gallery sections ──────────────────────────────────────── */
 .gallery-section {
   margin-bottom: 5rem;
+  scroll-margin-top: 5rem;
 }
 
 .gallery-header {
