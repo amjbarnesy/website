@@ -30,7 +30,8 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   $$('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('http') || href.startsWith('mailto') ||
-        href.startsWith('tel') || href.startsWith('#')) return;
+        href.startsWith('tel') || href.startsWith('#') ||
+        link.classList.contains('glightbox')) return;
 
     link.addEventListener('click', e => {
       e.preventDefault();
