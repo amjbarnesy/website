@@ -53,7 +53,11 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
 
-  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+  // Only hide the system cursor once the mouse has actually moved
+  document.addEventListener('mousemove', e => {
+    document.body.classList.add('has-mouse');
+    mouseX = e.clientX; mouseY = e.clientY;
+  }, { once: false });
 
   (function loop() {
     curX += (mouseX - curX) * 0.12;
