@@ -57,11 +57,13 @@ ul { list-style: none; }
 }
 .cursor.big { width: 64px; height: 64px; background: rgba(0,0,0,0.85); mix-blend-mode: multiply; }
 
-/* On dark (contact) page — white semi-transparent cursor */
-body.page-contact .cursor {
+/* On dark (contact) page or open lightbox — white semi-transparent cursor */
+body.page-contact .cursor,
+body.lightbox-open .cursor {
   background: rgba(255, 255, 255, 0.75);
 }
-body.page-contact .cursor.big {
+body.page-contact .cursor.big,
+body.lightbox-open .cursor.big {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }

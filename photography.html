@@ -182,7 +182,13 @@
   <script src="js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
+    GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: false,
+      onOpen: () => document.body.classList.add('lightbox-open'),
+      onClose: () => document.body.classList.remove('lightbox-open')
+    });
   </script>
 </body>
 </html>
