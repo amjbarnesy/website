@@ -898,7 +898,7 @@ body.page-contact .nav-logo { color: var(--white); }
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
   pointer-events: none;
   transition: top 0.3s var(--ease), font-size 0.3s, color 0.3s;
 }
@@ -918,7 +918,7 @@ body.page-contact .nav-logo { color: var(--white); }
   background: none;
   border: none;
   outline: none;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.8);
   font-family: var(--font-body);
   font-size: 1rem;
   padding: 0.25rem 0 0.75rem;
