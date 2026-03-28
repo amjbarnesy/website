@@ -1208,6 +1208,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   }
   .about-header-photo {
     position: static;
+    transform: none;
     width: 100%;
     max-width: none;
     max-height: 65vw;
