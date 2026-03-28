@@ -1226,6 +1226,10 @@ body.page-about { --accent: var(--purple); }
   color: rgba(0,0,0,0.62);
 }
 .about-body-text p + p { margin-top: 1.4rem; }
+.about-body-text {
+  columns: 2;
+  column-gap: 3rem;
+}
 
 /* About mobile */
 @media (max-width: 900px) {
@@ -1256,6 +1260,7 @@ body.page-about { --accent: var(--purple); }
     padding: 2rem 2rem;
   }
   .about-quote-mark { font-size: 4rem; }
+  .about-body-text { columns: 1; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
