@@ -190,6 +190,24 @@ function initWordCycle() {
   items.forEach(el => io.observe(el));
 })();
 
+/* ── Gallery Section Anchors ────────────────────────────────── */
+(function initGalleryNav() {
+  const navLinks = $$('.gallery-nav a[href^="#"]');
+  if (!navLinks.length) return;
+  const siteNav = $('nav');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = siteNav ? siteNav.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+})();
+
 /* ── Client Read More ──────────────────────────────────────── */
 (function initReadMore() {
   const COLLAPSE_DELAY = 5000;
