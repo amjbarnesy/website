@@ -245,6 +245,12 @@
   <script src="js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Sync photo-caption text → data-description so lightbox shows the same caption
+    document.querySelectorAll('.photo-item').forEach(item => {
+      const link = item.querySelector('.glightbox');
+      const caption = item.querySelector('.photo-caption');
+      if (link && caption) link.dataset.description = caption.textContent;
+    });
     const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
     lightbox.on('open', () => document.body.classList.add('lightbox-open'));
     lightbox.on('close', () => document.body.classList.remove('lightbox-open'));
