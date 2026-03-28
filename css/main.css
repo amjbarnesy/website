@@ -1204,14 +1204,13 @@ body.page-about .section-title .accent { color: var(--purple); }
 @media (max-width: 768px) {
   .about-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .about-header-photo {
     position: static;
-    width: calc(100% + 3rem);
-    margin-left: -1.5rem;
+    width: 100%;
     max-width: none;
-    max-height: 60vw;
+    max-height: 65vw;
     object-fit: cover;
     object-position: top center;
   }
