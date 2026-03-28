@@ -656,6 +656,22 @@ body.page-photography .section-title .accent { color: var(--green); }
   }
 }
 
+@media (max-width: 768px) and (orientation: landscape) {
+  .gallery-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+  .gallery-nav a {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.6rem;
+  }
+}
+
 /* Smooth scroll with reduced-motion respect */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
