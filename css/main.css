@@ -1180,8 +1180,8 @@ body.page-about .section-title .accent { color: var(--purple); }
   margin-top: 0.1em;
 }
 .about-body-text p {
-  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
-  line-height: 1.85;
+  font-size: 0.9rem;
+  line-height: 1.75;
   color: rgba(0,0,0,0.62);
 }
 .about-body-text p + p { margin-top: 1.4rem; }
