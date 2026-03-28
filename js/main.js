@@ -26,6 +26,19 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     onComplete: () => { overlay.style.display = 'none'; }
   });
 
+  // Handle back-forward cache restore — re-run reveal if page was cached mid-transition
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) {
+      overlay.style.display = '';
+      gsap.fromTo(overlay,
+        { yPercent: 0 },
+        { yPercent: -100, duration: 0.9, ease: 'power3.inOut', delay: 0.05,
+          onComplete: () => { overlay.style.display = 'none'; }
+        }
+      );
+    }
+  });
+
   // Intercept internal link clicks — slide overlay back in then navigate
   $$('a[href]').forEach(link => {
     const href = link.getAttribute('href');
