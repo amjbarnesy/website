@@ -1139,64 +1139,22 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 
 /* ── Page: About ───────────────────────────────────────────── */
 body.page-about { --accent: var(--purple); }
+body.page-about .section-title .accent { color: var(--purple); }
 
-.about-hero {
-  display: grid;
-  grid-template-columns: 1fr minmax(280px, 420px) minmax(200px, 260px);
-  padding: clamp(6rem, 12vh, 10rem) 3rem 0;
-  column-gap: 3rem;
-  align-items: end; /* all cols bottom-align — photo sets the row height */
+.about-header {
+  position: relative;
+  overflow: hidden;
 }
-
-.about-photo-col {
-  grid-column: 2;
-  align-self: stretch;
-  display: flex;
-  align-items: stretch;
-}
-.about-photo {
-  width: 100%;
-  display: block;
+.about-header-photo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
   height: 100%;
-  max-height: none;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.about-title-col {
-  grid-column: 1;
-  padding-bottom: 2.5rem;
-}
-.about-title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.4rem, 6.5vw, 5.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-.about-title .accent {
-  display: block;
-  color: var(--purple);
-}
-.about-title .by-line {
-  display: block;
-  font-size: 0.32em;
-  font-weight: 300;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-top: 0.6em;
-  color: rgba(0,0,0,0.45);
-}
-
-.about-bio-col {
-  grid-column: 3;
-  padding-bottom: 2.5rem;
-}
-.about-bio {
-  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-  line-height: 1.75;
-  color: rgba(0,0,0,0.55);
+  width: auto;
+  max-width: 45%;
+  object-fit: contain;
+  object-position: bottom right;
+  pointer-events: none;
 }
 
 /* Body copy section */
@@ -1233,26 +1191,6 @@ body.page-about { --accent: var(--purple); }
 
 /* About mobile */
 @media (max-width: 900px) {
-  .about-hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    min-height: unset;
-    padding-top: 5rem;
-    gap: 2rem;
-  }
-  .about-photo-col {
-    grid-column: 1;
-    grid-row: 1;
-    justify-content: center;
-    max-height: 55vw;
-    overflow: hidden;
-  }
-  .about-photo {
-    max-height: 55vw;
-    object-position: top;
-  }
-  .about-title-col { grid-column: 1; grid-row: 2; padding-bottom: 0; }
-  .about-bio-col   { grid-column: 1; grid-row: 3; padding-bottom: 2rem; }
   .about-body { margin: 0 1.5rem 4rem; }
   .about-body-inner {
     grid-template-columns: auto 1fr;
@@ -1261,6 +1199,22 @@ body.page-about { --accent: var(--purple); }
   }
   .about-quote-mark { font-size: 4rem; }
   .about-body-text { columns: 1; }
+}
+@media (max-width: 768px) {
+  .about-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-header-photo {
+    position: static;
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    max-width: none;
+    max-height: 60vw;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .about-header .section-intro { max-width: 100%; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
