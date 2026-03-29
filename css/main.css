@@ -855,6 +855,11 @@ body.page-photography .section-title .accent { color: var(--green); }
   transform: translateY(0);
 }
 .back-to-top:hover { background: var(--green); border-color: var(--green); }
+.back-to-top--webdesign { display: none; }
+@media (max-width: 800px) {
+  .back-to-top--webdesign { display: flex; }
+  .back-to-top--webdesign:hover { background: var(--orange); border-color: var(--orange); }
+}
 .back-to-top svg { width: 1.1rem; height: 1.1rem; display: block; }
 
 /* ── Page: Clients ─────────────────────────────────────────── */
