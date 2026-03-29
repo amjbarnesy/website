@@ -308,6 +308,17 @@
   <script src="js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Stagger client names grey → black after page reveal (one-time on load)
+    gsap.from('.clients-grid .client-name', {
+      color: '#aaa',
+      duration: 0.25,
+      stagger: 0.25,
+      ease: 'none',
+      delay: 1.0,
+      clearProps: 'color'
+    });
+
     const backToTop = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('visible', window.scrollY > 300);
