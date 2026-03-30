@@ -1263,6 +1263,10 @@ body.page-about .section-title .accent { color: var(--purple); }
   .about-header .section-intro {
     position: absolute;
     left: 950px;
+    max-width: 420px !important;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(0,0,0,0.55);
   }
 }
 @media (min-width: 769px) and (max-width: 1150px) {
