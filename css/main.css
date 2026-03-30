@@ -1257,7 +1257,7 @@ body.page-about .section-title .accent { color: var(--purple); }
 /* About mobile */
 @media (min-width: 1366px) {
   .about-header-photo {
-    left: 750px;
+    left: 500px;
     transform: none;
   }
 }
