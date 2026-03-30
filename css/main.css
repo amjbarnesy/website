@@ -1205,7 +1205,8 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 body.page-about { --accent: var(--purple); }
 body.page-about .section-title .accent { color: var(--purple); }
 
-.about-header {
+.about-header,
+.photography-header {
   position: relative;
   overflow: hidden;
 }
@@ -1289,7 +1290,8 @@ body.page-about .section-title .accent { color: var(--purple); }
   .about-body-text { columns: 1; }
 }
 @media (max-width: 800px) {
-  .about-header {
+  .about-header,
+  .photography-header {
     flex-direction: column;
     align-items: stretch;
   }
