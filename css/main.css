@@ -1226,6 +1226,7 @@ body.page-about .section-title .accent { color: var(--purple); }
 .about-body {
   margin: 0 3rem 6rem;
   border: 1px solid rgba(0,0,0,0.1);
+  border-top: none;
 }
 .about-body-inner {
   display: grid;
