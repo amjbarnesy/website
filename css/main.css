@@ -1205,7 +1205,8 @@ body.page-about .section-title .accent { color: var(--purple); }
 
 .about-header,
 .photography-header,
-.clients-header {
+.clients-header,
+.webdesign-header {
   position: relative;
   overflow: hidden;
 }
@@ -1263,7 +1264,8 @@ body.page-about .section-title .accent { color: var(--purple); }
   }
   .about-header .section-intro,
   .photography-header .section-intro,
-  .clients-header .section-intro {
+  .clients-header .section-intro,
+  .webdesign-header .section-intro {
     position: absolute;
     left: 950px;
     max-width: 420px !important;
@@ -1293,7 +1295,8 @@ body.page-about .section-title .accent { color: var(--purple); }
 @media (max-width: 800px) {
   .about-header,
   .photography-header,
-  .clients-header {
+  .clients-header,
+  .webdesign-header {
     flex-direction: column;
     align-items: stretch;
   }
@@ -1309,13 +1312,16 @@ body.page-about .section-title .accent { color: var(--purple); }
   }
   .about-header,
   .photography-header,
-  .clients-header { padding-bottom: 0; }
+  .clients-header,
+  .webdesign-header { padding-bottom: 0; }
   .about-header .section-title,
   .photography-header .section-title,
-  .clients-header .section-title { order: 1; }
+  .clients-header .section-title,
+  .webdesign-header .section-title { order: 1; }
   .about-header .section-intro,
   .photography-header .section-intro,
-  .clients-header .section-intro { order: 2; max-width: 100%; }
+  .clients-header .section-intro,
+  .webdesign-header .section-intro { order: 2; max-width: 100%; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
