@@ -685,13 +685,13 @@ body.page-photography .section-title .accent { color: var(--green); }
 
 .gallery-header {
   display: flex;
-  align-items: flex-end;
-  gap: 3rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   margin: 0 3rem 2rem;
   padding-top: 3.5rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  flex-wrap: wrap;
 }
 
 .gallery-title {
@@ -701,20 +701,18 @@ body.page-photography .section-title .accent { color: var(--green); }
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--green);
-  flex: 1;
-  min-width: 280px;
 }
 
 .gallery-desc {
   font-size: clamp(0.78rem, 0.9vw, 0.88rem);
   line-height: 1.75;
   color: rgba(0,0,0,0.55);
-  max-width: 380px;
+  max-width: 520px;
   padding-bottom: 0.15em;
 }
 
 @media (max-width: 768px) {
-  .gallery-header { margin: 0 1.5rem 1.5rem; gap: 1rem; }
+  .gallery-header { margin: 0 1.5rem 1.5rem; gap: 0.75rem; }
   .gallery-desc { max-width: 100%; }
   .gallery-section { margin-bottom: 3.5rem; }
 }
