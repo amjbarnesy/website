@@ -1262,7 +1262,8 @@ body.page-about .section-title .accent { color: var(--purple); }
     left: 500px;
     transform: none;
   }
-  .about-header .section-intro {
+  .about-header .section-intro,
+  .photography-header .section-intro {
     position: absolute;
     left: 950px;
     max-width: 420px !important;
