@@ -1260,6 +1260,10 @@ body.page-about .section-title .accent { color: var(--purple); }
     left: 500px;
     transform: none;
   }
+  .about-header .section-intro {
+    position: absolute;
+    left: 850px;
+  }
 }
 @media (min-width: 769px) and (max-width: 1150px) {
   .about-header-photo {
