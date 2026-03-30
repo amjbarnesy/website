@@ -1294,6 +1294,7 @@ body.page-about .section-title .accent { color: var(--purple); }
     object-position: top center;
     order: 3;
   }
+  .about-header { padding-bottom: 0; }
   .about-header .section-title { order: 1; }
   .about-header .section-intro { order: 2; max-width: 100%; }
 }
