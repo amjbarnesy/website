@@ -144,6 +144,7 @@ function initWordCycle() {
     { text: 'Web\u00a0Design', cls: 'hero-word--orange' },
     { text: 'Photography',     cls: 'hero-word--green'  },
     { text: 'Clients',         cls: 'hero-word--yellow' },
+    { text: 'Thinking',        cls: 'hero-word--purple' },
   ];
   let current = 0;
 
