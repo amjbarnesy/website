@@ -311,6 +311,7 @@ footer a:hover { color: var(--black); }
 .hero-word--green    { color: var(--green); }
 .hero-word--yellow   { color: var(--yellow); }
 .hero-word--ghost    { color: rgba(0,0,0,0.38); }
+.hero-word--purple   { color: var(--purple); }
 
 .hero-by-line {
   padding-left: 0.12em; /* small visual indent — pulls it in from INSPIRED's left edge */
