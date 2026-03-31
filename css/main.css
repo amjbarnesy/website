@@ -325,7 +325,7 @@ footer a:hover { color: var(--black); }
 
 .hero-tagline {
   margin-top: 3rem;
-  max-width: min(480px, 80vw);
+  max-width: min(680px, 90vw);
   font-size: 0.9rem;
   line-height: 1.75;
   color: rgba(0,0,0,0.62);
