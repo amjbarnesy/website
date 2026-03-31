@@ -323,24 +323,14 @@ footer a:hover { color: var(--black); }
   display: inline;
 }
 
-.hero-lines {
+.hero-tagline {
   margin-top: 3rem;
-  width: min(480px, 80vw);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  overflow: hidden;
+  max-width: min(480px, 80vw);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.62);
+  opacity: 0;
 }
-.hero-lines span {
-  display: block;
-  height: 1px;
-  background: var(--black);
-  transform-origin: left;
-  /* GSAP sets scaleX(0) and animates to scaleX(1) */
-}
-.hero-lines span:nth-child(1) { width: 100%; }
-.hero-lines span:nth-child(2) { width: 92%; }
-.hero-lines span:nth-child(3) { width: 78%; }
 
 .hero-scroll-hint {
   position: absolute;

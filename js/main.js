@@ -125,10 +125,10 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     { y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8 }
   );
 
-  // Animated horizontal lines
-  gsap.fromTo('.hero-lines span',
-    { scaleX: 0 },
-    { scaleX: 1, transformOrigin: 'left center', duration: 1.0, ease: 'power4.out', stagger: 0.08, delay: 1.05 }
+  // Tagline fade in
+  gsap.fromTo('#hero-tagline',
+    { opacity: 0, y: 12 },
+    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 1.1 }
   );
 
   // Word cycle — starts after hero finishes animating in
