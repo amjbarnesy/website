@@ -1054,6 +1054,14 @@ body.page-contact .nav-logo { color: var(--white); }
 .form-group textarea::placeholder { color: transparent; }
 .form-group textarea { min-height: 100px; }
 
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-submit {
   margin-top: 2.5rem;
   display: flex;
