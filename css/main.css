@@ -285,6 +285,9 @@ footer a:hover { color: var(--black); }
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
   column-gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
@@ -351,6 +354,9 @@ footer a:hover { color: var(--black); }
 .hero-tagline {
   margin-top: 2rem;
   width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   padding-right: calc(clamp(14rem, 22vw, 20rem) + 2rem);
   text-align: right;
   font-size: 1.05rem;
