@@ -1138,7 +1138,7 @@ body.page-contact .nav-logo { color: var(--white); }
   .hero-inner { display: block; text-align: center; border-bottom: none; }
   .hero-text { text-align: center; }
   .hero-word-swap .word { text-align: center; }
-  .hero-tagline { text-align: center; padding-right: 0; margin-top: 2rem; }
+  .hero-tagline { text-align: center; padding-right: 0; margin-top: 2rem; font-size: 0.85rem; }
   .line--by { margin-top: 0; }
   .section-header { padding: 5rem 1.5rem 2rem; gap: 1.5rem; }
   .clients-grid { margin: 0 1.5rem; }
@@ -1146,6 +1146,10 @@ body.page-contact .nav-logo { color: var(--white); }
   .testimonials { padding: 1rem 1.5rem 4rem; }
   .buy-photos-banner { margin: 0 1.5rem 3rem; }
   footer { padding: 1.5rem 1.5rem; }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero-tagline { font-size: 0.8rem; }
 }
 
 /* ── Teasers (Home) ────────────────────────────────────────── */
