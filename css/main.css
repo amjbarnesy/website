@@ -1148,7 +1148,7 @@ body.page-contact .nav-logo { color: var(--white); }
   footer { padding: 1.5rem 1.5rem; }
 }
 
-@media (max-width: 900px) and (orientation: landscape) {
+@media (max-height: 500px) and (orientation: landscape) {
   .hero-tagline { font-size: 0.8rem; }
 }
 
