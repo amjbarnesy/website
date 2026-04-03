@@ -275,11 +275,15 @@ footer a:hover { color: var(--black); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   padding: 6rem 3rem 4rem;
   position: relative;
   overflow: hidden;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
 .hero-text {
@@ -290,8 +294,7 @@ footer a:hover { color: var(--black); }
   letter-spacing: -0.02em;
   text-transform: uppercase;
   user-select: none;
-  width: 100%; /* flex parent shrinks this to content width without this,
-                  making word-swap too narrow for PHOTOGRAPHY / WEB DESIGN */
+  flex: 1;
 }
 
 .hero-text .line { overflow: hidden; display: block; }
@@ -303,7 +306,7 @@ footer a:hover { color: var(--black); }
 }
 .hero-word-swap .word {
   display: block;
-  text-align: center;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -314,17 +317,29 @@ footer a:hover { color: var(--black); }
 .hero-word--purple   { color: var(--purple); }
 
 .hero-by-line {
-  padding-left: 0.12em; /* small visual indent — pulls it in from INSPIRED's left edge */
+  padding-left: 0.12em;
+  margin-top: -0.15em;
 }
 .hero-by {
   font-size: clamp(0.85rem, 2vw, 1.5rem);
   font-weight: 300;
-  letter-spacing: 0.04em; /* tight — both words in one span so no double-gap */
+  letter-spacing: 0.04em;
   display: inline;
 }
 
+.hero-portrait {
+  height: clamp(14rem, 30vh, 22rem);
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  flex-shrink: 0;
+  display: block;
+  margin-left: 2rem;
+  opacity: 0;
+}
+
 .hero-tagline {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   max-width: min(680px, 90vw);
   font-size: 0.9rem;
   line-height: 1.75;
@@ -1098,6 +1113,7 @@ body.page-contact .nav-logo { color: var(--white); }
 @media (max-width: 768px) {
   nav { padding: 1.5rem 1.5rem; }
   .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-portrait { display: none; }
   .section-header { padding: 5rem 1.5rem 2rem; gap: 1.5rem; }
   .clients-grid { margin: 0 1.5rem; }
   .photo-grid { margin: 0 1.5rem 3rem; }

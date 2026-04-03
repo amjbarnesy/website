@@ -125,6 +125,12 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     { y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8 }
   );
 
+  // Portrait fade in
+  gsap.fromTo('#hero-portrait',
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out', delay: 0.9 }
+  );
+
   // Tagline fade in
   gsap.fromTo('#hero-tagline',
     { opacity: 0, y: 12 },
