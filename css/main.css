@@ -281,8 +281,10 @@ footer a:hover { color: var(--black); }
 }
 
 .hero-inner {
-  display: flex;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 2rem;
   border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
@@ -294,8 +296,12 @@ footer a:hover { color: var(--black); }
   letter-spacing: -0.02em;
   text-transform: uppercase;
   user-select: none;
-  flex: 1;
   text-align: right;
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  overflow: hidden;
+  align-self: end;
 }
 
 .hero-text .line { overflow: hidden; display: block; }
@@ -329,19 +335,22 @@ footer a:hover { color: var(--black); }
 }
 
 .hero-portrait {
-  height: clamp(20rem, 50vh, 36rem);
-  width: auto;
+  width: clamp(14rem, 22vw, 20rem);
+  height: auto;
   object-fit: contain;
   object-position: bottom center;
-  flex-shrink: 0;
   display: block;
-  margin-left: 2rem;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: end;
   opacity: 0;
 }
 
 .hero-tagline {
-  margin-top: 2.5rem;
-  width: 100%;
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
   text-align: right;
   font-size: 1.05rem;
   line-height: 1.75;
