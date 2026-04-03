@@ -1149,7 +1149,7 @@ body.page-contact .nav-logo { color: var(--white); }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-  .hero-tagline { font-size: 0.7rem; line-height: 1.6; }
+  .hero-tagline { font-size: 0.6rem; line-height: 1.6; }
 }
 
 /* ── Teasers (Home) ────────────────────────────────────────── */
