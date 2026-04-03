@@ -329,7 +329,7 @@ footer a:hover { color: var(--black); }
 }
 
 .hero-portrait {
-  height: clamp(14rem, 30vh, 22rem);
+  height: clamp(20rem, 50vh, 36rem);
   width: auto;
   object-fit: contain;
   object-position: bottom center;
@@ -341,8 +341,9 @@ footer a:hover { color: var(--black); }
 
 .hero-tagline {
   margin-top: 2.5rem;
-  max-width: min(680px, 90vw);
-  font-size: 0.9rem;
+  width: 100%;
+  text-align: right;
+  font-size: 1.05rem;
   line-height: 1.75;
   color: rgba(0,0,0,0.62);
   opacity: 0;
