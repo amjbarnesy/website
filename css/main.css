@@ -1145,6 +1145,7 @@ body.page-contact .nav-logo { color: var(--white); }
   .hero-tagline { padding-left: 0; }
   .hero-tagline { text-align: center; padding-right: 0; margin-top: 2rem; font-size: 0.85rem; }
   .line--by { margin-top: 0; }
+  .manifesto { padding: 4rem 1.5rem; justify-content: center; }
   .manifesto-inner { padding-left: 0; text-align: center; }
   .section-header { padding: 5rem 1.5rem 2rem; gap: 1.5rem; }
   .clients-grid { margin: 0 1.5rem; }
