@@ -25,7 +25,10 @@
 /* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+  scroll-snap-type: y proximity;
+}
 
 body {
   font-family: var(--font-body);
@@ -278,6 +281,7 @@ footer a:hover { color: var(--black); }
   padding: 6rem 3rem 4rem;
   position: relative;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .hero-inner {
@@ -1177,6 +1181,8 @@ body.page-contact .nav-logo { color: var(--white); }
   align-items: center;
   padding: 6rem 3rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  position: relative;
+  scroll-snap-align: start;
 }
 
 .manifesto-inner {
@@ -1204,6 +1210,7 @@ body.page-contact .nav-logo { color: var(--white); }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(0,0,0,0.1);
+  scroll-snap-align: start;
 }
 @media (max-width: 768px) { .teasers { grid-template-columns: 1fr; } }
 
