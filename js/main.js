@@ -122,7 +122,12 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   // onComplete removes overflow:hidden from lines so tall words aren't clipped
   gsap.fromTo('.hero-text .line-inner',
     { y: '110%' },
-    { y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8 }
+    {
+      y: '0%', duration: 1.0, ease: 'power4.out', stagger: 0.1, delay: 0.8,
+      onComplete: () => {
+        $$('.hero-text .line').forEach(el => { el.style.overflow = 'visible'; });
+      }
+    }
   );
 
   // Portrait fade in
