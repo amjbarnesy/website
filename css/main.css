@@ -1135,6 +1135,20 @@ body.page-contact .nav-logo { color: var(--white); }
   .hero-text { font-size: clamp(3rem, 6vw, 5rem); }
 }
 
+@media (min-width: 1201px) {
+  .hero-portrait {
+    width: clamp(22rem, 28vw, 28rem);
+    align-self: start;
+    margin-left: -3rem;
+  }
+  .hero-tagline {
+    padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
+  }
+  .manifesto-inner {
+    padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
+  }
+}
+
 @media (max-width: 768px) {
   nav { padding: 1.5rem 1.5rem; }
   .hero { padding: 5rem 1.5rem 3rem; }
