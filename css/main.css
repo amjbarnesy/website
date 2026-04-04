@@ -1127,6 +1127,10 @@ body.page-contact .nav-logo { color: var(--white); }
 }
 
 /* ── Responsive ────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 934px) {
+  .hero-tagline { font-size: 0.85rem; }
+}
+
 @media (min-width: 769px) and (max-width: 1200px) {
   .hero-text { font-size: clamp(3rem, 6vw, 5rem); }
 }
