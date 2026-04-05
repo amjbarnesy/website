@@ -1171,6 +1171,10 @@ body.page-contact .nav-logo { color: var(--white); }
   .hero-text { font-size: clamp(3rem, 6vw, 5rem); }
 }
 
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .hero-text { font-size: clamp(4rem, 7vw, 6.5rem); }
+}
+
 @media (min-width: 1201px) {
   .hero-portrait {
     width: clamp(22rem, 28vw, 28rem);
