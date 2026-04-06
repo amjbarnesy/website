@@ -1394,25 +1394,30 @@ body.page-about .section-title .accent { color: var(--purple); }
 /* About mobile */
 @media (min-width: 1366px) {
   .about-header-photo {
-    left: 500px;
+    left: 900px;
     transform: none;
   }
   .about-header,
   .photography-header,
   .clients-header,
   .webdesign-header { align-items: flex-start; }
+  /* Intro: top of "Inspired", wider, close to accent word right edge */
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
   .webdesign-header .section-intro {
     position: absolute;
-    left: 950px;
-    top: calc(clamp(6rem, 12.3vh, 10rem) + clamp(2.5rem, 7vw, 6rem) * 0.95);
-    max-width: 420px !important;
+    top: clamp(6rem, 12.3vh, 10rem);
+    max-width: 660px !important;
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
   }
+  /* Per-page left: consistent gap from right edge of each accent word */
+  .webdesign-header .section-intro   { left: 600px; }
+  .photography-header .section-intro { left: 650px; }
+  .clients-header .section-intro     { left: 440px; }
+  .about-header .section-intro       { left: 490px; max-width: 380px !important; }
 }
 @media (min-width: 769px) and (max-width: 1150px) {
   .about-header-photo {
