@@ -1456,6 +1456,9 @@ body.page-about .section-title .accent { color: var(--purple); }
     object-position: top center;
     order: 3;
   }
+  .webdesign-header .about-header-photo,
+  .photography-header .about-header-photo,
+  .clients-header .about-header-photo { display: none; }
   .about-header,
   .photography-header,
   .clients-header,
