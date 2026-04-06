@@ -1413,11 +1413,11 @@ body.page-about .section-title .accent { color: var(--purple); }
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
   }
-  /* Per-page left: consistent gap from right edge of each accent word */
-  .webdesign-header .section-intro   { left: 600px; }
-  .photography-header .section-intro { left: 650px; }
-  .clients-header .section-intro     { left: 440px; }
-  .about-header .section-intro       { left: 490px; max-width: 380px !important; }
+  /* Per-page left: ~25px gap after right edge of each accent word (or Inspired if shorter) */
+  .webdesign-header .section-intro   { left: 620px; }
+  .photography-header .section-intro { left: 760px; }
+  .clients-header .section-intro     { left: 480px; }
+  .about-header .section-intro       { left: 500px; max-width: 380px !important; }
 }
 @media (min-width: 769px) and (max-width: 1150px) {
   .about-header-photo {
