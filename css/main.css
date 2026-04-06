@@ -1414,6 +1414,12 @@ body.page-about .section-title .accent { color: var(--purple); }
     color: rgba(0,0,0,0.55);
   }
 }
+@media (max-width: 804px) {
+  .webdesign-header .about-header-photo,
+  .photography-header .about-header-photo,
+  .clients-header .about-header-photo { display: none; }
+}
+
 @media (min-width: 769px) and (max-width: 1150px) {
   .about-header-photo {
     left: 0;
