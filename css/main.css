@@ -1408,7 +1408,7 @@ body.page-about .section-title .accent { color: var(--purple); }
     position: absolute;
     left: 950px;
     top: clamp(6rem, 12.3vh, 10rem);
-    max-width: 420px !important;
+    max-width: 630px !important;
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
