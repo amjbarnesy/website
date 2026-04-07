@@ -407,7 +407,7 @@ footer a:hover { color: var(--black); }
   letter-spacing: 0.14em;
   display: block;
   margin-top: 0.2em;
-  margin-left: 0.3em;
+  margin-left: 0.1em;
 }
 
 .section-intro {
@@ -1412,6 +1412,7 @@ body.page-about .section-title .accent { color: var(--purple); }
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
+	margin-left: 0.2em;
   }
 }
 @media (min-width: 769px) and (max-width: 1150px) {
