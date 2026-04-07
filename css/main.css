@@ -1428,15 +1428,32 @@ body.page-about .section-title .accent { color: var(--purple); }
   .photography-header,
   .clients-header,
   .webdesign-header { align-items: flex-start; }
-  .about-header .section-intro,
-  .photography-header .section-intro,
-  .clients-header .section-intro,
-  .webdesign-header .section-intro {
+
+  /* About: intro stays absolutely positioned beside the photo */
+  .about-header .section-intro {
     position: absolute;
     left: 950px;
     right: 3rem;
     top: clamp(6rem, 12.3vh, 10rem);
     max-width: 630px !important;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(0,0,0,0.55);
+  }
+
+  /* Web Design / Photography / Clients: intro flows below the title,
+     same rhythm as the spacing between title lines and above "By Adam" */
+  .photography-header,
+  .clients-header,
+  .webdesign-header { row-gap: 0; }
+  .photography-header .section-intro,
+  .clients-header .section-intro,
+  .webdesign-header .section-intro {
+    position: static;
+    left: auto; right: auto; top: auto;
+    flex-basis: 100%;
+    max-width: 630px !important;
+    margin-top: calc(0.2 * clamp(2.5rem, 7vw, 6rem));
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
