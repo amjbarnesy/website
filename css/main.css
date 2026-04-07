@@ -1370,19 +1370,6 @@ body.page-about .section-title .accent { color: var(--purple); }
 .clients-header,
 .webdesign-header {
   position: relative;
-  overflow: hidden;
-}
-.about-header-photo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  height: 85%;
-  width: auto;
-  max-width: 45%;
-  object-fit: contain;
-  object-position: bottom center;
-  pointer-events: none;
 }
 
 /* Body copy section */
@@ -1418,32 +1405,9 @@ body.page-about .section-title .accent { color: var(--purple); }
   column-gap: 3rem;
 }
 
-/* About mobile */
-@media (min-width: 1366px) {
-  .about-header-photo {
-    left: 500px;
-    transform: none;
-  }
-  .about-header,
-  .photography-header,
-  .clients-header,
-  .webdesign-header { align-items: flex-start; }
-
-  /* About: intro stays absolutely positioned beside the photo */
-  .about-header .section-intro {
-    position: absolute;
-    left: 950px;
-    right: 3rem;
-    top: clamp(6rem, 12.3vh, 10rem);
-    max-width: 630px !important;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: rgba(0,0,0,0.55);
-  }
-}
-
-/* Web Design / Photography / Clients: intro flows below "By Adam" on all desktop sizes */
+/* All four inner pages: intro flows below "By Adam" on all desktop sizes */
 @media (min-width: 769px) {
+  .about-header,
   .photography-header,
   .clients-header,
   .webdesign-header {
@@ -1451,6 +1415,7 @@ body.page-about .section-title .accent { color: var(--purple); }
     align-items: flex-start;
     gap: 0;
   }
+  .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
   .webdesign-header .section-intro {
@@ -1461,20 +1426,6 @@ body.page-about .section-title .accent { color: var(--purple); }
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
-  }
-}
-@media (max-width: 804px) {
-  .webdesign-header .about-header-photo,
-  .photography-header .about-header-photo,
-  .clients-header .about-header-photo { display: none; }
-}
-
-@media (min-width: 769px) and (max-width: 1150px) {
-  .about-header-photo {
-    left: 0;
-    transform: none;
-    max-width: 50%;
-    object-position: top left;
   }
 }
 @media (max-width: 900px) {
@@ -1491,38 +1442,11 @@ body.page-about .section-title .accent { color: var(--purple); }
   .about-header,
   .photography-header,
   .clients-header,
-  .webdesign-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .about-header-photo {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    max-height: 65vw;
-    object-fit: cover;
-    object-position: top center;
-    order: 3;
-  }
-  .webdesign-header .about-header-photo,
-  .photography-header .about-header-photo,
-  .clients-header .about-header-photo { display: none; }
-  .about-header,
-  .photography-header,
-  .clients-header,
   .webdesign-header { padding-bottom: 0; }
-  .about-header .section-title,
-  .photography-header .section-title,
-  .clients-header .section-title,
-  .webdesign-header .section-title { order: 1; }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
-  .webdesign-header .section-intro { order: 2; max-width: 100%; }
-  .photography-header .section-intro,
-  .clients-header .section-intro,
-  .webdesign-header .section-intro { padding-bottom: 3rem; }
+  .webdesign-header .section-intro { max-width: 100%; padding-bottom: 3rem; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
