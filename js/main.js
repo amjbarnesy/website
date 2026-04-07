@@ -278,6 +278,31 @@ function initWordCycle() {
   });
 })();
 
+/* ── Dark Mode Toggle ───────────────────────────────────────── */
+(function initTheme() {
+  const checkbox = document.getElementById('theme-toggle');
+  const navBtn   = document.getElementById('nav-theme-btn');
+  if (!checkbox && !navBtn) return;
+
+  const isDark  = () => document.documentElement.getAttribute('data-theme') === 'dark';
+  const setTheme = (dark) => {
+    if (dark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+    if (checkbox) checkbox.checked = dark;
+  };
+
+  if (checkbox) {
+    checkbox.checked = isDark();
+    checkbox.addEventListener('change', () => setTheme(checkbox.checked));
+  }
+  if (navBtn) navBtn.addEventListener('click', () => setTheme(!isDark()));
+})();
+
 /* ── Contact Form ───────────────────────────────────────────── */
 (function initContactForm() {
   const form = $('#contact-form');
