@@ -1446,13 +1446,16 @@ body.page-about .section-title .accent { color: var(--purple); }
 @media (min-width: 769px) {
   .photography-header,
   .clients-header,
-  .webdesign-header { row-gap: 0; }
+  .webdesign-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
   .photography-header .section-intro,
   .clients-header .section-intro,
   .webdesign-header .section-intro {
     position: static;
     left: auto; right: auto; top: auto;
-    flex-basis: 100%;
     max-width: 630px !important;
     margin-top: calc(0.2 * clamp(2.5rem, 7vw, 6rem));
     font-size: 1.05rem;
