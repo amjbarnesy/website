@@ -157,6 +157,33 @@ body.page-contact .hamburger span { background: var(--white); }
 /* Hide hamburger on desktop — must come after .hamburger { display: flex } to win the cascade */
 @media (min-width: 769px) { .hamburger { display: none; } }
 
+/* ── Nav dark mode button (desktop only) ───────────────────── */
+.nav-theme-btn {
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  opacity: 0.5;
+  transition: opacity 0.3s, color 0.3s;
+  flex-shrink: 0;
+  position: relative;
+}
+.nav-theme-btn:hover { opacity: 1; }
+.nav-theme-btn svg { width: 16px; height: 16px; position: absolute; transition: opacity 0.2s; }
+.nav-theme-btn .theme-icon--sun  { opacity: 1; }
+.nav-theme-btn .theme-icon--moon { opacity: 0; }
+html[data-theme="dark"] .nav-theme-btn { color: var(--white); }
+html[data-theme="dark"] .nav-theme-btn .theme-icon--sun  { opacity: 0; }
+html[data-theme="dark"] .nav-theme-btn .theme-icon--moon { opacity: 1; }
+body.page-contact .nav-theme-btn { color: var(--white); }
+@media (max-width: 768px) { .nav-theme-btn { display: none; } }
+
 /* ── Full-Screen Menu ──────────────────────────────────────── */
 .menu-overlay {
   position: fixed;
