@@ -408,7 +408,7 @@ footer a:hover { color: var(--black); }
 
 /* ── Section Header (shared) ───────────────────────────────── */
 .section-header {
-  padding: clamp(6rem, 12vh, 10rem) 3rem 7rem;
+  padding: clamp(6rem, 12vh, 10rem) 3rem 3.5rem;
   display: flex;
   align-items: flex-end;
   gap: 3rem;
