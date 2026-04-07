@@ -1485,6 +1485,7 @@ html[data-theme="dark"] footer a:hover { color: var(--white); }
 
 /* Hero */
 html[data-theme="dark"] .hero-inner { border-color: rgba(255,255,255,0.15); }
+html[data-theme="dark"] .hero-tagline { color: rgba(255,255,255,0.62); }
 html[data-theme="dark"] .hero-word--ghost { color: rgba(255,255,255,0.38); }
 html[data-theme="dark"] .hero-scroll-hint { color: rgba(255,255,255,0.3); }
 
