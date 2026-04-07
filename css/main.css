@@ -28,6 +28,7 @@
 html {
   font-size: 16px;
   scroll-snap-type: y proximity;
+  overflow-x: hidden;
 }
 
 body {
