@@ -1568,6 +1568,7 @@ html[data-theme="dark"] .btn:hover { background: var(--white); color: var(--blac
 
 /* Client cards */
 html[data-theme="dark"] .client-card { background: var(--black); border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .client-card:hover { background: var(--accent, var(--orange)); }
 html[data-theme="dark"] .client-card--cta { background: #1a1a1a; border-color: rgba(255,255,255,0.15); }
 html[data-theme="dark"] .client-desc    { color: rgba(255,255,255,0.55); }
 html[data-theme="dark"] .client-company { color: rgba(255,255,255,0.35); }
