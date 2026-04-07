@@ -1440,9 +1440,10 @@ body.page-about .section-title .accent { color: var(--purple); }
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
   }
+}
 
-  /* Web Design / Photography / Clients: intro flows below the title,
-     same rhythm as the spacing between title lines and above "By Adam" */
+/* Web Design / Photography / Clients: intro flows below "By Adam" on all desktop sizes */
+@media (min-width: 769px) {
   .photography-header,
   .clients-header,
   .webdesign-header { row-gap: 0; }
