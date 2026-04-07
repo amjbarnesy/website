@@ -278,6 +278,25 @@ function initWordCycle() {
   });
 })();
 
+/* ── Dark Mode Toggle ───────────────────────────────────────── */
+(function initTheme() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  // Reflect current state into the checkbox
+  toggle.checked = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+})();
+
 /* ── Contact Form ───────────────────────────────────────────── */
 (function initContactForm() {
   const form = $('#contact-form');

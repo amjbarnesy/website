@@ -1483,6 +1483,149 @@ body.page-about .section-title .accent { color: var(--purple); }
   .about-quote-mark { display: none; }
 }
 
+/* ════════════════════════════════════════════════════════════
+   DARK MODE — html[data-theme="dark"]
+   Toggled by JS + stored in localStorage; also fires automatically
+   when prefers-color-scheme: dark and no preference saved.
+   Contact page is already #0C0C0C — values match, no exclusions needed.
+   ════════════════════════════════════════════════════════════ */
+
+html[data-theme="dark"] body { background: var(--black); color: var(--white); }
+
+/* Logo & cursor */
+html[data-theme="dark"] .nav-logo { color: var(--white); }
+html[data-theme="dark"] .nav-logo-img { filter: brightness(0) invert(1); }
+html[data-theme="dark"] body:not(.page-contact) .cursor { background: rgba(255,255,255,0.75); }
+html[data-theme="dark"] body:not(.page-contact) .cursor.big {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.5);
+  mix-blend-mode: screen;
+}
+
+/* Nav */
+html[data-theme="dark"] .nav-links a { color: var(--white); }
+html[data-theme="dark"] .hamburger span { background: var(--white); }
+
+/* Footer */
+html[data-theme="dark"] footer { border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.3); }
+html[data-theme="dark"] footer a:hover { color: var(--white); }
+
+/* Hero */
+html[data-theme="dark"] .hero-inner { border-color: rgba(255,255,255,0.15); }
+html[data-theme="dark"] .hero-word--ghost { color: rgba(255,255,255,0.38); }
+html[data-theme="dark"] .hero-scroll-hint { color: rgba(255,255,255,0.3); }
+
+/* Manifesto */
+html[data-theme="dark"] .manifesto { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .manifesto-black { color: var(--white); }
+html[data-theme="dark"] .manifesto-grey  { color: rgba(255,255,255,0.38); }
+
+/* Teasers */
+html[data-theme="dark"] .teasers { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .teaser  { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .teaser-label { color: rgba(255,255,255,0.3); }
+html[data-theme="dark"] .teaser-desc  { color: rgba(255,255,255,0.5); }
+html[data-theme="dark"] .teaser--webdesign:hover  .teaser-desc,
+html[data-theme="dark"] .teaser--photography:hover .teaser-desc,
+html[data-theme="dark"] .teaser--clients:hover     .teaser-desc,
+html[data-theme="dark"] .teaser--about:hover       .teaser-desc { color: rgba(255,255,255,0.8); }
+
+/* Section header */
+html[data-theme="dark"] .section-header { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .section-intro  { color: rgba(255,255,255,0.55); }
+html[data-theme="dark"] .intro-lead     { color: rgba(255,255,255,0.75); }
+
+/* Buttons */
+html[data-theme="dark"] .btn { border-color: var(--white); color: var(--white); }
+html[data-theme="dark"] .btn:hover { background: var(--white); color: var(--black); }
+
+/* Client cards */
+html[data-theme="dark"] .client-card { background: var(--black); border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .client-card--cta { background: #1a1a1a; border-color: rgba(255,255,255,0.15); }
+html[data-theme="dark"] .client-desc    { color: rgba(255,255,255,0.55); }
+html[data-theme="dark"] .client-company { color: rgba(255,255,255,0.35); }
+html[data-theme="dark"] .client-tags li { border-color: rgba(255,255,255,0.15); }
+html[data-theme="dark"] .client-logo-placeholder { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.25); }
+html[data-theme="dark"] .btn-read-more { color: rgba(255,255,255,0.4); }
+html[data-theme="dark"] .btn-read-more:hover { color: var(--white); }
+html[data-theme="dark"] .client-card:hover .btn-read-more { color: rgba(255,255,255,0.6); }
+
+/* About */
+html[data-theme="dark"] .about-body { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .about-body-text p { color: rgba(255,255,255,0.62); }
+
+/* Photography */
+html[data-theme="dark"] .gallery-nav a { color: var(--white); opacity: 0.4; }
+html[data-theme="dark"] .gallery-nav a:hover,
+html[data-theme="dark"] .gallery-nav a.is-active { opacity: 1; }
+html[data-theme="dark"] .gallery-header { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .gallery-desc   { color: rgba(255,255,255,0.55); }
+html[data-theme="dark"] .buy-photos-banner { border-color: rgba(255,255,255,0.1); }
+
+/* Testimonials */
+html[data-theme="dark"] .testimonial { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .testimonial-body blockquote { color: rgba(255,255,255,0.7); }
+html[data-theme="dark"] .testimonial-company { color: rgba(255,255,255,0.4); }
+html[data-theme="dark"] .testimonial-logo-placeholder { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.2); }
+
+/* Scrollbar */
+html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
+
+/* ── Theme Toggle Switch ─────────────────────────────────── */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.theme-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.theme-switch__track {
+  position: relative;
+  width: 80px;
+  height: 44px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.theme-switch__knob {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s var(--ease), background 0.3s;
+  color: var(--black);
+}
+.theme-switch__input:checked + .theme-switch__track .theme-switch__knob {
+  transform: translateX(36px);
+  background: #2a2a2a;
+  color: var(--white);
+}
+.theme-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+  position: absolute;
+  transition: opacity 0.2s;
+}
+.theme-icon--sun  { opacity: 1; }
+.theme-icon--moon { opacity: 0; }
+.theme-switch__input:checked + .theme-switch__track .theme-icon--sun  { opacity: 0; }
+.theme-switch__input:checked + .theme-switch__track .theme-icon--moon { opacity: 1; }
+
 /* ── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
