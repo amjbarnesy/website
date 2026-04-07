@@ -1542,7 +1542,7 @@ html[data-theme="dark"] .testimonial-body blockquote { color: rgba(255,255,255,0
 html[data-theme="dark"] .testimonial-company { color: rgba(255,255,255,0.4); }
 html[data-theme="dark"] .testimonial-logo-placeholder { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.2); }
 
-/* Scrollbar */
+/* Scrollbar  */
 html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
 
 /* ── Theme Toggle Switch ─────────────────────────────────── */
