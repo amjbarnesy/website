@@ -1407,6 +1407,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   .webdesign-header .section-intro {
     position: absolute;
     left: 950px;
+    right: 3rem;
     top: clamp(6rem, 12.3vh, 10rem);
     max-width: 630px !important;
     font-size: 1.05rem;
