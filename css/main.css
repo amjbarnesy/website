@@ -1212,7 +1212,7 @@ body.page-contact .nav-logo { color: var(--white); }
     padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
   }
   .manifesto-inner {
-    padding-left: calc(max(0px, (100% - 1100px) / 2) + clamp(22rem, 28vw, 28rem) + 2rem);
+    padding-left: calc(max(0px, (100vw - 6rem - 1100px) / 2) + clamp(22rem, 28vw, 28rem) + 2rem);
   }
 }
 
@@ -1252,7 +1252,7 @@ body.page-contact .nav-logo { color: var(--white); }
 
 .manifesto-inner {
   width: 100%;
-  padding-left: calc(max(0px, (100% - 1100px) / 2) + clamp(14rem, 22vw, 20rem) + 2rem);
+  padding-left: calc(max(0px, (100vw - 6rem - 1100px) / 2) + clamp(14rem, 22vw, 20rem) + 2rem);
 }
 
 .manifesto-text {
