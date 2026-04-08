@@ -1212,7 +1212,7 @@ body.page-contact .nav-logo { color: var(--white); }
     padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
   }
   .manifesto-inner {
-    padding-left: calc(max(0px, (100vw - 6rem - 1100px) / 2) + clamp(22rem, 28vw, 28rem) + 2rem);
+    padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
   }
 }
 
@@ -1241,9 +1241,8 @@ body.page-contact .nav-logo { color: var(--white); }
 /* ── Manifesto (Home) ──────────────────────────────────────── */
 .manifesto {
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  align-content: center;
   padding: 6rem 3rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   position: relative;
@@ -1252,7 +1251,9 @@ body.page-contact .nav-logo { color: var(--white); }
 
 .manifesto-inner {
   width: 100%;
-  padding-left: calc(max(0px, (100vw - 6rem - 1100px) / 2) + clamp(14rem, 22vw, 20rem) + 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: calc(clamp(14rem, 22vw, 20rem) + 2rem);
 }
 
 .manifesto-text {
@@ -1264,7 +1265,7 @@ body.page-contact .nav-logo { color: var(--white); }
 .manifesto-grey  { color: rgba(0,0,0,0.38); }
 
 @media (max-width: 768px) {
-  .manifesto { padding: 4rem 1.5rem; justify-content: center; }
+  .manifesto { padding: 4rem 1.5rem; }
   .manifesto-inner { padding-left: 0; text-align: center; }
 }
 
