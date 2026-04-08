@@ -1211,9 +1211,6 @@ body.page-contact .nav-logo { color: var(--white); }
   .hero-tagline {
     padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
   }
-  .manifesto-inner {
-    padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
-  }
 }
 
 @media (max-width: 768px) {
@@ -1264,6 +1261,11 @@ body.page-contact .nav-logo { color: var(--white); }
 .manifesto-black { color: var(--black); }
 .manifesto-grey  { color: rgba(0,0,0,0.38); }
 
+@media (min-width: 1201px) {
+  .manifesto-inner {
+    padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
+  }
+}
 @media (max-width: 768px) {
   .manifesto { padding: 4rem 1.5rem; }
   .manifesto-inner { padding-left: 0; text-align: center; }
