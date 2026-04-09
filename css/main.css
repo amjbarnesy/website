@@ -1375,6 +1375,9 @@ body.page-about .section-title .accent { color: var(--purple); }
 .clients-header,
 .webdesign-header {
   position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
 }
 
 /* Body copy section */
@@ -1410,16 +1413,8 @@ body.page-about .section-title .accent { color: var(--purple); }
   column-gap: 3rem;
 }
 
-/* All four inner pages: intro flows below "By Adam" on all desktop sizes */
+/* All four inner pages: intro desktop sizing */
 @media (min-width: 769px) {
-  .about-header,
-  .photography-header,
-  .clients-header,
-  .webdesign-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
