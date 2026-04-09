@@ -1413,7 +1413,15 @@ body.page-about .section-title .accent { color: var(--purple); }
   column-gap: 3rem;
 }
 
-/* All four inner pages: intro desktop sizing */
+/* All four inner pages: intro spacing and sizing */
+.about-header .section-intro,
+.photography-header .section-intro,
+.clients-header .section-intro,
+.webdesign-header .section-intro {
+  margin-top: 2rem;
+  margin-left: 0.2em;
+}
+
 @media (min-width: 769px) {
   .about-header .section-intro,
   .photography-header .section-intro,
@@ -1422,11 +1430,10 @@ body.page-about .section-title .accent { color: var(--purple); }
     position: static;
     left: auto; right: auto; top: auto;
     max-width: 630px !important;
-    margin-top: calc(0.2 * clamp(2.5rem, 7vw, 6rem));
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
-	margin-left: 0.2em;
   }
 }
 @media (max-width: 900px) {
@@ -1447,7 +1454,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
-  .webdesign-header .section-intro { max-width: 100%; padding-bottom: 3rem; }
+  .webdesign-header .section-intro { max-width: 100% !important; padding-bottom: 3rem; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
