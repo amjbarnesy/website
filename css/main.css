@@ -125,11 +125,15 @@ body.page-contact .nav-logo-img {
   text-transform: uppercase;
   color: var(--black);
   opacity: 0.5;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s;
   white-space: nowrap;
 }
 .nav-links a:hover,
 .nav-links a.active { opacity: 1; }
+.nav-links a[href="web-design.html"]:hover  { color: var(--orange); }
+.nav-links a[href="photography.html"]:hover { color: var(--green); }
+.nav-links a[href="clients.html"]:hover     { color: var(--yellow); }
+.nav-links a[href="about.html"]:hover       { color: var(--purple); }
 body.page-contact .nav-links a { color: var(--white); }
 @media (max-width: 768px) { .nav-links { display: none; } }
 
