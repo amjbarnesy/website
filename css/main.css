@@ -37,14 +37,6 @@ body {
   color: var(--black);
   overflow-x: hidden;
 }
-/* Custom cursor only on non-touch devices */
-@media (pointer: fine) {
-  body { cursor: none; }
-  .cursor { display: block; }
-}
-/* Restore cursor for keyboard-only users (no mouse movement detected) */
-body:not(.has-mouse) { cursor: auto; }
-
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
@@ -64,6 +56,14 @@ ul { list-style: none; }
   will-change: transform;
 }
 .cursor.big { width: 64px; height: 64px; background: rgba(0,0,0,0.45); mix-blend-mode: multiply; }
+
+/* Custom cursor only on non-touch / mouse devices — must come AFTER base rule */
+@media (pointer: fine) {
+  body { cursor: none; }
+  .cursor { display: block; }
+}
+/* Restore cursor for keyboard-only users (no mouse movement detected) */
+body:not(.has-mouse) { cursor: auto; }
 
 /* On dark (contact) page or open lightbox — white semi-transparent cursor */
 body.lightbox-open .cursor {
