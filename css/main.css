@@ -567,6 +567,16 @@ body.page-clients .client-card:hover .client-tags li { color: var(--black); bord
   display: inline-block;
 }
 .btn-read-more:hover { color: var(--black); }
+.cs-card-link {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 0.75rem;
+  transition: opacity 0.2s;
+}
+.cs-card-link:hover { opacity: 0.7; }
 .client-card:hover .btn-read-more { color: rgba(255,255,255,0.6); }
 .client-card:hover .btn-read-more:hover { color: var(--white); }
 .btn-read-less {
@@ -709,6 +719,137 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 2px;
   transition: border-color 0.4s, color 0.4s;
+}
+
+/* ── Case Studies ──────────────────────────────────────────── */
+.cs-body {
+  margin: 0 3rem 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-top: none;
+}
+.cs-body-inner {
+  padding: 3.5rem 3.5rem;
+  max-width: 900px;
+}
+
+/* Meta strip */
+.cs-meta {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.cs-meta-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+.cs-meta-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(0,0,0,0.8);
+}
+.cs-meta-value a { color: var(--orange); }
+.cs-meta-value a:hover { text-decoration: underline; }
+
+/* Narrative copy */
+.cs-copy-heading {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+.cs-copy p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.62);
+  max-width: 680px;
+}
+.cs-copy p + p { margin-top: 1.2rem; }
+.cs-copy-heading:first-child { margin-top: 0; }
+
+/* Screenshots */
+.cs-screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 3rem 0;
+}
+.cs-screenshot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cs-screenshot-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.1);
+  display: block;
+}
+.cs-screenshot figcaption {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+
+/* Back link + CTA row */
+.cs-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 3rem 3rem 5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 1.5rem;
+}
+.cs-back-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+  transition: color 0.3s;
+}
+.cs-back-link:hover { color: var(--orange); }
+
+/* Dark mode */
+html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
+html[data-theme="dark"] .cs-meta-value { color: rgba(255,255,255,0.8); }
+html[data-theme="dark"] .cs-copy p { color: rgba(255,255,255,0.62); }
+html[data-theme="dark"] .cs-screenshot-img { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .cs-screenshot figcaption { color: rgba(255,255,255,0.35); }
+html[data-theme="dark"] .cs-footer-nav { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .cs-back-link { color: rgba(255,255,255,0.4); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cs-body { margin: 0 1.5rem; }
+  .cs-body-inner { padding: 2rem 2rem; }
+  .cs-screenshots { margin: 1.5rem 1.5rem 0; }
+  .cs-footer-nav { padding: 2.5rem 1.5rem 4rem; }
+}
+@media (max-width: 600px) {
+  .cs-meta { gap: 1.5rem; }
+  .cs-screenshots { grid-template-columns: 1fr; }
 }
 
 /* ── Page: Photography ─────────────────────────────────────── */
