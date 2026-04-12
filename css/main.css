@@ -788,6 +788,20 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 }
 .cs-copy p + p { margin-top: 1.2rem; }
 .cs-copy-heading:first-child { margin-top: 0; }
+.cs-list {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+}
+.cs-list li {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.62);
+  list-style: disc;
+  padding-left: 0.25rem;
+}
+.cs-list li + li { margin-top: 0.2rem; }
+html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 
 /* Screenshots */
 .cs-screenshots {
