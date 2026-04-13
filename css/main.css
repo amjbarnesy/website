@@ -735,11 +735,11 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
   min-width: 0;
 }
 .cs-header-logo {
-  flex-shrink: 0;
-  opacity: 0.8;
+  flex: 0 0 clamp(200px, 22vw, 280px);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.8;
 }
 .cs-header-logo img {
   width: clamp(120px, 14vw, 180px);
@@ -751,7 +751,8 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
     align-items: flex-start !important;
   }
   .cs-header-logo {
-    margin-top: 2rem;
+    flex: none;
+    margin-top: 1rem;
     margin-bottom: 2rem;
   }
   .cs-header-logo img {
