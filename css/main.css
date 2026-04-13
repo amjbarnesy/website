@@ -723,6 +723,38 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 }
 
 /* ── Case Studies ──────────────────────────────────────────── */
+
+/* Header — logo alongside title/intro */
+.cs-header {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 4rem !important;
+}
+.cs-header-text {
+  flex: 1;
+  min-width: 0;
+}
+.cs-header-logo {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.cs-header-logo img {
+  width: clamp(100px, 12vw, 150px);
+  display: block;
+}
+@media (max-width: 768px) {
+  .cs-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .cs-header-logo {
+    margin-top: 2rem;
+  }
+  .cs-header-logo img {
+    width: 120px;
+  }
+}
+
 .cs-body {
   margin: 0 3rem 0;
   border: 1px solid rgba(0,0,0,0.1);
