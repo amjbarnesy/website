@@ -742,7 +742,7 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
   padding-top: calc(clamp(2.5rem, 7vw, 6rem) * 0.95);
 }
 .cs-header-logo img {
-  width: clamp(120px, 14vw, 180px);
+  width: clamp(144px, 16.8vw, 216px);
   display: block;
 }
 @media (max-width: 768px) {
