@@ -729,16 +729,17 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 3rem !important;
-  align-items: center;
+  align-items: start;
 }
 .cs-header-text {
   min-width: 0;
 }
 .cs-header-logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   opacity: 0.8;
+  padding-top: calc(clamp(2.5rem, 7vw, 6rem) * 0.95);
 }
 .cs-header-logo img {
   width: clamp(120px, 14vw, 180px);
