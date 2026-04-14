@@ -745,6 +745,10 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
   width: clamp(144px, 16.8vw, 216px);
   display: block;
 }
+/* Wide logos (landscape aspect ratio) get a wider cap so they read clearly */
+.cs-header-logo--wide img {
+  width: clamp(180px, 20vw, 260px);
+}
 @media (max-width: 768px) {
   .cs-header {
     display: flex !important;
@@ -897,6 +901,8 @@ html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 .cs-back-link:hover { color: var(--orange); }
 
 /* Dark mode */
+/* UK Director logo is dark-filled — invert so it reads on dark backgrounds */
+html[data-theme="dark"] .cs-header-logo--wide img { filter: brightness(0) invert(1); }
 html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
