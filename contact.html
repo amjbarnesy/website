@@ -168,7 +168,7 @@
         </div>
 
         <div class="form-submit">
-          <button type="submit" class="btn-submit">Send Message</button>
+          <button type="button" class="btn-submit" id="btn-submit">Send Message</button>
         </div>
 
       </form>
@@ -194,19 +194,17 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     (function() {
-      const form    = document.getElementById('contact-form');
-      const btn     = form.querySelector('.btn-submit');
-      const msgEl   = document.createElement('p');
+      const form  = document.getElementById('contact-form');
+      const btn   = document.getElementById('btn-submit');
+      const msgEl = document.createElement('p');
       msgEl.className = 'form-status';
-      form.appendChild(msgEl);
+      form.after(msgEl);
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
+      function sendForm() {
         // Honeypot
         if (document.getElementById('website').value) return;
 
-        // Simple client-side check
+        // Client-side validation
         const name    = form.name.value.trim();
         const email   = form.email.value.trim();
         const subject = form.subject.value.trim();
@@ -218,7 +216,7 @@
         }
 
         btn.disabled    = true;
-        btn.textContent = 'Sending…';
+        btn.textContent = 'Sending\u2026';
         msgEl.textContent = '';
         msgEl.className   = 'form-status';
 
@@ -231,7 +229,7 @@
           if (data.success) {
             form.reset();
             btn.textContent   = 'Sent';
-            msgEl.textContent = data.message || 'Message sent. I\'ll be in touch soon.';
+            msgEl.textContent = data.message || "Message sent. I'll be in touch soon.";
             msgEl.className   = 'form-status form-status--success';
           } else {
             btn.disabled    = false;
@@ -246,7 +244,9 @@
           msgEl.textContent = 'Something went wrong. Please email hello@adambarnes.biz directly.';
           msgEl.className   = 'form-status form-status--error';
         });
-      });
+      }
+
+      btn.addEventListener('click', sendForm);
     })();
   </script>
 </body>
