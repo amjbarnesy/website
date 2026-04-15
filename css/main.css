@@ -1043,6 +1043,9 @@ body.page-photography .section-title .accent { color: var(--green); }
   position: relative;
   cursor: none;
 }
+.photo-item a {
+  display: block;
+}
 
 .photo-placeholder {
   width: 100%;
