@@ -134,7 +134,7 @@
         - Netlify: add data-netlify="true"
         - Your own backend endpoint
       -->
-      <form class="contact-form" id="contact-form" action="mailto:hello@adambarnes.biz" method="POST" enctype="text/plain" novalidate>
+      <form class="contact-form" id="contact-form" action="contact.php" method="POST" novalidate>
 
         <div class="form-group">
           <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
@@ -192,9 +192,62 @@
   <script src="js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      if (document.getElementById('website').value) e.preventDefault();
-    });
+
+    (function() {
+      const form    = document.getElementById('contact-form');
+      const btn     = form.querySelector('.btn-submit');
+      const msgEl   = document.createElement('p');
+      msgEl.className = 'form-status';
+      form.appendChild(msgEl);
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Honeypot
+        if (document.getElementById('website').value) return;
+
+        // Simple client-side check
+        const name    = form.name.value.trim();
+        const email   = form.email.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !subject || !message) {
+          msgEl.textContent = 'Please fill in all required fields.';
+          msgEl.className   = 'form-status form-status--error';
+          return;
+        }
+
+        btn.disabled    = true;
+        btn.textContent = 'Sending…';
+        msgEl.textContent = '';
+        msgEl.className   = 'form-status';
+
+        fetch('contact.php', {
+          method: 'POST',
+          body:   new FormData(form)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.success) {
+            form.reset();
+            btn.textContent   = 'Sent';
+            msgEl.textContent = data.message || 'Message sent. I\'ll be in touch soon.';
+            msgEl.className   = 'form-status form-status--success';
+          } else {
+            btn.disabled    = false;
+            btn.textContent = 'Send Message';
+            msgEl.textContent = data.message || 'Something went wrong. Please try again.';
+            msgEl.className   = 'form-status form-status--error';
+          }
+        })
+        .catch(function() {
+          btn.disabled    = false;
+          btn.textContent = 'Send Message';
+          msgEl.textContent = 'Something went wrong. Please email hello@adambarnes.biz directly.';
+          msgEl.className   = 'form-status form-status--error';
+        });
+      });
+    })();
   </script>
 </body>
 </html>

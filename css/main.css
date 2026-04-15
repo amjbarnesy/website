@@ -1405,7 +1405,13 @@ body.page-contact .nav-logo { color: var(--white); }
   cursor: none;
   transition: background 0.3s, color 0.3s, transform 0.3s var(--ease);
 }
-.btn-submit:hover { background: var(--yellow); transform: translateY(-2px); }
+.btn-submit:hover  { background: var(--yellow); transform: translateY(-2px); }
+.btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+.form-status { margin-top: 1rem; font-size: 0.85rem; line-height: 1.5; }
+.form-status--success { color: var(--green); }
+.form-status--error   { color: #c0392b; }
+html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 /* ── Reveal Animations ─────────────────────────────────────── */
 .reveal {
