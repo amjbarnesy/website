@@ -723,6 +723,54 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 }
 
 /* ── Case Studies ──────────────────────────────────────────── */
+
+/* Header — logo alongside title/intro */
+.cs-header {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem !important;
+  align-items: start;
+}
+.cs-header-text {
+  min-width: 0;
+}
+.cs-header-logo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0.8;
+  padding-top: calc(clamp(2.5rem, 7vw, 6rem) * 0.95);
+}
+.cs-header-logo img {
+  width: clamp(144px, 16.8vw, 216px);
+  display: block;
+}
+/* Wide logos (landscape aspect ratio) get a wider cap so they read clearly */
+.cs-header-logo--wide img {
+  width: clamp(180px, 20vw, 260px);
+}
+@media (max-width: 768px) {
+  .cs-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+  }
+  /* Remove the 3rem padding-bottom that the section-intro gets on mobile —
+     it sits above the logo here rather than above the border */
+  .cs-header .section-intro {
+    padding-bottom: 0 !important;
+  }
+  .cs-header-logo {
+    flex: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .cs-header-logo img {
+    width: 130px;
+  }
+}
+
 .cs-body {
   margin: 0 3rem 0;
   border: 1px solid rgba(0,0,0,0.1);
@@ -853,6 +901,8 @@ html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 .cs-back-link:hover { color: var(--orange); }
 
 /* Dark mode */
+/* UK Director logo is dark-filled — invert so it reads on dark backgrounds */
+html[data-theme="dark"] .cs-header-logo--wide img { filter: brightness(0) invert(1); }
 html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
