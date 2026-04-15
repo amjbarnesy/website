@@ -1408,7 +1408,7 @@ body.page-contact .nav-logo { color: var(--white); }
 .btn-submit:hover  { background: var(--yellow); transform: translateY(-2px); }
 .btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
 
-.form-status { margin-top: 1rem; font-size: 0.85rem; line-height: 1.5; }
+.form-status { margin-top: 1.75rem; font-family: var(--font-body); font-size: 0.9rem; line-height: 1.7; }
 .form-status--success { color: var(--green); }
 .form-status--error   { color: #c0392b; }
 html[data-theme="dark"] .form-status--error { color: #e74c3c; }
