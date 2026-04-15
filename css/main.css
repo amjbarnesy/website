@@ -1066,6 +1066,7 @@ body.page-photography .section-title .accent { color: var(--green); }
 .photo-placeholder {
   display: block;
   width: 100%;
+  height: auto;
   transition: transform 0.6s var(--ease);
 }
 .photo-item:hover img,
