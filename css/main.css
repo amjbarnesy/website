@@ -907,6 +907,7 @@ html[data-theme="dark"] .cs-header-logo--wide img { filter: brightness(0) invert
 .cs-header-logo .logo-dark { display: none; }
 html[data-theme="dark"] .cs-header-logo .logo-light { display: none; }
 html[data-theme="dark"] .cs-header-logo .logo-dark  { display: block; }
+html[data-theme="dark"] .cs-header-logo-img { filter: brightness(0) invert(1); }
 html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
