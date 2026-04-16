@@ -1661,7 +1661,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   justify-content: flex-end;
   gap: 0;
   padding: 0 3rem 5rem;
-  margin-top: -4rem;
+  margin-top: -6rem;
 }
 .about-cta-item {
   background: var(--black);
