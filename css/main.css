@@ -1654,6 +1654,19 @@ body.page-about .section-title .accent { color: var(--purple); }
   columns: 2;
   column-gap: 3rem;
 }
+.privacy-body {
+  columns: 1;
+}
+.privacy-body h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.75);
+  margin-top: 2.5rem;
+  margin-bottom: 0.6rem;
+}
+.privacy-body h2:first-child { margin-top: 0; }
 
 /* All four inner pages: intro spacing and sizing */
 .about-header .section-intro,
@@ -1777,6 +1790,7 @@ html[data-theme="dark"] .client-card:hover .btn-read-more { color: rgba(255,255,
 /* About */
 html[data-theme="dark"] .about-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .about-body-text p { color: rgba(255,255,255,0.62); }
+html[data-theme="dark"] .privacy-body h2 { color: rgba(255,255,255,0.8); }
 
 /* Photography */
 html[data-theme="dark"] .gallery-nav a { color: var(--white); opacity: 0.4; }
