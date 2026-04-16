@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro-Advisory — Case Study — Adam Barnes</title>
+  <meta name="description" content="Case study: WordPress membership platform for Macro-Advisory, connecting content, access control and automated email delivery across four geographic regions.">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.adambarnes.biz/case-study-macro-advisory.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Adam Barnes">
+  <meta property="og:title" content="Macro-Advisory — Case Study — Adam Barnes">
+  <meta property="og:description" content="WordPress membership platform for Macro-Advisory, connecting content, access control and automated email delivery across four geographic regions.">
+  <meta property="og:url" content="https://www.adambarnes.biz/case-study-macro-advisory.html">
+  <meta property="og:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Macro-Advisory — Case Study — Adam Barnes">
+  <meta name="twitter:description" content="WordPress membership platform for Macro-Advisory, connecting content, access control and automated email delivery across four geographic regions.">
+  <meta name="twitter:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Macro-Advisory Membership Platform",
+    "creator": {
+      "@type": "Person",
+      "name": "Adam Barnes",
+      "url": "https://www.adambarnes.biz"
+    },
+    "description": "WordPress membership platform connecting content, access control and automated email delivery across four geographic regions for financial intelligence provider Macro-Advisory.",
+    "keywords": ["WordPress", "MemberPress", "Mailchimp", "Membership", "Email Automation", "Financial Intelligence"]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.adambarnes.biz/"},
+      {"@type": "ListItem", "position": 2, "name": "Web Design", "item": "https://www.adambarnes.biz/web-design.html"},
+      {"@type": "ListItem", "position": 3, "name": "Macro-Advisory", "item": "https://www.adambarnes.biz/case-study-macro-advisory.html"}
+    ]
+  }
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
+</head>
+<body class="page-webdesign">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes"><img src="assets/logo.svg" alt="Adam Barnes" class="nav-logo-img"></a>
+    <div class="nav-links">
+      <a href="web-design.html" class="active">Web Design</a>
+      <a href="photography.html">Photography</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Toggle dark mode">
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="about.html"       data-page="about">       <span>About</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+      <label class="theme-switch" for="theme-toggle" title="Toggle dark / light mode">
+        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Toggle dark mode">
+        <span class="theme-switch__track">
+          <span class="theme-switch__knob">
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </span>
+      </label>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970028">07725 970028</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Page header -->
+    <header class="section-header webdesign-header cs-header">
+      <div class="cs-header-text">
+        <div class="section-title">
+          <span>Macro</span>
+          <span class="accent">Advisory</span>
+          <span class="by-line">by Adam</span>
+        </div>
+        <p class="section-intro">
+          <span class="intro-lead">Financial intelligence, precisely distributed.</span>
+          A WordPress membership platform connecting content, access control and automated email delivery across four geographic regions, for an intelligence provider whose subscribers expect the right analysis to find them.
+        </p>
+      </div>
+      <div class="cs-header-logo" aria-hidden="true">
+        <img src="assets/logos/macro-advisory.png" alt="">
+      </div>
+    </header>
+
+    <!-- Case study body -->
+    <section class="cs-body reveal" aria-label="Case study detail">
+      <div class="cs-body-inner">
+
+        <!-- Meta strip -->
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Client</span>
+            <span class="cs-meta-value">Macro-Advisory</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Portal</span>
+            <span class="cs-meta-value">Private subscriber platform</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Services</span>
+            <span class="cs-meta-value">WordPress · Elementor · MemberPress · Mailchimp · Email Automation</span>
+          </div>
+        </div>
+
+        <!-- Narrative -->
+        <div class="cs-copy">
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">The brief</h2>
+            <p>Macro-Advisory provides in-depth financial and geopolitical intelligence to clients operating across some of the world's more complex regions. The platform needed to do something deceptively simple: deliver the right content to the right subscriber automatically, based on their subscription, without them needing to log in and go looking for it.</p>
+            <p>The geographic scope covered four regions: Russia, the Caucasus, Central Asia and CIS Europe. Each required a full access tier and a trial equivalent, plus the ability for corporate accounts to manage multiple users under a single organisation. Eight membership levels in total, each controlling what a subscriber sees on-site, what they can download, and what lands in their inbox.</p>
+            <p>The driving principle was clear. Push intelligence to users rather than waiting for them to come looking for it.</p>
+
+            <h2 class="cs-copy-heading">The work</h2>
+            <p>The platform was built on WordPress with Elementor Pro handling the front-end and MemberPress managing access control. That combination creates a modular architecture where content, users and permissions operate independently, and the system scales as new regions or content types are added.</p>
+            <p>Membership architecture runs across eight levels: four full-access tiers by region and four trial equivalents. Each tier controls exactly what a subscriber can view, download and receive. Rules are tied directly to content categories, so a Russia subscriber sees only Russia content, a Caucasus trial user sees only what their tier permits, and nothing crosses over.</p>
+            <p>Content was reorganised into clearly defined categories: Macro Monthly, Politics Monthly, Sanctions and Conflict Sitrep, Special Reports and Geopolitics. Those categories do more than structure the site. They drive the access rules and they power the email system.</p>
+            <ul class="cs-list">
+              <li>Eight membership levels across four regions, full and trial</li>
+              <li>MemberPress rules tied to content categories and file access</li>
+              <li>Per-region RSS feeds connected to Mailchimp segments</li>
+              <li>Automated email dispatch triggered on content publication</li>
+              <li>Dynamic messaging: trial users receive different copy from full members</li>
+              <li>Trial expiry flow: welcome, follow-up, then clean transition to inactive</li>
+              <li>Corporate account structure built and ready for activation</li>
+            </ul>
+          </div>
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">How the email system works</h2>
+            <p>The email automation is where the platform earns its complexity. Each membership tier maps to a Mailchimp segment through merge tags. Each content category carries its own RSS feed. When new content is published, Mailchimp reads the relevant feed and dispatches the campaign automatically, only to subscribers whose membership matches. No manual sending. No list management. The content drives it.</p>
+            <p>Trial subscribers receive the same regional content but with different messaging, set through dynamic content blocks in Mailchimp. When a trial expires, the user is tagged inactive and steps out of the active flow cleanly, remaining in the system for future re-engagement without cluttering the active segments.</p>
+            <p>A separate onboarding sequence was built for new trial users: a welcome email on sign-up, a follow-up after one day, and a conversion email as the trial closes.</p>
+
+            <h2 class="cs-copy-heading">The outcome</h2>
+            <p>The platform now operates as a connected system. Publishing a piece of content triggers the full sequence: access rules determine who can see it on-site, and email automation dispatches it to the right subscribers, all within the same workflow and entirely without manual intervention.</p>
+            <p>For subscribers, updates arrive in the inbox targeted precisely to their region and tier. There is no need to navigate the platform. The intelligence finds them.</p>
+            <p>For the business, the architecture scales cleanly. New regions, content types or membership tiers slot in without rebuilding the underlying logic. Manual admin is significantly reduced, and the relationship between subscription and delivered value is direct and measurable.</p>
+            <p>The site feels straightforward. The system behind it is not.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Back link + CTA -->
+    <div class="cs-footer-nav reveal">
+      <a href="web-design.html" class="cs-back-link">← Back to Web Design</a>
+      <a href="contact.html" class="btn">Start a project</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes | Company: Platform Ticket LTD | No: 07755177</span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970028">07725 970028</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
