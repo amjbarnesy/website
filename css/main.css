@@ -1185,7 +1185,7 @@ body.page-photography .section-title .accent { color: var(--green); }
 /* ── Page: Clients ─────────────────────────────────────────── */
 body.page-clients { --accent: var(--yellow); }
 body.page-clients .section-title .accent { color: var(--yellow); }
-body.page-clients .cs-card-link { color: var(--yellow); }
+body.page-clients .cs-card-link { color: #E6C100; }
 
 .testimonials {
   padding: 2rem 3rem 6rem;
