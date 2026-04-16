@@ -1654,9 +1654,6 @@ body.page-about .section-title .accent { color: var(--purple); }
   columns: 2;
   column-gap: 3rem;
 }
-.privacy-body {
-  columns: 1;
-}
 .privacy-body h2 {
   font-size: 1rem;
   font-weight: 600;
