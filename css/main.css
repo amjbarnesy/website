@@ -903,6 +903,10 @@ html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 /* Dark mode */
 /* UK Director logo is dark-filled — invert so it reads on dark backgrounds */
 html[data-theme="dark"] .cs-header-logo--wide img { filter: brightness(0) invert(1); }
+/* Boat Hire Norwich: swap to white variant in dark mode */
+.logo-dark { display: none; }
+html[data-theme="dark"] .logo-light { display: none; }
+html[data-theme="dark"] .logo-dark  { display: block; }
 html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
