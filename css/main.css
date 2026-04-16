@@ -934,7 +934,7 @@ html[data-theme="dark"] .cs-back-link { color: rgba(255,255,255,0.4); }
 }
 
 /* Photography case study gallery — reuses photo-grid but without outer margins */
-.cs-photo-grid { margin: 3rem 0 0; }
+.cs-body-inner .photo-grid { margin: 5rem 0 2rem; }
 
 /* ── Page: Photography ─────────────────────────────────────── */
 body.page-photography { --accent: var(--green); }
