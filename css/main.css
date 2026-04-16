@@ -903,12 +903,6 @@ html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 /* Dark mode */
 /* UK Director logo is dark-filled — invert so it reads on dark backgrounds */
 html[data-theme="dark"] .cs-header-logo--wide img { filter: brightness(0) invert(1); }
-/* Boat Hire Norwich logo has dark navy text and coloured illustration — white backing preserves both */
-html[data-theme="dark"] .cs-header-logo--boat-hire {
-  background: rgba(255,255,255,0.88);
-  border-radius: 6px;
-  padding: 0.6rem 0.8rem;
-}
 html[data-theme="dark"] .cs-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-meta-label { color: rgba(255,255,255,0.35); }
