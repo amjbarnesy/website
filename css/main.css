@@ -479,8 +479,15 @@ body.page-webdesign .client-card:hover .client-avatar {
 .clients-grid--two {
   grid-template-columns: repeat(2, 1fr);
 }
+.clients-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .clients-grid--three { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 600px) {
-  .clients-grid--two { grid-template-columns: 1fr; }
+  .clients-grid--two,
+  .clients-grid--three { grid-template-columns: 1fr; }
 }
 
 .client-card {
