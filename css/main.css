@@ -224,8 +224,6 @@ body.page-contact .nav-theme-btn { color: var(--white); }
   letter-spacing: 0.04em;
   line-height: 1.15;
   display: block;
-  width: 100%;
-  text-align: center;
   overflow: hidden;
   transition: color 0.3s;
 }
