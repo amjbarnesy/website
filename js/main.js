@@ -111,6 +111,11 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
       if (open) toggle();
     });
   });
+
+  // Auto-close when rotating to landscape on mobile (menu hides via CSS, restore scroll)
+  window.matchMedia('(orientation: landscape) and (max-height: 500px)').addEventListener('change', e => {
+    if (e.matches && open) toggle();
+  });
 })();
 
 /* ── Hero Animations (index.html only) ─────────────────────── */
