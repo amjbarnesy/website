@@ -246,8 +246,10 @@ body.page-contact .nav-theme-btn { color: var(--white); }
 .menu-nav a[data-page="clients"]:hover     { color: var(--yellow); }
 
 @media (orientation: landscape) and (max-height: 500px) {
-  .menu-nav { gap: clamp(0.1rem, 0.8vh, 0.5rem); }
-  .menu-nav a { font-size: clamp(0.9rem, 3.5vh, 2rem); }
+  .nav-links { display: flex; }
+  .nav-theme-btn { display: flex; }
+  .hamburger { display: none; }
+  .menu-overlay { display: none !important; }
 }
 
 .menu-footer {
