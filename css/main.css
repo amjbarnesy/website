@@ -1674,13 +1674,16 @@ body.page-about .section-title .accent { color: var(--purple); }
   border-top: none;
 }
 .faq-inner {
-  padding: 0 3.5rem;
-  max-width: 860px;
+  padding: 2rem 3.5rem 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 4rem;
 }
+.faq-col { min-width: 0; }
 .faq-item {
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-.faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); margin-top: 1.5rem; }
+.faq-col .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
 .faq-question {
   width: 100%;
   background: none;
@@ -1730,7 +1733,7 @@ body.page-about .section-title .accent { color: var(--purple); }
 .faq-answer a { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 900px) {
   .faq-body { margin: 0 1.5rem 4rem; }
-  .faq-inner { padding: 0 2rem; }
+  .faq-inner { grid-template-columns: 1fr; padding: 1.5rem 2rem 0.5rem; gap: 0; }
 }
 
 /* About page CTAs */
