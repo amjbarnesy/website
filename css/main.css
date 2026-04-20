@@ -13,6 +13,7 @@
   --green:   #AAFF00;
   --yellow:  #FFD600;
   --purple:  #8833FF;
+  --blue:    #00b4ff;
 
   --font-display: 'Jost', sans-serif;
   --font-body:    'Space Grotesk', sans-serif;
@@ -1618,8 +1619,11 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 /* ── Page: About ───────────────────────────────────────────── */
 body.page-about { --accent: var(--purple); }
 body.page-about .section-title .accent { color: var(--purple); }
-.nav-links a[href="faq.html"]:hover { color: var(--purple); }
-.menu-nav a[data-page="faq"]:hover  { color: var(--purple); }
+body.page-faq { --accent: var(--blue); }
+body.page-faq .section-title .accent { color: var(--blue); }
+.nav-links a[href="faq.html"]:hover     { color: var(--blue); }
+.menu-nav a[data-page="about"]:hover    { color: var(--purple); }
+.menu-nav a[data-page="faq"]:hover      { color: var(--blue); }
 .menu-nav a:nth-child(6) span { transition-delay: 0.3s; }
 .menu-nav a:nth-child(7) span { transition-delay: 0.35s; }
 
@@ -1704,7 +1708,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   transition: color 0.2s;
 }
 .faq-question:hover .faq-question-text,
-.faq-item.open .faq-question-text { color: var(--purple); }
+.faq-item.open .faq-question-text { color: var(--blue); }
 .faq-icon {
   width: 18px;
   height: 18px;
@@ -1714,7 +1718,7 @@ body.page-about .section-title .accent { color: var(--purple); }
   transition: transform 0.35s var(--ease), opacity 0.2s, color 0.2s;
 }
 .faq-question:hover .faq-icon { opacity: 0.7; }
-.faq-item.open .faq-icon { transform: rotate(45deg); opacity: 1; color: var(--purple); }
+.faq-item.open .faq-icon { transform: rotate(45deg); opacity: 1; color: var(--blue); }
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
@@ -1916,7 +1920,7 @@ html[data-theme="dark"] .privacy-body h2 { color: rgba(255,255,255,0.8); }
 html[data-theme="dark"] .faq-body { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .faq-item { border-color: rgba(255,255,255,0.08); }
 html[data-theme="dark"] .faq-question-text { color: var(--white); }
-html[data-theme="dark"] .faq-item.open .faq-question-text { color: var(--purple); }
+html[data-theme="dark"] .faq-item.open .faq-question-text { color: var(--blue); }
 html[data-theme="dark"] .faq-icon { color: var(--white); }
 html[data-theme="dark"] .faq-answer p { color: rgba(255,255,255,0.62); }
 
