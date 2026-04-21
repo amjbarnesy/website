@@ -136,7 +136,7 @@
         - Netlify: add data-netlify="true"
         - Your own backend endpoint
       -->
-      <form class="contact-form" id="contact-form" action="contact.php" method="POST" novalidate>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mbdqazez" method="POST" novalidate>
 
         <div class="form-group">
           <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
@@ -222,21 +222,22 @@
         msgEl.textContent = '';
         msgEl.className   = 'form-status';
 
-        fetch('contact.php', {
-          method: 'POST',
-          body:   new FormData(form)
+        fetch('https://formspree.io/f/mbdqazez', {
+          method:  'POST',
+          headers: { 'Accept': 'application/json' },
+          body:    new FormData(form)
         })
         .then(function(res) { return res.json(); })
         .then(function(data) {
-          if (data.success) {
+          if (data.ok) {
             form.reset();
             btn.textContent   = 'Sent';
-            msgEl.textContent = data.message || "Message sent. I'll be in touch soon.";
+            msgEl.textContent = "Message sent. I'll be in touch soon.";
             msgEl.className   = 'form-status form-status--success';
           } else {
             btn.disabled    = false;
             btn.textContent = 'Send Message';
-            msgEl.textContent = data.message || 'Something went wrong. Please try again.';
+            msgEl.textContent = (data.errors || []).map(function(e) { return e.message; }).join(' ') || 'Something went wrong. Please try again.';
             msgEl.className   = 'form-status form-status--error';
           }
         })
