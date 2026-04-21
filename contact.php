@@ -72,7 +72,11 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 // Discard any buffered output (e.g. PHP startup warnings) before sending JSON
 ob_end_clean();
 
-$sent = @mail($to, $subject_line, $body, $headers);
+$sent = mail($to, $subject_line, $body, $headers);
+
+// Debug: log the result so you can check what happened
+$log_entry = date('Y-m-d H:i:s') . ' | sent=' . ($sent ? 'true' : 'false') . ' | error=' . error_get_last()['message'] . "\n";
+file_put_contents(__DIR__ . '/contact_debug.log', $log_entry, FILE_APPEND);
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => "Message sent. I'll be in touch soon."]);
