@@ -1,0 +1,22 @@
+Options -Indexes
+RewriteEngine On
+
+# ── HTTPS ──────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ── www canonical ──────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^adambarnes\.biz [NC]
+RewriteRule ^ https://www.adambarnes.biz%{REQUEST_URI} [R=301,L]
+
+# ── Old site redirects (301 permanent) ─────────────────────────
+RewriteRule ^team/?$        /about.html      [R=301,L]
+RewriteRule ^showcase/?$    /web-design.html [R=301,L]
+RewriteRule ^contact/?$     /contact.html    [R=301,L]
+
+# ── Common old WordPress paths ─────────────────────────────────
+RewriteRule ^portfolio/?$   /web-design.html [R=301,L]
+RewriteRule ^services/?$    /web-design.html [R=301,L]
+RewriteRule ^about/?$       /about.html      [R=301,L]
+RewriteRule ^photography/?$ /photography.html [R=301,L]
+RewriteRule ^blog/?.*$      /               [R=301,L]
