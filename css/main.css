@@ -1710,12 +1710,10 @@ body.page-faq .section-title .accent { color: var(--blue); }
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  text-decoration-color: currentColor;
-  opacity: 0.85;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
-.about-body-text p a:hover,
-.cs-copy p a:hover { opacity: 1; }
+.about-body-text p a:hover { color: var(--purple); }
+.cs-copy p a:hover          { color: var(--orange); }
 .about-body-text {
   columns: 2;
   column-gap: 3rem;
