@@ -61,6 +61,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://www.adambarnes.biz/case-study-adambarnes-biz.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
     <loc>https://www.adambarnes.biz/faq.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
