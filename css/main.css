@@ -1705,6 +1705,17 @@ body.page-faq .section-title .accent { color: var(--blue); }
   color: rgba(0,0,0,0.62);
 }
 .about-body-text p + p { margin-top: 1.4rem; }
+.about-body-text p a,
+.cs-copy p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: currentColor;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.about-body-text p a:hover,
+.cs-copy p a:hover { opacity: 1; }
 .about-body-text {
   columns: 2;
   column-gap: 3rem;
