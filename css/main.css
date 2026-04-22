@@ -893,7 +893,7 @@ html[data-theme="dark"] .cs-tech-strip { border-color: rgba(255,255,255,0.1); }
 html[data-theme="dark"] .cs-tech-label { color: rgba(255,255,255,0.35); }
 html[data-theme="dark"] .cs-tech-value { color: rgba(255,255,255,0.8); }
 @media (max-width: 768px) {
-  .cs-tech-strip { gap: 1rem; }
+  .cs-tech-strip { gap: 1rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .cs-tech-item  { min-width: 140px; padding: 0; }
 }
 
