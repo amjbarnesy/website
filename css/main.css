@@ -860,6 +860,43 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 .cs-list li + li { margin-top: 0.2rem; }
 html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 
+/* Tech strip (used on adambarnes.biz case study) */
+.cs-tech-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.cs-tech-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.25rem 2rem 1.25rem 0;
+  min-width: 180px;
+  flex: 1;
+}
+.cs-tech-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  font-family: var(--font-display);
+}
+.cs-tech-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--black);
+}
+html[data-theme="dark"] .cs-tech-strip { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .cs-tech-label { color: rgba(255,255,255,0.35); }
+html[data-theme="dark"] .cs-tech-value { color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) {
+  .cs-tech-strip { gap: 1rem; }
+  .cs-tech-item  { min-width: 140px; padding: 0; }
+}
+
 /* Screenshots */
 .cs-screenshots {
   display: grid;
