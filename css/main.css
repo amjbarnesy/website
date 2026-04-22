@@ -404,6 +404,21 @@ footer a:hover { color: var(--black); }
   opacity: 0;
 }
 
+.hero-lets-talk {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  padding-left: calc(clamp(14rem, 22vw, 20rem) + 2rem);
+  font-size: 0.95rem;
+  color: var(--purple);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.hero-lets-talk:hover { opacity: 0.75; }
+html[data-theme="dark"] .hero-lets-talk { color: var(--purple); }
+
 .hero-scroll-hint {
   position: absolute;
   bottom: 2rem;
