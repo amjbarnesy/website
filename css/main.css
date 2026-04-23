@@ -411,13 +411,14 @@ footer a:hover { color: var(--black); }
   margin: 1rem auto 0;
   padding-left: calc(clamp(14rem, 22vw, 20rem) + 2rem);
   font-size: 0.95rem;
-  color: var(--purple);
+  color: var(--text);
   text-decoration: none;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: color 0.2s, opacity 0.2s;
 }
-.hero-lets-talk:hover { opacity: 0.75; }
-html[data-theme="dark"] .hero-lets-talk { color: var(--purple); }
+.hero-lets-talk:hover { color: var(--purple); opacity: 1; }
+html[data-theme="dark"] .hero-lets-talk { color: rgba(255,255,255,0.62); }
+html[data-theme="dark"] .hero-lets-talk:hover { color: var(--purple); }
 
 .hero-scroll-hint {
   position: absolute;
