@@ -146,6 +146,10 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     { opacity: 0, y: 12 },
     { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 1.1 }
   );
+  gsap.fromTo('.hero-lets-talk',
+    { opacity: 0, y: 8 },
+    { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 1.5 }
+  );
 
   // Word cycle — starts after hero finishes animating in
   setTimeout(initWordCycle, 2500);
