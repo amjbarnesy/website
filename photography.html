@@ -23,9 +23,11 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://www.adambarnes.biz/photography.html#service",
     "name": "Photography by Adam Barnes",
     "provider": {
       "@type": "Person",
+      "@id": "https://www.adambarnes.biz/#person",
       "name": "Adam Barnes",
       "url": "https://www.adambarnes.biz"
     },
@@ -37,6 +39,44 @@
       "Essex",
       "United Kingdom"
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Photography Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Event & Festival Photography",
+            "description": "Official festival photographer with credits including First Light Festival and Latitude"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Architecture Photography",
+            "description": "Prestige buildings from London to Cambridge and across the UK"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Portrait & Theatre Photography",
+            "description": "People, performers and productions across Norfolk and the UK"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Photography",
+            "description": "Product, food and commercial photography for businesses"
+          }
+        }
+      ]
+    },
     "url": "https://www.adambarnes.biz/photography.html"
   }
   </script>
