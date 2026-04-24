@@ -1531,7 +1531,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   .hero-text { text-align: center; font-size: clamp(2rem, 12vw, 3.5rem); max-width: 100%; }
   .hero-word-swap .word { text-align: center; }
   .hero-tagline { padding-left: 0; }
-  .hero-tagline { text-align: center; padding-right: 0; margin-top: 2rem; font-size: 1.3rem; text-wrap: pretty; }
+  .hero-tagline { text-align: center; padding-right: 0; margin-top: 2rem; font-size: 0.95rem; text-wrap: pretty; }
   .hero-tagline br { display: none; }
   .hero-lets-talk { padding-left: 0; text-align: center; }
   .line--by { margin-top: 0; }
