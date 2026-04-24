@@ -396,7 +396,7 @@ footer a:hover { color: var(--black); }
   margin-right: auto;
   padding-left: calc(clamp(14rem, 22vw, 20rem) + 2rem);
   text-align: left;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: rgba(0,0,0,0.62);
   opacity: 0;
@@ -1576,7 +1576,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   }
 }
 @media (min-width: 1433px) {
-  .hero-tagline { font-size: 0.98rem; }
+  .hero-tagline { font-size: 0.9rem; }
 }
 @media (min-width: 1400px) {
   .manifesto-text { font-size: 1.35rem; }
