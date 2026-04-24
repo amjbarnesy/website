@@ -4,31 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adam Barnes — Web Designer & Photographer | Norfolk & Suffolk, UK</title>
-  <meta name="description" content="Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk. 25+ years crafting websites, brands and images that work.">
+  <meta name="description" content="Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience — clearer branding, stronger content, a website that looks right and pulls its weight.">
   <!-- Canonical -->
   <link rel="canonical" href="https://www.adambarnes.biz/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adam Barnes">
   <meta property="og:title" content="Adam Barnes — Web Designer & Photographer | Norfolk & Suffolk, UK">
-  <meta property="og:description" content="Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk. 25+ years crafting websites, brands and images that work.">
+  <meta property="og:description" content="Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience — clearer branding, stronger content, a website that looks right and pulls its weight.">
   <meta property="og:url" content="https://www.adambarnes.biz/">
   <meta property="og:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Adam Barnes — Web Designer & Photographer | Norfolk & Suffolk, UK">
-  <meta name="twitter:description" content="Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk. 25+ years crafting websites, brands and images that work.">
+  <meta name="twitter:description" content="Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience — clearer branding, stronger content, a website that looks right and pulls its weight.">
   <meta name="twitter:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.adambarnes.biz/#person",
     "name": "Adam Barnes",
+    "image": "https://www.adambarnes.biz/assets/adam-portrait.webp",
     "jobTitle": "Web Designer & Photographer",
     "url": "https://www.adambarnes.biz",
     "email": "hello@adambarnes.biz",
     "telephone": "+447725970028",
-    "description": "Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk, with 25+ years of experience.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Norfolk",
+      "addressCountry": "GB"
+    },
+    "description": "Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience brought together — clearer branding, stronger content, a website that looks right and pulls its weight.",
     "areaServed": [
       "Norfolk",
       "Suffolk",
@@ -85,6 +92,10 @@
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
+  <link rel="preload" as="image" href="assets/adam-portrait.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
@@ -171,16 +182,18 @@
           </span>
         </span>
       </div>
-      <img src="assets/adam-portrait.png" alt="Adam Barnes" class="hero-portrait" id="hero-portrait">
+      <img src="assets/adam-portrait.webp" alt="Adam Barnes" class="hero-portrait" id="hero-portrait">
     </div>
 
     <!-- Tagline — below the rule, right-aligned to headline edge -->
     <p class="hero-tagline" id="hero-tagline">
-      In-depth creative and digital expertise to supercharge your brand.<br>
-      Experience that gets the job done to energise your business growth.<br>
-      Passion for the power of creativity combined with technical know-how.<br>
-      Proudly bringing value to every client. Every time.
+      Web design and photography for businesses that want both<br>
+      handled properly. Most agencies split the two. I don't.<br>
+      25 years of design, digital and technical experience, brought<br>
+      together so your website and images feel joined up from the start.<br>
+      Clearer branding. Stronger content. A website that looks right and pulls its weight.
     </p>
+    <a href="contact.html" class="hero-lets-talk">Let's talk →</a>
 
     <!-- Scroll hint -->
     <p class="hero-scroll-hint" aria-hidden="true">Scroll to explore</p>
@@ -190,12 +203,11 @@
   <section class="manifesto">
     <div class="manifesto-inner">
       <p class="manifesto-text">
-        <span class="manifesto-black">I may be a one man band, but can be:<br>
-        your string quartet, your in your face rock band,<br>
-        or your full-on orchestra.</span><br>
-        <span class="manifesto-grey">With the experience and talent to hone your brand.<br>
-        From a quick fix to a complete overhaul<br>
-        with all the whistles and bells.</span><br>
+        <span class="manifesto-black">I may be a one-man band, but I can be your string quartet,<br>
+        your rock band, or your full-on orchestra.</span><br>
+        <span class="manifesto-grey">With the experience and skill to sharpen your brand.<br>
+        From a quick fix to a complete overhaul,<br>
+        with all the bells and whistles.</span><br>
         <span class="manifesto-black">Either way, I can give you the creative confidence<br>
         and know-how to exceed your expectations.</span><br>
         <span class="manifesto-grey">Getting the very best results out of your budget.</span>
@@ -253,9 +265,9 @@
   </footer>
 
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

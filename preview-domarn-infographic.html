@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domarn Infographic Preview — Adam Barnes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
+  <style>
+
+    /* ── Preview Banner ── */
+    .preview-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      z-index: 600;
+      white-space: nowrap;
+    }
+
+    /* ── Flow Infographic ── */
+    .flow-infographic {
+      margin: 1.5rem 3rem 0;
+    }
+
+    .flow-caption {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    html[data-theme="dark"] .flow-caption { color: rgba(255,255,255,0.3); }
+
+    .flow-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: stretch;
+      min-height: 280px;
+    }
+
+    /* ── Nodes ── */
+    .flow-node {
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      background: #F7F5F0;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    html[data-theme="dark"] .flow-node {
+      background: #161616;
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .flow-node--output {
+      border-color: var(--purple);
+    }
+    html[data-theme="dark"] .flow-node--output {
+      border-color: var(--purple);
+    }
+
+    .flow-node--govuk {
+      background: #0b0c0c !important;
+      border-color: #0b0c0c !important;
+    }
+
+    .flow-node-num {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--purple);
+    }
+    .flow-node--govuk .flow-node-num { color: rgba(255,255,255,0.3); }
+
+    .flow-node-label {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    html[data-theme="dark"] .flow-node-label { color: var(--white); }
+    .flow-node--govuk .flow-node-label { color: #fff !important; }
+
+    .flow-node-sub {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      color: rgba(0,0,0,0.38);
+      line-height: 1.4;
+      margin-top: auto;
+    }
+    html[data-theme="dark"] .flow-node-sub { color: rgba(255,255,255,0.3); }
+    .flow-node--govuk .flow-node-sub { color: rgba(255,255,255,0.4) !important; }
+
+    .flow-node-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Source badges ── */
+    .source-badges {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .app-badge--id   { background: #49021f; letter-spacing: -0.03em; }
+    .app-badge--word { background: #185abd; }
+
+    /* ── Code blocks ── */
+    .flow-code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.56rem;
+      line-height: 1.65;
+      margin: 0;
+      padding: 0.6rem 0.75rem;
+      border-radius: 4px;
+      width: 100%;
+      background: rgba(0,0,0,0.05);
+      white-space: pre;
+      overflow: hidden;
+    }
+    html[data-theme="dark"] .flow-code { background: rgba(255,255,255,0.07); }
+
+    .flow-code--messy { color: rgba(0,0,0,0.35); }
+    html[data-theme="dark"] .flow-code--messy { color: rgba(255,255,255,0.25); }
+    .flow-code--messy .noise { color: #b94f4f; opacity: 0.8; }
+
+    .flow-code--clean { color: #1a7a5c; }
+    html[data-theme="dark"] .flow-code--clean { color: #4ecfa4; }
+
+    .flow-code--govspeak { color: #6640c0; }
+    html[data-theme="dark"] .flow-code--govspeak { color: #b899ff; }
+
+    /* ── Split output ── */
+    .flow-split {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .flow-split-tag {
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── GOV.UK node ── */
+    .govuk-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .govuk-crown-svg {
+      width: 36px;
+      height: 28px;
+      fill: #fff;
+    }
+    .govuk-wordmark {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+    }
+    .govuk-ready {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    /* ── Arrows ── */
+    .flow-arrow-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.25rem;
+      gap: 0.2rem;
+      width: 52px;
+    }
+
+    .flow-arrow-label {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    html[data-theme="dark"] .flow-arrow-label { color: rgba(255,255,255,0.25); }
+
+    .flow-arrow-track {
+      position: relative;
+      width: 100%;
+      height: 1px;
+      background: var(--purple);
+      transform-origin: left center;
+      transform: scaleX(0);
+    }
+    .flow-arrow-track::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: -3.5px;
+      width: 7px;
+      height: 7px;
+      border-top: 1.5px solid var(--purple);
+      border-right: 1.5px solid var(--purple);
+      transform: rotate(45deg);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 800px) {
+      .flow-infographic { margin: 1.5rem 1.5rem 0; }
+
+      .flow-diagram {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        min-height: unset;
+        gap: 0;
+      }
+
+      .flow-arrow-col {
+        width: auto;
+        height: 36px;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .flow-arrow-label { display: none; }
+
+      .flow-arrow-track {
+        width: 1px;
+        height: 100%;
+        transform-origin: top center;
+        transform: scaleY(0);
+      }
+      .flow-arrow-track::after {
+        right: -3.5px;
+        top: auto;
+        bottom: -1px;
+        transform: rotate(135deg);
+      }
+    }
+
+  </style>
+</head>
+<body class="page-webdesign">
+
+  <div class="preview-banner">Preview only — not linked from the site</div>
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes"><img src="assets/logo.svg" alt="Adam Barnes" class="nav-logo-img"></a>
+    <div class="nav-links">
+      <a href="web-design.html" class="active">Web Design</a>
+      <a href="photography.html">Photography</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Toggle dark mode">
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="about.html"       data-page="about">       <span>About</span></a>
+      <a href="faq.html"         data-page="faq">         <span>FAQ</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+      <label class="theme-switch" for="theme-toggle" title="Toggle dark / light mode">
+        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Toggle dark mode">
+        <span class="theme-switch__track">
+          <span class="theme-switch__knob">
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </span>
+      </label>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970028">07725 970028</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <header class="section-header webdesign-header cs-header">
+      <div class="cs-header-text">
+        <div class="section-title">
+          <span>Domarn</span>
+          <span class="accent">Group</span>
+          <span class="by-line">by Adam</span>
+        </div>
+        <p class="section-intro">
+          <span class="intro-lead">Government-grade content, delivered precisely.</span>
+          Complex design documents transformed into clean, accessible HTML and Govspeak, ready for direct publication on GOV.UK with nothing left to fix.
+        </p>
+      </div>
+      <div class="cs-header-logo" aria-hidden="true">
+        <img src="assets/logos/domarn-group.svg" alt="">
+      </div>
+    </header>
+
+    <!-- Infographic -->
+    <section class="flow-infographic reveal" aria-label="Document conversion workflow">
+      <p class="flow-caption">The conversion workflow</p>
+      <div class="flow-diagram" id="flow-diagram">
+
+        <!-- Node 1: Source -->
+        <div class="flow-node" id="fn1">
+          <div class="flow-node-num">01</div>
+          <div class="flow-node-label">Source Document</div>
+          <div class="flow-node-body">
+            <div class="source-badges">
+              <div class="app-badge app-badge--id">Id</div>
+              <div class="app-badge app-badge--word">W</div>
+            </div>
+          </div>
+          <div class="flow-node-sub">InDesign · Word</div>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Export</div>
+          <div class="flow-arrow-track" id="fa1"></div>
+        </div>
+
+        <!-- Node 2: Raw HTML -->
+        <div class="flow-node" id="fn2">
+          <div class="flow-node-num">02</div>
+          <div class="flow-node-label">Raw HTML</div>
+          <div class="flow-node-body">
+            <pre class="flow-code flow-code--messy">&lt;span <span class="noise">style="color:
+#231f20;font-family:
+'Minion-Bold';
+font-size:10pt"</span>&gt;
+  Policy...
+&lt;/span&gt;
+&lt;p <span class="noise">style="margin:0pt;
+padding:0pt;
+text-indent:0"</span>&gt;</pre>
+          </div>
+          <div class="flow-node-sub">Unstructured output</div>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Convert</div>
+          <div class="flow-arrow-track" id="fa2"></div>
+        </div>
+
+        <!-- Node 3: Clean Output -->
+        <div class="flow-node flow-node--output" id="fn3">
+          <div class="flow-node-num">03</div>
+          <div class="flow-node-label">Clean Output</div>
+          <div class="flow-node-body">
+            <div class="flow-split">
+              <div>
+                <div class="flow-split-tag">Clean HTML</div>
+                <pre class="flow-code flow-code--clean">&lt;h2&gt;Policy&lt;/h2&gt;
+&lt;p&gt;Structured,
+accessible.&lt;/p&gt;</pre>
+              </div>
+              <div>
+                <div class="flow-split-tag">Govspeak</div>
+                <pre class="flow-code flow-code--govspeak">## Policy
+
+Structured,
+accessible.</pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-node-sub">Two formats · one workflow</div>
+        </div>
+
+        <!-- Arrow 3 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Publish</div>
+          <div class="flow-arrow-track" id="fa3"></div>
+        </div>
+
+        <!-- Node 4: GOV.UK -->
+        <div class="flow-node flow-node--govuk" id="fn4">
+          <div class="flow-node-num">04</div>
+          <div class="flow-node-label">Published</div>
+          <div class="flow-node-body">
+            <div class="govuk-inner">
+              <!-- Simplified Tudor Crown SVG -->
+              <svg class="govuk-crown-svg" viewBox="0 0 132 97" aria-hidden="true" focusable="false">
+                <path d="M66 0L52 25 32 10l10 40H90L100 10 80 25 66 0zM20 55h92v10H20z"/>
+                <rect x="15" y="68" width="102" height="29" rx="2"/>
+              </svg>
+              <div class="govuk-wordmark">GOV.UK</div>
+              <div class="govuk-ready">Ready to publish.<br>Nothing left to fix.</div>
+            </div>
+          </div>
+          <div class="flow-node-sub">Dept. for Transport</div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="cs-footer-nav reveal">
+      <a href="case-study-domarn-group.html" class="cs-back-link">← Back to Domarn Group</a>
+      <a href="contact.html" class="btn">Start a project</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes | Company: Platform Ticket LTD | No: 07755177 | <a href="privacy.html">Privacy Policy</a></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970028">07725 970028</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      var mobile = window.innerWidth <= 800;
+      var scaleProp = mobile ? 'scaleY' : 'scaleX';
+
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#flow-diagram',
+          start: 'top 78%',
+          once: true
+        }
+      });
+
+      tl.to('#fn1', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' })
+        .to('#fa1', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
+        .to('#fn2', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
+        .to('#fa2', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
+        .to('#fn3', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
+        .to('#fa3', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
+        .to('#fn4', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1');
+    });
+  </script>
+</body>
+</html>

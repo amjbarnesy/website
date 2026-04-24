@@ -1,4 +1,10 @@
 Options -Indexes
+
+# Block access to version control and sensitive files
+<FilesMatch "(^\.git|^\.gitignore|^\.env|^\.DS_Store|TECHNICAL-REFERENCE\.md)">
+  Require all denied
+</FilesMatch>
+
 RewriteEngine On
 
 # ── HTTPS ──────────────────────────────────────────────────────
