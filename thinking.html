@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thinking — Adam Barnes | Web Design & Photography</title>
+  <meta name="description" content="Ideas, opinions and honest observations from 25 years in design and digital. Adam Barnes on websites, photography, branding and working with clients who care.">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.adambarnes.biz/thinking.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Adam Barnes">
+  <meta property="og:title" content="Thinking — Adam Barnes | Web Design & Photography">
+  <meta property="og:description" content="Ideas, opinions and honest observations from 25 years in design and digital. Adam Barnes on websites, photography, branding and working with clients who care.">
+  <meta property="og:url" content="https://www.adambarnes.biz/thinking.html">
+  <meta property="og:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thinking — Adam Barnes | Web Design & Photography">
+  <meta name="twitter:description" content="Ideas, opinions and honest observations from 25 years in design and digital. Adam Barnes on websites, photography, branding and working with clients who care.">
+  <meta name="twitter:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Thinking — Adam Barnes",
+  "url": "https://www.adambarnes.biz/thinking.html",
+  "description": "Ideas, opinions and honest observations from 25 years in design and digital.",
+  "creator": {
+    "@type": "Person",
+    "name": "Adam Barnes",
+    "url": "https://www.adambarnes.biz",
+    "jobTitle": "Web Designer & Photographer"
+  },
+  "hasPart": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why your website and photography should come from the same person",
+      "url": "https://www.adambarnes.biz/article-website-photography-same-person.html",
+      "datePublished": "2026-03-10",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "Most businesses commission a website and then scramble for photos to fill it. There is a better way — and it starts before anyone opens a laptop."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Five things I notice immediately when I look at a business website",
+      "url": "https://www.adambarnes.biz/article-five-things-i-notice-on-a-website.html",
+      "datePublished": "2026-04-22",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "After 25 years designing for the web, certain things jump out before you've even scrolled. None of them require a big budget to fix."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What makes event photography actually useful — and what makes it wallpaper",
+      "url": "https://www.adambarnes.biz/article-what-makes-event-photography-useful.html",
+      "datePublished": "2026-02-08",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "Event photography that earns its place doesn't just document what happened. It tells you what it felt like to be there."
+    }
+  ]
+}
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
+  <style>
+    /* ── Thinking index page styles ── */
+
+    .thinking-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .thinking-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .thinking-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1.25rem 4rem;
+      }
+    }
+
+    .article-card {
+      border-left: 3px solid var(--purple);
+      background: var(--bg);
+      padding: 1.75rem 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      position: relative;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    html[data-theme="dark"] .article-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .article-card__tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.4);
+      margin-bottom: 0.6rem;
+    }
+
+    html[data-theme="dark"] .article-card__tag {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .article-card__date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(0, 0, 0, 0.35);
+      margin-bottom: 0.85rem;
+    }
+
+    html[data-theme="dark"] .article-card__date {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .article-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 1rem;
+      color: var(--black);
+    }
+
+    html[data-theme="dark"] .article-card__title {
+      color: var(--white);
+    }
+
+    .article-card__title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .article-card__title a:hover {
+      color: var(--purple);
+    }
+
+    .article-card__excerpt {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 1.5rem;
+      flex: 1;
+    }
+
+    html[data-theme="dark"] .article-card__excerpt {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .article-card__read {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-decoration: none;
+      transition: letter-spacing 0.2s var(--ease);
+      margin-top: auto;
+    }
+
+    .article-card__read:hover {
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body class="page-thinking">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes"><img src="assets/logo.svg" alt="Adam Barnes" class="nav-logo-img"></a>
+    <div class="nav-links">
+      <a href="web-design.html">Web Design</a>
+      <a href="photography.html">Photography</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="thinking.html" class="active">Thinking</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Toggle dark mode">
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="about.html"       data-page="about">       <span>About</span></a>
+      <a href="faq.html"         data-page="faq">         <span>FAQ</span></a>
+      <a href="thinking.html"    data-page="thinking">    <span>Thinking</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+      <label class="theme-switch" for="theme-toggle" title="Toggle dark / light mode">
+        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Toggle dark mode">
+        <span class="theme-switch__track">
+          <span class="theme-switch__knob">
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </span>
+      </label>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970028">07725 970028</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <header class="section-header" aria-label="Thinking">
+      <div class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Thinking</span>
+        <span class="by-line">by Adam</span>
+      </div>
+      <p class="section-intro">
+        <span class="intro-lead">Ideas, opinions and honest observations from 25 years in design and digital.</span>
+        Not a content strategy. Not keyword stuffing. Just things worth saying — about websites, photography, branding, and working with clients who care about getting it right.
+      </p>
+    </header>
+
+    <section class="thinking-grid reveal" aria-label="Articles">
+
+      <!-- Article 2: most recent first -->
+      <article class="article-card">
+        <span class="article-card__tag">Web Design</span>
+        <time class="article-card__date" datetime="2026-04-22">22 April 2026</time>
+        <h2 class="article-card__title"><a href="article-five-things-i-notice-on-a-website.html">Five things I notice immediately when I look at a business website</a></h2>
+        <p class="article-card__excerpt">After 25 years designing for the web, certain things jump out before you've even scrolled. None of them require a big budget to fix.</p>
+        <a href="article-five-things-i-notice-on-a-website.html" class="article-card__read" aria-label="Read: Five things I notice immediately when I look at a business website">Read &rarr;</a>
+      </article>
+
+      <!-- Article 1 -->
+      <article class="article-card">
+        <span class="article-card__tag">Both</span>
+        <time class="article-card__date" datetime="2026-03-10">10 March 2026</time>
+        <h2 class="article-card__title"><a href="article-website-photography-same-person.html">Why your website and photography should come from the same person</a></h2>
+        <p class="article-card__excerpt">Most businesses commission a website and then scramble for photos to fill it. There is a better way — and it starts before anyone opens a laptop.</p>
+        <a href="article-website-photography-same-person.html" class="article-card__read" aria-label="Read: Why your website and photography should come from the same person">Read &rarr;</a>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card">
+        <span class="article-card__tag">Photography</span>
+        <time class="article-card__date" datetime="2026-02-08">8 February 2026</time>
+        <h2 class="article-card__title"><a href="article-what-makes-event-photography-useful.html">What makes event photography actually useful — and what makes it wallpaper</a></h2>
+        <p class="article-card__excerpt">Event photography that earns its place doesn't just document what happened. It tells you what it felt like to be there.</p>
+        <a href="article-what-makes-event-photography-useful.html" class="article-card__read" aria-label="Read: What makes event photography actually useful — and what makes it wallpaper">Read &rarr;</a>
+      </article>
+
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-footer-nav reveal">
+      <span></span>
+      <a href="contact.html" class="btn">Get in touch</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes | Company: Platform Ticket LTD | No: 07755177 | <a href="privacy.html">Privacy Policy</a></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970028">07725 970028</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
