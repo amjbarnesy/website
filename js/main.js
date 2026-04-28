@@ -73,10 +73,9 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   }, { once: false });
 
   (function loop() {
-    curX += (mouseX - curX) * 0.12;
-    curY += (mouseY - curY) * 0.12;
-    cursor.style.left = curX + 'px';
-    cursor.style.top  = curY + 'px';
+    curX += (mouseX - curX) * 0.25;
+    curY += (mouseY - curY) * 0.25;
+    cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
     requestAnimationFrame(loop);
   })();
 
