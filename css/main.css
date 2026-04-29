@@ -1546,7 +1546,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 @media (max-height: 500px) and (orientation: landscape) {
   /* Hero — same as mobile portrait: hide image, centre text, remove indent */
-  .hero { padding: 4rem 1.5rem 2rem; }
+  .hero { padding: 2rem 1.5rem 1.5rem; min-height: auto; }
   .hero-portrait { display: none; }
   .hero-inner { display: block; text-align: center; border-bottom: none; }
   .hero-text { text-align: center; max-width: 100%; font-size: 1.1rem; }
@@ -1599,7 +1599,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 /* Manifesto landscape overrides — placed here so they win the cascade over the base styles above */
 @media (max-height: 500px) and (orientation: landscape) {
-  .manifesto { padding: 3rem 1.5rem; }
+  .manifesto { padding: 2rem 1.5rem; min-height: auto; }
   .manifesto-inner { padding-left: 0; text-align: center; }
   .manifesto-text { text-align: center; font-size: 1.1rem; text-wrap: pretty; }
   .manifesto-text br { display: none; }
