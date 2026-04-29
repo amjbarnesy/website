@@ -71,16 +71,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.adambarnes.biz/thinking.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.adambarnes.biz/article-website-photography-same-person.html</loc>
-    <priority>0.7</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
     <loc>https://www.adambarnes.biz/privacy.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
