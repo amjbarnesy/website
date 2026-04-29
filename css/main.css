@@ -1579,9 +1579,6 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
     padding-left: calc(clamp(22rem, 28vw, 28rem) + 2rem);
   }
 }
-@media (min-width: 1433px) {
-  .hero-tagline { font-size: 0.9rem; }
-}
 @media (min-width: 1400px) {
   .manifesto-text { font-size: 1.35rem; }
 }
