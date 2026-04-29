@@ -1546,7 +1546,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 @media (max-height: 500px) and (orientation: landscape) {
   /* Hero — same as mobile portrait: hide image, centre text, remove indent */
-  .hero { padding: 2rem 1.5rem 1.5rem; min-height: auto; }
+  .hero { padding: 4.5rem 1.5rem 1.5rem; min-height: auto; }
   .hero-portrait { display: none; }
   .hero-inner { display: block; text-align: center; border-bottom: none; }
   .hero-text { text-align: center; max-width: 100%; font-size: 1.1rem; }
