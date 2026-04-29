@@ -1549,12 +1549,13 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   .hero { padding: 4.5rem 10% 1.5rem; min-height: auto; }
   .hero-portrait { display: none; }
   .hero-inner { display: block; text-align: center; border-bottom: none; }
-  .hero-text { text-align: center; max-width: 100%; font-size: 0.95rem; }
+  .hero-text { text-align: center; max-width: 100%; font-size: 1.95rem; }
   .hero-word-swap .word { text-align: center; }
-  .hero-tagline { padding-left: 0; padding-right: 0; text-align: center; font-size: 0.95rem; line-height: 1.7; text-wrap: pretty; }
+  .hero-tagline { margin-top: 12px; margin-bottom: 12px; padding-left: 0; padding-right: 0; text-align: center; font-size: 0.85rem; line-height: 1.6; text-wrap: pretty; }
   .hero-tagline br { display: none; }
-  .hero-lets-talk { padding-left: 0; text-align: center; }
-  .line--by { margin-top: 0; }
+  .hero-lets-talk { display: none; }
+  .hero-scroll-hint { display: none; }
+  .line--by { margin-top: -12px; }
 }
 
 /* ── Manifesto (Home) ──────────────────────────────────────── */
@@ -1601,7 +1602,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 @media (max-height: 500px) and (orientation: landscape) {
   .manifesto { padding: 2rem 10%; min-height: auto; }
   .manifesto-inner { padding-left: 0; text-align: center; }
-  .manifesto-text { text-align: center; font-size: 0.95rem; text-wrap: pretty; }
+  .manifesto-text { text-align: center; font-size: 0.85rem; line-height: 1.6; text-wrap: pretty; }
   .manifesto-text br { display: none; }
 }
 
