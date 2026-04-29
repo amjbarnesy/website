@@ -1546,6 +1546,8 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-tagline { font-size: 0.6rem; line-height: 1.6; }
+  .hero { padding-right: 1rem; }
+  .manifesto { padding-right: 1rem; }
 }
 
 /* ── Manifesto (Home) ──────────────────────────────────────── */
