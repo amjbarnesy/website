@@ -1546,8 +1546,10 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-tagline { font-size: 0.6rem; line-height: 1.6; }
-  .hero { padding-right: 1rem; }
-  .manifesto { padding-right: 1rem; }
+  .hero { padding-right: 0; }
+  .manifesto { padding-right: 0; }
+  .hero-tagline { padding-left: calc(clamp(14rem, 22vw, 20rem) + 0.5rem); }
+  .manifesto-inner { padding-left: calc(clamp(14rem, 22vw, 20rem) + 0.5rem); }
 }
 
 /* ── Manifesto (Home) ──────────────────────────────────────── */
