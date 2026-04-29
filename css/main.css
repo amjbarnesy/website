@@ -1558,7 +1558,8 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   /* Manifesto — remove portrait-aligned indent, centre and slightly larger */
   .manifesto { padding: 3rem 1.5rem; }
   .manifesto-inner { padding-left: 0; text-align: center; }
-  .manifesto-text { text-align: center; font-size: 1.1rem; }
+  .manifesto-text { text-align: center; font-size: 1.1rem; text-wrap: pretty; }
+  .manifesto-text br { display: none; }
 }
 
 /* ── Manifesto (Home) ──────────────────────────────────────── */
