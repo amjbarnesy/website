@@ -1596,6 +1596,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   .manifesto { padding: 4rem 1.5rem; }
   .manifesto-inner { padding-left: 0; text-align: center; }
   .manifesto-text { font-size: 0.95rem; }
+  .manifesto-text br { display: none; }
 }
 
 /* Manifesto landscape overrides — placed here so they win the cascade over the base styles above */
