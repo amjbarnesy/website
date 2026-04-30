@@ -1787,7 +1787,7 @@ body.page-faq .section-title .accent { color: var(--blue); }
 .faq-item {
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-.faq-col .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+.faq-col .faq-item:last-child { border-bottom: none; }
 .faq-question {
   width: 100%;
   background: none;
