@@ -1549,7 +1549,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   .hero { padding: 4.5rem 10% 1.5rem; min-height: auto; }
   .hero-portrait { display: none; }
   .hero-inner { display: block; text-align: center; border-bottom: none; }
-  .hero-text { text-align: center; max-width: 100%; font-size: 1.95rem; }
+  .hero-text { text-align: center; max-width: 100%; font-size: 2.95rem; padding-top: 14px; }
   .hero-word-swap .word { text-align: center; }
   .hero-tagline { margin-top: 12px; margin-bottom: 12px; padding-left: 0; padding-right: 0; text-align: center; font-size: 0.85rem; line-height: 1.6; text-wrap: pretty; }
   .hero-tagline br { display: none; }
