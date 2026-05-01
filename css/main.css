@@ -1227,7 +1227,8 @@ html[data-theme="dark"] body.page-photography .cs-copy-heading { color: var(--gr
 }
 .btn--reversed:hover { background: var(--white); color: var(--black); }
 
-/* ── Back to top button ────────────────────────────────────── */
+.ab-proof__body .btn { align-self: flex-start; }
+
 .back-to-top {
   position: fixed;
   bottom: 2rem;
