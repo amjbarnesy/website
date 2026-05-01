@@ -325,11 +325,12 @@ function initWordCycle() {
     nav.classList.toggle('nav--on-dark', isOverDark && !inDarkMode);
   }
 
+  const navH = nav.offsetHeight;
   new IntersectionObserver(entries => {
     isOverDark = entries[0].isIntersecting;
     update();
   }, {
-    rootMargin: `-${nav.offsetHeight}px 0px 0px 0px`,
+    rootMargin: `0px 0px -${window.innerHeight - navH}px 0px`,
     threshold: 0
   }).observe(proof);
 
