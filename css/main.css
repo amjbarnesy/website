@@ -193,6 +193,12 @@ html[data-theme="dark"] .nav-theme-btn .theme-icon--moon { opacity: 1; }
 body.page-contact .nav-theme-btn { color: var(--white); }
 @media (max-width: 768px) { .nav-theme-btn { display: none; } }
 
+/* ── Nav on dark background (light mode only) ──────────────── */
+:root:not([data-theme="dark"]) nav.nav--on-dark .nav-links a { color: var(--white); transition: color 0.4s; }
+:root:not([data-theme="dark"]) nav.nav--on-dark .nav-theme-btn { color: var(--white); }
+:root:not([data-theme="dark"]) nav.nav--on-dark .nav-logo-img { filter: brightness(0) invert(1); transition: filter 0.4s; }
+:root:not([data-theme="dark"]) nav.nav--on-dark .hamburger span { background: var(--white); transition: background 0.4s; }
+
 /* ── Full-Screen Menu ──────────────────────────────────────── */
 .menu-overlay {
   position: fixed;

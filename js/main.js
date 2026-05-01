@@ -311,6 +311,31 @@ function initWordCycle() {
   if (navBtn) navBtn.addEventListener('click', () => setTheme(!isDark()));
 })();
 
+/* ── Nav invert on dark sections ───────────────────────────── */
+(function initNavInvert() {
+  const nav   = $('nav');
+  const proof = $('.ab-proof');
+  if (!nav || !proof) return;
+
+  let isOverDark = false;
+  const html = document.documentElement;
+
+  function update() {
+    const inDarkMode = html.getAttribute('data-theme') === 'dark';
+    nav.classList.toggle('nav--on-dark', isOverDark && !inDarkMode);
+  }
+
+  new IntersectionObserver(entries => {
+    isOverDark = entries[0].isIntersecting;
+    update();
+  }, {
+    rootMargin: `-${nav.offsetHeight}px 0px 0px 0px`,
+    threshold: 0
+  }).observe(proof);
+
+  new MutationObserver(update).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+
 /* ── Contact Form ───────────────────────────────────────────── */
 (function initContactForm() {
   const form = $('#contact-form');
