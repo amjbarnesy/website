@@ -1221,6 +1221,11 @@ html[data-theme="dark"] body.page-photography .cs-copy-heading { color: var(--gr
   cursor: none;
 }
 .btn:hover { background: var(--black); color: var(--white); }
+.btn--reversed {
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn--reversed:hover { background: var(--white); color: var(--black); }
 
 /* ── Back to top button ────────────────────────────────────── */
 .back-to-top {
