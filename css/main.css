@@ -1591,7 +1591,7 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
 
 .manifesto__corner-tl {
   position: absolute;
-  top: 24px;
+  top: 88px;
   left: 48px;
   font-family: var(--font-body);
   font-size: 10px;
