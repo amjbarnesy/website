@@ -1849,6 +1849,44 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 }
 .client-card--cta .btn:hover { background: var(--white); color: var(--black); }
 
+/* ── How it works steps ────────────────────────────────────── */
+.wd-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.wd-steps li {
+  display: grid;
+  grid-template-columns: 1.75rem auto 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.wd-steps__num {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+}
+.wd-steps__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--white);
+}
+.wd-steps__desc {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  text-align: right;
+}
+@media (max-width: 600px) {
+  .wd-steps li { grid-template-columns: 1.75rem 1fr; }
+  .wd-steps__desc { grid-column: 2; text-align: left; padding-top: 1px; }
+}
+
 /* ── Page: About ───────────────────────────────────────────── */
 body.page-about { --accent: var(--purple); }
 body.page-about .section-title .accent { color: var(--purple); }
