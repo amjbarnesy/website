@@ -1589,6 +1589,18 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   scroll-snap-align: start;
 }
 
+.manifesto__corner-tl {
+  position: absolute;
+  top: 24px;
+  left: 48px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+@media (max-width: 880px) { .manifesto__corner-tl { display: none; } }
+
 .manifesto-inner {
   width: 100%;
   max-width: 1100px;
@@ -2107,6 +2119,7 @@ html[data-theme="dark"] .hero-scroll-hint { color: rgba(255,255,255,0.3); }
 
 /* Manifesto */
 html[data-theme="dark"] .manifesto { border-color: rgba(255,255,255,0.1); }
+html[data-theme="dark"] .manifesto__corner-tl { color: rgba(255,255,255,0.35); }
 html[data-theme="dark"] .manifesto-black { color: var(--white); }
 html[data-theme="dark"] .manifesto-grey  { color: rgba(255,255,255,0.38); }
 
