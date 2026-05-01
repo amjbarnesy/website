@@ -311,6 +311,22 @@ function initWordCycle() {
   if (navBtn) navBtn.addEventListener('click', () => setTheme(!isDark()));
 })();
 
+/* ── Sync corner label positions ───────────────────────────── */
+(function syncCornerLabels() {
+  const proofLabel     = $('.ab-proof__corner-tl');
+  const manifestoLabel = $('.manifesto__corner-tl');
+  if (!proofLabel || !manifestoLabel) return;
+
+  function sync() {
+    // Distance from .ab-proof top to the label = inner's offsetTop + label's offsetTop
+    const top = proofLabel.offsetParent.offsetTop + proofLabel.offsetTop;
+    manifestoLabel.style.top = top + 'px';
+  }
+
+  sync();
+  window.addEventListener('resize', sync);
+})();
+
 /* ── Nav invert on dark sections ───────────────────────────── */
 (function initNavInvert() {
   const nav   = $('nav');
