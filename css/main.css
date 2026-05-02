@@ -478,7 +478,7 @@ html[data-theme="dark"] .hero-lets-talk:hover { color: var(--purple); }
 .intro-lead {
   display: block;
   font-size: 0.95rem;
-  line-height: 1;
+  line-height: 1.7;
   font-weight: 600;
   color: rgba(0,0,0,0.75);
   margin-bottom: 0.4em;
@@ -2097,6 +2097,7 @@ body.page-faq .section-title .accent { color: var(--blue); }
   .clients-header .intro-lead,
   .webdesign-header .intro-lead {
     margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
+    font-size: 1.05rem;
   }
   .about-header .section-intro,
   .photography-header .section-intro,
