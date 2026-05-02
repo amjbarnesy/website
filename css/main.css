@@ -476,7 +476,9 @@ html[data-theme="dark"] .hero-lets-talk:hover { color: var(--purple); }
   color: rgba(0,0,0,0.55);
 }
 .intro-lead {
-  display: block; /* forces line break after it */
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.7;
   font-weight: 600;
   color: rgba(0,0,0,0.75);
 }
