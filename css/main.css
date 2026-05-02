@@ -2076,15 +2076,27 @@ body.page-faq .section-title .accent { color: var(--blue); }
 .privacy-body h2:first-child { margin-top: 0; }
 
 /* All four inner pages: intro spacing and sizing */
+.about-header .intro-lead,
+.photography-header .intro-lead,
+.clients-header .intro-lead,
+.webdesign-header .intro-lead {
+  margin-top: 2rem;
+}
 .about-header .section-intro,
 .photography-header .section-intro,
 .clients-header .section-intro,
 .webdesign-header .section-intro {
-  margin-top: 2rem;
+  margin-top: 0.5em;
   margin-left: 0.2em;
 }
 
 @media (min-width: 769px) {
+  .about-header .intro-lead,
+  .photography-header .intro-lead,
+  .clients-header .intro-lead,
+  .webdesign-header .intro-lead {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
@@ -2092,7 +2104,7 @@ body.page-faq .section-title .accent { color: var(--blue); }
     position: static;
     left: auto; right: auto; top: auto;
     max-width: 630px !important;
-    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    margin-top: 0.5em;
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(0,0,0,0.55);
