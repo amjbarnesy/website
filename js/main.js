@@ -200,8 +200,11 @@ function initWordCycle() {
   gsap.from('.section-title', {
     y: 40, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.6
   });
-  gsap.from('.section-intro', {
+  gsap.from('.intro-lead', {
     y: 25, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.75
+  });
+  gsap.from('.section-intro', {
+    y: 25, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.9
   });
 
 })();
