@@ -2080,7 +2080,8 @@ body.page-faq .section-title .accent { color: var(--blue); }
 .photography-header .intro-lead,
 .clients-header .intro-lead,
 .webdesign-header .intro-lead {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-left: 0.2em;
 }
 .about-header .section-intro,
 .photography-header .section-intro,
@@ -2095,7 +2096,7 @@ body.page-faq .section-title .accent { color: var(--blue); }
   .photography-header .intro-lead,
   .clients-header .intro-lead,
   .webdesign-header .intro-lead {
-    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
   }
   .about-header .section-intro,
   .photography-header .section-intro,
