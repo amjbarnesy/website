@@ -39,6 +39,12 @@ Adam Barnes trades as Platform Ticket LTD (Company No: 07755177). He works acros
 - [FAQ](https://www.adambarnes.biz/faq.html): Answers to common questions on website costs, timelines, photography bookings and travel.
 - [Contact](https://www.adambarnes.biz/contact.html): Enquiry form, phone, email and social links.
 - [Case Study — Firstlight Festival](https://www.adambarnes.biz/case-study-firstlight-festival.html): Festival and event photography for Firstlight Festival since 2019, covering beach, stage, backstage, portraits and press calls on the Suffolk coast.
+- [Case Study — Gardner Denley](https://www.adambarnes.biz/case-study-gardner-denley.html): Bespoke WordPress website for Gardner Denley, Cambridge's prime property buying agency.
+- [Case Study — UK Director Magazine](https://www.adambarnes.biz/case-study-uk-director-magazine.html): WordPress platform build for UK Director Magazine — a multi-county digital media brand across Norfolk, Suffolk and Essex, with member portal and mobile app.
+- [Case Study — Macro-Advisory](https://www.adambarnes.biz/case-study-macro-advisory.html): WordPress membership platform connecting content, access control and automated email delivery across four geographic regions.
+- [Case Study — Domarn Group](https://www.adambarnes.biz/case-study-domarn-group.html): Government-grade document conversion for Domarn Group — clean HTML and Govspeak for GOV.UK, including work for the Department for Transport.
+- [Case Study — Boat Hire Norwich](https://www.adambarnes.biz/case-study-boat-hire-norwich.html): WordPress site and custom booking plugin for Boat Hire Norwich, built around specific timing rules.
+- [Case Study — adambarnes.biz](https://www.adambarnes.biz/case-study-adambarnes-biz.html): How and why this site was built without a CMS — pure HTML, CSS and JavaScript — optimised for performance, SEO and GEO.
 
 ## Social profiles
 
