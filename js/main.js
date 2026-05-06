@@ -321,9 +321,11 @@ function initWordCycle() {
   if (!proofLabel || !manifestoLabel) return;
 
   function sync() {
-    // Distance from .ab-proof top to the label = inner's offsetTop + label's offsetTop
-    const top = proofLabel.offsetParent.offsetTop + proofLabel.offsetTop;
-    manifestoLabel.style.top = top + 'px';
+    const abProof  = proofLabel.closest('.ab-proof');
+    const pr       = abProof.getBoundingClientRect();
+    const lr       = proofLabel.getBoundingClientRect();
+    manifestoLabel.style.top  = (lr.top  - pr.top)  + 'px';
+    manifestoLabel.style.left = (lr.left - pr.left) + 'px';
   }
 
   sync();
