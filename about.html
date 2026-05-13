@@ -18,3 +18,155 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About — Adam Barnes | Web Designer & Photographer, Norfolk & Suffolk">
   <meta name="twitter:description" content="25 years of getting websites and ideas into shape. The creative equivalent of a good edit — web design and photography, based in Norfolk and Suffolk, UK.">
+  <meta name="twitter:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Adam Barnes",
+    "url": "https://www.adambarnes.biz/about.html",
+    "description": "25+ years getting brands, websites and ideas into shape. Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Adam Barnes",
+      "jobTitle": "Web Designer & Photographer",
+      "url": "https://www.adambarnes.biz",
+      "email": "hello@adambarnes.biz",
+      "telephone": "+447725970028",
+      "sameAs": [
+        "https://www.instagram.com/adammjbarnes/",
+        "https://glass.photo/adam-barnes",
+        "https://bsky.app/profile/adambarnes.biz",
+        "https://500px.com/p/amjbarnesy"
+      ]
+    }
+  }
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/main.css?v=20260429">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
+</head>
+<body class="page-about">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Adam Barnes"><img src="assets/logo.svg" alt="Adam Barnes" class="nav-logo-img"></a>
+    <div class="nav-links">
+      <a href="web-design.html">Web Design</a>
+      <a href="photography.html">Photography</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html" class="active">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Toggle dark mode">
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <nav class="menu-nav">
+      <a href="index.html"       data-page="home">        <span>Home</span></a>
+      <a href="web-design.html"  data-page="web-design">  <span>Web Design</span></a>
+      <a href="photography.html" data-page="photography"> <span>Photography</span></a>
+      <a href="clients.html"     data-page="clients">     <span>Clients</span></a>
+      <a href="about.html"       data-page="about">       <span>About</span></a>
+      <a href="faq.html"         data-page="faq">         <span>FAQ</span></a>
+      <a href="contact.html"     data-page="contact">     <span>Contact</span></a>
+      <label class="theme-switch" for="theme-toggle" title="Toggle dark / light mode">
+        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Toggle dark mode">
+        <span class="theme-switch__track">
+          <span class="theme-switch__knob">
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="19.78" y1="4.22" x2="17.66" y2="6.34"/><line x1="6.34" y1="17.66" x2="4.22" y2="19.78"/></svg>
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </span>
+      </label>
+    </nav>
+    <div class="menu-footer">
+      <div class="menu-contact">
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a><br>
+        <a href="tel:+447725970028">07725 970028</a>
+      </div>
+      <div class="menu-social">
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+        <a href="https://www.linkedin.com/in/adbarnes/"   target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <header class="section-header about-header" aria-label="About Adam Barnes">
+      <h1 class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Thinking</span>
+        <span class="by-line">by Adam</span>
+      </h1>
+      <h2 class="intro-lead">25 years of getting websites and ideas into shape.</h2>
+      <p class="section-intro">Think of me as the creative equivalent of a good edit. I cut the waffle and keep what counts.</p>
+    </header>
+
+    <!-- Body copy -->
+    <section class="about-body reveal" aria-label="About Adam — full bio">
+      <div class="about-body-inner">
+        <div class="about-quote-mark" aria-hidden="true">“</div>
+        <div class="about-body-text">
+          <p>Logo development, identity, web build, and photography. Helping businesses define their objectives. Building on what makes them tick and developing their brand personality. Whether starting from scratch or you just know something isn't clicking.</p>
+          <p>From small local businesses, Cambridge's prime buying agents dealing with £6m properties, to central government; I've covered a lot of ground.</p>
+          <p>And my inspiration? It comes from doing the job that I love. Getting results for my clients.</p>
+          <p>When something needs building properly, I build it properly. That might mean a custom WordPress plugin engineered around one person's exact working rules, or a brand identity developed from the ground up rather than assembled from a template. Off-the-shelf has its place, but not when it doesn't fit. You're looking at <a href="case-study-adambarnes-biz.html">an example of it</a> right now.</p>
+          <p>Shooting and building under one roof means a brand can come together without the usual back-and-forth between suppliers. I've photographed festivals at sunrise, boardrooms, products and people — and then built the site those images live on.</p>
+          <p>Most of my work comes back around. Clients I first worked with a decade ago still call first. That's the bit I'm most proud of.</p>
+          <p>If you've worked with me and would be happy to <a href="https://g.page/r/CRQtsdhjld8VEBM/review" target="_blank" rel="noopener">leave a review</a>, I'd be genuinely grateful. It makes a real difference.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAs -->
+    <div class="about-cta reveal">
+      <a href="web-design.html" class="about-cta-item about-cta-item--web">
+        <span class="about-cta-label">See the web work</span>
+        <span class="about-cta-arrow">→</span>
+      </a>
+      <a href="photography.html" class="about-cta-item about-cta-item--photo">
+        <span class="about-cta-label">See the photography</span>
+        <span class="about-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Adam Barnes | Company: Platform Ticket LTD | No: 07755177 | <a href="privacy.html">Privacy Policy</a></span>
+    <span><a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a> · <a href="tel:+447725970028">07725 970028</a></span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a>
+      <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a>
+      <a href="https://www.linkedin.com/in/adbarnes/"   target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
