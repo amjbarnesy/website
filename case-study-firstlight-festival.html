@@ -333,7 +333,9 @@
   <script src="js/main.js" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    GLightbox({ selector: '.glightbox' });
+    if (typeof window.GLightbox !== 'undefined') {
+      GLightbox({ selector: '.glightbox' });
+    }
   </script>
 </body>
 </html>

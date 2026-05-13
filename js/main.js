@@ -5,7 +5,12 @@
 
 'use strict';
 
-gsap.registerPlugin(ScrollTrigger);
+const hasGSAP = typeof window.gsap !== 'undefined';
+const hasScrollTrigger = typeof window.ScrollTrigger !== 'undefined';
+
+if (hasGSAP && hasScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
@@ -15,6 +20,11 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 (function initPageTransition() {
   const overlay = $('#page-transition');
   if (!overlay) return;
+
+  if (!hasGSAP) {
+    overlay.style.display = 'none';
+    return;
+  }
 
   // Overlay starts off-screen below (set in CSS), we pull it up over page, then push it off above
   gsap.set(overlay, { yPercent: 0 }); // cover page immediately
@@ -121,6 +131,10 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 (function initHero() {
   const heroText = $('.hero-text');
   if (!heroText) return;
+  if (!hasGSAP) {
+    $$('.hero-text .line').forEach(el => { el.style.overflow = 'visible'; });
+    return;
+  }
 
   // Animate lines in from below — fromTo() explicitly sets start AND end
   // onComplete removes overflow:hidden from lines so tall words aren't clipped
@@ -196,6 +210,7 @@ function initWordCycle() {
 /* ── Section Header Animation (inner pages) ─────────────────── */
 (function initSectionHeader() {
   if ($('.hero-text')) return; // skip on homepage
+  if (!hasGSAP) return;
 
   gsap.from('.section-title', {
     y: 40, opacity: 0, duration: 1.0, ease: 'power4.out', delay: 0.6

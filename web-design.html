@@ -466,14 +466,16 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Stagger client names grey → black after page reveal (one-time on load)
-    gsap.from('.clients-grid .client-name', {
-      color: '#aaa',
-      duration: 0.15,
-      stagger: 0.15,
-      ease: 'none',
-      delay: 1.0,
-      clearProps: 'color'
-    });
+    if (typeof window.gsap !== 'undefined') {
+      gsap.from('.clients-grid .client-name', {
+        color: '#aaa',
+        duration: 0.15,
+        stagger: 0.15,
+        ease: 'none',
+        delay: 1.0,
+        clearProps: 'color'
+      });
+    }
 
     const backToTop = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {

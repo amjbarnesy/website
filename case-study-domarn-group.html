@@ -372,7 +372,7 @@ accessible.</pre>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      if (typeof gsap === 'undefined') return;
+      if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') return;
       gsap.registerPlugin(ScrollTrigger);
       var mobile = window.innerWidth <= 800;
       var scaleProp = mobile ? 'scaleY' : 'scaleX';

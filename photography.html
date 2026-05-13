@@ -369,9 +369,11 @@
       const caption = item.querySelector('.photo-caption');
       if (link && caption) link.dataset.description = caption.textContent;
     });
-    const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
-    lightbox.on('open', () => document.body.classList.add('lightbox-open'));
-    lightbox.on('close', () => document.body.classList.remove('lightbox-open'));
+    if (typeof window.GLightbox !== 'undefined') {
+      const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
+      lightbox.on('open', () => document.body.classList.add('lightbox-open'));
+      lightbox.on('close', () => document.body.classList.remove('lightbox-open'));
+    }
 
     // Back to top button
     const backToTop = document.getElementById('back-to-top');
