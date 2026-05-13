@@ -886,6 +886,32 @@ body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); 
 .cs-list li + li { margin-top: 0.2rem; }
 html[data-theme="dark"] .cs-list li { color: rgba(255,255,255,0.62); }
 
+.cs-quote {
+  margin: 2rem 0 0;
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(0,0,0,0.03);
+  border-radius: 0 4px 4px 0;
+}
+.cs-quote p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.7);
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+.cs-quote cite {
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  font-style: normal;
+}
+html[data-theme="dark"] .cs-quote { background: rgba(255,255,255,0.04); }
+html[data-theme="dark"] .cs-quote p { color: rgba(255,255,255,0.7); }
+html[data-theme="dark"] .cs-quote cite { color: rgba(255,255,255,0.35); }
+
 /* Tech strip (used on adambarnes.biz case study) */
 .cs-tech-strip {
   display: flex;
