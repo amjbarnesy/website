@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Design — Adam Barnes | WordPress & Bespoke Websites, Norfolk & Suffolk</title>
-  <meta name="description" content="WordPress, bespoke builds, and everything in between. From WordPress sites with clever custom plugins to hand-coded HTML where performance matters most. Based in Norfolk, 25 years of getting it right.">
+  <meta name="description" content="WordPress websites, bespoke builds and custom plugins. Hand-coded HTML where performance matters. Web design based in Norfolk with 25 years of experience.">
   <!-- Canonical -->
   <link rel="canonical" href="https://www.adambarnes.biz/web-design.html">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adam Barnes">
   <meta property="og:title" content="Web Design — Adam Barnes | WordPress & Bespoke Websites, Norfolk & Suffolk">
-  <meta property="og:description" content="WordPress, bespoke builds, and everything in between. From WordPress sites with clever custom plugins to hand-coded HTML where performance matters most. Based in Norfolk, 25 years of getting it right.">
+  <meta property="og:description" content="WordPress websites, bespoke builds and custom plugins. Hand-coded HTML where performance matters. Web design based in Norfolk with 25 years of experience.">
   <meta property="og:url" content="https://www.adambarnes.biz/web-design.html">
   <meta property="og:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Web Design — Adam Barnes | WordPress & Bespoke Websites, Norfolk & Suffolk">
-  <meta name="twitter:description" content="WordPress, bespoke builds, and everything in between. From WordPress sites with clever custom plugins to hand-coded HTML where performance matters most. Based in Norfolk, 25 years of getting it right.">
+  <meta name="twitter:description" content="WordPress websites, bespoke builds and custom plugins. Hand-coded HTML where performance matters. Web design based in Norfolk with 25 years of experience.">
   <meta name="twitter:image" content="https://www.adambarnes.biz/assets/og-image.jpg">
   <script type="application/ld+json">
 {
@@ -248,6 +248,7 @@
           <li>Photography</li>
           <li>Branding</li>
         </ul>
+        <a href="case-study-tom-appleton.html" class="cs-card-link">View case study →</a>
         <button class="btn-read-more" aria-expanded="false">Read more ↓</button>
         <div class="client-more" aria-hidden="true">
           <div>
@@ -465,14 +466,16 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Stagger client names grey → black after page reveal (one-time on load)
-    gsap.from('.clients-grid .client-name', {
-      color: '#aaa',
-      duration: 0.15,
-      stagger: 0.15,
-      ease: 'none',
-      delay: 1.0,
-      clearProps: 'color'
-    });
+    if (typeof window.gsap !== 'undefined') {
+      gsap.from('.clients-grid .client-name', {
+        color: '#aaa',
+        duration: 0.15,
+        stagger: 0.15,
+        ease: 'none',
+        delay: 1.0,
+        clearProps: 'color'
+      });
+    }
 
     const backToTop = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
