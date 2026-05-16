@@ -1041,6 +1041,9 @@ body.page-photography .section-title .accent { color: var(--green); }
 body.page-photography .cs-copy-heading { color: #91bf00; }
 html[data-theme="dark"] body.page-photography .cs-copy-heading { color: var(--green); }
 
+br.desk-break { display: none; }
+@media (min-width: 769px) { br.desk-break { display: block; } }
+
 /* ── Gallery navigation ────────────────────────────────────── */
 .gallery-nav {
   display: flex;
