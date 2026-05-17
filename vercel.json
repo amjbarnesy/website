@@ -1,0 +1,40 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "adambarnes.biz" }],
+      "destination": "https://www.adambarnes.biz/:path*",
+      "permanent": true
+    },
+    { "source": "/index.html",   "destination": "/",                "permanent": true },
+    { "source": "/team",         "destination": "/about.html",       "permanent": true },
+    { "source": "/showcase",     "destination": "/web-design.html",  "permanent": true },
+    { "source": "/contact",      "destination": "/contact.html",     "permanent": true },
+    { "source": "/portfolio",    "destination": "/web-design.html",  "permanent": true },
+    { "source": "/services",     "destination": "/web-design.html",  "permanent": true },
+    { "source": "/about",        "destination": "/about.html",       "permanent": true },
+    { "source": "/photography",  "destination": "/photography.html", "permanent": true },
+    { "source": "/blog/:path*",  "destination": "/",                 "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*\\.(?:css|js)$)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000" }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:avif|gif|ico|jpe?g|png|svg|webp|woff2?)$)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*\\.html?$)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ]
+}
