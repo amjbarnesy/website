@@ -539,6 +539,17 @@ body.page-clients .client-card:hover .client-logo-placeholder,
 body.page-clients .client-card:hover .client-name,
 body.page-clients .client-card:hover .client-desc,
 body.page-clients .client-card:hover .client-tags li { color: var(--black); border-color: rgba(0,0,0,0.2); }
+.client-card.is-touched { background: var(--accent, var(--orange)); }
+.client-card.is-touched .client-logo-placeholder,
+.client-card.is-touched .client-name,
+.client-card.is-touched .client-name a,
+.client-card.is-touched .client-desc,
+.client-card.is-touched .client-tags li { color: var(--white); border-color: rgba(255,255,255,0.3); }
+body.page-clients .client-card.is-touched { color: var(--black); }
+body.page-clients .client-card.is-touched .client-logo-placeholder,
+body.page-clients .client-card.is-touched .client-name,
+body.page-clients .client-card.is-touched .client-desc,
+body.page-clients .client-card.is-touched .client-tags li { color: var(--black); border-color: rgba(0,0,0,0.2); }
 
 /* ── Read-more overlay ─────────────────────────────────────── */
 .client-more {
@@ -613,8 +624,10 @@ body.page-clients .client-card:hover .client-tags li { color: var(--black); bord
   transition: opacity 0.2s;
 }
 .cs-card-link:hover { opacity: 0.7; }
-.client-card:hover .cs-card-link { color: var(--black); }
-.client-card:hover .btn-read-more { color: rgba(255,255,255,0.6); }
+.client-card:hover .cs-card-link,
+.client-card.is-touched .cs-card-link { color: var(--black); }
+.client-card:hover .btn-read-more,
+.client-card.is-touched .btn-read-more { color: rgba(255,255,255,0.6); }
 .client-card:hover .btn-read-more:hover { color: var(--white); }
 .btn-read-less {
   color: rgba(255,255,255,0.6);
@@ -629,7 +642,8 @@ body.page-clients .client-url { color: rgba(0,0,0,0.5); }
 body.page-clients .client-url:hover { color: var(--black); }
 body.page-clients .btn-read-less { color: rgba(0,0,0,0.5); }
 body.page-clients .btn-read-less:hover { color: var(--black); }
-body.page-clients .client-card:hover .btn-read-more { color: rgba(0,0,0,0.4); }
+body.page-clients .client-card:hover .btn-read-more,
+body.page-clients .client-card.is-touched .btn-read-more { color: rgba(0,0,0,0.4); }
 body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black); }
 
 /* ── Client logo circles (web-design.html) ─────────────────────
@@ -683,7 +697,8 @@ body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black);
   flex-shrink: 0;
   transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.client-card:hover .client-avatar {
+.client-card:hover .client-avatar,
+.client-card.is-touched .client-avatar {
   background: var(--black);
   color: var(--yellow);
   border-color: var(--black);
@@ -697,8 +712,10 @@ body.page-clients .client-card:hover .btn-read-more:hover { color: var(--black);
   margin-bottom: 0.9rem;
   transition: color 0.4s;
 }
-.client-card:hover .client-company { color: rgba(255,255,255,0.6); }
-body.page-clients .client-card:hover .client-company { color: rgba(0,0,0,0.45); }
+.client-card:hover .client-company,
+.client-card.is-touched .client-company { color: rgba(255,255,255,0.6); }
+body.page-clients .client-card:hover .client-company,
+body.page-clients .client-card.is-touched .client-company { color: rgba(0,0,0,0.45); }
 
 .client-logo-placeholder {
   width: 80px;
@@ -2229,7 +2246,8 @@ html[data-theme="dark"] .btn:hover { background: var(--white); color: var(--blac
 
 /* Client cards */
 html[data-theme="dark"] .client-card { background: var(--black); border-color: rgba(255,255,255,0.1); }
-html[data-theme="dark"] .client-card:hover { background: var(--accent, var(--orange)); }
+html[data-theme="dark"] .client-card:hover,
+html[data-theme="dark"] .client-card.is-touched { background: var(--accent, var(--orange)); }
 html[data-theme="dark"] .client-card--cta { background: #1a1a1a; border-color: rgba(255,255,255,0.15); }
 html[data-theme="dark"] .client-desc    { color: rgba(255,255,255,0.55); }
 html[data-theme="dark"] .client-company { color: rgba(255,255,255,0.35); }
