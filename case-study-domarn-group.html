@@ -251,7 +251,7 @@
     </section>
 
     <!-- Workflow infographic -->
-    <section class="flow-infographic reveal" aria-label="Document conversion workflow">
+    <section class="flow-infographic" aria-label="Document conversion workflow">
       <p class="flow-caption">The conversion workflow</p>
       <div class="flow-diagram" id="flow-diagram">
 
@@ -364,18 +364,26 @@ accessible.</pre>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
+      if (typeof gsap === 'undefined') return;
+      var diagram = document.getElementById('flow-diagram');
+      if (!diagram) return;
       var mobile = window.innerWidth <= 800;
       var scaleProp = mobile ? 'scaleY' : 'scaleX';
-      var tl = gsap.timeline({ scrollTrigger: { trigger: '#flow-diagram', start: 'top 78%', once: true } });
-      tl.to('#fn1', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' })
-        .to('#fa1', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
-        .to('#fn2', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
-        .to('#fa2', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
-        .to('#fn3', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
-        .to('#fa3', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
-        .to('#fn4', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1');
+      var nodeFrom  = { opacity: 0, y: 14 };
+      var nodeTo    = { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' };
+      var arrowFrom = { [scaleProp]: 0 };
+      var arrowTo   = { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' };
+      var tl = gsap.timeline({ paused: true });
+      tl.fromTo('#fn1', nodeFrom, nodeTo)
+        .fromTo('#fa1', arrowFrom, arrowTo, '+=0.05')
+        .fromTo('#fn2', nodeFrom, nodeTo, '-=0.1')
+        .fromTo('#fa2', arrowFrom, arrowTo, '+=0.05')
+        .fromTo('#fn3', nodeFrom, nodeTo, '-=0.1')
+        .fromTo('#fa3', arrowFrom, arrowTo, '+=0.05')
+        .fromTo('#fn4', nodeFrom, nodeTo, '-=0.1');
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { tl.play(); obs.disconnect(); }
+      }, { threshold: 0.1 }).observe(diagram);
     });
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
