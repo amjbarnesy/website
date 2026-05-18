@@ -80,12 +80,8 @@
     "url": "https://www.adambarnes.biz/photography.html"
   }
   </script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
+  <link rel="preload" href="/css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
   <link rel="stylesheet" href="css/main.css?v=20260429">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -359,10 +355,6 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script src="js/main.js" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     // Sync photo-caption text → data-description so lightbox shows the same caption
@@ -371,9 +363,11 @@
       const caption = item.querySelector('.photo-caption');
       if (link && caption) link.dataset.description = caption.textContent;
     });
-    const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
-    lightbox.on('open', () => document.body.classList.add('lightbox-open'));
-    lightbox.on('close', () => document.body.classList.remove('lightbox-open'));
+    if (typeof window.GLightbox !== 'undefined') {
+      const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false });
+      lightbox.on('open', () => document.body.classList.add('lightbox-open'));
+      lightbox.on('close', () => document.body.classList.remove('lightbox-open'));
+    }
 
     // Back to top button
     const backToTop = document.getElementById('back-to-top');
@@ -386,6 +380,10 @@
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="/js/cookie-consent.js"></script>
 </body>
 </html>

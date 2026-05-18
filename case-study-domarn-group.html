@@ -33,7 +33,6 @@
     "description": "Ongoing document conversion work for Domarn Group, transforming complex InDesign and Word documents into clean HTML and Govspeak for GOV.UK publication, including work for the Department for Transport.",
     "keywords": ["HTML", "Govspeak", "GOV.UK", "Accessibility", "Document Conversion", "Department for Transport"]
   }
-  </script>
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -44,7 +43,6 @@
       {"@type": "ListItem", "position": 3, "name": "Domarn Group", "item": "https://www.adambarnes.biz/case-study-domarn-group.html"}
     ]
   }
-  </script>
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -66,12 +64,8 @@
     "dateModified": "2026-04-22"
   }
   </script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TJ8ENE0WB"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0TJ8ENE0WB');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap">
+  <link rel="preload" href="/css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
   <link rel="stylesheet" href="css/main.css?v=20260429">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <style>
@@ -368,10 +362,6 @@ accessible.</pre>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       if (typeof gsap === 'undefined') return;
@@ -395,6 +385,10 @@ accessible.</pre>
         if (entries[0].isIntersecting) { tl.play(); obs.disconnect(); }
       }, { threshold: 0.1 }).observe(diagram);
     });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="/js/cookie-consent.js"></script>
 </body>
 </html>
