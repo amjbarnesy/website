@@ -259,6 +259,23 @@ function initWordCycle() {
   });
 })();
 
+/* ── Card touch hover (iOS Safari) ─────────────────────────── */
+(function initCardTouchHover() {
+  if (!window.matchMedia('(pointer: coarse)').matches) return;
+  const cards = $$('.client-card');
+  if (!cards.length) return;
+  const clearTouched = () => cards.forEach(c => c.classList.remove('is-touched'));
+  cards.forEach(card => {
+    card.addEventListener('touchstart', () => {
+      clearTouched();
+      card.classList.add('is-touched');
+    }, { passive: true });
+  });
+  document.addEventListener('touchstart', e => {
+    if (!e.target.closest('.client-card')) clearTouched();
+  }, { passive: true });
+})();
+
 /* ── Client Read More ──────────────────────────────────────── */
 (function initReadMore() {
   const COLLAPSE_DELAY = 5000;
