@@ -375,10 +375,11 @@ accessible.</pre>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       if (typeof gsap === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
+      var diagram = document.getElementById('flow-diagram');
+      if (!diagram) return;
       var mobile = window.innerWidth <= 800;
       var scaleProp = mobile ? 'scaleY' : 'scaleX';
-      var tl = gsap.timeline({ scrollTrigger: { trigger: '#flow-diagram', start: 'top 78%', once: true } });
+      var tl = gsap.timeline({ paused: true });
       tl.to('#fn1', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' })
         .to('#fa1', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
         .to('#fn2', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
@@ -386,6 +387,9 @@ accessible.</pre>
         .to('#fn3', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1')
         .to('#fa3', { [scaleProp]: 1, duration: 0.28, ease: 'power1.inOut' }, '+=0.05')
         .to('#fn4', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.1');
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) { tl.play(); obs.disconnect(); }
+      }, { threshold: 0.1 }).observe(diagram);
     });
   </script>
 </body>
