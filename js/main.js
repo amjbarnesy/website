@@ -337,13 +337,23 @@ function initWordCycle() {
       localStorage.setItem('theme', 'light');
     }
     if (checkbox) checkbox.checked = dark;
+    if (navBtn) {
+      const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+      navBtn.title = label;
+      navBtn.setAttribute('aria-label', label);
+    }
   };
 
   if (checkbox) {
     checkbox.checked = isDark();
     checkbox.addEventListener('change', () => setTheme(checkbox.checked));
   }
-  if (navBtn) navBtn.addEventListener('click', () => setTheme(!isDark()));
+  if (navBtn) {
+    const label = isDark() ? 'Switch to light mode' : 'Switch to dark mode';
+    navBtn.title = label;
+    navBtn.setAttribute('aria-label', label);
+    navBtn.addEventListener('click', () => setTheme(!isDark()));
+  }
 })();
 
 /* ── Sync corner label positions ───────────────────────────── */
