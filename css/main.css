@@ -2413,3 +2413,23 @@ body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+4) { --card-bg: #F4F1EA; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+5),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+5) { --card-bg: #EEEBE3; }
+
+/* ════════════════════════════════════════════════════════════════
+   TESTIMONIAL "YES" RACK FOCUS  (homepage)
+   The giant decorative YES (.ab-proof__mono, aria-hidden) starts blurred and
+   pulls into focus when the testimonials section scrolls into view, re-blurring
+   when it leaves so it re-triggers each time. JS (initMonoFocus in main.js)
+   toggles .in-focus; the transition here does the focus pull. A CSS-only
+   animation could not be used because it would fire on page load while the
+   section is still below the fold, finishing long before it is seen.
+   Reverts by deleting this block and the initMonoFocus IIFE in main.js.
+   ════════════════════════════════════════════════════════════════ */
+.ab-proof__mono {
+  filter: blur(20px);
+  transition: filter 0.6s var(--ease);
+}
+.ab-proof__mono.in-focus { filter: blur(0); }
+/* Reduced motion: skip the blur entirely, show it sharp from the start. */
+@media (prefers-reduced-motion: reduce) {
+  .ab-proof__mono { filter: none; }
+}

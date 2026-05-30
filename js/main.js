@@ -241,6 +241,32 @@ function initWordCycle() {
   items.forEach(el => io.observe(el));
 })();
 
+/* ── Testimonial "YES" rack focus ──────────────────────────────
+   The giant decorative YES starts soft and pulls into focus each time the
+   testimonials section scrolls into view, re-blurring when it leaves so it
+   re-triggers on the way back. CSS holds the blur and does the transition;
+   this toggles .in-focus, adding it after a short beat so the blur reads
+   before it sharpens. The timer is cleared on exit so a quick scroll past
+   does not focus the word after it has already left. */
+(function initMonoFocus() {
+  const mono = $('.ab-proof__mono');
+  if (!mono) return;
+
+  let timer;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      clearTimeout(timer);
+      if (entry.isIntersecting) {
+        timer = setTimeout(() => mono.classList.add('in-focus'), 500);
+      } else {
+        mono.classList.remove('in-focus');
+      }
+    });
+  }, { threshold: 0.25 });
+
+  io.observe(mono);
+})();
+
 /* ── Gallery Section Anchors ────────────────────────────────── */
 (function initGalleryNav() {
   const navLinks = $$('.gallery-nav a[href^="#"]');
