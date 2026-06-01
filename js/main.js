@@ -267,6 +267,27 @@ function initWordCycle() {
   io.observe(mono);
 })();
 
+/* ── Hero portrait video: force Safari onto the HEVC source ─────
+   The hero <video> offers WebM (VP9+alpha) first, then HEVC (alpha). Safari
+   can decode VP9 WebM but ignores its alpha channel, so it picks the WebM and
+   plays the transparent areas as black (invisible in dark mode, a black box in
+   light mode). It never falls through to the HEVC, which is the format it CAN
+   show transparently. So on Safari we drop the WebM source and reload, leaving
+   the HEVC as the chosen source. Other browsers are left untouched. */
+(function initHeroPortraitVideo() {
+  const ua = navigator.userAgent;
+  const isSafari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(ua);
+  if (!isSafari) return;
+
+  const video = document.getElementById('hero-portrait');
+  if (!video || video.tagName !== 'VIDEO') return;
+
+  const webm = video.querySelector('source[type="video/webm"]');
+  if (webm) webm.remove();
+  video.load();
+  video.play().catch(() => {}); // autoplay may already be running; ignore rejects
+})();
+
 /* ── Gallery Section Anchors ────────────────────────────────── */
 (function initGalleryNav() {
   const navLinks = $$('.gallery-nav a[href^="#"]');

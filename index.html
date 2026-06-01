@@ -233,7 +233,19 @@
           </span>
         </span>
       </h1>
-      <img src="assets/adam-portrait.webp" alt="Adam Barnes" class="hero-portrait" id="hero-portrait">
+      <!-- Living portrait: video occasionally glances + smirks. Same id/class as the
+           old img so GSAP fade-in and CSS sizing carry over. Two transparent sources
+           so it sits on any background (works in dark mode): WebM/VP9 alpha for
+           Chrome/Firefox/Edge, HEVC alpha for Safari. poster = the still cutout,
+           shown before play and as the fallback if neither video can load. -->
+      <video class="hero-portrait" id="hero-portrait"
+             autoplay muted loop playsinline preload="auto"
+             poster="assets/adam-portrait.webp"
+             aria-label="Adam Barnes">
+        <source src="assets/adam-portrait.webm" type="video/webm">
+        <source src="assets/adam-portrait-alpha.mp4" type="video/mp4; codecs=hvc1">
+        <img src="assets/adam-portrait.webp" alt="Adam Barnes">
+      </video>
     </div>
 
     <!-- Tagline — below the rule, right-aligned to headline edge -->
