@@ -1210,6 +1210,12 @@ br.desk-break { display: none; }
 .photo-placeholder {
   display: block;
   width: 100%;
+  /* max-width caps the image to its column even when its intrinsic size (the
+     width="1700" attribute on the commercial shots) is larger. Without this,
+     CSS multi-column uses that large intrinsic width as the column's
+     min-content width and drops the commercial grid from 3 columns to 2 to
+     fit. Capping it lets all sections hold the full columns:3. */
+  max-width: 100%;
   height: auto;
   transition: transform 0.6s var(--ease);
 }
