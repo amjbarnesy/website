@@ -2484,6 +2484,25 @@ body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.featu
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --bloom-origin: 100% 50%; }   /* right-centre */
 
+/* Dark mode: no bloom. The gradient above sits on `background` at high
+   specificity and would otherwise beat the dark-mode card rule, leaving the
+   tiles light. Restore the flat dark fill at matching specificity so dark mode
+   looks as it did before the bloom (hover still goes accent via the dark
+   hover rule). */
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+  background: var(--black);
+}
+/* Dark-mode hover/touch: keep the accent fill (orange on web design, yellow on
+   clients). Needs to sit at this raised specificity so it beats the dark flat
+   fill directly above. */
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
+html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched {
+  background: var(--accent, var(--orange));
+}
+
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIAL "YES" RACK FOCUS  (homepage)
    The giant decorative YES (.ab-proof__mono, aria-hidden) starts blurred and
