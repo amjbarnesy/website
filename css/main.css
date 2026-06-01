@@ -2436,6 +2436,55 @@ body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.featu
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --card-bg: #F2F0EB; }
 
 /* ════════════════════════════════════════════════════════════════
+   CARD RADIAL BLOOM  (experiment, web-design.html + clients.html, NOT live yet)
+   Builds on the flat grey shades above: instead of a solid --card-bg, each
+   card's background becomes a radial gradient where that same shade is the
+   darkest point, blooming from a different corner and fading to a lighter
+   tint (--card-tint). The intent is a soft sense of depth and per-card
+   difference. --card-bg is left intact so the accent hover (orange on web
+   design, yellow on clients), the CTA/feature exclusions and dark mode all
+   still override the background normally (hover sets a flat colour, which
+   replaces this gradient). Both pages get the bloom; each keeps its own accent
+   on hover via --accent. Seven origin corners cycle so neighbouring cards and
+   stacked rows start from different places.
+   Revert by deleting this whole block. The tint is a near-white so the bloom
+   stays subtle; lift each --card-tint toward its --card-bg for less contrast,
+   or push it lighter for more.
+   ════════════════════════════════════════════════════════════════ */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+  --card-tint: #FAF9F5;
+  background:
+    radial-gradient(120% 120% at var(--bloom-origin, 100% 100%),
+      var(--card-bg) 0%, var(--card-tint) 78%);
+}
+/* The gradient sits on `background` at high specificity, which would beat the
+   plain .client-card:hover rule, so restore the accent fill on hover/touch at
+   matching specificity. --accent is orange on web design, yellow on clients,
+   so each page keeps its own hover colour. */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched {
+  background: var(--accent, var(--orange));
+}
+/* Bloom origin per card: a different corner/edge on each step of the 7-cycle. */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1) { --bloom-origin: 0% 0%; }      /* top-left */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2) { --bloom-origin: 100% 0%; }    /* top-right */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3) { --bloom-origin: 100% 100%; }  /* bottom-right */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4) { --bloom-origin: 0% 100%; }    /* bottom-left */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5) { --bloom-origin: 50% 0%; }     /* top-centre */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6) { --bloom-origin: 0% 50%; }     /* left-centre */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --bloom-origin: 100% 50%; }   /* right-centre */
+
+/* ════════════════════════════════════════════════════════════════
    TESTIMONIAL "YES" RACK FOCUS  (homepage)
    The giant decorative YES (.ab-proof__mono, aria-hidden) starts blurred and
    pulls into focus when the testimonials section scrolls into view, re-blurring

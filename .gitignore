@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Large local-only media + tools that must never go to the repo.
+# The ProRes master is the source for the hero videos; keep it backed up
+# elsewhere, not in git. ffmpeg is the standalone converter binary.
+assets/adam-portrait-master.mov
+assets/ffmpeg
