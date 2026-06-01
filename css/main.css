@@ -2393,26 +2393,41 @@ body.page-webdesign .clients-grid {
 
 /* ════════════════════════════════════════════════════════════════
    CARD GREY SHADES  (experiment, web-design.html + clients.html)
-   Each card gets one of a few very light warm-greys so the cards read as
-   distinct tiles rather than identical clones, while staying subtle and
-   clean. Set through --card-bg (see the .client-card base rule) so the
+   Each card gets one of several very light warm-greys so the cards read as
+   distinct, separate tiles rather than identical clones, while staying subtle
+   and clean. Set through --card-bg (see the .client-card base rule) so the
    accent hover (orange on web design, yellow on clients), the touched state
-   and the dark-mode fill all still override normally. A 5-shade cycle keeps
-   neighbouring cards in source order always different. The CTA card is
-   excluded so it keeps its dark fill; dark mode is unaffected (those cards
-   use their literal dark fill, which ignores --card-bg).
-   Revert by deleting this block and restoring the .client-card background.
-   ════════════════════════════════════════════════════════════════ */
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+1),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+1) { --card-bg: #F7F5F0; }
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+2),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+2) { --card-bg: #F2F0EA; }
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+3),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+3) { --card-bg: #ECEAE3; }
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+4),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+4) { --card-bg: #F4F1EA; }
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):nth-child(5n+5),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):nth-child(5n+5) { --card-bg: #EEEBE3; }
+   and the dark-mode fill all still override normally.
+
+   Seven shades, not five, and on purpose: the grid shows 3, 4 or 5 columns
+   depending on width, and a cycle whose length matches the column count makes
+   every row repeat the row above, so shades line up into vertical stripes and
+   the cards feel connected. Seven shares no common factor with 3, 4, 5 or 6,
+   so the cycle is offset by a different amount on every row at any of those
+   widths and nothing lines up vertically. The shades are also listed in a
+   high/low zig-zag order (not light-to-dark) so neighbouring cards always
+   differ clearly rather than by a hair.
+
+   The CTA card is excluded so it keeps its dark fill, and the adambarnes.biz
+   feature card is excluded too (:not(.feature)) so it always falls back to the
+   original --white. Dark mode is unaffected (those cards use their literal
+   dark fill, which ignores --card-bg). The shades sit in a tight, light range
+   (236 to 248) so even the darkest reads light, not heavy.
+   Revert by deleting this block and restoring the .client-card background. */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1) { --card-bg: #F8F6F1; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2) { --card-bg: #F0EEE9; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3) { --card-bg: #F6F4EF; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4) { --card-bg: #EEECE7; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5) { --card-bg: #F4F2ED; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6) { --card-bg: #ECEAE5; }
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --card-bg: #F2F0EB; }
 
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIAL "YES" RACK FOCUS  (homepage)
