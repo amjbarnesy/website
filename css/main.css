@@ -1945,6 +1945,8 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 @media (max-width: 600px) {
   .wd-steps li { grid-template-columns: 1.75rem 1fr; }
   .wd-steps__desc { grid-column: 2; text-align: left; padding-top: 1px; }
+  .wd-facts__item { grid-template-columns: 1fr; }
+  .wd-facts__value { text-align: left; }
 }
 
 /* ── Practical facts strip (inside CTA card) ───────────────── */
@@ -1953,9 +1955,10 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
   border-top: 1px solid rgba(255,255,255,0.12);
 }
 .wd-facts__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
   padding: 0.7rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.12);
 }
@@ -1967,9 +1970,9 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 }
 .wd-facts__value {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.85);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  text-align: right;
 }
 .wd-faq-link {
   display: inline-block;
