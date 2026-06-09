@@ -212,7 +212,7 @@ body.page-contact nav,
 nav::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: -1rem;
+  top: 0; left: 0; right: 0; bottom: -3rem;
   z-index: -1;
   pointer-events: none;
   background-color: rgba(var(--nav-frost), 0.55);
@@ -220,9 +220,10 @@ nav::before {
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   transition: opacity 0.25s ease, background-color 0.4s ease;
-  /* soft lower edge: the frosted panel fades to nothing at its bottom */
-  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent);
-          mask-image: linear-gradient(to bottom, #000 62%, transparent);
+  /* Soft lower edge: a small solid cap behind the logo/links, then one long
+     linear ramp to transparent — gradual, with no knee/hard line. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent);
+          mask-image: linear-gradient(to bottom, #000 35%, transparent);
 }
 nav.is-scrolled::before { opacity: 1; }
 
