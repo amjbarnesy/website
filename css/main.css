@@ -485,7 +485,7 @@ html[data-theme="dark"] .hero-lets-talk:hover { color: var(--purple); }
 }
 
 /* ── Page: Web Design ──────────────────────────────────────── */
-body.page-webdesign { --orange: #fc9803; --accent: var(--orange); }
+body.page-webdesign { --orange: #fc9803; --accent: var(--orange); --accent-ink: #000; }
 body.page-webdesign .section-title .accent { color: var(--orange); }
 body.page-webdesign .client-avatar {
   background: #CCCCCC;
@@ -1058,7 +1058,7 @@ html[data-theme="dark"] .cs-back-link { color: rgba(255,255,255,0.4); }
 .cs-body-inner .photo-grid { margin: 5rem 0 2rem; }
 
 /* ── Page: Photography ─────────────────────────────────────── */
-body.page-photography { --accent: var(--green); }
+body.page-photography { --accent: var(--green); --accent-ink: #000; }
 body.page-photography .section-title .accent { color: var(--green); }
 body.page-photography .cs-copy-heading { color: #91bf00; }
 html[data-theme="dark"] body.page-photography .cs-copy-heading { color: var(--green); }
@@ -1076,7 +1076,7 @@ br.desk-break { display: none; }
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
-.gallery-nav a {
+.gallery-nav a:not(.gallery-nav__cta) {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1085,7 +1085,7 @@ br.desk-break { display: none; }
   transition: opacity 0.3s, color 0.3s;
   white-space: nowrap;
 }
-.gallery-nav a:hover { opacity: 1; color: var(--green); }
+.gallery-nav a:not(.gallery-nav__cta):hover { opacity: 1; color: var(--green); }
 
 @media (max-width: 768px) {
   .gallery-nav {
@@ -1110,43 +1110,19 @@ br.desk-break { display: none; }
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.5rem;
   }
-  .gallery-nav a {
+  .gallery-nav a:not(.gallery-nav__cta) {
     white-space: nowrap;
     flex-shrink: 0;
     font-size: 0.6rem;
   }
 }
 
-/* Portfolio CTA button sitting at the end of the gallery nav row */
+/* Portfolio CTA at the end of the gallery nav row. Appearance comes from
+   .btn-cta; the gallery-nav link rules exclude it via :not(.gallery-nav__cta),
+   so this only handles placement. */
 .gallery-nav__cta {
   margin-left: auto;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--black);
-  border: 1.5px solid var(--black);
-  padding: 0.5rem 1.1rem;
   white-space: nowrap;
-  transition: background 0.3s, color 0.3s, border-color 0.3s, opacity 0.3s;
-}
-.gallery-nav a.gallery-nav__cta { opacity: 1; }
-.gallery-nav a.gallery-nav__cta:hover {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--white);
-  opacity: 1;
-}
-html[data-theme="dark"] .gallery-nav a.gallery-nav__cta {
-  color: var(--white);
-  border-color: rgba(255,255,255,0.5);
-  opacity: 1;
-}
-html[data-theme="dark"] .gallery-nav a.gallery-nav__cta:hover {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--white);
 }
 @media (max-width: 768px) {
   .gallery-nav__cta {
@@ -1154,6 +1130,22 @@ html[data-theme="dark"] .gallery-nav a.gallery-nav__cta:hover {
     margin-left: 0;
     margin-top: 0.5rem;
     text-align: center;
+  }
+}
+/* Tablet range (e.g. iPad 11"): the links wrap to two lines and the
+   right-pushed CTA is left stranded. Drop it onto its own line, left-aligned,
+   with breathing room. Above ~1300px everything fits one line as intended. */
+@media (min-width: 769px) and (max-width: 1290px) {
+  .gallery-nav::after {
+    content: "";
+    flex-basis: 100%;
+    height: 0;
+    order: 1;
+  }
+  .gallery-nav__cta {
+    order: 2;
+    margin-left: 0;
+    margin-top: 0.75rem;
   }
 }
 
@@ -1334,6 +1326,114 @@ html[data-theme="dark"] .gallery-nav a.gallery-nav__cta:hover {
 }
 .btn--reversed:hover { background: var(--white); color: var(--black); }
 
+/* Primary action button. Filled, so it outranks the outline .btn.
+   Reusable: drop .btn-primary on any link or button. */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  background: var(--black);
+  color: var(--white);
+  border: 1.5px solid var(--black);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s var(--ease);
+  cursor: none;
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+.btn-primary__arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease);
+}
+.btn-primary:hover .btn-primary__arrow,
+.btn-primary:focus-visible .btn-primary__arrow {
+  transform: translateX(4px);
+}
+html[data-theme="dark"] .btn-primary {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .btn-primary:focus-visible {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+}
+html[data-theme="dark"] .btn-primary:focus-visible {
+  outline-color: var(--white);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary { transition: background 0.3s, color 0.3s, border-color 0.3s; }
+  .btn-primary__arrow { transition: none; }
+  .btn-primary:hover .btn-primary__arrow,
+  .btn-primary:focus-visible .btn-primary__arrow { transform: none; }
+}
+
+/* ── Standard CTA button — single source of truth ──────────────
+   One shape for every page CTA (dimensions taken from the Web
+   Design CTA). Pages vary only --accent (the title colour) and
+   --accent-ink (legible text on that accent). */
+.btn-cta {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+  text-decoration: none;
+  cursor: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+/* Hover/focus fills with the page accent; ink flips to --accent-ink
+   (black on every page except About, where white stays legible on purple).
+   Mirrors the homepage Let's talk button. */
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.btn-cta:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+/* Dark theme: the page sits on near-black, so invert the resting button to
+   white (again matching Let's talk). Hover stays the accent fill. */
+html[data-theme="dark"] .btn-cta {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+html[data-theme="dark"] .btn-cta:hover,
+html[data-theme="dark"] .btn-cta:focus-visible {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .btn-cta:focus-visible { outline-color: var(--white); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-cta { transition: none; }
+}
+
 .ab-proof__body .btn { align-self: flex-start; }
 
 .back-to-top {
@@ -1370,7 +1470,7 @@ html[data-theme="dark"] .gallery-nav a.gallery-nav__cta:hover {
 .back-to-top svg { width: 1.1rem; height: 1.1rem; display: block; }
 
 /* ── Page: Clients ─────────────────────────────────────────── */
-body.page-clients { --accent: var(--yellow); }
+body.page-clients { --accent: var(--yellow); --accent-ink: #000; }
 body.page-clients .section-title .accent { color: var(--yellow); }
 body.page-clients .cs-card-link { color: #E6C100; }
 
@@ -1950,6 +2050,27 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
 }
 .client-card--cta .btn:hover { background: var(--white); color: var(--black); }
 
+/* The CTA card is dark in both themes and turns accent on hover, so the
+   button takes the opposite fill of the card to stay visible: accent while
+   the card is dark, black once the card (or the button itself) is accent. */
+.client-card--cta .btn-cta,
+html[data-theme="dark"] .client-card--cta .btn-cta {
+  align-self: flex-start;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.client-card--cta .btn-cta:hover,
+.client-card--cta .btn-cta:focus-visible,
+.client-card--cta:hover .btn-cta,
+html[data-theme="dark"] .client-card--cta .btn-cta:hover,
+html[data-theme="dark"] .client-card--cta .btn-cta:focus-visible,
+html[data-theme="dark"] .client-card--cta:hover .btn-cta {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
 /* ── How it works steps ────────────────────────────────────── */
 .wd-steps {
   list-style: none;
@@ -1984,10 +2105,13 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
   text-align: right;
 }
 @media (max-width: 600px) {
-  .wd-steps li { grid-template-columns: 1.75rem 1fr; }
-  .wd-steps__desc { grid-column: 2; text-align: left; padding-top: 1px; }
-  .wd-facts__item { grid-template-columns: 1fr; }
-  .wd-facts__value { text-align: left; }
+  /* Keep each row as a label-left / value-right pair on one line (matching
+     desktop); let a long value wrap within its own column rather than
+     restacking under the label or shrinking the type. */
+  .wd-steps li { grid-template-columns: 1.75rem auto 1fr; }
+  .wd-steps__desc { grid-column: auto; text-align: right; min-width: 0; }
+  .wd-facts__item { grid-template-columns: auto 1fr; }
+  .wd-facts__value { text-align: right; min-width: 0; }
 }
 
 /* ── Practical facts strip (inside CTA card) ───────────────── */
@@ -2015,15 +2139,24 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
   color: rgba(255,255,255,0.45);
   text-align: right;
 }
+/* Quiet supporting link (a footnote to the pricing block), not a second CTA:
+   muted grey + underline, never orange. */
 .wd-faq-link {
   display: inline-block;
   font-size: 0.8rem;
-  color: var(--orange);
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   margin: 0;
   transition: opacity 0.2s;
 }
-.wd-faq-link:hover { opacity: 0.7; }
+.wd-faq-link:hover,
+.wd-faq-link:focus-visible { opacity: 0.75; }
+.wd-faq-link:focus-visible { outline: 2px solid rgba(255,255,255,0.7); outline-offset: 3px; }
 .client-card--cta:hover .wd-faq-link { color: var(--white); }
+@media (prefers-reduced-motion: reduce) {
+  .wd-faq-link { transition: none; }
+}
 
 /* Two-column layout for the wider CTA card */
 .wd-cta-cols {
@@ -2038,10 +2171,54 @@ body.page-clients .client-card--cta:hover .btn { color: var(--white); border-col
   .wd-cta-cols { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
 
+/* Closing action band — shared centred skeleton for the Web Design and Clients
+   pages so the two read as siblings: centred heading, optional support line,
+   then one centred button (full width on mobile). Web Design adds a divider
+   because it follows two columns; Clients spans the full grid to form the band. */
+.client-card--cta-wide .client-cta-text {
+  text-align: center;
+  margin-top: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.client-card--cta-wide .btn-cta,
+html[data-theme="dark"] .client-card--cta-wide .btn-cta { align-self: center; }
+@media (max-width: 767px) {
+  .client-card--cta-wide .btn-cta,
+  html[data-theme="dark"] .client-card--cta-wide .btn-cta { align-self: stretch; text-align: center; }
+}
+
+/* Clients band: same skeleton, spanning the full grid, with a small gap above
+   it (matching the button's vertical padding) to separate it from the tiles. */
+body.page-clients .client-card--cta { grid-column: 1 / -1; margin-top: 0.85rem; }
+body.page-clients .client-card--cta .client-cta-text,
+body.page-clients .client-card--cta .client-cta-support { text-align: center; }
+.client-cta-support {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.6);
+  margin: 0.75rem auto 0;
+  max-width: 48ch;
+  transition: color 0.3s;
+}
+body.page-clients .client-card--cta .btn-cta,
+html[data-theme="dark"] body.page-clients .client-card--cta .btn-cta { align-self: center; }
+/* Card turns accent (yellow) on hover, so heading + support flip to black ink. */
+body.page-clients .client-card--cta:hover .client-cta-text,
+body.page-clients .client-card--cta:hover .client-cta-support { color: var(--black); }
+@media (max-width: 767px) {
+  body.page-clients .client-card--cta .btn-cta,
+  html[data-theme="dark"] body.page-clients .client-card--cta .btn-cta { align-self: stretch; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-cta-support { transition: none; }
+}
+
 /* ── Page: About ───────────────────────────────────────────── */
-body.page-about { --accent: var(--purple); }
+body.page-about { --accent: var(--purple); --accent-ink: #fff; }
 body.page-about .section-title .accent { color: var(--purple); }
-body.page-faq { --accent: var(--blue); }
+body.page-faq { --accent: var(--blue); --accent-ink: #000; }
 body.page-faq .section-title .accent { color: var(--blue); }
 .nav-links a[href="faq.html"]:hover     { color: var(--blue); }
 .menu-nav a[data-page="about"]:hover    { color: var(--purple); }
@@ -2171,45 +2348,37 @@ body.page-faq .section-title .accent { color: var(--blue); }
 }
 
 /* About page CTAs */
+/* Two standard .btn-cta buttons. .about-cta handles their spacing and the
+   mobile stack; .about-cta-item only aligns the label and arrow detail. */
 .about-cta {
   display: flex;
   justify-content: flex-end;
-  gap: 0;
+  gap: 1rem;
   padding: 0 3rem 5rem;
-  margin-top: -6rem;
+  margin-top: -4.5rem;
 }
 .about-cta-item {
-  background: var(--black);
-  padding: 1.75rem 2.25rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  min-width: 220px;
-  transition: opacity 0.25s;
-}
-.about-cta-item:hover { opacity: 0.75; }
-.about-cta-label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  gap: 0.6rem;
 }
 .about-cta-arrow {
   font-size: 1rem;
   line-height: 1;
   transition: transform 0.25s var(--ease);
 }
-.about-cta-item:hover .about-cta-arrow { transform: translateX(4px); }
-.about-cta-item--web   .about-cta-label,
-.about-cta-item--web   .about-cta-arrow { color: var(--orange); }
-.about-cta-item--photo .about-cta-label,
-.about-cta-item--photo .about-cta-arrow { color: var(--green); }
+.about-cta-item:hover .about-cta-arrow,
+.about-cta-item:focus-visible .about-cta-arrow { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .about-cta-arrow { transition: none; }
+  .about-cta-item:hover .about-cta-arrow,
+  .about-cta-item:focus-visible .about-cta-arrow { transform: none; }
+}
 
 @media (max-width: 600px) {
-  .about-cta { flex-direction: column; padding: 0 1.5rem 4rem; margin-top: -2rem; }
-  .about-cta-item { min-width: 0; }
+  .about-cta { flex-direction: column; gap: 0.75rem; padding: 0 1.5rem 4rem; margin-top: -2rem; }
+  .about-cta-item { width: 100%; justify-content: center; }
 }
 
 .privacy-body h2 {
@@ -2372,7 +2541,7 @@ html[data-theme="dark"] .faq-icon { color: var(--white); }
 html[data-theme="dark"] .faq-answer p { color: rgba(255,255,255,0.62); }
 
 /* Photography */
-html[data-theme="dark"] .gallery-nav a { color: var(--white); opacity: 0.4; }
+html[data-theme="dark"] .gallery-nav a:not(.gallery-nav__cta) { color: var(--white); opacity: 0.4; }
 html[data-theme="dark"] .gallery-nav a:hover,
 html[data-theme="dark"] .gallery-nav a.is-active { opacity: 1; }
 html[data-theme="dark"] .gallery-header { border-color: rgba(255,255,255,0.1); }
