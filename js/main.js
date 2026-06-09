@@ -447,6 +447,30 @@ function initWordCycle() {
   new MutationObserver(update).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 
+/* ── Frosted nav background once scrolled past the hero ───────── */
+// Scroll-distance trigger (not a percentage) so it fires consistently
+// regardless of page length, and works on every page (some have no hero).
+(function initNavScrolled() {
+  const nav = $('nav');
+  if (!nav) return;
+
+  const THRESHOLD = 100; // px of scroll before the frosted state fades in
+  let ticking = false;
+
+  function update() {
+    nav.classList.toggle('is-scrolled', window.scrollY > THRESHOLD);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
+  // Set the correct state on load and on bfcache restore (scroll pos restored).
+  window.addEventListener('pageshow', update);
+  update();
+})();
+
 /* ── Contact Form ───────────────────────────────────────────── */
 (function initContactForm() {
   const form = $('#contact-form');

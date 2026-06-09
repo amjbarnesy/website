@@ -199,6 +199,50 @@ body.page-contact .nav-theme-btn { color: var(--white); }
 :root:not([data-theme="dark"]) nav.nav--on-dark .nav-logo-img { filter: brightness(0) invert(1); transition: filter 0.4s; }
 :root:not([data-theme="dark"]) nav.nav--on-dark .hamburger span { background: var(--white); transition: background 0.4s; }
 
+/* ── Frosted nav background (fades in once scrolled past the hero) ──
+   Transparent at the top; on .is-scrolled a blurred, faintly tinted panel
+   fades in behind the nav content so links stay legible over page content.
+   Only the ::before opacity changes, so there is no layout shift. The tint
+   flips dark wherever the nav text is light (dark mode / contact / on-dark). */
+nav { --nav-frost: 247, 245, 240; }
+html[data-theme="dark"] nav,
+body.page-contact nav,
+:root:not([data-theme="dark"]) nav.nav--on-dark { --nav-frost: 12, 12, 12; }
+
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: -1rem;
+  z-index: -1;
+  pointer-events: none;
+  background-color: rgba(var(--nav-frost), 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.25s ease, background-color 0.4s ease;
+  /* soft lower edge: the frosted panel fades to nothing at its bottom */
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent);
+          mask-image: linear-gradient(to bottom, #000 62%, transparent);
+}
+nav.is-scrolled::before { opacity: 1; }
+
+/* No backdrop-filter support: fall back to a more opaque solid tint. */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  nav::before { background-color: rgba(var(--nav-frost), 0.92); }
+}
+/* Reduced-transparency (OS disables backdrop blur): solid tint instead. */
+@media (prefers-reduced-transparency: reduce) {
+  nav::before {
+    background-color: rgba(var(--nav-frost), 0.92);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+/* Reduced-motion: apply the scrolled background without an animated fade. */
+@media (prefers-reduced-motion: reduce) {
+  nav::before { transition: none; }
+}
+
 /* ── Full-Screen Menu ──────────────────────────────────────── */
 .menu-overlay {
   position: fixed;
