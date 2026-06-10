@@ -72,16 +72,11 @@ ul { list-style: none; }
 /* Restore cursor for keyboard-only users (no mouse movement detected) */
 body:not(.has-mouse) { cursor: auto; }
 
-/* On dark (contact) page or open lightbox — white semi-transparent cursor */
-body.lightbox-open .cursor {
-  z-index: 9999999;
-}
-body.page-contact .cursor,
-body.lightbox-open .cursor {
+/* On the dark (contact) page — white semi-transparent cursor */
+body.page-contact .cursor {
   background: rgba(255, 255, 255, 0.75);
 }
-body.page-contact .cursor.big,
-body.lightbox-open .cursor.big {
+body.page-contact .cursor.big {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -1325,17 +1320,24 @@ br.desk-break { display: none; }
   font-weight: 600;
 }
 
-/* ── GLightbox caption override ─────────────────────────────── */
-.gslide-description {
-  background: rgba(0, 0, 0, 0.65) !important;
+/* ── Photography gallery overlay: caption + "view full gallery" hint ──────────
+   Each photo links to its category gallery on adambarnesphotos.co.uk, so the
+   overlay stacks the caption above a small secondary hint line. The column
+   layout is scoped to the photography page, because the base .photo-overlay is
+   also used on case-study-firstlight-festival.html, which must stay unchanged. */
+body.page-photography .photo-overlay {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.35rem;
 }
-.gdesc-inner { padding: 0.75rem 1.25rem !important; }
-.gslide-desc, .gslide-desc p {
-  color: #fff !important;
-  font-size: 0.8rem !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
+.photo-overlay-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.72;
 }
 
 .buy-photos-banner {
