@@ -2832,7 +2832,11 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
    Reverts by deleting this block and the initMonoFocus IIFE in main.js.
    ════════════════════════════════════════════════════════════════ */
 .ab-proof__mono {
-  filter: blur(20px);
+  /* 10px (was 20px): a softer start still reads as a focus-pull, but the blur
+     halo no longer spills far enough past the glyph edges to glow in the dark
+     space beside the text (the giant glyph is pulled left with margin-left:-24px,
+     so a wide halo leaked into the gap at the left/right edges). */
+  filter: blur(10px);
   transition: filter 0.6s var(--ease);
 }
 .ab-proof__mono.in-focus { filter: blur(0); }
