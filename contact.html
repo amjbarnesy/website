@@ -167,10 +167,12 @@
           <label for="message">Tell me about it</label>
         </div>
 
-        <!-- Honeypot: hidden from real users, bots fill it in -->
+        <!-- Honeypot: hidden from real users, bots fill it in. Named _gotcha so
+             Formspree also discards filled submissions server-side (catches bots
+             that POST straight to the endpoint, bypassing the client-side check). -->
         <div class="form-group form-hp" aria-hidden="true">
-          <input type="text" id="website" name="website" placeholder=" " tabindex="-1" autocomplete="off">
-          <label for="website">Website</label>
+          <input type="text" id="_gotcha" name="_gotcha" placeholder=" " tabindex="-1" autocomplete="off">
+          <label for="_gotcha">Website</label>
         </div>
 
         <div class="form-submit">
@@ -207,7 +209,7 @@
 
       function sendForm() {
         // Honeypot
-        if (document.getElementById('website').value) return;
+        if (document.getElementById('_gotcha').value) return;
 
         // Client-side validation
         const name    = form.name.value.trim();
