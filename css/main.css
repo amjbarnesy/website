@@ -1850,7 +1850,10 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   text-transform: uppercase;
   color: rgba(0,0,0,0.35);
 }
-@media (max-width: 880px) { .manifesto__corner-tl { display: none; } }
+/* Hide the "In my words / 01" corner label on narrow screens and on landscape
+   phones (where it would sit under the Dynamic Island, top-left). */
+@media (max-width: 880px),
+       (orientation: landscape) and (max-height: 500px) { .manifesto__corner-tl { display: none; } }
 
 .manifesto-inner {
   width: 100%;
@@ -1992,7 +1995,12 @@ html[data-theme="dark"] .form-status--error { color: #e74c3c; }
   margin-left: -24px;
   white-space: nowrap;
 }
-@media (max-width: 880px) {
+/* Stacked mobile layout for the testimonials band: narrow screens, and also
+   landscape phones (which can be wider than 880px, e.g. a Pro Max at 932px, so
+   they would otherwise fall into the desktop two-column grid). This also hides
+   the top-left "In their words / 02" label, which sits under the island. */
+@media (max-width: 880px),
+       (orientation: landscape) and (max-height: 500px) {
   .ab-proof__inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -2831,4 +2839,66 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
 /* Reduced motion: skip the blur entirely, show it sharp from the start. */
 @media (prefers-reduced-motion: reduce) {
   .ab-proof__mono { filter: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SAFE-AREA INSETS  (iPhone notch / Dynamic Island, landscape)
+   Paired with viewport-fit=cover in every page's viewport meta. cover lets the
+   page background reach the true screen edges (removing the landscape letterbox
+   "white bars" and letting future full-bleed background images bleed edge to
+   edge). In landscape the Dynamic Island inset (~59px) is WIDER than the 3rem
+   page gutter, so content sitting at the gutter ends up against / under the
+   island. These rules push it clear.
+
+   --island-l/r = the safe-area inset plus a small breathing gap (--safe-gap, so
+   content clears the island with room rather than hugging it). Each wrapper then
+   uses max(its own gutter, --island-l/r). Gated to landscape: portrait has no
+   left/right inset and desktop's inset is 0, so neither is touched. Full-bleed
+   bands (.ab-proof, .teasers) stay edge to edge; only their inner content insets.
+   Dial the breathing room with --safe-gap; nothing else needs changing.
+   ════════════════════════════════════════════════════════════════ */
+:root {
+  --safe-gap: 0.75rem;
+  --island-l: calc(env(safe-area-inset-left)  + var(--safe-gap));
+  --island-r: calc(env(safe-area-inset-right) + var(--safe-gap));
+}
+
+@media (orientation: landscape) {
+  /* Padding-gutter wrappers (3rem sides on desktop) */
+  nav,
+  footer,
+  .section-header,
+  .hero,
+  .manifesto,
+  .testimonials,
+  .contact-quote,
+  .contact-left,
+  .contact-right,
+  .cs-header,
+  .cs-footer-nav,
+  .ab-proof__inner {
+    padding-left:  max(3rem, var(--island-l));
+    padding-right: max(3rem, var(--island-r));
+  }
+  /* Margin-gutter wrappers (3rem sides on desktop) */
+  .clients-grid,
+  .about-body,
+  .faq-body,
+  .photo-grid,
+  .buy-photos-banner,
+  .cs-body,
+  .gallery-header,
+  .gallery-nav {
+    margin-left:  max(3rem, var(--island-l));
+    margin-right: max(3rem, var(--island-r));
+  }
+  /* Full-width teaser row: inset only the outer columns' inner padding (2.5rem) */
+  .teaser:first-child .teaser-inner { padding-left:  max(2.5rem, var(--island-l)); }
+  .teaser:last-child  .teaser-inner { padding-right: max(2.5rem, var(--island-r)); }
+}
+
+/* Corner button: clear the island (right, landscape) and home indicator (bottom). */
+.back-to-top {
+  right:  max(2rem, var(--island-r));
+  bottom: max(2rem, calc(env(safe-area-inset-bottom) + 0.5rem));
 }
