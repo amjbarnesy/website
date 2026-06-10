@@ -26,6 +26,11 @@
 
 html {
   font-size: 16px;
+  /* Stop iOS Safari auto-inflating text on rotate to landscape (it was
+     enlarging only the footer copyright line). 100% keeps normal text and
+     pinch-zoom while disabling the automatic boost. */
+  -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
   scroll-snap-type: y proximity;
   overflow-x: clip;
   max-width: 100%;
