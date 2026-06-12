@@ -2479,6 +2479,31 @@ body.page-faq .section-title .accent { color: var(--blue); }
   max-width: 680px;
 }
 .faq-answer a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Glassy FAQ accordion items (page-faq) ──────────────────────
+   Same frosted glass as the card tiles. The flat divider list becomes
+   separated glass cards: drop the outer box border, give each item a
+   translucent fill + backdrop blur, inset padding, a soft radius and a gap.
+   Hover/open question colour and the +/- icon are untouched. */
+body.page-faq .faq-body { border: none; }
+body.page-faq .faq-inner { gap: 0 1.5rem; }
+body.page-faq .faq-item {
+  margin-bottom: 1rem;
+  padding: 0 1.6rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--white) 60%, transparent);
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+}
+/* Restore the bottom border the list's :last-child rule removes. */
+body.page-faq .faq-col .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+html[data-theme="dark"] body.page-faq .faq-item,
+html[data-theme="dark"] body.page-faq .faq-col .faq-item:last-child {
+  border-color: rgba(255,255,255,0.1);
+  background: color-mix(in srgb, var(--black) 50%, transparent);
+}
+
 @media (max-width: 900px) {
   .faq-body { margin: 0 1.5rem 4rem; }
   .faq-inner { grid-template-columns: 1fr; padding: 1.5rem 2rem 0.5rem; gap: 0; }
