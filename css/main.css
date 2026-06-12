@@ -2905,9 +2905,10 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
    fill plus a light backdrop blur reads as frosted glass. Kept subtle
    (~13% see-through). Hover/touched still fill solid accent via the rules
    above (higher specificity), so this only softens the resting state.
-   Scoped to page-webdesign because that's where the aurora lives. The
+   Applied to the Web Design and Clients grids (both carry the aurora). The
    backdrop blur is set here once and inherited by the dark override below. */
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
   background:
     radial-gradient(120% 120% at var(--bloom-origin, 100% 100%),
       color-mix(in srgb, var(--card-bg, var(--white)) 60%, transparent) 0%,
@@ -2915,7 +2916,8 @@ body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.featu
   backdrop-filter: blur(12px) saturate(1.08);
   -webkit-backdrop-filter: blur(12px) saturate(1.08);
 }
-html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
   background: color-mix(in srgb, var(--black) 50%, transparent);
 }
 
