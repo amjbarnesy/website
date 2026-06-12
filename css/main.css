@@ -13,12 +13,6 @@
   --purple:  #8833FF;
   --blue:    #00b4ff;
 
-  /* Aurora background blobs — light */
-  --blob-1:       #c9cbff; /* soft iris */
-  --blob-2:       #b9e7df; /* pale aqua */
-  --blob-3:       #ffd8c4; /* peach */
-  --blob-opacity: 0.9;
-
   --font-display: 'Jost', sans-serif;
   --font-body:    'Space Grotesk', sans-serif;
 
@@ -52,6 +46,27 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
+
+/* ── Aurora colours ─────────────────────────────────────────────
+   Blobs derive from each page's --accent (orange on Web Design, green
+   on Photography, etc.) so the background self-themes: the accent itself
+   plus its complement and a warm neighbour. Softened by mixing toward
+   white (light) / black (dark) and kept at a low opacity so it reads as
+   a tint, not a paint splash. Falls back to orange if a page has no
+   accent. */
+body {
+  --blob-base: var(--accent, var(--orange));
+  --blob-1: color-mix(in srgb, var(--blob-base) 50%, var(--white));                              /* the page colour */
+  --blob-2: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 180) s l) 38%, var(--white));  /* complement */
+  --blob-3: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 35)  s l) 46%, var(--white));  /* warm neighbour */
+  --blob-opacity: 0.3;
+}
+html[data-theme="dark"] body {
+  --blob-1: color-mix(in srgb, var(--blob-base) 42%, var(--black));
+  --blob-2: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 180) s l) 34%, var(--black));
+  --blob-3: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 35)  s l) 38%, var(--black));
+  --blob-opacity: 0.5;
+}
 
 /* ── Aurora background ──────────────────────────────────────────
    Fixed full-viewport layer of three soft drifting colour blobs
@@ -2587,14 +2602,6 @@ body.page-faq .section-title .accent { color: var(--blue); }
 
 html[data-theme="dark"] body { background: var(--black); color: var(--white); }
 
-/* Aurora background blobs — dark */
-html[data-theme="dark"] {
-  --blob-1: #34387f; /* deep indigo */
-  --blob-2: #14524b; /* dark teal */
-  --blob-3: #6b4233; /* burnt sienna */
-  --blob-opacity: 0.55;
-}
-
 /* Logo & cursor */
 html[data-theme="dark"] .nav-logo { color: var(--white); }
 html[data-theme="dark"] .nav-logo-img { filter: brightness(0) invert(1); }
@@ -2890,6 +2897,44 @@ html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.clie
 html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
 html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
 html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched {
+  background: var(--accent, var(--orange));
+}
+
+/* ── Glassy resting tiles (Web Design) ──────────────────────────
+   Let a hint of the aurora bleed through the tiles at rest: a translucent
+   fill plus a light backdrop blur reads as frosted glass. Kept subtle
+   (~13% see-through). Hover/touched still fill solid accent via the rules
+   above (higher specificity), so this only softens the resting state.
+   Scoped to page-webdesign because that's where the aurora lives. The
+   backdrop blur is set here once and inherited by the dark override below. */
+body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+  background:
+    radial-gradient(120% 120% at var(--bloom-origin, 100% 100%),
+      color-mix(in srgb, var(--card-bg, var(--white)) 60%, transparent) 0%,
+      color-mix(in srgb, var(--card-tint) 60%, transparent) 78%);
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+}
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature) {
+  background: color-mix(in srgb, var(--black) 50%, transparent);
+}
+
+/* The adambarnes.biz feature tile has no bloom (flat fill), so give it the
+   same glass as a flat translucent layer in both modes. Its own hover rules
+   restore the solid accent fill — needed because the resting fills here raise
+   specificity past the base .client-card:hover. */
+body.page-webdesign .clients-grid .client-card.feature {
+  background: color-mix(in srgb, var(--card-bg, var(--white)) 60%, transparent);
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+}
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature {
+  background: color-mix(in srgb, var(--black) 50%, transparent);
+}
+body.page-webdesign .clients-grid .client-card.feature:hover,
+body.page-webdesign .clients-grid .client-card.feature.is-touched,
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature:hover,
+html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature.is-touched {
   background: var(--accent, var(--orange));
 }
 
