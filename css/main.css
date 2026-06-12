@@ -59,7 +59,7 @@ body {
   --blob-1: color-mix(in srgb, var(--blob-base) 50%, var(--white));                              /* the page colour */
   --blob-2: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 180) s l) 38%, var(--white));  /* complement */
   --blob-3: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 35)  s l) 46%, var(--white));  /* warm neighbour */
-  --blob-opacity: 0.15;
+  --blob-opacity: 0.135;
 }
 html[data-theme="dark"] body {
   --blob-1: color-mix(in srgb, var(--blob-base) 42%, var(--black));
