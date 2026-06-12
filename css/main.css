@@ -2379,6 +2379,16 @@ body.page-faq .section-title .accent { color: var(--blue); }
   border: 1px solid rgba(0,0,0,0.1);
   border-top: none;
 }
+/* Same frosted glass as the tiles: a translucent fill + backdrop blur so the
+   aurora reads softly through the bio box instead of straight through. */
+body.page-about .about-body {
+  background: color-mix(in srgb, var(--white) 60%, transparent);
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+}
+html[data-theme="dark"] body.page-about .about-body {
+  background: color-mix(in srgb, var(--black) 50%, transparent);
+}
 .about-body-inner {
   display: grid;
   grid-template-columns: auto 1fr;
