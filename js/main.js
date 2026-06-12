@@ -15,6 +15,27 @@ if (hasGSAP && hasScrollTrigger) {
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+/* ── Aurora background ──────────────────────────────────────────
+   Inject the two decorative layers from one place instead of hard-coding
+   them into every HTML file. CSS + colour tokens live in css/main.css.
+   Currently scoped to the Web Design page while we trial it — remove the
+   page-webdesign guard below to enable it site-wide. */
+(function injectAuroraBackground() {
+  if (!document.body || !document.body.classList.contains('page-webdesign')) return;
+  if (document.querySelector('.aurora')) return; // never double-inject
+
+  const aurora = document.createElement('div');
+  aurora.className = 'aurora';
+  aurora.setAttribute('aria-hidden', 'true');
+  aurora.innerHTML = '<span></span><span></span><span></span>';
+
+  const grain = document.createElement('div');
+  grain.className = 'grain';
+  grain.setAttribute('aria-hidden', 'true');
+
+  document.body.prepend(aurora, grain);
+})();
+
 /* ── Page Transition ────────────────────────────────────────── */
 // Runs first — slide the black overlay UP to reveal the page
 (function initPageTransition() {

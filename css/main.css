@@ -13,6 +13,12 @@
   --purple:  #8833FF;
   --blue:    #00b4ff;
 
+  /* Aurora background blobs — light */
+  --blob-1:       #c9cbff; /* soft iris */
+  --blob-2:       #b9e7df; /* pale aqua */
+  --blob-3:       #ffd8c4; /* peach */
+  --blob-opacity: 0.9;
+
   --font-display: 'Jost', sans-serif;
   --font-body:    'Space Grotesk', sans-serif;
 
@@ -46,6 +52,62 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
+
+/* ── Aurora background ──────────────────────────────────────────
+   Fixed full-viewport layer of three soft drifting colour blobs
+   (z-index -2) plus a subtle noise overlay (z-index -1) to stop
+   gradient banding. No images. Markup injected by main.js.
+   Only `transform` is animated, so it stays GPU-composited. */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: var(--blob-opacity);
+  will-change: transform;
+}
+.aurora span:nth-child(1) {
+  width: 55vw; height: 55vw;
+  background: var(--blob-1);
+  top: -18vw; left: -12vw;
+  animation: drift1 26s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(2) {
+  width: 48vw; height: 48vw;
+  background: var(--blob-2);
+  top: 28vh; right: -16vw;
+  animation: drift2 32s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(3) {
+  width: 42vw; height: 42vw;
+  background: var(--blob-3);
+  bottom: -14vw; left: 22vw;
+  animation: drift3 38s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 { to { transform: translate(9vw, 7vh) scale(1.12); } }
+@keyframes drift2 { to { transform: translate(-7vw, -9vh) scale(1.08); } }
+@keyframes drift3 { to { transform: translate(6vw, -6vh) scale(1.15); } }
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora span { animation: none; }
+}
 
 /* ── Custom Cursor ─────────────────────────────────────────── */
 .cursor {
@@ -2524,6 +2586,14 @@ body.page-faq .section-title .accent { color: var(--blue); }
    ════════════════════════════════════════════════════════════ */
 
 html[data-theme="dark"] body { background: var(--black); color: var(--white); }
+
+/* Aurora background blobs — dark */
+html[data-theme="dark"] {
+  --blob-1: #34387f; /* deep indigo */
+  --blob-2: #14524b; /* dark teal */
+  --blob-3: #6b4233; /* burnt sienna */
+  --blob-opacity: 0.55;
+}
 
 /* Logo & cursor */
 html[data-theme="dark"] .nav-logo { color: var(--white); }
