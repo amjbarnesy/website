@@ -18,10 +18,16 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 /* ── Aurora background ──────────────────────────────────────────
    Inject the two decorative layers from one place instead of hard-coding
    them into every HTML file. CSS + colour tokens live in css/main.css.
-   Currently scoped to the Web Design page while we trial it — remove the
-   page-webdesign guard below to enable it site-wide. */
+   The blobs self-theme from each page's --accent (orange/green/yellow/
+   purple/blue). Scoped to the pages below — add or remove a page class to
+   change where it appears. (Contact and the homepage are intentionally
+   left out.) */
+const AURORA_PAGES = [
+  'page-webdesign', 'page-photography', 'page-clients', 'page-about', 'page-faq'
+];
 (function injectAuroraBackground() {
-  if (!document.body || !document.body.classList.contains('page-webdesign')) return;
+  if (!document.body) return;
+  if (!AURORA_PAGES.some(cls => document.body.classList.contains(cls))) return;
   if (document.querySelector('.aurora')) return; // never double-inject
 
   const aurora = document.createElement('div');
