@@ -15,6 +15,33 @@ if (hasGSAP && hasScrollTrigger) {
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+/* ── Aurora background ──────────────────────────────────────────
+   Inject the two decorative layers from one place instead of hard-coding
+   them into every HTML file. CSS + colour tokens live in css/main.css.
+   The blobs self-theme from each page's --accent (orange/green/yellow/
+   purple/blue). Scoped to the pages below — add or remove a page class to
+   change where it appears. (Contact and the homepage are intentionally
+   left out.) */
+const AURORA_PAGES = [
+  'page-webdesign', 'page-photography', 'page-clients', 'page-about', 'page-faq'
+];
+(function injectAuroraBackground() {
+  if (!document.body) return;
+  if (!AURORA_PAGES.some(cls => document.body.classList.contains(cls))) return;
+  if (document.querySelector('.aurora')) return; // never double-inject
+
+  const aurora = document.createElement('div');
+  aurora.className = 'aurora';
+  aurora.setAttribute('aria-hidden', 'true');
+  aurora.innerHTML = '<span></span><span></span><span></span>';
+
+  const grain = document.createElement('div');
+  grain.className = 'grain';
+  grain.setAttribute('aria-hidden', 'true');
+
+  document.body.prepend(aurora, grain);
+})();
+
 /* ── Page Transition ────────────────────────────────────────── */
 // Runs first — slide the black overlay UP to reveal the page
 (function initPageTransition() {
