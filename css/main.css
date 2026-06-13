@@ -3082,3 +3082,21 @@ html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature.i
   right:  max(2rem, var(--island-r));
   bottom: max(2rem, calc(env(safe-area-inset-bottom) + 0.5rem));
 }
+
+/* ── Mobile: drop backdrop-filter on glass elements ─────────────
+   backdrop blur is the most expensive part on phone GPUs (it re-blurs as
+   content scrolls behind it). Keep the translucent fill so the tiles/boxes
+   still read as glass, just without the live blur. Same selectors as the
+   glass rules above (equal specificity, later in source) so this wins.
+   Placed at end of file so it sits after every glass declaration. */
+@media (max-width: 900px) {
+  body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+  body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature),
+  body.page-webdesign .clients-grid .client-card.feature,
+  body.page-faq .faq-item,
+  body.page-about .about-body,
+  .cs-body {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
