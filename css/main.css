@@ -47,95 +47,6 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
 
-/* ── Aurora colours ─────────────────────────────────────────────
-   Blobs derive from each page's --accent (orange on Web Design, green
-   on Photography, etc.) so the background self-themes: the accent itself
-   plus its complement and a warm neighbour. Softened by mixing toward
-   white (light) / black (dark) and kept at a low opacity so it reads as
-   a tint, not a paint splash. Falls back to orange if a page has no
-   accent. */
-body {
-  --blob-base: var(--accent, var(--orange));
-  --blob-1: color-mix(in srgb, var(--blob-base) 50%, var(--white));                              /* the page colour */
-  --blob-2: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 180) s l) 38%, var(--white));  /* complement */
-  --blob-3: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 35)  s l) 46%, var(--white));  /* warm neighbour */
-  --blob-opacity: 0.135;
-}
-html[data-theme="dark"] body {
-  --blob-1: color-mix(in srgb, var(--blob-base) 42%, var(--black));
-  --blob-2: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 180) s l) 34%, var(--black));
-  --blob-3: color-mix(in srgb, hsl(from var(--blob-base) calc(h + 35)  s l) 38%, var(--black));
-  --blob-opacity: 0.5;
-}
-
-/* ── Aurora background ──────────────────────────────────────────
-   Fixed full-viewport layer of three soft drifting colour blobs
-   (z-index -2) plus a subtle noise overlay (z-index -1) to stop
-   gradient banding. No images. Markup injected by main.js.
-   Only `transform` is animated, so it stays GPU-composited. */
-.aurora {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  pointer-events: none;
-}
-.aurora span {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: var(--blob-opacity);
-  will-change: transform;
-}
-.aurora span:nth-child(1) {
-  width: 55vw; height: 55vw;
-  background: var(--blob-1);
-  top: -18vw; left: -12vw;
-  animation: drift1 26s ease-in-out infinite alternate;
-}
-.aurora span:nth-child(2) {
-  width: 48vw; height: 48vw;
-  background: var(--blob-2);
-  top: 28vh; right: -16vw;
-  animation: drift2 32s ease-in-out infinite alternate;
-}
-.aurora span:nth-child(3) {
-  width: 42vw; height: 42vw;
-  background: var(--blob-3);
-  bottom: -14vw; left: 22vw;
-  animation: drift3 38s ease-in-out infinite alternate;
-}
-
-/* Translate only — animating scale() on a blurred layer forces the browser to
-   re-rasterise the 90px blur every frame, which was starving other animations
-   (the hero title/intro tween). Pure translation just repositions the cached
-   layer, so the drift stays smooth and cheap. */
-@keyframes drift1 { to { transform: translate(9vw, 7vh); } }
-@keyframes drift2 { to { transform: translate(-7vw, -9vh); } }
-@keyframes drift3 { to { transform: translate(6vw, -6vh); } }
-
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  /* No mix-blend-mode: blending a full-viewport layer with the drifting aurora
-     forced a whole-screen re-composite every frame. Plain low-opacity noise
-     still dithers the gradients to stop banding, at a fraction of the cost. */
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora span { animation: none; }
-}
-/* Mobile GPUs choke on the continuously animating full-viewport blur (it forces
-   the nav/glass backdrop-filters to re-blur every frame). Hold the blobs still
-   on small screens — the colour wash and glass still read; only the drift goes. */
-@media (max-width: 900px) {
-  .aurora span { animation: none; will-change: auto; }
-}
-
 /* ── Custom Cursor ─────────────────────────────────────────── */
 .cursor {
   display: none;
@@ -966,17 +877,6 @@ body.page-clients .client-card.is-touched .client-company { color: rgba(0,0,0,0.
   margin: 0 3rem 0;
   border: 1px solid rgba(0,0,0,0.1);
   border-top: none;
-}
-/* Same frosted glass as the tiles on the case-study box. Case studies carry
-   the page-webdesign / page-photography class, so the aurora is already
-   behind them. Square edges to match the rest of the site. */
-.cs-body {
-  background: color-mix(in srgb, var(--white) 60%, transparent);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
-}
-html[data-theme="dark"] .cs-body {
-  background: color-mix(in srgb, var(--black) 50%, transparent);
 }
 .cs-body-inner {
   padding: 3.5rem 3.5rem;
@@ -2402,16 +2302,6 @@ body.page-faq .section-title .accent { color: var(--blue); }
   border: 1px solid rgba(0,0,0,0.1);
   border-top: none;
 }
-/* Same frosted glass as the tiles: a translucent fill + backdrop blur so the
-   aurora reads softly through the bio box instead of straight through. */
-body.page-about .about-body {
-  background: color-mix(in srgb, var(--white) 60%, transparent);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
-}
-html[data-theme="dark"] body.page-about .about-body {
-  background: color-mix(in srgb, var(--black) 50%, transparent);
-}
 .about-body-inner {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -2512,30 +2402,6 @@ html[data-theme="dark"] body.page-about .about-body {
   max-width: 680px;
 }
 .faq-answer a { text-decoration: underline; text-underline-offset: 3px; }
-
-/* ── Glassy FAQ accordion items (page-faq) ──────────────────────
-   Same frosted glass as the card tiles. The flat divider list becomes
-   separated glass cards: drop the outer box border, give each item a
-   translucent fill + backdrop blur, inset padding and a gap. Square edges
-   to match the rest of the site. Hover/open colour and +/- icon untouched. */
-body.page-faq .faq-body { border: none; }
-body.page-faq .faq-inner { gap: 0 1.5rem; }
-body.page-faq .faq-item {
-  margin-bottom: 1rem;
-  padding: 0 1.6rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: color-mix(in srgb, var(--white) 60%, transparent);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
-}
-/* Restore the bottom border the list's :last-child rule removes. */
-body.page-faq .faq-col .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
-html[data-theme="dark"] body.page-faq .faq-item,
-html[data-theme="dark"] body.page-faq .faq-col .faq-item:last-child {
-  border-color: rgba(255,255,255,0.1);
-  background: color-mix(in srgb, var(--black) 50%, transparent);
-}
-
 @media (max-width: 900px) {
   .faq-body { margin: 0 1.5rem 4rem; }
   .faq-inner { grid-template-columns: 1fr; padding: 1.5rem 2rem 0.5rem; gap: 0; }
@@ -2957,46 +2823,6 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
   background: var(--accent, var(--orange));
 }
 
-/* ── Glassy resting tiles (Web Design) ──────────────────────────
-   Let a hint of the aurora bleed through the tiles at rest: a translucent
-   fill plus a light backdrop blur reads as frosted glass. Kept subtle
-   (~13% see-through). Hover/touched still fill solid accent via the rules
-   above (higher specificity), so this only softens the resting state.
-   Applied to the Web Design and Clients grids (both carry the aurora). The
-   backdrop blur is set here once and inherited by the dark override below. */
-body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
-body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
-  background:
-    radial-gradient(120% 120% at var(--bloom-origin, 100% 100%),
-      color-mix(in srgb, var(--card-bg, var(--white)) 60%, transparent) 0%,
-      color-mix(in srgb, var(--card-tint) 60%, transparent) 78%);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
-}
-html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
-html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
-  background: color-mix(in srgb, var(--black) 50%, transparent);
-}
-
-/* The adambarnes.biz feature tile has no bloom (flat fill), so give it the
-   same glass as a flat translucent layer in both modes. Its own hover rules
-   restore the solid accent fill — needed because the resting fills here raise
-   specificity past the base .client-card:hover. */
-body.page-webdesign .clients-grid .client-card.feature {
-  background: color-mix(in srgb, var(--card-bg, var(--white)) 60%, transparent);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
-}
-html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature {
-  background: color-mix(in srgb, var(--black) 50%, transparent);
-}
-body.page-webdesign .clients-grid .client-card.feature:hover,
-body.page-webdesign .clients-grid .client-card.feature.is-touched,
-html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature:hover,
-html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature.is-touched {
-  background: var(--accent, var(--orange));
-}
-
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIAL "YES" RACK FOCUS  (homepage)
    The giant decorative YES (.ab-proof__mono, aria-hidden) starts blurred and
@@ -3081,22 +2907,4 @@ html[data-theme="dark"] body.page-webdesign .clients-grid .client-card.feature.i
 .back-to-top {
   right:  max(2rem, var(--island-r));
   bottom: max(2rem, calc(env(safe-area-inset-bottom) + 0.5rem));
-}
-
-/* ── Mobile: drop backdrop-filter on glass elements ─────────────
-   backdrop blur is the most expensive part on phone GPUs (it re-blurs as
-   content scrolls behind it). Keep the translucent fill so the tiles/boxes
-   still read as glass, just without the live blur. Same selectors as the
-   glass rules above (equal specificity, later in source) so this wins.
-   Placed at end of file so it sits after every glass declaration. */
-@media (max-width: 900px) {
-  body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
-  body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature),
-  body.page-webdesign .clients-grid .client-card.feature,
-  body.page-faq .faq-item,
-  body.page-about .about-body,
-  .cs-body {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
