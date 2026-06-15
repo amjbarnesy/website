@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Thinking — Adam Barnes | Web Design & Photography"
+  description="Ideas, opinions and honest observations from 25 years in design and digital. Adam Barnes on websites, photography, branding and working with clients who care."
+  canonical="https://www.adambarnes.biz/thinking.html"
+  ogImage="https://www.adambarnes.biz/assets/og-image.jpg"
+  bodyClass="page-thinking"
+  active="thinking"
+  showThinking
+>
+  <Fragment slot="head">
+  <script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Thinking — Adam Barnes",
+  "url": "https://www.adambarnes.biz/thinking.html",
+  "description": "Ideas, opinions and honest observations from 25 years in design and digital.",
+  "creator": {
+    "@type": "Person",
+    "name": "Adam Barnes",
+    "url": "https://www.adambarnes.biz",
+    "jobTitle": "Web Designer & Photographer"
+  },
+  "hasPart": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why your website and photography should come from the same person",
+      "url": "https://www.adambarnes.biz/article-website-photography-same-person.html",
+      "datePublished": "2026-03-10",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "Most businesses commission a website and then scramble for photos to fill it. There is a better way — and it starts before anyone opens a laptop."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Five things I notice immediately when I look at a business website",
+      "url": "https://www.adambarnes.biz/article-five-things-i-notice-on-a-website.html",
+      "datePublished": "2026-04-22",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "After 25 years designing for the web, certain things jump out before you've even scrolled. None of them require a big budget to fix."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What makes event photography actually useful — and what makes it wallpaper",
+      "url": "https://www.adambarnes.biz/article-what-makes-event-photography-useful.html",
+      "datePublished": "2026-02-08",
+      "author": { "@type": "Person", "name": "Adam Barnes" },
+      "description": "Event photography that earns its place doesn't just document what happened. It tells you what it felt like to be there."
+    }
+  ]
+}
+  </script>
+  </Fragment>
+
+<main>
+
+    <header class="section-header" aria-label="Thinking">
+      <div class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Thinking</span>
+        <span class="by-line">by Adam</span>
+      </div>
+      <p class="section-intro">
+        <span class="intro-lead">Ideas, opinions and honest observations from 25 years in design and digital.</span>
+        Not a content strategy. Not keyword stuffing. Just things worth saying — about websites, photography, branding, and working with clients who care about getting it right.
+      </p>
+    </header>
+
+    <section class="thinking-grid reveal" aria-label="Articles">
+
+      <!-- Article 2: most recent first -->
+      <article class="article-card">
+        <span class="article-card__tag">Web Design</span>
+        <time class="article-card__date" datetime="2026-04-22">22 April 2026</time>
+        <h2 class="article-card__title"><a href="article-five-things-i-notice-on-a-website.html">Five things I notice immediately when I look at a business website</a></h2>
+        <p class="article-card__excerpt">After 25 years designing for the web, certain things jump out before you've even scrolled. None of them require a big budget to fix.</p>
+        <a href="article-five-things-i-notice-on-a-website.html" class="article-card__read" aria-label="Read: Five things I notice immediately when I look at a business website">Read &rarr;</a>
+      </article>
+
+      <!-- Article 1 -->
+      <article class="article-card">
+        <span class="article-card__tag">Both</span>
+        <time class="article-card__date" datetime="2026-03-10">10 March 2026</time>
+        <h2 class="article-card__title"><a href="article-website-photography-same-person.html">Why your website and photography should come from the same person</a></h2>
+        <p class="article-card__excerpt">Most businesses commission a website and then scramble for photos to fill it. There is a better way — and it starts before anyone opens a laptop.</p>
+        <a href="article-website-photography-same-person.html" class="article-card__read" aria-label="Read: Why your website and photography should come from the same person">Read &rarr;</a>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card">
+        <span class="article-card__tag">Photography</span>
+        <time class="article-card__date" datetime="2026-02-08">8 February 2026</time>
+        <h2 class="article-card__title"><a href="article-what-makes-event-photography-useful.html">What makes event photography actually useful — and what makes it wallpaper</a></h2>
+        <p class="article-card__excerpt">Event photography that earns its place doesn't just document what happened. It tells you what it felt like to be there.</p>
+        <a href="article-what-makes-event-photography-useful.html" class="article-card__read" aria-label="Read: What makes event photography actually useful — and what makes it wallpaper">Read &rarr;</a>
+      </article>
+
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-footer-nav reveal">
+      <span></span>
+      <a href="contact.html" class="btn">Get in touch</a>
+    </div>
+
+  </main>
+</Base>

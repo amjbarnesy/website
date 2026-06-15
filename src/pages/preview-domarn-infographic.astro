@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Domarn Infographic Preview — Adam Barnes"
+  description=""
+  canonical=""
+  bodyClass="page-webdesign"
+  active="web-design"
+>
+<main>
+
+    <header class="section-header webdesign-header cs-header">
+      <div class="cs-header-text">
+        <div class="section-title">
+          <span>Domarn</span>
+          <span class="accent">Group</span>
+          <span class="by-line">by Adam</span>
+        </div>
+        <p class="section-intro">
+          <span class="intro-lead">Government-grade content, delivered precisely.</span>
+          Complex design documents transformed into clean, accessible HTML and Govspeak, ready for direct publication on GOV.UK with nothing left to fix.
+        </p>
+      </div>
+      <div class="cs-header-logo" aria-hidden="true">
+        <img src="assets/logos/domarn-group.svg" alt="">
+      </div>
+    </header>
+
+    <!-- Infographic -->
+    <section class="flow-infographic reveal" aria-label="Document conversion workflow">
+      <p class="flow-caption">The conversion workflow</p>
+      <div class="flow-diagram" id="flow-diagram">
+
+        <!-- Node 1: Source -->
+        <div class="flow-node" id="fn1">
+          <div class="flow-node-num">01</div>
+          <div class="flow-node-label">Source Document</div>
+          <div class="flow-node-body">
+            <div class="source-badges">
+              <div class="app-badge app-badge--id">Id</div>
+              <div class="app-badge app-badge--word">W</div>
+            </div>
+          </div>
+          <div class="flow-node-sub">InDesign · Word</div>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Export</div>
+          <div class="flow-arrow-track" id="fa1"></div>
+        </div>
+
+        <!-- Node 2: Raw HTML -->
+        <div class="flow-node" id="fn2">
+          <div class="flow-node-num">02</div>
+          <div class="flow-node-label">Raw HTML</div>
+          <div class="flow-node-body">
+            <pre class="flow-code flow-code--messy">&lt;span <span class="noise">style="color:
+#231f20;font-family:
+'Minion-Bold';
+font-size:10pt"</span>&gt;
+  Policy...
+&lt;/span&gt;
+&lt;p <span class="noise">style="margin:0pt;
+padding:0pt;
+text-indent:0"</span>&gt;</pre>
+          </div>
+          <div class="flow-node-sub">Unstructured output</div>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Convert</div>
+          <div class="flow-arrow-track" id="fa2"></div>
+        </div>
+
+        <!-- Node 3: Clean Output -->
+        <div class="flow-node flow-node--output" id="fn3">
+          <div class="flow-node-num">03</div>
+          <div class="flow-node-label">Clean Output</div>
+          <div class="flow-node-body">
+            <div class="flow-split">
+              <div>
+                <div class="flow-split-tag">Clean HTML</div>
+                <pre class="flow-code flow-code--clean">&lt;h2&gt;Policy&lt;/h2&gt;
+&lt;p&gt;Structured,
+accessible.&lt;/p&gt;</pre>
+              </div>
+              <div>
+                <div class="flow-split-tag">Govspeak</div>
+                <pre class="flow-code flow-code--govspeak">## Policy
+
+Structured,
+accessible.</pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-node-sub">Two formats · one workflow</div>
+        </div>
+
+        <!-- Arrow 3 -->
+        <div class="flow-arrow-col">
+          <div class="flow-arrow-label">Publish</div>
+          <div class="flow-arrow-track" id="fa3"></div>
+        </div>
+
+        <!-- Node 4: GOV.UK -->
+        <div class="flow-node flow-node--govuk" id="fn4">
+          <div class="flow-node-num">04</div>
+          <div class="flow-node-label">Published</div>
+          <div class="flow-node-body">
+            <div class="govuk-inner">
+              <!-- Simplified Tudor Crown SVG -->
+              <svg class="govuk-crown-svg" viewBox="0 0 132 97" aria-hidden="true" focusable="false">
+                <path d="M66 0L52 25 32 10l10 40H90L100 10 80 25 66 0zM20 55h92v10H20z"/>
+                <rect x="15" y="68" width="102" height="29" rx="2"/>
+              </svg>
+              <div class="govuk-wordmark">GOV.UK</div>
+              <div class="govuk-ready">Ready to publish.<br>Nothing left to fix.</div>
+            </div>
+          </div>
+          <div class="flow-node-sub">Dept. for Transport</div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="cs-footer-nav reveal">
+      <a href="case-study-domarn-group.html" class="cs-back-link">← Back to Domarn Group</a>
+      <a href="contact.html" class="btn">Start a project</a>
+    </div>
+
+  </main>
+</Base>

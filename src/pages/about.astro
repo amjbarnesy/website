@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="About — Adam Barnes | Web Designer & Photographer, Norfolk & Suffolk"
+  description="25 years of getting websites and ideas into shape. The creative equivalent of a good edit — web design and photography, based in Norfolk and Suffolk, UK."
+  canonical="https://www.adambarnes.biz/about.html"
+  ogImage="https://www.adambarnes.biz/assets/og-about.jpg"
+  bodyClass="page-about"
+  active="about"
+>
+  <Fragment slot="head">
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Adam Barnes",
+    "url": "https://www.adambarnes.biz/about.html",
+    "description": "25+ years getting brands, websites and ideas into shape. Freelance web designer, WordPress developer and photographer based in Norfolk and Suffolk.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Adam Barnes",
+      "jobTitle": "Web Designer & Photographer",
+      "url": "https://www.adambarnes.biz",
+      "email": "hello@adambarnes.biz",
+      "telephone": "+447725970028",
+      "sameAs": [
+        "https://www.instagram.com/adammjbarnes/",
+        "https://glass.photo/adam-barnes",
+        "https://bsky.app/profile/adambarnes.biz",
+        "https://500px.com/p/amjbarnesy"
+      ]
+    }
+  }
+  </script>
+  </Fragment>
+
+<main>
+
+    <header class="section-header about-header" aria-label="About Adam Barnes">
+      <h1 class="section-title">
+        <span>Inspired</span>
+        <span class="accent">Thinking</span>
+        <span class="by-line">by Adam</span>
+      </h1>
+      <h2 class="intro-lead">25 years of getting websites and ideas into shape.</h2>
+      <p class="section-intro">Think of me as the creative equivalent of a good edit. I cut the waffle and keep what counts.</p>
+    </header>
+
+    <!-- Body copy -->
+    <section class="about-body reveal" aria-label="About Adam — full bio">
+      <div class="about-body-inner">
+        <div class="about-quote-mark" aria-hidden="true">“</div>
+        <div class="about-body-text">
+          <p>Logo development, identity, web build, and photography. Helping businesses define their objectives. Building on what makes them tick and developing their brand personality. Whether starting from scratch or you just know something isn't clicking.</p>
+          <p>From small local businesses, Cambridge's prime buying agents dealing with £6m properties, to central government; I've covered a lot of ground.</p>
+          <p>And my inspiration? It comes from doing the job that I love. Getting results for my clients.</p>
+          <p>When something needs building properly, I build it properly. That might mean a custom WordPress plugin engineered around one person's exact working rules, or a brand identity developed from the ground up rather than assembled from a template. Off-the-shelf has its place, but not when it doesn't fit. You're looking at <a href="case-study-adambarnes-biz.html">an example of it</a> right now.</p>
+          <p>Shooting and building under one roof means a brand can come together without the usual back-and-forth between suppliers. I've photographed festivals at sunrise, boardrooms, products and people — and then built the site those images live on.</p>
+          <p>Most of my work comes back around. Clients I first worked with a decade ago still call first. That's the bit I'm most proud of.</p>
+          <p>If you've worked with me and would be happy to <a href="https://g.page/r/CRQtsdhjld8VEBM/review" target="_blank" rel="noopener">leave a review</a>, I'd be genuinely grateful. It makes a real difference.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAs -->
+    <div class="about-cta reveal">
+      <a href="web-design.html" class="btn-cta about-cta-item about-cta-item--web">
+        <span class="about-cta-label">See the web work</span>
+        <span class="about-cta-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="photography.html" class="btn-cta about-cta-item about-cta-item--photo">
+        <span class="about-cta-label">See the photography</span>
+        <span class="about-cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </main>
+</Base>
