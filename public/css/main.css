@@ -2914,6 +2914,11 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
 body.page-blog { --accent: var(--blue); --accent-ink: #000; }
 body.page-blog .section-title .accent { color: var(--blue); }
 
+/* Blog header stacks the intro UNDER the title (left-aligned), instead of the
+   shared section-header's side-by-side layout that pushes it awkwardly right. */
+.blog-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.blog-header .section-intro { max-width: 60ch; }
+
 /* ── List ── */
 .post-list {
   margin: 0 3rem 6rem;
