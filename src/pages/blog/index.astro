@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import { sanity, urlFor } from '../../lib/sanity';
+
+const posts = await sanity.fetch(`
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc){
+    title,
+    "slug": slug.current,
+    excerpt,
+    publishedAt,
+    topics,
+    coverImage
+  }
+`);
+
+const fmtDate = (d: string) =>
+  new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const blogLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  '@id': 'https://www.adambarnes.biz/blog.html#blog',
+  name: 'Notes on design & tech',
+  description: 'Working notes on web design, development, and the craft behind the projects.',
+  url: 'https://www.adambarnes.biz/blog.html',
+  author: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  blogPost: posts.map((p: any) => ({
+    '@type': 'BlogPosting',
+    headline: p.title,
+    url: `https://www.adambarnes.biz/blog/${p.slug}.html`,
+    datePublished: p.publishedAt,
+    description: p.excerpt,
+    ...(p.topics?.length ? { keywords: p.topics.join(', ') } : {}),
+  })),
+};
+---
+<Base
+  title="Thinking — Notes on design & tech | Adam Barnes"
+  description="Working notes on web design, development, and the craft behind the projects."
+  canonical="https://www.adambarnes.biz/blog.html"
+  bodyClass="page-blog"
+  active="thinking"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(blogLd)} />
+  </Fragment>
+
+  <main class="blog-index">
+    <header class="section-header blog-header">
+      <h1 class="section-title"><span>Notes on</span> <span class="accent">design &amp; tech</span></h1>
+      <p class="section-intro">Working notes on web design, development, and the craft behind the projects.</p>
+    </header>
+
+    {posts.length === 0 ? (
+      <p class="blog-empty">No posts yet — first one coming soon.</p>
+    ) : (
+      <ul class="post-list">
+        {posts.map((post: any) => (
+          <li class="post-card">
+            {post.coverImage && (
+              <a href={`/blog/${post.slug}.html`} class="post-card__media">
+                <img
+                  src={urlFor(post.coverImage).width(800).height(500).fit('crop').url()}
+                  alt={post.coverImage.alt ?? ''}
+                  loading="lazy"
+                  width="800"
+                  height="500"
+                />
+              </a>
+            )}
+            <div class="post-card__body">
+              {post.topics?.length > 0 && (
+                <p class="post-card__topics">{post.topics.join(' · ')}</p>
+              )}
+              <h2><a href={`/blog/${post.slug}.html`}>{post.title}</a></h2>
+              <p class="post-card__excerpt">{post.excerpt}</p>
+              <time datetime={post.publishedAt}>{fmtDate(post.publishedAt)}</time>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Base>

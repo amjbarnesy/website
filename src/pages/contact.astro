@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Contact — Adam Barnes | Web Design & Photography"
+  description="Get in touch with Adam Barnes to discuss a web design project, photography booking, or any other enquiry. Based in Norfolk and Suffolk, working across the UK."
+  canonical="https://www.adambarnes.biz/contact.html"
+  ogImage="https://www.adambarnes.biz/assets/og-image.jpg"
+  bodyClass="page-contact"
+  active="contact"
+>
+  <Fragment slot="head">
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Adam Barnes",
+    "url": "https://www.adambarnes.biz/contact.html",
+    "description": "Get in touch with Adam Barnes for web design, WordPress development or photography enquiries.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Adam Barnes",
+      "email": "hello@adambarnes.biz",
+      "telephone": "+447725970028"
+    }
+  }
+  </script>
+  </Fragment>
+
+<main class="contact-page">
+
+    <!-- Quote -->
+    <h1 class="contact-quote">
+      Work that<br>works
+    </h1>
+
+    <!-- Left: contact details -->
+    <div class="contact-left">
+      <div class="contact-details">
+        <strong>Email</strong>
+        <a href="mailto:hello@adambarnes.biz">hello@adambarnes.biz</a>
+
+        <strong>Phone</strong>
+        <a href="tel:+447725970028">07725 970028</a>
+
+        <strong>Based in</strong>
+        UK <!-- EDIT: Add your location if you want -->
+
+        <strong>Socials</strong>
+        <a href="https://www.instagram.com/adammjbarnes/" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://glass.photo/adam-barnes"          target="_blank" rel="noopener">Glass</a><br>
+        <a href="https://bsky.app/profile/adambarnes.biz"  target="_blank" rel="noopener">Bluesky</a><br>
+        <a href="https://500px.com/p/amjbarnesy"           target="_blank" rel="noopener">500px</a><br>
+        <a href="https://www.linkedin.com/in/adbarnes/"   target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://adambarnesphotos.co.uk"              target="_blank" rel="noopener">Photos</a><br>
+        <a href="https://www.adamsphotos.co.uk"            target="_blank" rel="noopener">Adams Photos (prints)</a>
+      </div>
+    </div>
+
+    <!-- Right: contact form -->
+    <div class="contact-right">
+      <!-- Submitted via fetch to /api/contact (Astro serverless route -> Resend)
+           by the inline script below — same JS-driven UX as the old Formspree
+           setup, just a same-origin endpoint instead. -->
+      <form class="contact-form" id="contact-form" action="/api/contact" method="POST" novalidate>
+
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
+          <label for="name">Your Name</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" placeholder=" " autocomplete="tel">
+          <label for="phone">Phone (optional)</label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" placeholder=" " required>
+          <label for="subject">What type of work are you after?</label>
+        </div>
+
+        <div class="form-group">
+          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+          <label for="message">Tell me about it</label>
+        </div>
+
+        <!-- Honeypot: hidden from real users, bots fill it in. Named _gotcha so
+             Formspree also discards filled submissions server-side (catches bots
+             that POST straight to the endpoint, bypassing the client-side check). -->
+        <div class="form-group form-hp" aria-hidden="true">
+          <input type="text" id="_gotcha" name="_gotcha" placeholder=" " tabindex="-1" autocomplete="off">
+          <label for="_gotcha">Website</label>
+        </div>
+
+        <div class="form-submit">
+          <button type="button" class="btn-submit" id="btn-submit">Send Message</button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('btn-submit');
+      if (!form || !btn) return;
+      const msgEl = document.createElement('p');
+      msgEl.className = 'form-status';
+      form.after(msgEl);
+
+      function sendForm() {
+        // Honeypot
+        if (document.getElementById('_gotcha').value) return;
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !subject || !message) {
+          msgEl.textContent = 'Please fill in all required fields.';
+          msgEl.className = 'form-status form-status--error';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        msgEl.textContent = '';
+        msgEl.className = 'form-status';
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.ok) {
+              form.reset();
+              btn.textContent = 'Sent';
+              msgEl.textContent = "Message sent. I'll be in touch soon.";
+              msgEl.className = 'form-status form-status--success';
+            } else {
+              btn.disabled = false;
+              btn.textContent = 'Send Message';
+              msgEl.textContent = data.error || 'Something went wrong. Please try again.';
+              msgEl.className = 'form-status form-status--error';
+            }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+            msgEl.textContent = 'Something went wrong. Please email hello@adambarnes.biz directly.';
+            msgEl.className = 'form-status form-status--error';
+          });
+      }
+
+      btn.addEventListener('click', sendForm);
+    })();
+  </script>
+</Base>

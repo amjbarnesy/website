@@ -1,9 +1,19 @@
 # macOS
 .DS_Store
 
+# Node / Astro
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.*
+!.env.example
+
 # Large local-only media + tools that must never go to the repo.
 # The ProRes masters are the source for the hero videos; keep them backed up
 # elsewhere, not in git. ffmpeg is the standalone converter binary.
-assets/adam-portrait-master.mov
-assets/adam-portrait.mov
-assets/ffmpeg
+public/assets/adam-portrait-master.mov
+public/assets/adam-portrait.mov
+public/assets/ffmpeg
+public/assets/icon.pxd

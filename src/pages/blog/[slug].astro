@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import { toHTML } from '@portabletext/to-html';
+import { sanity, urlFor } from '../../lib/sanity';
+
+export async function getStaticPaths() {
+  const slugs: string[] = await sanity.fetch(
+    `*[_type == "post" && defined(slug.current)].slug.current`,
+  );
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const post = await sanity.fetch(
+  `*[_type == "post" && slug.current == $slug][0]{
+    title, excerpt, publishedAt, _updatedAt, topics, coverImage, body
+  }`,
+  { slug },
+);
+
+const escapeHtml = (s = '') =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const bodyHtml = toHTML(post.body ?? [], {
+  components: {
+    types: {
+      image: ({ value }: any) =>
+        `<figure><img src="${urlFor(value).width(1600).url()}" alt="${
+          value.alt ?? ''
+        }" loading="lazy" /></figure>`,
+      code: ({ value }: any) =>
+        `<pre data-language="${value.language ?? ''}"><code>${escapeHtml(
+          value.code,
+        )}</code></pre>`,
+    },
+  },
+});
+
+const ogImage = post.coverImage
+  ? urlFor(post.coverImage).width(1200).height(630).fit('crop').url()
+  : undefined;
+
+const canonical = `https://www.adambarnes.biz/blog/${slug}.html`;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.publishedAt,
+  dateModified: post._updatedAt ?? post.publishedAt,
+  url: canonical,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  author: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  publisher: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  ...(ogImage ? { image: ogImage } : {}),
+  ...(post.topics?.length ? { keywords: post.topics.join(', ') } : {}),
+};
+
+const fmtDate = (d: string) =>
+  new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base
+  title={`${post.title} — Adam Barnes`}
+  description={post.excerpt}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType="article"
+  bodyClass="page-blog page-post"
+  active="thinking"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleLd)} />
+  </Fragment>
+
+  <main class="post">
+    <article>
+      <header class="post-header">
+        {post.topics?.length > 0 && (
+          <p class="post__topics">{post.topics.join(' · ')}</p>
+        )}
+        <h1>{post.title}</h1>
+        <time datetime={post.publishedAt}>{fmtDate(post.publishedAt)}</time>
+      </header>
+
+      {post.coverImage && (
+        <img
+          class="post__cover"
+          src={urlFor(post.coverImage).width(1600).url()}
+          alt={post.coverImage.alt ?? ''}
+          width="1600"
+        />
+      )}
+
+      <div class="post__body" set:html={bodyHtml} />
+    </article>
+  </main>
+</Base>
