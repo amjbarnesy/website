@@ -29,21 +29,19 @@ const {
   bodyClass = '',
   active = '',
   navClass = '',
-  showThinking = false,
   cssVersion = '20260615a',
 } = Astro.props;
 
-// The "Thinking" link only appears in the nav on the Thinking pages in the
-// original site, so it's gated behind showThinking to keep parity.
+// "Thinking" is the blog (/blog.html) — shown site-wide; active key "thinking".
 const navLinks = [
   { href: '/web-design.html', label: 'Web Design', key: 'web-design' },
   { href: '/photography.html', label: 'Photography', key: 'photography' },
   { href: '/clients.html', label: 'Clients', key: 'clients' },
   { href: '/about.html', label: 'About', key: 'about' },
   { href: '/faq.html', label: 'FAQ', key: 'faq' },
-  { href: '/thinking.html', label: 'Thinking', key: 'thinking', thinking: true },
+  { href: '/blog.html', label: 'Thinking', key: 'thinking' },
   { href: '/contact.html', label: 'Contact', key: 'contact' },
-].filter((l) => showThinking || !l.thinking);
+];
 
 const menuLinks = [
   { href: '/', label: 'Home', page: 'home' },
@@ -52,9 +50,9 @@ const menuLinks = [
   { href: '/clients.html', label: 'Clients', page: 'clients' },
   { href: '/about.html', label: 'About', page: 'about' },
   { href: '/faq.html', label: 'FAQ', page: 'faq' },
-  { href: '/thinking.html', label: 'Thinking', page: 'thinking', thinking: true },
+  { href: '/blog.html', label: 'Thinking', page: 'thinking' },
   { href: '/contact.html', label: 'Contact', page: 'contact' },
-].filter((l) => showThinking || !l.thinking);
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
