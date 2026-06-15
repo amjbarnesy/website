@@ -43,8 +43,14 @@ export async function POST(request: Request): Promise<Response> {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error('RESEND_API_KEY is not set');
-    return json({ ok: false, error: 'Email service is not configured.' }, 500);
+    // TEMP DIAGNOSTIC: list env var names matching /resend/i (names only, no
+    // values) to tell apart "not on this project/scope" vs "name typo".
+    const seen = Object.keys(process.env).filter((k) => /resend/i.test(k));
+    console.error('RESEND_API_KEY is not set. resend-ish keys:', seen);
+    return json(
+      { ok: false, error: 'Email service is not configured.', debug: { resendKeys: seen } },
+      500,
+    );
   }
 
   const resend = new Resend(apiKey);
