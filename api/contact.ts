@@ -48,7 +48,10 @@ export async function POST(request: Request): Promise<Response> {
     const seen = Object.keys(process.env).filter((k) => /resend/i.test(k));
     console.error('RESEND_API_KEY is not set. resend-ish keys:', seen);
     return json(
-      { ok: false, error: 'Email service is not configured.', debug: { resendKeys: seen } },
+      {
+        ok: false,
+        error: `Email service is not configured. [debug — resend env keys seen: ${seen.join(', ') || 'NONE'}]`,
+      },
       500,
     );
   }
