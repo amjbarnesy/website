@@ -1,0 +1,273 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Adam Barnes — Web Designer & Photographer | Norfolk & Suffolk, UK"
+  description="Web design and photography for businesses that want both handled properly — branding, content, websites that work. 25 years of experience, based in Norfolk."
+  canonical="https://www.adambarnes.biz/"
+  ogImage="https://www.adambarnes.biz/assets/og-image.jpg"
+  bodyClass="page-home"
+>
+  <Fragment slot="head">
+  <link rel="preload" as="image" href="assets/adam-portrait.webp">
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.adambarnes.biz/#person",
+    "name": "Adam Barnes",
+    "image": "https://www.adambarnes.biz/assets/adam-portrait.webp",
+    "jobTitle": "Web Designer & Photographer",
+    "url": "https://www.adambarnes.biz",
+    "email": "hello@adambarnes.biz",
+    "telephone": "+447725970028",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Norfolk",
+      "addressCountry": "GB"
+    },
+    "description": "Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience brought together — clearer branding, stronger content, a website that looks right and pulls its weight.",
+    "areaServed": [
+      "Norfolk",
+      "Suffolk",
+      "Essex",
+      "Cambridge",
+      "United Kingdom"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/adammjbarnes/",
+      "https://glass.photo/adam-barnes",
+      "https://bsky.app/profile/adambarnes.biz",
+      "https://500px.com/p/amjbarnesy",
+      "https://www.linkedin.com/in/adbarnes/"
+    ],
+    "knowsAbout": [
+      "Web Design",
+      "WordPress",
+      "Photography",
+      "Branding",
+      "Elementor",
+      "CSS"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Design",
+            "description": "Bespoke WordPress websites built to work hard for your business"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Photography",
+            "description": "Event, portrait, food and commercial photography across Norfolk and the UK"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Adam Barnes",
+    "url": "https://www.adambarnes.biz"
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.adambarnes.biz/#business",
+    "name": "Adam Barnes",
+    "url": "https://www.adambarnes.biz",
+    "email": "hello@adambarnes.biz",
+    "telephone": "+447725970028",
+    "image": "https://www.adambarnes.biz/assets/adam-portrait.webp",
+    "description": "Web design and photography for businesses that want both handled properly. 25 years of design, digital and technical experience.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Norfolk",
+      "addressCountry": "GB"
+    },
+    "areaServed": "United Kingdom",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "A stunningly talented photographer and digital genius.",
+        "author": { "@type": "Person", "name": "Brian Bush" }
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Always our first call.",
+        "author": { "@type": "Organization", "name": "Firstlight Festival" }
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "I quite literally wouldn't work with anyone else.",
+        "author": { "@type": "Person", "name": "Donna Dawson" }
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "A constant source of website wisdom.",
+        "author": { "@type": "Person", "name": "Matt Sykes" }
+      }
+    ]
+  }
+  </script>
+  </Fragment>
+
+<main class="hero" id="hero">
+    <div class="hero-inner">
+      <h1 class="hero-text" aria-label="Inspired Creative by Adam">
+        <span class="line"><span class="line-inner" id="hero-inspired">Inspired</span></span>
+
+        <!-- Single element — JS swaps text+class, nothing leaks through -->
+        <span class="line">
+          <span class="line-inner">
+            <span class="hero-word-swap" aria-live="polite">
+              <span class="word hero-word--ghost" id="word-swap-text">Creative</span>
+            </span>
+          </span>
+        </span>
+
+        <span class="line line--by">
+          <span class="line-inner hero-by-line" id="hero-by">
+            <span class="hero-by">by&nbsp;Adam</span>
+          </span>
+        </span>
+      </h1>
+      <!-- Living portrait: video occasionally glances + smirks. Same id/class as the
+           old img so GSAP fade-in and CSS sizing carry over. Two transparent sources
+           so it sits on any background (works in dark mode): WebM/VP9 alpha for
+           Chrome/Firefox/Edge, HEVC alpha for Safari. poster = the still cutout,
+           shown before play and as the fallback if neither video can load. -->
+      <video class="hero-portrait" id="hero-portrait"
+             autoplay muted loop playsinline preload="auto"
+             poster="assets/adam-portrait.webp"
+             aria-label="Adam Barnes">
+        <source src="assets/adam-portrait.webm" type="video/webm">
+        <source src="assets/adam-portrait-alpha.mp4" type="video/mp4; codecs=hvc1">
+        <img src="assets/adam-portrait.webp" alt="Adam Barnes">
+      </video>
+    </div>
+
+    <!-- Tagline — below the rule, right-aligned to headline edge -->
+    <p class="hero-tagline" id="hero-tagline">
+      Web design and photography for businesses that want both<br>
+      handled properly. Most agencies split the two. I don't.<br>
+      25 years of design, digital and technical experience, brought<br>
+      together so your website and images feel joined up from the start.<br>
+      Clearer branding. Stronger content.<br>
+      A website that looks right and pulls its weight.
+    </p>
+    <a href="contact.html" class="hero-lets-talk"><span class="btn-primary">Let's talk<span class="btn-primary__arrow" aria-hidden="true">→</span></span></a>
+
+    <!-- Scroll hint -->
+    <p class="hero-scroll-hint" aria-hidden="true">Scroll to explore</p>
+  </main>
+
+  <!-- Manifesto section -->
+  <section class="manifesto">
+    <div class="manifesto__corner-tl">In my words / 01</div>
+    <div class="manifesto-inner">
+      <p class="manifesto-text">
+        <span class="manifesto-black">I may be a one-man band, but I can be your string quartet,<br>
+        your rock band, or your full-on orchestra.</span><br>
+        <span class="manifesto-grey">With the experience and skill to sharpen your brand.<br>
+        From a quick fix to a complete overhaul,<br>
+        with all the bells and whistles.</span><br>
+        <span class="manifesto-black">Either way, I can give you the creative confidence<br>
+        and know-how to exceed your expectations.</span><br>
+        <span class="manifesto-grey">Getting the very best results out of your budget.</span>
+      </p>
+    </div>
+    <p class="hero-scroll-hint" aria-hidden="true">Scroll to explore</p>
+  </section>
+
+  <!-- Social proof -->
+  <section class="ab-proof" aria-label="Client testimonials">
+    <div class="ab-proof__inner">
+      <div class="ab-proof__corner-tl">In their words / 02</div>
+      <p class="ab-proof__kicker">
+        one of the nicest people I have ever met<span class="ab-proof__asterisk">*</span>
+      </p>
+      <div class="ab-proof__body">
+        <div class="ab-proof__quote-row">
+          <p>&ldquo;A stunningly talented photographer and digital genius.&rdquo;</p>
+          <div class="ab-proof__quote-who">Brian Bush &mdash; Turning Factor</div>
+        </div>
+        <div class="ab-proof__quote-row">
+          <p>&ldquo;Always our first call.&rdquo;</p>
+          <div class="ab-proof__quote-who">First Light Festival &mdash; Lowestoft</div>
+        </div>
+        <div class="ab-proof__quote-row">
+          <p>&ldquo;I quite literally wouldn&rsquo;t work with anyone else.&rdquo;</p>
+          <div class="ab-proof__quote-who">Donna Dawson &mdash; London</div>
+        </div>
+        <div class="ab-proof__quote-row">
+          <p>&ldquo;A constant source of website wisdom.&rdquo;</p>
+          <div class="ab-proof__quote-who">Matt Sykes &mdash; Sales Cadence</div>
+        </div>
+        <a href="clients.html" class="btn btn--reversed">See the clients →</a>
+      </div>
+      <div class="ab-proof__mono-wrap">
+        <div class="ab-proof__mono" aria-hidden="true">YES,</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser sections linking to pages -->
+  <section class="teasers">
+    <a href="web-design.html" class="teaser teaser--webdesign reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">01</span>
+        <h2 class="teaser-title">Web <span class="teaser-accent">Design</span></h2>
+        <p class="teaser-desc">Branding, websites and clever coding that makes your business stand out.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+    <a href="photography.html" class="teaser teaser--photography reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">02</span>
+        <h2 class="teaser-title">Photo<span class="teaser-accent">graphy</span></h2>
+        <p class="teaser-desc">Events, festivals, portraits and theatrical. Capturing energy and atmosphere.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+    <a href="clients.html" class="teaser teaser--clients reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">03</span>
+        <h2 class="teaser-title">My <span class="teaser-accent">Clients</span></h2>
+        <p class="teaser-desc">Brands and people I've had the pleasure of working with.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+    <a href="about.html" class="teaser teaser--about reveal">
+      <div class="teaser-inner">
+        <span class="teaser-label">04</span>
+        <h2 class="teaser-title">About <span class="teaser-accent">Me</span></h2>
+        <p class="teaser-desc">The person behind the work. Designer, photographer, problem solver.</p>
+        <span class="teaser-arrow">→</span>
+      </div>
+    </a>
+  </section>
+</Base>
