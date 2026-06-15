@@ -15,6 +15,24 @@ const posts = await sanity.fetch(`
 
 const fmtDate = (d: string) =>
   new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const blogLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  '@id': 'https://www.adambarnes.biz/blog.html#blog',
+  name: 'Notes on design & tech',
+  description: 'Working notes on web design, development, and the craft behind the projects.',
+  url: 'https://www.adambarnes.biz/blog.html',
+  author: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  blogPost: posts.map((p: any) => ({
+    '@type': 'BlogPosting',
+    headline: p.title,
+    url: `https://www.adambarnes.biz/blog/${p.slug}.html`,
+    datePublished: p.publishedAt,
+    description: p.excerpt,
+    ...(p.topics?.length ? { keywords: p.topics.join(', ') } : {}),
+  })),
+};
 ---
 <Base
   title="Thinking — Notes on design & tech | Adam Barnes"
@@ -23,6 +41,10 @@ const fmtDate = (d: string) =>
   bodyClass="page-blog"
   active="thinking"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(blogLd)} />
+  </Fragment>
+
   <main class="blog-index">
     <header class="section-header blog-header">
       <h1 class="section-title"><span>Notes on</span> <span class="accent">design &amp; tech</span></h1>

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const post = await sanity.fetch(
   `*[_type == "post" && slug.current == $slug][0]{
-    title, excerpt, publishedAt, topics, coverImage, body
+    title, excerpt, publishedAt, _updatedAt, topics, coverImage, body
   }`,
   { slug },
 );
@@ -40,18 +40,38 @@ const ogImage = post.coverImage
   ? urlFor(post.coverImage).width(1200).height(630).fit('crop').url()
   : undefined;
 
+const canonical = `https://www.adambarnes.biz/blog/${slug}.html`;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.publishedAt,
+  dateModified: post._updatedAt ?? post.publishedAt,
+  url: canonical,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  author: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  publisher: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
+  ...(ogImage ? { image: ogImage } : {}),
+  ...(post.topics?.length ? { keywords: post.topics.join(', ') } : {}),
+};
+
 const fmtDate = (d: string) =>
   new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <Base
   title={`${post.title} — Adam Barnes`}
   description={post.excerpt}
-  canonical={`https://www.adambarnes.biz/blog/${slug}.html`}
+  canonical={canonical}
   ogImage={ogImage}
   ogType="article"
   bodyClass="page-blog page-post"
   active="thinking"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleLd)} />
+  </Fragment>
+
   <main class="post">
     <article>
       <header class="post-header">
