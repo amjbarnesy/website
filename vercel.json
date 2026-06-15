@@ -14,8 +14,7 @@
     { "source": "/portfolio",    "destination": "/web-design.html",  "permanent": true },
     { "source": "/services",     "destination": "/web-design.html",  "permanent": true },
     { "source": "/about",        "destination": "/about.html",       "permanent": true },
-    { "source": "/photography",  "destination": "/photography.html", "permanent": true },
-    { "source": "/blog/:path*",  "destination": "/",                 "permanent": true }
+    { "source": "/photography",  "destination": "/photography.html", "permanent": true }
   ],
   "headers": [
     {
