@@ -2982,7 +2982,7 @@ body.page-blog .section-title .accent { color: var(--blue); }
 .post-header time { font-size: 0.85rem; color: rgba(0,0,0,0.4); }
 .post__cover { width: 100%; height: auto; margin: 0 0 2.5rem; }
 .post__body p {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   line-height: 1.75;
   color: rgba(0,0,0,0.78);
   margin-bottom: 1.4rem;
@@ -2998,7 +2998,7 @@ body.page-blog .section-title .accent { color: var(--blue); }
 .post__body a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
 .post__body a:hover { color: var(--blue); }
 .post__body ul, .post__body ol { margin: 0 0 1.4rem 1.25rem; }
-.post__body li { font-size: 1.05rem; line-height: 1.75; color: rgba(0,0,0,0.78); margin-bottom: 0.4rem; }
+.post__body li { font-size: 1.2rem; line-height: 1.75; color: rgba(0,0,0,0.78); margin-bottom: 0.4rem; }
 .post__body figure { margin: 2rem 0; }
 .post__body figure img { width: 100%; height: auto; display: block; }
 .post__body pre {
