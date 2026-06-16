@@ -2994,7 +2994,8 @@ body.page-blog .section-title .accent { color: var(--blue); }
   letter-spacing: -0.01em;
   margin: 2.6rem 0 1rem;
 }
-.post__body h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+.post__body h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin: 2rem 0 0.75rem; }
+.post__body h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin: 2rem 0 0.75rem; }
 .post__body a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
 .post__body a:hover { color: var(--blue); }
 .post__body ul, .post__body ol { margin: 0 0 1.4rem 1.25rem; }
