@@ -278,12 +278,18 @@ nav.is-scrolled::before { opacity: 1; }
   line-height: 1.3;
   display: block;
   overflow: hidden;
-  padding-bottom: 0.28em;
+  /* Generous bottom room so descenders ("g") clear the overflow clip box
+     across browsers (Chrome mobile clips tighter than Safari); the negative
+     margin claws back the visual spacing so the menu rhythm is unchanged. */
+  padding-bottom: 0.5em;
+  margin-bottom: -0.32em;
   transition: color 0.3s;
 }
 .menu-nav a span {
   display: inline-block;
-  transform: translateY(130%);
+  /* Must exceed (line-height + padding-bottom) / line-height so the text is
+     fully hidden below the clip box before the reveal. */
+  transform: translateY(155%);
   transition: transform 0.7s var(--ease);
 }
 .menu-overlay.open .menu-nav a span { transform: translateY(0); }
