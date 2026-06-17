@@ -278,11 +278,12 @@ nav.is-scrolled::before { opacity: 1; }
   line-height: 1.3;
   display: block;
   overflow: hidden;
+  padding-bottom: 0.18em;
   transition: color 0.3s;
 }
 .menu-nav a span {
   display: inline-block;
-  transform: translateY(110%);
+  transform: translateY(130%);
   transition: transform 0.7s var(--ease);
 }
 .menu-overlay.open .menu-nav a span { transform: translateY(0); }
