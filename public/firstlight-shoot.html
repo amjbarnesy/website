@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>First Light 2026 — Shoot Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#F4EFE4; --ink:#22243F; --ink-soft:#5A5C72;
+    --hair:#DCD4C4; --card:#FBF8F1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--sand);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1280px;margin:0 auto;padding:28px 20px 60px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:0 0 8px}
+  h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(30px,6vw,52px);line-height:1.02;margin:0 0 10px;letter-spacing:-.01em}
+  .lede{margin:0;max-width:62ch;color:var(--ink-soft);font-size:15px}
+  .note{margin-top:14px;font-size:12.5px;color:var(--ink-soft);border-left:2px solid #E0765F;padding:6px 0 6px 12px;max-width:66ch}
+  .controls{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:24px 0 14px}
+  .tabs{display:inline-flex;background:var(--card);border:1px solid var(--hair);border-radius:999px;padding:4px}
+  .tab{appearance:none;border:0;background:transparent;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--ink-soft);padding:7px 16px;border-radius:999px;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+  .tab small{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+  .tab[aria-selected="true"]{background:var(--ink);color:#fff}
+  .tab[aria-selected="true"] small{opacity:.6}
+  .count{font-size:12.5px;color:var(--ink-soft)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 15px;font-size:12px;color:var(--ink-soft);margin:2px 0 14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .frame{background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .grid{position:relative;min-width:1000px}
+  .labelcol-w{width:148px;flex:0 0 148px}
+  .ruler{display:flex;position:sticky;top:0;z-index:6}
+  .ruler .corner{background:var(--card);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);display:flex;align-items:flex-end;padding:0 10px 6px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .skyband{position:relative;flex:1 1 auto;height:46px;border-bottom:1px solid var(--hair)}
+  .skyband .sky{position:absolute;inset:0}
+  .tick{position:absolute;top:0;bottom:0;width:1px;background:rgba(34,36,63,.10)}
+  .tick b{position:absolute;top:6px;left:5px;font-size:10.5px;font-weight:600;color:rgba(34,36,63,.66);font-variant-numeric:tabular-nums}
+  .sun{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed rgba(34,36,63,.5)}
+  .sun b{position:absolute;bottom:5px;left:4px;white-space:nowrap;font-size:9.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+  .lane{display:flex;border-bottom:1px solid var(--hair);position:relative}
+  .lane:last-child{border-bottom:0}
+  .lane .name{border-right:1px solid var(--hair);padding:9px 10px;font-size:11.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;background:var(--card);position:sticky;left:0;z-index:3}
+  .track{position:relative;flex:1 1 auto}
+  .track .glow{position:absolute;inset:0;opacity:.13;pointer-events:none}
+  .track .vline{position:absolute;top:0;bottom:0;width:1px;background:rgba(34,36,63,.06)}
+  .track .vsun{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed rgba(34,36,63,.16)}
+  .bar{position:absolute;height:24px;border-radius:6px;padding:0 7px;display:flex;align-items:center;color:#fff;cursor:pointer;overflow:hidden;font-size:11px;font-weight:500;white-space:nowrap;box-shadow:0 1px 2px rgba(34,36,63,.18);border:1px solid rgba(255,255,255,.16)}
+  .bar:hover,.bar:focus{outline:2px solid var(--ink);outline-offset:1px;z-index:5}
+  .bar .t{opacity:.85;font-variant-numeric:tabular-nums;margin-right:5px;font-weight:600}
+  .bar .w{margin-left:5px;opacity:.85;font-size:9px;border:1px solid rgba(255,255,255,.6);border-radius:3px;padding:0 3px}
+  .detail{margin-top:14px;font-size:13.5px;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:12px 14px;display:none}
+  .detail.show{display:block}
+  .detail .dt{font-family:"Fraunces",serif;font-size:17px;font-weight:500;margin-right:8px}
+  .detail .meta{color:var(--ink-soft);font-size:12.5px;margin-top:3px}
+  .detail .meta b{color:var(--ink);font-weight:600}
+  .detail .focus{color:var(--ink);font-size:13.5px;margin-top:7px}
+  .standing{margin-top:22px;font-size:13px;color:var(--ink-soft)}
+  .standing h3{font-family:"Fraunces",serif;font-weight:500;font-size:16px;color:var(--ink);margin:0 0 8px}
+  .standing ul{margin:0;padding-left:18px}
+  .standing li{margin:6px 0}
+  .standing b{color:var(--ink);font-weight:600}
+  footer{margin-top:28px;font-size:11.5px;color:var(--ink-soft);max-width:70ch}
+  @media (max-width:560px){
+    .labelcol-w{width:112px;flex-basis:112px}
+    .lane .name{font-size:10.5px;padding:8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">First Light Festival · Lowestoft · 20–21 June 2026</p>
+    <h1>Shoot plan — where to be, when</h1>
+    <p class="lede">A photographer's run-sheet built from the shoot brief, plotted on the same round-the-clock time axis as the main programme chart. Lanes are the places you need to be; colours are the kind of shot; click any block for the brief's coverage notes.</p>
+    <p class="note">Times are cross-referenced to the festival programme where the act appears in it. Blocks marked <b>brief</b> have a time taken from the shoot brief only, not yet corroborated against the live listing — treat those as provisional. Coverage with no fixed time (takeovers, the afterparty, hero shots) is listed below the chart.</p>
+  </header>
+
+  <div class="controls">
+    <div class="tabs" role="tablist" aria-label="Festival day">
+      <button class="tab" role="tab" data-day="sat" aria-selected="true"><small>Main day</small>Sat 20</button>
+      <button class="tab" role="tab" data-day="sun" aria-selected="false"><small>Solstice</small>Sun 21</button>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+  <div class="legend" id="legend"></div>
+
+  <div class="frame">
+    <div class="scroll">
+      <div class="grid">
+        <div class="ruler">
+          <div class="corner labelcol-w">Location</div>
+          <div class="skyband" id="skyband"></div>
+        </div>
+        <div id="lanes"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail" id="detail" aria-live="polite"></div>
+
+  <div class="standing">
+    <h3>No fixed time — roaming / contextual coverage</h3>
+    <ul id="standing"></ul>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = {
+  "events": [
+    // ---- SATURDAY ----
+    {"title":"Big Bang Boogie! & Opening Parade","zone":"East Point Pavilion","cat":"Audience & atmosphere","start":"11:00","end":"12:00","day":"sat","focus":"Opening parade and community energy — wide establishing shots and reactions."},
+    {"title":"Scarlett Hogg","zone":"East Point Pavilion","cat":"Set / performance","start":"12:30","end":"13:00","day":"sat","src":"brief","focus":"New Dawn artist on the EPP stage."},
+    {"title":"Thomas Hubery","zone":"New Dawn Stage","cat":"Set / performance","start":"13:45","end":"14:15","day":"sat","focus":"New Dawn Stage set."},
+    {"title":"WARN","zone":"New Dawn Stage","cat":"Set / performance","start":"15:00","end":"15:30","day":"sat","focus":"New Dawn Stage set."},
+    {"title":"Magnolia","zone":"Sunlight Stage","cat":"Portrait & interview","start":"15:30","end":"16:00","day":"sat","focus":"Priority portrait & interview. Also a New Dawn act — catch them on both stages."},
+    {"title":"Chance for Good","zone":"New Dawn Stage","cat":"Portrait & interview","start":"16:00","end":"16:30","day":"sat","focus":"Priority — shoot the set and grab portrait & interview around this slot."},
+    {"title":"Taf Royale","zone":"New Dawn Stage","cat":"Portrait & interview","start":"17:15","end":"17:45","day":"sat","src":"brief","focus":"Priority — set plus portrait & interview."},
+    {"title":"Oli Harris","zone":"New Dawn Stage","cat":"Portrait & interview","start":"18:30","end":"19:00","day":"sat","src":"brief","focus":"Priority — set plus portrait & interview."},
+    {"title":"Jamz Supernova (headliner)","zone":"Sunlight Stage","cat":"Audience & atmosphere","start":"19:00","end":"20:00","day":"sat","focus":"Wide crowd shots; golden hour / dusk across the crowd; individual faces and hands up; the stage-to-crowd relationship."},
+    {"title":"Zak Stone","zone":"Suffolk Sounds — Upper Prom","cat":"Portrait & interview","start":"19:00","end":"19:30","day":"sat","focus":"Priority portrait — Suffolk Sound stage."},
+    {"title":"PleasureInc. (headline)","zone":"New Dawn Stage","cat":"Set / performance","start":"20:00","end":"20:30","day":"sat","focus":"New Dawn Stage headline set."},
+    {"title":"The Wrong End of the Pier Show","zone":"East Point Pavilion","cat":"Set / performance","start":"22:00","end":"23:00","day":"sat","focus":"Aerial and cabaret performance; performer/audience interaction; crowd reactions."},
+    {"title":"Polly Gibbons 'No Moon at All'","zone":"Jazz Club — RNSYC","cat":"Audience & atmosphere","start":"22:00","end":"23:10","day":"sat","focus":"Audience reactions; room atmosphere and low light; wide room shots."},
+    {"title":"Moonlit Soundscapes","zone":"St Peter & St John Church","cat":"Audience & atmosphere","start":"22:00","end":"00:30","cross":true,"day":"sat","focus":"Church interior and ambient light; audience silhouettes against the stage / stained glass."},
+
+    // ---- SUNDAY ----
+    {"title":"Jason Singh 'Suraj'","zone":"Beach / Shoreline","cat":"Sunrise & solstice","start":"04:00","end":"05:00","day":"sun","focus":"Suraj sunrise ritual."},
+    {"title":"Summer Solstice Sunrise","zone":"Beach / Shoreline","cat":"Sunrise & solstice","start":"04:30","end":"06:00","day":"sun","focus":"The sunrise itself; sea swimming; yoga at dawn; Fish Feast; Kitty May performance; wide shots of the scale of the event."},
+    {"title":"Gourds","zone":"New Dawn Stage","cat":"Set / performance","start":"10:45","end":"11:15","day":"sun","focus":"New Dawn Stage set."},
+    {"title":"Lara Price","zone":"New Dawn Stage","cat":"Set / performance","start":"11:45","end":"12:15","day":"sun","focus":"New Dawn Stage set."},
+    {"title":"Robin Torbitt","zone":"New Dawn Stage","cat":"Portrait & interview","start":"13:00","end":"13:30","day":"sun","src":"brief","focus":"Priority — set plus portrait & interview."},
+    {"title":"Gabby Rivers","zone":"New Dawn Stage","cat":"Portrait & interview","start":"14:30","end":"15:00","day":"sun","focus":"Priority — set plus portrait & interview."},
+    {"title":"Seth Lakeman (headliner)","zone":"Sunlight Stage","cat":"Audience & atmosphere","start":"15:00","end":"16:00","day":"sun","focus":"Crowd shots; end-of-festival atmosphere."}
+  ],
+  "standing": [
+    {"title":"New Dawn Takeover","zone":"East Point Pavilion","cat":"Set / performance","day":"Sat","focus":"New Dawn artists on stage at EPP; closer audience — contrast with the beach stage; Play, Produce, Promote artists performing and offstage."},
+    {"title":"Suffolk Sounds Stage — New Dawn artists","zone":"Suffolk Sounds — Upper Prom","cat":"Set / performance","day":"Sat","focus":"Same artists, different stage — show the progression; Upper Prom setting and passing crowd; audience interaction."},
+    {"title":"New Dawn → Sunlight crossover","zone":"Roaming / site","cat":"Portrait & interview","day":"Sat","focus":"New Dawn artists watching from the crowd or wings; same artist backstage vs onstage; any moments between New Dawn and the headline acts."},
+    {"title":"Ava Lee","zone":"Suffolk Sounds — Upper Prom","cat":"Portrait & interview","day":"Sat","focus":"Priority portrait & interview — Suffolk Sound. Time TBC."},
+    {"title":"Jamz Supernova Afterparty","zone":"Claremont Pier","cat":"Audience & atmosphere","day":"Sat","focus":"Pier setting after dark; dance-floor energy; crowd shots. Time TBC — late."},
+    {"title":"Hero shots","zone":"Roaming / site","cat":"Hero / site","day":"Sat & Sun","focus":"Crowd shots; the festival site as a whole; diversity and accessibility; intergenerational groups."}
+  ],
+  "zoneOrder": ["New Dawn Stage","East Point Pavilion","Suffolk Sounds — Upper Prom","Sunlight Stage","Beach / Shoreline","Jazz Club — RNSYC","St Peter & St John Church","Claremont Pier","Roaming / site"],
+  "catColor": {"Set / performance":"#E0765F","Portrait & interview":"#8E57A8","Audience & atmosphere":"#3E6FA6","Sunrise & solstice":"#E8C24A","Hero / site":"#56A66B"},
+  "legend": ["Set / performance","Portrait & interview","Audience & atmosphere","Sunrise & solstice","Hero / site"]
+};
+const EVENTS=DATA.events, ZONE_ORDER=DATA.zoneOrder, CAT_COLOR=DATA.catColor;
+
+const T0=4*60, T1=24*60, SPAN=T1-T0;
+const toMin=s=>{const[h,m]=s.split(":").map(Number);return h*60+m;};
+const pct=m=>((m-T0)/SPAN)*100;
+const SUNRISE=toMin("04:33"), SUNSET=toMin("21:24");
+
+function skyCss(){
+  const stop=(t,c)=>c+" "+pct(t).toFixed(1)+"%";
+  return "linear-gradient(to right,"+[
+    stop(T0,"#23244C"),stop(SUNRISE-15,"#33345f"),stop(SUNRISE,"#E08A6A"),
+    stop(toMin('05:30'),"#F6B98C"),stop(toMin('07:30'),"#E7D8BE"),
+    stop(toMin('10:00'),"#D7E6EC"),stop(toMin('14:00'),"#CADFEA"),
+    stop(toMin('18:00'),"#D6E0DE"),stop(SUNSET-30,"#F2C27A"),
+    stop(SUNSET,"#E0805F"),stop(toMin('22:30'),"#6E5388"),stop(T1,"#23244C")
+  ].join(",")+")";
+}
+function buildLegend(){
+  document.getElementById("legend").innerHTML=DATA.legend.map(c=>
+    '<span><i class="dot" style="background:'+CAT_COLOR[c]+'"></i>'+c+'</span>').join("");
+}
+function buildRuler(){
+  let h='<div class="sky" style="background:'+skyCss()+'"></div>';
+  for(let hr=4;hr<=24;hr+=2) h+='<div class="tick" style="left:'+pct(hr*60)+'%"><b>'+String(hr).padStart(2,"0")+'</b></div>';
+  h+='<div class="sun" style="left:'+pct(SUNRISE)+'%"><b>↑ Sunrise 04:33</b></div>';
+  h+='<div class="sun" style="left:'+pct(SUNSET)+'%"><b>↓ Sunset 21:24</b></div>';
+  document.getElementById("skyband").innerHTML=h;
+}
+function packRows(items){
+  const sorted=items.slice().sort((a,b)=>a.s-b.s); const rows=[];
+  sorted.forEach(it=>{let r=rows.find(row=>row[row.length-1].e<=it.s); if(r)r.push(it); else rows.push([it]);});
+  return rows;
+}
+let current="sat";
+function render(day){
+  current=day;
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.day===day?"true":"false"));
+  document.getElementById("detail").classList.remove("show");
+  const de=EVENTS.filter(e=>e.day===day).map(e=>{
+    let s=toMin(e.start), en=toMin(e.end); if(e.cross) en+=1440;
+    return {...e,s,e_:Math.min(en,T1),realEnd:en};
+  });
+  document.getElementById("count").textContent=de.length+" shoot targets";
+  const zones=ZONE_ORDER.filter(z=>de.some(e=>e.zone===z));
+  const lanes=document.getElementById("lanes");
+  if(!zones.length){lanes.innerHTML='<div style="padding:26px;color:var(--ink-soft);font-size:13px">No timed targets for this day.</div>';return;}
+  let vlines=""; for(let hr=4;hr<=24;hr+=2) vlines+='<div class="vline" style="left:'+pct(hr*60)+'%"></div>';
+  vlines+='<div class="vsun" style="left:'+pct(SUNRISE)+'%"></div><div class="vsun" style="left:'+pct(SUNSET)+'%"></div>';
+  lanes.innerHTML=zones.map(zone=>{
+    const items=de.filter(e=>e.zone===zone).map(e=>({s:e.s,e:e.e_,ev:e}));
+    const rows=packRows(items); const laneH=rows.length*30+8; let bars="";
+    rows.forEach((row,ri)=>row.forEach(cell=>{
+      const e=cell.ev, left=pct(e.s), width=Math.max(pct(e.e_)-pct(e.s),1.3), top=4+ri*30, col=CAT_COLOR[e.cat];
+      bars+='<button class="bar" style="left:'+left+'%;width:'+width+'%;top:'+top+'px;background:'+col+'"'
+        +' data-title="'+e.title.replace(/"/g,'&quot;')+'" data-time="'+e.start+'–'+e.end+'"'
+        +' data-zone="'+e.zone.replace(/"/g,'&quot;')+'" data-cat="'+e.cat+'"'
+        +' data-focus="'+(e.focus||"").replace(/"/g,'&quot;')+'" data-src="'+(e.src||"")+'"'
+        +' data-cross="'+(e.cross?1:0)+'">'
+        +'<span class="t">'+e.start+'</span>'+e.title+(e.src==='brief'?'<span class="w">brief</span>':'')+(e.cross?'<span class="w">→</span>':'')+'</button>';
+    }));
+    return '<div class="lane" style="min-height:'+laneH+'px"><div class="name labelcol-w">'+zone+'</div>'
+      +'<div class="track"><div class="glow" style="background:'+skyCss()+'"></div>'+vlines+bars+'</div></div>';
+  }).join("");
+  lanes.querySelectorAll(".bar").forEach(b=>b.addEventListener("click",()=>{
+    const d=document.getElementById("detail");
+    const cross=b.dataset.cross==="1"?' · runs past midnight':'';
+    const src=b.dataset.src==="brief"?' · time from shoot brief only — provisional':'';
+    const focus=b.dataset.focus?'<div class="focus">'+b.dataset.focus+'</div>':'';
+    d.innerHTML='<span class="dt">'+b.dataset.title+'</span><div class="meta"><b>'+b.dataset.time+'</b> · '
+      +b.dataset.zone+' · '+b.dataset.cat+cross+src+'</div>'+focus;
+    d.classList.add("show");
+  }));
+}
+// no-fixed-time list
+document.getElementById("standing").innerHTML=DATA.standing.map(s=>
+  '<li><b>'+s.title+'</b> — '+s.day+' · '+s.zone+' · '+s.cat+'<br><span style="opacity:.85">'+s.focus+'</span></li>'
+).join("");
+document.getElementById("foot").innerHTML=
+  "Times in BST. Sunrise and sunset markers are for Lowestoft on 21 June 2026. Lanes are shoot locations; colours are shot type. "
+  +"Built from the shoot brief and cross-referenced to the festival programme — blocks marked “brief” use a time from the brief only and are not yet corroborated. "
+  +"Some items from the brief may be missing or approximate because of inconsistencies in the source material. Always sense-check against the official programme on the day.";
+
+buildLegend(); buildRuler(); render("sat");
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>render(t.dataset.day)));
+</script>
+</body>
+</html>
