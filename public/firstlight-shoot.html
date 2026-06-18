@@ -136,7 +136,8 @@ const DATA = {
     {"title":"PleasureInc. (headline)","zone":"New Dawn Stage","cat":"Set / performance","start":"20:00","end":"20:30","day":"sat","focus":"New Dawn Stage headline set."},
     {"title":"The Wrong End of the Pier Show","zone":"East Point Pavilion","cat":"Set / performance","start":"22:00","end":"23:00","day":"sat","focus":"Aerial and cabaret performance; performer/audience interaction; crowd reactions."},
     {"title":"Polly Gibbons 'No Moon at All'","zone":"Jazz Club — RNSYC","cat":"Audience & atmosphere","start":"22:00","end":"23:10","day":"sat","focus":"Audience reactions; room atmosphere and low light; wide room shots."},
-    {"title":"Moonlit Soundscapes","zone":"St Peter & St John Church","cat":"Audience & atmosphere","start":"22:00","end":"00:30","cross":true,"day":"sat","focus":"Church interior and ambient light; audience silhouettes against the stage / stained glass."},
+    {"title":"Jamz Supernova Afterparty (grab in passing)","zone":"Claremont Pier","cat":"Audience & atmosphere","start":"23:15","end":"23:25","day":"sat","focus":"Optional — only a couple of minutes in passing on the way from the Jazz Club up to the Church. Pier after dark, dance-floor energy. Skip if short on time. Start time is a guess."},
+    {"title":"Moonlit Soundscapes","zone":"St Peter & St John Church","cat":"Audience & atmosphere","start":"22:00","end":"00:30","cross":true,"day":"sat","focus":"Church interior and ambient light; audience silhouettes against the stage / stained glass. You'll likely catch the tail end after the Jazz Club and pier."},
 
     // ---- SUNDAY ----
     {"title":"Jason Singh 'Suraj'","zone":"Beach / Shoreline","cat":"Sunrise & solstice","start":"04:00","end":"05:00","day":"sun","focus":"Suraj sunrise ritual."},
@@ -152,7 +153,6 @@ const DATA = {
     {"title":"Suffolk Sounds Stage — New Dawn artists","zone":"Suffolk Sounds — Upper Prom","cat":"Set / performance","day":"Sat","focus":"Same artists, different stage — show the progression; Upper Prom setting and passing crowd; audience interaction."},
     {"title":"New Dawn → Sunlight crossover","zone":"Roaming / site","cat":"Portrait & interview","day":"Sat","focus":"New Dawn artists watching from the crowd or wings; same artist backstage vs onstage; any moments between New Dawn and the headline acts."},
     {"title":"Ava Lee","zone":"Suffolk Sounds — Upper Prom","cat":"Portrait & interview","day":"Sat","focus":"Priority portrait & interview — Suffolk Sound. Time TBC."},
-    {"title":"Jamz Supernova Afterparty","zone":"Claremont Pier","cat":"Audience & atmosphere","day":"Sat","focus":"Pier setting after dark; dance-floor energy; crowd shots. Time TBC — late."},
     {"title":"Hero shots","zone":"Roaming / site","cat":"Hero / site","day":"Sat & Sun","focus":"Crowd shots; the festival site as a whole; diversity and accessibility; intergenerational groups."}
   ],
   "zoneOrder": ["New Dawn Stage","East Point Pavilion","Suffolk Sounds — Upper Prom","Sunlight Stage","Beach / Shoreline","Jazz Club — RNSYC","St Peter & St John Church","Claremont Pier","Roaming / site"],
@@ -175,8 +175,10 @@ const WALK_EDGES=[
   ["New Dawn Stage","Beach / Shoreline",5],
   ["Sunlight Stage","Beach / Shoreline",5],
   ["East Point Pavilion","Jazz Club — RNSYC",5],
-  ["East Point Pavilion","St Peter & St John Church",20]
+  ["East Point Pavilion","St Peter & St John Church",20],
+  ["Sunlight Stage","Claremont Pier",10]
 ];
+const BUFFER=5; // minutes of setup/faff added to every hop
 const DIST=(function(){
   const nodes=new Set(); WALK_EDGES.forEach(e=>{nodes.add(e[0]);nodes.add(e[1]);});
   const N=[...nodes], d={}; N.forEach(a=>{d[a]={}; N.forEach(b=>d[a][b]=a===b?0:Infinity);});
@@ -230,7 +232,7 @@ function render(day){
     if(k===0){info[cur._i]={first:true};return;}
     const prev=seq[k-1], w=walk(prev.zone,cur.zone);
     if(w==null){info[cur._i]={from:prev.title,walk:null,status:"unknown"};return;}
-    const leaveBy=cur.s-w; let status;
+    const leaveBy=cur.s-w-(w?BUFFER:0); let status;
     if(w===0||leaveBy>=prev.realEnd) status="ok"; else if(leaveBy>=prev.s) status="tight"; else status="clash";
     info[cur._i]={from:prev.title,walk:w,leaveBy:leaveBy,status:status};
   });
@@ -288,7 +290,7 @@ document.getElementById("foot").innerHTML=
   "Times in BST. Sunrise and sunset markers are for Lowestoft on 21 June 2026. Lanes are shoot locations; colours are shot type. "
   +"Built from the shoot brief and cross-referenced to the festival programme — blocks marked “brief” use a time from the brief only and are not yet corroborated. "
   +"Some items from the brief may be missing or approximate because of inconsistencies in the source material. Always sense-check against the official programme on the day. "
-  +"Next-hop dots use your own walk times between locations (shortest path), checking whether you can reach each target from the one before it — they assume you stay to the end of the previous target and add no setup buffer.";
+  +"Next-hop dots use your own walk times between locations (shortest path) plus a 5-minute setup buffer, checking whether you can reach the start of each target from the one before it. Long events you're happy to join late (e.g. Moonlit Soundscapes) may flag red simply because you can't catch their start — that's expected.";
 
 buildLegend(); buildRuler(); render("sat");
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>render(t.dataset.day)));
