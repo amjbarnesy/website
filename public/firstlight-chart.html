@@ -194,7 +194,8 @@ document.getElementById("standing").innerHTML=DATA.standing.map(s=>{
 document.getElementById("foot").innerHTML=
   "Times in BST. Sunrise and sunset markers are for Lowestoft on 21 June 2026. Genre is read from each event's type tag on the site. "
   +"Two all-weekend activities with fixed daily times (the libraries teepee and the NHM pop-up) appear on both Sat and Sun, marked “wknd”. "
-  +"Captured from the festival programme; the live listing repeated many events across its pages, so this is the de-duplicated set.";
+  +"Captured from the festival programme; the live listing repeated many events across its pages, so this is the de-duplicated set. "
+  +"Please note: this chart may not be 100% accurate, as the source material it was built from contained errors and inconsistencies. Always check the official festival programme for the final word on times and venues.";
 
 buildLegend(); buildRuler(); render("sat");
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>render(t.dataset.day)));
