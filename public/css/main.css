@@ -1054,6 +1054,30 @@ html[data-theme="dark"] .cs-tech-value { color: rgba(255,255,255,0.8); }
   color: rgba(0,0,0,0.4);
 }
 
+/* Full-width content figures (diagrams, reports) — show the whole image at its
+   natural aspect ratio, no cropping. Unlike .cs-screenshot (uniform 16/10 tiles
+   for website screenshots), these are single, uncropped, full-container width. */
+.cs-figure {
+  margin: 2.5rem 3rem 0;
+}
+.cs-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.02);
+}
+.cs-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+html[data-theme="dark"] .cs-figure img { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+html[data-theme="dark"] .cs-figure figcaption { color: rgba(255,255,255,0.35); }
+
 /* Back link + CTA row */
 .cs-footer-nav {
   display: flex;
@@ -1098,6 +1122,7 @@ html[data-theme="dark"] .cs-back-link { color: rgba(255,255,255,0.4); }
   .cs-body-inner { padding: 2rem 2rem; }
   .cs-meta { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
   .cs-screenshots { margin: 1.5rem 1.5rem 0; }
+  .cs-figure { margin: 2rem 1.5rem 0; }
   .cs-footer-nav { padding: 2.5rem 1.5rem 4rem; }
 }
 @media (max-width: 700px) {

@@ -481,3 +481,20 @@ function initWordCycle() {
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   });
 })();
+
+/* ── FAQ Accordion ──────────────────────────────────────────── */
+// Toggles the `.open` class on each .faq-item (CSS animates the answer's
+// grid-template-rows). Each question opens/closes independently.
+(function initFaq() {
+  const questions = $$('.faq-question');
+  if (!questions.length) return;
+
+  questions.forEach(btn => {
+    const item = btn.closest('.faq-item');
+    if (!item) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+})();
