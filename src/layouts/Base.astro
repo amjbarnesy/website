@@ -29,12 +29,13 @@ const {
   bodyClass = '',
   active = '',
   navClass = '',
-  cssVersion = '20260617d',
+  cssVersion = '20260701a',
 } = Astro.props;
 
 // "Thinking" is the blog (/blog.html) — shown site-wide; active key "thinking".
 const navLinks = [
   { href: '/web-design.html', label: 'Web Design', key: 'web-design' },
+  { href: '/seo-geo.html', label: 'SEO & GEO', key: 'seo-geo' },
   { href: '/photography.html', label: 'Photography', key: 'photography' },
   { href: '/clients.html', label: 'Clients', key: 'clients' },
   { href: '/about.html', label: 'About', key: 'about' },
@@ -46,6 +47,7 @@ const navLinks = [
 const menuLinks = [
   { href: '/', label: 'Home', page: 'home' },
   { href: '/web-design.html', label: 'Web Design', page: 'web-design' },
+  { href: '/seo-geo.html', label: 'SEO & GEO', page: 'seo-geo' },
   { href: '/photography.html', label: 'Photography', page: 'photography' },
   { href: '/clients.html', label: 'Clients', page: 'clients' },
   { href: '/about.html', label: 'About', page: 'about' },
@@ -164,7 +166,7 @@ const menuLinks = [
   <!-- GSAP -->
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script is:inline src="/js/main.js" defer></script>
+  <script is:inline src={`/js/main.js?v=${cssVersion}`} defer></script>
   <script is:inline>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script is:inline src="/js/cookie-consent.js"></script>
   <script is:inline defer src="/_vercel/insights/script.js"></script>

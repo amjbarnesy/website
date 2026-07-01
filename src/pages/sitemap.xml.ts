@@ -8,6 +8,7 @@ const BASE = 'https://www.adambarnes.biz';
 const staticPages = [
   { loc: '/', priority: '1.0', changefreq: 'monthly' },
   { loc: '/web-design.html', priority: '0.9', changefreq: 'monthly' },
+  { loc: '/seo-geo.html', priority: '0.9', changefreq: 'monthly' },
   { loc: '/photography.html', priority: '0.9', changefreq: 'monthly' },
   { loc: '/blog.html', priority: '0.8', changefreq: 'weekly' },
   { loc: '/contact.html', priority: '0.8', changefreq: 'yearly' },

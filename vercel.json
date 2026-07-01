@@ -15,6 +15,9 @@
     { "source": "/services",     "destination": "/web-design.html",  "permanent": true },
     { "source": "/about",        "destination": "/about.html",       "permanent": true },
     { "source": "/photography",  "destination": "/photography.html", "permanent": true },
+    { "source": "/seo-geo",      "destination": "/seo-geo.html",     "permanent": true },
+    { "source": "/seo",          "destination": "/seo-geo.html",     "permanent": true },
+    { "source": "/geo",          "destination": "/seo-geo.html",     "permanent": true },
     { "source": "/thinking.html", "destination": "/blog.html", "permanent": true },
     { "source": "/article-website-photography-same-person.html", "destination": "/blog.html", "permanent": true }
   ],
