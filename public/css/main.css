@@ -1060,7 +1060,8 @@ html[data-theme="dark"] .cs-tech-value { color: rgba(255,255,255,0.8); }
 .cs-figure {
   margin: 2.5rem 3rem 0;
 }
-.cs-figure img {
+.cs-figure img,
+.cs-figure svg {
   width: 100%;
   height: auto;
   display: block;
@@ -1075,7 +1076,8 @@ html[data-theme="dark"] .cs-tech-value { color: rgba(255,255,255,0.8); }
   text-transform: uppercase;
   color: rgba(0,0,0,0.4);
 }
-html[data-theme="dark"] .cs-figure img { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+html[data-theme="dark"] .cs-figure img,
+html[data-theme="dark"] .cs-figure svg { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
 html[data-theme="dark"] .cs-figure figcaption { color: rgba(255,255,255,0.35); }
 
 /* Back link + CTA row */

@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+// Inlined (not <img>) so the site's dark-mode toggle can reach the SVG's text.
+import seoVsGeoDiagram from '../assets/seo-vs-geo.svg?raw';
 ---
 <Base
   title="SEO & GEO — Adam Barnes | Getting Found on Google and by AI, Norfolk & Suffolk"
@@ -183,7 +185,7 @@ import Base from '../layouts/Base.astro';
              diagram: Google returns a list of links, AI returns one written answer.
              Ideally an accessible inline SVG with <title> and <desc>. -->
         <figure class="cs-figure" style="margin:2.5rem 0 0;">
-          <img src="assets/images/seo-vs-geo.svg" alt="Diagram contrasting a search engine returning a list of links with an AI returning a single written answer" width="860" height="500" loading="lazy">
+          <Fragment set:html={seoVsGeoDiagram} />
           <figcaption>Two ways of being found: a list of links, or the single answer</figcaption>
         </figure>
 

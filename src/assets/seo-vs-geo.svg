@@ -7,28 +7,31 @@
       --panel:#f5f4f1; --card:#ffffff; --ink:#1b1815; --muted:#8c887f;
       --line:#e4e2dc; --link:#35618e; --accent:#bd7f2e; --accentTint:#f6ead6;
     }
-    @media (prefers-color-scheme: dark){
-      .seo-geo-figure{
-        --panel:#1e1c19; --card:#151311; --ink:#f1eee8; --muted:#9a958c;
-        --line:#332f2a; --link:#7fa8d8; --accent:#d59a48; --accentTint:#2a2114;
-      }
-    }
-    .panel{ fill:var(--panel); stroke:var(--line); stroke-width:1; }
-    .card{ fill:var(--card); stroke:var(--line); stroke-width:1; }
-    .ink{ fill:var(--ink); }
-    .muted{ fill:var(--muted); }
-    .link{ fill:var(--link); }
-    .accent{ fill:var(--accent); }
-    .bar{ fill:var(--line); }
-    .eyebrow{ fill:var(--muted); font-size:11px; letter-spacing:1.5px; font-weight:600; }
-    .h1{ fill:var(--ink); font-size:27px; font-weight:700; letter-spacing:-0.3px; }
-    .sub{ fill:var(--muted); font-size:13px; }
-    .result{ fill:var(--link); font-size:13px; font-weight:600; }
-    .query{ fill:var(--ink); font-size:12px; }
-    .caption{ fill:var(--ink); font-size:13.5px; font-weight:500; }
-    .thesis{ fill:var(--ink); font-size:15px; font-weight:600; font-style:italic; }
-    .tiny{ fill:var(--muted); font-size:11px; }
-    .cite{ fill:var(--accent); font-size:11.5px; font-weight:600; }
+    .seo-geo-figure .panel{ fill:var(--panel); stroke:var(--line); stroke-width:1; }
+    .seo-geo-figure .card{ fill:var(--card); stroke:var(--line); stroke-width:1; }
+    .seo-geo-figure .ink{ fill:var(--ink); }
+    .seo-geo-figure .muted{ fill:var(--muted); }
+    .seo-geo-figure .link{ fill:var(--link); }
+    .seo-geo-figure .accent{ fill:var(--accent); }
+    .seo-geo-figure .bar{ fill:var(--line); }
+    .seo-geo-figure .eyebrow{ fill:var(--muted); font-size:11px; letter-spacing:1.5px; font-weight:600; }
+    .seo-geo-figure .h1{ fill:var(--ink); font-size:27px; font-weight:700; letter-spacing:-0.3px; }
+    .seo-geo-figure .sub{ fill:var(--muted); font-size:13px; }
+    .seo-geo-figure .result{ fill:var(--link); font-size:13px; font-weight:600; }
+    .seo-geo-figure .query{ fill:var(--ink); font-size:12px; }
+    .seo-geo-figure .caption{ fill:var(--ink); font-size:13.5px; font-weight:500; }
+    .seo-geo-figure .thesis{ fill:var(--ink); font-size:15px; font-weight:600; font-style:italic; }
+    .seo-geo-figure .tiny{ fill:var(--muted); font-size:11px; }
+    .seo-geo-figure .cite{ fill:var(--accent); font-size:11.5px; font-weight:600; }
+
+    /* Dark mode follows the SITE toggle (not the OS), so it works when the
+       diagram is inlined into the page. The cards stay light on purpose; only
+       the text sitting on the page canvas needs to flip to white so it stays
+       visible against the dark background. */
+    html[data-theme="dark"] .seo-geo-figure .h1,
+    html[data-theme="dark"] .seo-geo-figure .caption,
+    html[data-theme="dark"] .seo-geo-figure .thesis{ fill:#f1eee8; }
+    html[data-theme="dark"] .seo-geo-figure .sub{ fill:#b7b2a8; }
   </style>
 
   <!-- Header -->
