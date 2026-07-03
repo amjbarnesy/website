@@ -1,0 +1,67 @@
+---
+/**
+ * End-of-post block: a one-line sign-off in the site voice, a single CTA button
+ * (existing .btn-cta style), and a "More Thinking" pair of related posts.
+ *
+ * The CTA target is driven by the post's `ctaTarget` field in Sanity, with a
+ * sensible fallback inferred from topics. `ctaSignoff` (optional, per post)
+ * overrides the default sign-off line.
+ */
+export interface RelatedPost {
+  title: string;
+  slug: string;
+}
+export interface Props {
+  ctaTarget?: string;
+  ctaSignoff?: string;
+  related?: RelatedPost[];
+}
+
+const { ctaTarget, ctaSignoff, related = [] } = Astro.props;
+
+// One place for every CTA destination. Sign-offs are dry, first person, under
+// 20 words, no em dashes.
+const CTAS: Record<string, { href: string; label: string; signoff: string }> = {
+  'seo-geo': {
+    href: '/seo-geo.html',
+    label: 'Start with an audit',
+    signoff: "If you'd rather be in the answer than outside the shop, start with an audit.",
+  },
+  'web-design': {
+    href: '/web-design.html',
+    label: 'See how I build',
+    signoff: "If your site should be doing more than sitting there, that is the kind of thing I build.",
+  },
+  photography: {
+    href: '/photography.html',
+    label: 'See the photography',
+    signoff: "If a site needs photographs that actually carry it, that is the other half of what I do.",
+  },
+  contact: {
+    href: '/contact.html',
+    label: 'Get in touch',
+    signoff: 'If any of this rings true for your own project, say hello.',
+  },
+};
+
+const key = ctaTarget && CTAS[ctaTarget] ? ctaTarget : 'web-design';
+const cta = CTAS[key];
+const signoff = ctaSignoff?.trim() || cta.signoff;
+---
+<footer class="post-footer">
+  <p class="post-signoff">{signoff}</p>
+  <a href={cta.href} class="btn-cta">{cta.label}</a>
+
+  {related.length > 0 && (
+    <nav class="post-more" aria-label="More posts">
+      <p class="post-more__label">More Thinking</p>
+      <ul class="post-more__list">
+        {related.map((r) => (
+          <li class="post-more__item">
+            <a href={`/blog/${r.slug}.html`}>{r.title}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )}
+</footer>

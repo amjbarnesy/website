@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { toHTML } from '@portabletext/to-html';
 import { sanity, urlFor } from '../../lib/sanity';
+import PostFooter from '../../components/PostFooter.astro';
 
 export async function getStaticPaths() {
   const slugs: string[] = await sanity.fetch(
@@ -13,10 +14,31 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const post = await sanity.fetch(
   `*[_type == "post" && slug.current == $slug][0]{
-    title, excerpt, publishedAt, _updatedAt, topics, coverImage, body
+    title, excerpt, publishedAt, _updatedAt, topics, coverImage, body,
+    ctaTarget, ctaSignoff
   }`,
   { slug },
 );
+
+// Related posts: score every other post by shared topics, then recency. Falls
+// back to the most recent posts when nothing shares a topic. No hardcoding.
+const relatedPool = await sanity.fetch(
+  `*[_type == "post" && defined(slug.current) && slug.current != $slug]{
+    title, "slug": slug.current, topics, publishedAt
+  }`,
+  { slug },
+);
+const myTopics = new Set<string>(post.topics ?? []);
+const related = (relatedPool as any[])
+  .map((p) => ({ ...p, shared: (p.topics ?? []).filter((t: string) => myTopics.has(t)).length }))
+  .sort((a, b) => b.shared - a.shared || +new Date(b.publishedAt) - +new Date(a.publishedAt))
+  .slice(0, 2)
+  .map((p) => ({ title: p.title, slug: p.slug }));
+
+// CTA target: use the post's field; if unset, infer SEO & GEO for search-topic
+// posts, otherwise the component defaults to web design.
+const ctaTarget =
+  post.ctaTarget ?? ((post.topics ?? []).includes('seo') ? 'seo-geo' : undefined);
 
 const escapeHtml = (s = '') =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -92,6 +114,12 @@ const fmtDate = (d: string) =>
       )}
 
       <div class="post__body" set:html={bodyHtml} />
+
+      <p class="post-author">
+        <a href="/about.html">Adam Barnes, web designer and photographer, Suffolk coast</a>
+      </p>
+
+      <PostFooter ctaTarget={ctaTarget} ctaSignoff={post.ctaSignoff} related={related} />
     </article>
   </main>
 </Base>
