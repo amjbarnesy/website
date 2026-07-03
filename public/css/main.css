@@ -3097,11 +3097,12 @@ body.page-blog .section-title .accent { color: var(--blue); }
   margin: 0 0 1rem;
 }
 .post-more__list { list-style: none; margin: 0; padding: 0; }
-.post-more__item + .post-more__item { margin-top: 0.6rem; }
+.post-more__item + .post-more__item { margin-top: 0.75rem; }
 .post-more__item a {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.4;
   color: var(--black);
   text-decoration: none;
   transition: color 0.2s;

@@ -53,7 +53,7 @@ const signoff = ctaSignoff?.trim() || cta.signoff;
   <a href={cta.href} class="btn-cta">{cta.label}</a>
 
   {related.length > 0 && (
-    <nav class="post-more" aria-label="More posts">
+    <section class="post-more" aria-label="More posts">
       <p class="post-more__label">More Thinking</p>
       <ul class="post-more__list">
         {related.map((r) => (
@@ -62,6 +62,6 @@ const signoff = ctaSignoff?.trim() || cta.signoff;
           </li>
         ))}
       </ul>
-    </nav>
+    </section>
   )}
 </footer>
