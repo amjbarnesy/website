@@ -8,7 +8,10 @@ export const sanity = createClient({
   projectId: import.meta.env.SANITY_PROJECT_ID ?? '03e66gen',
   dataset: import.meta.env.SANITY_DATASET ?? 'production',
   apiVersion: '2024-01-01',
-  useCdn: true,
+  // Build-time only: fetch from the live API (not the cached CDN) so each build
+  // always captures the newest published content. A webhook-triggered rebuild
+  // right after publishing must not read a stale CDN copy.
+  useCdn: false,
 });
 
 const builder = imageUrlBuilder(sanity);
