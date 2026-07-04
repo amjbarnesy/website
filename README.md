@@ -23,6 +23,13 @@ npm run build    # static output to dist/
 Pushing `main` auto-deploys to production via Vercel. Each Vercel deploy also
 purges the edge cache, so HTML updates go live immediately.
 
+### llms.txt
+
+`public/llms.txt` is a plain-markdown summary of the site for AI crawlers,
+served at `/llms.txt`. There is no automation: bump the `Updated:` date at the
+bottom of the file by hand whenever services, pricing anchors or positioning
+change, so the summary and its date stay accurate.
+
 ## Publishing a blog post triggers a rebuild (Sanity → Vercel)
 
 The site is static, so a **new/edited/deleted Sanity post only appears after a
