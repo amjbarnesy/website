@@ -549,6 +549,10 @@ body.page-seogeo { --accent: #FF2E88; --accent-ink: #000; }
 body.page-seogeo .section-title .accent { color: var(--accent); }
 body.page-seogeo .cs-copy-heading { color: var(--accent); }
 body.page-seogeo .back-to-top--webdesign:hover { background: var(--accent); border-color: var(--accent); }
+body.page-seogeo .faq-question:hover .faq-question-text,
+body.page-seogeo .faq-item.open .faq-question-text,
+body.page-seogeo .faq-item.open .faq-icon,
+html[data-theme="dark"] body.page-seogeo .faq-item.open .faq-question-text { color: var(--accent); }
 body.page-webdesign .client-avatar, body.page-seogeo .client-avatar {
   background: #CCCCCC;
   border-color: #CCCCCC;
