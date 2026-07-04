@@ -1290,11 +1290,14 @@ br.desk-break { display: none; }
 }
 @media (max-width: 900px)  { .photo-grid { columns: 2; } }
 @media (max-width: 600px)  { .photo-grid { columns: 1; } }
-/* Photography teaser strip: keep the three-column masonry but constrain the
-   width and gap so the frames sit smaller and more contained, matching the
-   service pages. */
-.photo-grid--strip { max-width: 1040px; margin: 1.75rem auto 0; column-gap: 1rem; }
+/* Photography teaser strip: full page width, four columns so the frames stay
+   small and the page stays shallow, getting people to the portfolio CTA sooner.
+   These override the base .photo-grid columns at each width (defined after it). */
+.photo-grid--strip { margin: 1.75rem 3rem 0; columns: 4; column-gap: 1rem; }
 .photo-grid--strip .photo-item { margin-bottom: 1rem; }
+@media (max-width: 1100px) { .photo-grid--strip { columns: 3; } }
+@media (max-width: 800px)  { .photo-grid--strip { columns: 2; } }
+@media (max-width: 520px)  { .photo-grid--strip { columns: 1; } }
 
 .photo-item {
   break-inside: avoid;
