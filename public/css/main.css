@@ -2564,6 +2564,13 @@ body.page-faq .section-title .accent { color: var(--blue); }
   .photography-header .section-intro,
   .clients-header .section-intro,
   .webdesign-header .section-intro { max-width: 100% !important; padding-bottom: 3rem; }
+  /* When a hero has more than one intro paragraph (e.g. SEO & GEO), only the
+     last should carry the big bottom spacing; earlier ones just need a normal
+     paragraph gap so they don't sit too far apart on mobile. */
+  .about-header .section-intro:not(:last-of-type),
+  .photography-header .section-intro:not(:last-of-type),
+  .clients-header .section-intro:not(:last-of-type),
+  .webdesign-header .section-intro:not(:last-of-type) { padding-bottom: 1rem; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
