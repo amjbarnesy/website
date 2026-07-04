@@ -541,12 +541,20 @@ html[data-theme="dark"] .hero-lets-talk:hover { color: var(--purple); }
 /* ── Page: Web Design ──────────────────────────────────────── */
 body.page-webdesign { --orange: #fc9803; --accent: var(--orange); --accent-ink: #000; }
 body.page-webdesign .section-title .accent { color: var(--orange); }
-body.page-webdesign .client-avatar {
+
+/* SEO & GEO: its own magenta accent (no longer shares web design's orange).
+   Card/grid styling is inherited via the page-seogeo twins added alongside the
+   page-webdesign card selectors, so only the accent differs. */
+body.page-seogeo { --accent: #FF2E88; --accent-ink: #000; }
+body.page-seogeo .section-title .accent { color: var(--accent); }
+body.page-seogeo .cs-copy-heading { color: var(--accent); }
+body.page-seogeo .back-to-top--webdesign:hover { background: var(--accent); border-color: var(--accent); }
+body.page-webdesign .client-avatar, body.page-seogeo .client-avatar {
   background: #CCCCCC;
   border-color: #CCCCCC;
   color: var(--white);
 }
-body.page-webdesign .client-card:hover .client-avatar {
+body.page-webdesign .client-card:hover .client-avatar, body.page-seogeo .client-card:hover .client-avatar {
   background: var(--black);
   color: var(--orange);
   border-color: var(--black);
@@ -2271,7 +2279,7 @@ html[data-theme="dark"] .client-card--cta:hover .btn-cta {
 }
 .wd-cta-cols .wd-steps { margin-bottom: 0; }
 @media (min-width: 768px) {
-  body.page-webdesign .client-card--cta-wide { grid-column: span 2; }
+  body.page-webdesign .client-card--cta-wide, body.page-seogeo .client-card--cta-wide { grid-column: span 2; }
   .wd-cta-cols { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
 
@@ -2752,13 +2760,13 @@ body.page-contact ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2);
    (.clients-grid--three) and is unaffected. Revert by deleting this block and
    the `feature` class on the adambarnes.biz card in web-design.html.
    ════════════════════════════════════════════════════════════════ */
-body.page-webdesign .clients-grid {
+body.page-webdesign .clients-grid, body.page-seogeo .clients-grid {
   /* original: repeat(auto-fill, minmax(260px, 1fr)); */
   grid-template-columns: repeat(auto-fill, minmax(clamp(260px, 24vw, 320px), 1fr));
   grid-auto-flow: row dense;
 }
 @media (min-width: 768px) {
-  body.page-webdesign .client-card.feature { grid-column: span 2; }
+  body.page-webdesign .client-card.feature, body.page-seogeo .client-card.feature { grid-column: span 2; }
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -2785,18 +2793,25 @@ body.page-webdesign .clients-grid {
    (236 to 248) so even the darkest reads light, not heavy.
    Revert by deleting this block and restoring the .client-card background. */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1) { --card-bg: #F8F6F1; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2) { --card-bg: #F0EEE9; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3) { --card-bg: #F6F4EF; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4) { --card-bg: #EEECE7; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5) { --card-bg: #F4F2ED; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6) { --card-bg: #ECEAE5; }
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --card-bg: #F2F0EB; }
 
 /* ════════════════════════════════════════════════════════════════
@@ -2816,6 +2831,7 @@ body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.featu
    or push it lighter for more.
    ════════════════════════════════════════════════════════════════ */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
   --card-tint: #FAF9F5;
   background:
@@ -2827,25 +2843,34 @@ body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.featu
    matching specificity. --accent is orange on web design, yellow on clients,
    so each page keeps its own hover colour. */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched {
   background: var(--accent, var(--orange));
 }
 /* Bloom origin per card: a different corner/edge on each step of the 7-cycle. */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+1) { --bloom-origin: 0% 0%; }      /* top-left */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+2) { --bloom-origin: 100% 0%; }    /* top-right */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+3) { --bloom-origin: 100% 100%; }  /* bottom-right */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+4) { --bloom-origin: 0% 100%; }    /* bottom-left */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+5) { --bloom-origin: 50% 0%; }     /* top-centre */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+6) { --bloom-origin: 0% 50%; }     /* left-centre */
 body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
+body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7),
 body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):nth-child(7n+7) { --bloom-origin: 100% 50%; }   /* right-centre */
 
 /* Dark mode: no bloom. The gradient above sits on `background` at high
@@ -2854,6 +2879,7 @@ body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.featu
    looks as it did before the bloom (hover still goes accent via the dark
    hover rule). */
 html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature),
+html[data-theme="dark"] body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature),
 html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature) {
   background: var(--black);
 }
@@ -2861,7 +2887,9 @@ html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.clie
    clients). Needs to sit at this raised specificity so it beats the dark flat
    fill directly above. */
 html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
+html[data-theme="dark"] body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
 html[data-theme="dark"] body.page-webdesign .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
+html[data-theme="dark"] body.page-seogeo .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched,
 html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature):hover,
 html[data-theme="dark"] body.page-clients   .clients-grid .client-card:not(.client-card--cta):not(.feature).is-touched {
   background: var(--accent, var(--orange));
