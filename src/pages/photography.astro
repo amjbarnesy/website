@@ -84,33 +84,47 @@ import Base from '../layouts/Base.astro';
       <p class="section-intro">I'm a web designer who shoots, which is rarer than it should be. When I photograph your business, I'm already thinking about the hero image, the crop at mobile widths, the space your headline will need. The photograph and the page it lives on are designed by the same pair of eyes.</p>
     </header>
 
-    <!-- One supplier, no gaps -->
-    <section class="gallery-section reveal" aria-label="One supplier, no gaps">
-      <div class="gallery-header">
-        <h2 class="gallery-title">One supplier, no gaps</h2>
-        <p class="gallery-desc">When Tom Appleton needed a website, we didn't start with a design. We started with a shoot. An afternoon at a café table, talking, while I photographed him doing what he actually does: listening, thinking, explaining. Those photographs shaped the site, not the other way round.</p>
-        <p class="gallery-desc">That's the quiet advantage of hiring one person for both. No brief lost in translation between a designer and a photographer who have never met. No stock images pretending to be your business. No mystery over who owns what, because you own the lot. And because every image is sized and compressed for the build from day one, the site stays fast, which Google notices and your visitors feel.</p>
-        <p class="gallery-desc">You can hire me to shoot with no website attached. Plenty of people do. But when the two come together, that's when it earns its keep.</p>
+    <!-- Body: one-supplier story + service menu, in the service-page language -->
+    <section class="cs-body reveal" aria-label="Why one supplier">
+      <div class="cs-body-inner">
+        <div class="cs-copy">
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">One supplier, no gaps</h2>
+            <p>When Tom Appleton needed a website, we didn't start with a design. We started with a shoot. An afternoon at a café table, talking, while I photographed him doing what he actually does: listening, thinking, explaining. Those photographs shaped the site, not the other way round.</p>
+          </div>
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">The quiet advantage</h2>
+            <p>Hiring one person for both means no brief lost in translation between a designer and a photographer who have never met. No stock images pretending to be your business. No mystery over who owns what, because you own the lot. And because every image is sized and compressed for the build from day one, the site stays fast, which Google notices and your visitors feel.</p>
+          </div>
+        </div>
+        <blockquote class="cs-quote">
+          <p>You can hire me to shoot with no website attached. Plenty of people do. But when the two come together, that's when it earns its keep.</p>
+        </blockquote>
+
+        <div class="cs-copy" style="margin-top:2.5rem;">
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">What I shoot for businesses</h2>
+            <p>Four things, mostly. All aimed at how your business actually looks to the people you want to reach.</p>
+          </div>
+          <div class="cs-copy-col">
+            <ul class="cs-list">
+              <li><strong>Brand and headshot days.</strong> You and your team, photographed like humans rather than LinkedIn cutouts.</li>
+              <li><strong>Events and conferences.</strong> Coverage that catches the room, not just the podium.</li>
+              <li><strong>Product and food.</strong> Things made carefully deserve to be photographed carefully.</li>
+              <li><strong>Architecture and premises.</strong> Your building, your workshop, your shopfront, at their best.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- What I shoot for businesses -->
-    <section class="gallery-section reveal" aria-label="What I shoot for businesses">
-      <div class="gallery-header">
-        <h2 class="gallery-title">What I shoot for businesses</h2>
-        <p class="gallery-desc"><strong>Brand and headshot days.</strong> You and your team, photographed like humans rather than LinkedIn cutouts.</p>
-        <p class="gallery-desc"><strong>Events and conferences.</strong> Coverage that catches the room, not just the podium.</p>
-        <p class="gallery-desc"><strong>Product and food.</strong> Things made carefully deserve to be photographed carefully.</p>
-        <p class="gallery-desc"><strong>Architecture and premises.</strong> Your building, your workshop, your shopfront, at their best.</p>
-      </div>
-    </section>
-
-    <!-- Curated strip: ten frames, existing grid component -->
+    <!-- Curated strip: ten frames, existing grid component, contained -->
     <section class="gallery-section reveal" aria-label="Selected work">
-      <div class="gallery-header">
-        <p class="gallery-desc">A few frames from the working portfolio.</p>
+      <div class="cs-body-inner" style="padding-top:0; padding-bottom:0;">
+        <h2 class="cs-copy-heading">Selected work</h2>
+        <p class="section-intro" style="margin-top:0.25rem;">A few frames from the working portfolio.</p>
       </div>
-      <div class="photo-grid">
+      <div class="photo-grid photo-grid--strip">
         <div class="photo-item reveal"><a href="https://www.adambarnesphotos.co.uk/portfolio/commercial" target="_blank" rel="noopener" aria-label="View the full commercial photography gallery on adambarnesphotos.co.uk"><img src="assets/photography/commercial/DSCF0190.webp" width="1700" height="723" alt="Black and white candid photograph of Tom Appleton in conversation over coffee at a café table, a bakery shopfront visible through the window behind" loading="lazy"></a><div class="photo-overlay"><span class="photo-caption">Tom Appleton</span><span class="photo-overlay-link">View full gallery →</span></div></div>
         <div class="photo-item reveal"><a href="https://www.adambarnesphotos.co.uk/portfolio/food" target="_blank" rel="noopener" aria-label="View the full food photography gallery on adambarnesphotos.co.uk"><img src="assets/photography/Food/DSCF0152-RAF_DxO_DeepPRIME-Edit.webp" width="1200" height="800" alt="Five painted chocolate domes on a marble surface" loading="lazy"></a><div class="photo-overlay"><span class="photo-caption">Chocolate domes</span><span class="photo-overlay-link">View full gallery →</span></div></div>
         <div class="photo-item reveal"><a href="https://www.adambarnesphotos.co.uk/portfolio/music-event" target="_blank" rel="noopener" aria-label="View the full music events gallery on adambarnesphotos.co.uk"><img src="assets/photography/music-events/XH2X2974.webp" width="1200" height="800" alt="Nile Rodgers performing on stage at Latitude Festival" loading="lazy"></a><div class="photo-overlay"><span class="photo-caption">Nile Rodgers at Latitude</span><span class="photo-overlay-link">View full gallery →</span></div></div>
@@ -124,13 +138,21 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
-    <!-- Closing: portfolio anchor text + two CTAs -->
-    <section class="gallery-section reveal" aria-label="See more">
-      <div class="gallery-header">
-        <p class="gallery-desc">The full body of work lives at <a href="https://www.adambarnesphotos.co.uk" target="_blank" rel="noopener">adambarnesphotos.co.uk</a>: festivals, architecture, portraits, and the personal projects that keep the eye sharp. If your business needs photographing properly, tell me what you're trying to say.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
-          <a href="https://www.adambarnesphotos.co.uk" class="btn-cta" target="_blank" rel="noopener">See the full portfolio →</a>
-          <a href="https://www.adambarnesphotos.co.uk/hire" class="btn-cta" target="_blank" rel="noopener">Book a shoot →</a>
+    <!-- Closing: portfolio anchor text + two CTAs, service-page two-column -->
+    <section class="cs-body reveal" aria-label="See more">
+      <div class="cs-body-inner">
+        <div class="cs-copy">
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">The full portfolio</h2>
+            <p>The full body of work lives at <a href="https://www.adambarnesphotos.co.uk" target="_blank" rel="noopener">adambarnesphotos.co.uk</a>: festivals, architecture, portraits, and the personal projects that keep the eye sharp. If your business needs photographing properly, tell me what you're trying to say.</p>
+          </div>
+          <div class="cs-copy-col">
+            <h2 class="cs-copy-heading">Ready when you are</h2>
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:0.9rem; margin-top:0.6rem;">
+              <a href="https://www.adambarnesphotos.co.uk" class="btn-cta" target="_blank" rel="noopener">See the full portfolio →</a>
+              <a href="https://www.adambarnesphotos.co.uk/hire" class="btn-cta" target="_blank" rel="noopener">Book a shoot →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
