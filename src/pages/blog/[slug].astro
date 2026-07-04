@@ -89,6 +89,11 @@ const fmtDate = (d: string) =>
   ogType="article"
   bodyClass="page-blog page-post"
   active="thinking"
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.adambarnes.biz/' },
+    { name: 'Thinking', url: 'https://www.adambarnes.biz/blog.html' },
+    { name: post.title, url: canonical },
+  ]}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(articleLd)} />
