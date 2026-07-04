@@ -16,7 +16,11 @@ export interface Props {
   active?: string;              // nav highlight key, e.g. "web-design"
   navClass?: string;            // optional extra class on <nav> (e.g. nav--on-dark)
   cssVersion?: string;          // cache-bust token for main.css
+  breadcrumbLabel?: string;     // simple 2-level trail: Home > <label> (this page)
+  breadcrumbs?: { name: string; url: string }[]; // full custom trail (overrides label)
 }
+
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const {
   title,
@@ -30,7 +34,14 @@ const {
   active = '',
   navClass = '',
   cssVersion = '20260702e',
+  breadcrumbLabel,
+  breadcrumbs,
 } = Astro.props;
+
+// Central breadcrumb trail: explicit `breadcrumbs` wins, else build Home > label.
+const HOME_CRUMB = { name: 'Home', url: 'https://www.adambarnes.biz/' };
+const breadcrumbTrail =
+  breadcrumbs ?? (breadcrumbLabel ? [HOME_CRUMB, { name: breadcrumbLabel, url: canonical }] : null);
 
 // "Thinking" is the blog (/blog.html) — shown site-wide; active key "thinking".
 const navLinks = [
@@ -79,6 +90,7 @@ const menuLinks = [
 
   <!-- Per-page <head> extras: JSON-LD, hero image preloads, etc. -->
   <slot name="head" />
+  {breadcrumbTrail && <Breadcrumbs items={breadcrumbTrail} />}
 
   <link rel="preload" href="/assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />

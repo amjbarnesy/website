@@ -8,6 +8,7 @@ import Base from '../layouts/Base.astro';
   ogImage="https://www.adambarnes.biz/assets/og-clients.jpg"
   bodyClass="page-clients"
   active="clients"
+  breadcrumbLabel="Clients"
 >
   <Fragment slot="head">
   <script type="application/ld+json" is:inline>
@@ -23,6 +24,124 @@ import Base from '../layouts/Base.astro';
       "url": "https://www.adambarnes.biz"
     }
   }
+  </script>
+  <script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Brian Bush",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Turning Factor"
+        }
+      },
+      "reviewBody": "Adam is simply one of the nicest people I have ever met. The fact that he is also brilliant at what he does and truly cares about it and his clients is testament to his amazing and hugely engaging personality. A stunningly talented photographer and digital genius. You simply would be getting absolute value should you engage him. I have now, as of 2026, worked with and known Adam as a close friend for 14 years and this will continue for a long while yet. He is my immediate go-to for everything he does."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "First Light Festival"
+      },
+      "reviewBody": "We’ve worked with Adam every year at First Light Festival since 2019. He’s become a trusted part of the team — always reliable, easy to work with, and consistently delivering images that capture the spirit of the event. He’s photographed everything from the festival beach at sunrise to backstage portraits and press calls, and always turns around fantastic results. When other organisations ask us for a photographer recommendation, Adam is always our first call."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Mark",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Boat Hire Norwich"
+        }
+      },
+      "reviewBody": "I’m really pleased with everything and am excited for the coming season. The new and more structured start times, combined with the redesigned plugin, should make for a much smoother, easier-to-manage workflow. The custom plugin you created sounds very efficient."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Donna Dawson"
+      },
+      "reviewBody": "I have worked with Adam for many years now on various projects. I quite literally wouldn’t work with anyone else when it comes to creating a new website and for photography work. Because not only is he super talented and enormously creative, he also has in-depth and extensive technical knowledge on his craft. Add that to being a top human that I trust implicitly and always delivers top quality work on time — why would you go anywhere else?"
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Matt Sykes",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Sales Cadence"
+        }
+      },
+      "reviewBody": "I’ve worked with Adam since launching my business back in 2015 and he’s been a constant source of website wisdom and creativity ever since. His knowledge of the industry is exceptional, he’s easy to work with, highly responsive, and he consistently brings practical ideas that improve my online presence."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Tom Appleton",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Tom Appleton Arts"
+        }
+      },
+      "reviewBody": "Adam is the complete package. His knowledge, skills, and professionalism are a joy to work with. From branding concept and design, through to excellent photographic skills, website creation, and later website re-development done to reflect changing online search habits, Adam’s abilities, advice, and careful support of my brand is hugely appreciated. I wouldn’t go into battle without him."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.adambarnes.biz/#business",
+        "name": "Adam Barnes"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jessie",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Gardner Denley"
+        }
+      },
+      "reviewBody": "Working with Adam was a fantastic experience. He brought a perfect balance of creativity, technical expertise, and professionalism to the project, delivering a website that looks incredible and performs brilliantly. What really stood out was his ability to understand the niche placement of our business, our distinct vision and translate it into something even better than expected. The process felt smooth and collaborative throughout, and the end result speaks for itself. It would be an absolute pleasure to work with Adam again, and I have and will continue to highly recommend him to anyone looking to elevate their online presence."
+    }
+  ]
+}
   </script>
   </Fragment>
 
