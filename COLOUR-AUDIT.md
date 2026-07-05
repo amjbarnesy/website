@@ -2,7 +2,7 @@
 
 A reference of every colour used across the site: the value, the variable/class
 it lives in, which pages use it, and what it is applied to. Report only, no code
-changes. Generated 2026-07-04.
+changes. Generated 2026-07-04, updated 2026-07-05 (SEO & GEO now has its own accent).
 
 Colours are defined as CSS custom properties in `public/css/main.css`. Each page
 sets a `bodyClass` (in its `<Base>` call) which can override `--accent`.
@@ -20,6 +20,7 @@ sets a `bodyClass` (in its `<Base>` call) which can override `--accent`.
 | 🟨 | `#FFD600` | `--yellow` | Clients accent | Clients |
 | 🟪 | `#8833FF` | `--purple` | About / Privacy accent | About, Privacy |
 | 🟦 | `#00b4ff` | `--blue` | FAQ + Blog accent, and the general link-hover colour (`cs-copy p a:hover`, `post__body a:hover`) | FAQ, Blog, links site-wide |
+| 🩷 | `#FF2E88` | `--accent` (via `page-seogeo`) | SEO & GEO accent: hero title, headings, quote border, button/card hover, back-to-top, FAQ open/hover state | SEO & GEO only |
 
 ---
 
@@ -30,7 +31,8 @@ sits on the accent).
 
 | Page(s) | bodyClass | `--accent` | ink (`--accent-ink`) |
 |---|---|---|---|
-| **Web Design, SEO & GEO**, most case studies | `page-webdesign` | **`#fc9803`** (redefines `--orange`) | `#000` |
+| **Web Design**, most case studies | `page-webdesign` | **`#fc9803`** (redefines `--orange`) | `#000` |
+| **SEO & GEO** | `page-seogeo` | **`#FF2E88`** magenta | `#000` |
 | Photography (+ Firstlight case study) | `page-photography` | `#AAFF00` green | `#000` |
 | Clients | `page-clients` | `#FFD600` yellow | `#000` |
 | About, Privacy | `page-about` | `#8833FF` purple | `#fff` |
@@ -64,13 +66,12 @@ Light and dark simply swap black and white.
 
 ## D. Shared accents (flagged)
 
-1. **Web Design and SEO & GEO share the same orange accent** (`#fc9803`), because
-   SEO & GEO uses `bodyClass="page-webdesign"`. The same applies to every
-   `page-webdesign` case study.
-2. **FAQ and Blog (Thinking) share the same blue accent** (`#00b4ff`).
+1. **FAQ and Blog (Thinking) share the same blue accent** (`#00b4ff`). If they
+   should be distinct, it is a small `bodyClass` / `--accent` change per page.
 
-If either pair should be visually distinct, that is a small `bodyClass` /
-`--accent` change per page.
+**Resolved:** Web Design and SEO & GEO previously shared the orange accent. SEO &
+GEO now has its own magenta (`page-seogeo`, `#FF2E88`), so that pair is no longer
+shared. Web Design and the `page-webdesign` case studies still share `#fc9803`.
 
 ---
 
@@ -84,6 +85,11 @@ If either pair should be visually distinct, that is a small `bodyClass` /
   (reverts to `#AAFF00` in dark mode).
 - **Ink flips.** Every accent pairs with black ink except About / Privacy
   (purple), which uses white ink for legibility.
+- **`page-seogeo` mirrors `page-webdesign` for cards.** SEO & GEO uses the same
+  client-card / grid styling as Web Design, so `page-seogeo` is added as a twin
+  alongside every `page-webdesign` card selector in `main.css`; only the accent
+  (and the FAQ open/hover colour) differ. If you edit a `page-webdesign` card
+  rule, add the `page-seogeo` twin too.
 
 ---
 
