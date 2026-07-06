@@ -1408,6 +1408,11 @@ body.page-photography .photo-overlay {
 .photo-grid--strip .photo-caption,
 .photo-grid--strip .photo-overlay-link { color: var(--green); }
 
+/* Firstlight case-study gallery: a plain set of images to look at, no hover
+   overlay or zoom (a link to the full gallery lives elsewhere). */
+.cs-photo-grid .photo-overlay { display: none; }
+.cs-photo-grid .photo-item:hover img { transform: none; }
+
 .buy-photos-banner {
   margin: 0 3rem 4rem;
   padding: 2rem 2.5rem;
