@@ -1305,10 +1305,15 @@ br.desk-break { display: none; }
 /* Photography teaser strip: full page width, four columns so the frames stay
    small and the page stays shallow, getting people to the portfolio CTA sooner.
    These override the base .photo-grid columns at each width (defined after it). */
-.photo-grid--strip { margin: 1.75rem 3rem 0; columns: 4; column-gap: 1rem; }
+.photo-grid--strip { columns: 4; column-gap: 1rem; }
 .photo-grid--strip .photo-item { margin-bottom: 1rem; }
+/* Scoped selector (0,2,0) so it outranks the generic mobile `.photo-grid`
+   margin (which zeroes the top). Keeps a consistent 2rem gap between the intro
+   line and the grid at every width, matching the cs-body-inner spacing used by
+   the other heading + intro + grid grouping (SEO & GEO Proof). */
+.gallery-section .photo-grid--strip { margin: 2rem 3rem 0; }
 @media (max-width: 1100px) { .photo-grid--strip { columns: 3; } }
-@media (max-width: 800px)  { .photo-grid--strip { columns: 2; } }
+@media (max-width: 800px)  { .photo-grid--strip { columns: 2; } .gallery-section .photo-grid--strip { margin: 2rem 1.5rem 0; } }
 @media (max-width: 520px)  { .photo-grid--strip { columns: 1; } }
 
 .photo-item {
