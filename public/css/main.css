@@ -2358,6 +2358,8 @@ body.page-faq .section-title .accent { color: var(--blue); }
 .menu-nav a[data-page="faq"]:hover      { color: var(--blue); }
 .menu-nav a:nth-child(6) span { transition-delay: 0.3s; }
 .menu-nav a:nth-child(7) span { transition-delay: 0.35s; }
+.menu-nav a:nth-child(8) span { transition-delay: 0.4s; }
+.menu-nav a:nth-child(9) span { transition-delay: 0.45s; }
 
 .about-header,
 .photography-header,
