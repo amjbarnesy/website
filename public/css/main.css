@@ -1153,7 +1153,7 @@ html[data-theme="dark"] .cs-back-link { color: rgba(255,255,255,0.4); }
 /* ── Page: Photography ─────────────────────────────────────── */
 body.page-photography { --accent: var(--green); --accent-ink: #000; }
 body.page-photography .section-title .accent { color: var(--green); }
-body.page-photography .cs-copy-heading { color: #91bf00; }
+body.page-photography .cs-copy-heading { color: #abc638; }
 html[data-theme="dark"] body.page-photography .cs-copy-heading { color: var(--green); }
 
 br.desk-break { display: none; }
