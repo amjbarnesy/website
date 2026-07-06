@@ -81,8 +81,8 @@ shared. Web Design and the `page-webdesign` case studies still share `#fc9803`.
   used on Home nav hover and the hero word), but `page-webdesign` redefines
   `--orange` to `#fc9803` (a softer amber). So the brand orange is not one value.
 - **Two photography greens.** Accent and titles use `#AAFF00`, but
-  `cs-copy-heading` on the Photography page uses a darker `#91bf00` in light mode
-  (reverts to `#AAFF00` in dark mode).
+  `cs-copy-heading` on the Photography page uses a deeper lime `#99E600` in light
+  mode (reverts to `#AAFF00` in dark mode).
 - **Ink flips.** Every accent pairs with black ink except About / Privacy
   (purple), which uses white ink for legibility.
 - **`page-seogeo` mirrors `page-webdesign` for cards.** SEO & GEO uses the same
