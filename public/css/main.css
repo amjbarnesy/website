@@ -944,13 +944,13 @@ body.page-clients .client-card.is-touched .client-company { color: rgba(0,0,0,0.
 }
 .cs-copy-heading {
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem); /* was 0.65rem — sits clearly above 0.95rem body */
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--orange);
   margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem; /* was 0.8rem — a touch more room under the larger heading */
 }
 .cs-copy p {
   font-size: 0.95rem;
