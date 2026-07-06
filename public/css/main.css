@@ -2405,7 +2405,7 @@ body.page-faq .section-title .accent { color: var(--blue); }
   transition: color 0.2s;
 }
 .about-body-text p a:hover { color: var(--purple); }
-.cs-copy p a:hover          { color: var(--orange); }
+.cs-copy p a:hover          { color: var(--accent); }
 .about-body-text {
   columns: 2;
   column-gap: 3rem;
