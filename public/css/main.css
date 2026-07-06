@@ -1401,6 +1401,13 @@ body.page-photography .photo-overlay {
   opacity: 0.72;
 }
 
+/* Photography curated strip: invert the hover overlay to a dark fill with green
+   text (the solid green fill read too heavy). Same 0.85 opacity as the base.
+   Scoped to .photo-grid--strip so the Firstlight case-study overlay is unchanged. */
+.photo-grid--strip .photo-overlay { background: var(--black); }
+.photo-grid--strip .photo-caption,
+.photo-grid--strip .photo-overlay-link { color: var(--green); }
+
 .buy-photos-banner {
   margin: 0 3rem 4rem;
   padding: 2rem 2.5rem;
