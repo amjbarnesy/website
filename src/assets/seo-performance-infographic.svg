@@ -1,0 +1,89 @@
+<svg class="sperf-fig" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="sperfTitle sperfDesc">
+  <title id="sperfTitle">Best recorded website performance scores</title>
+  <desc id="sperfDesc">Animated circular charts show the best mobile and desktop PageSpeed results: performance 100, accessibility 96, best practices 100 and SEO 100. A connected trace shows fast loading metrics.</desc>
+  <style>
+    .sperf-fig .track,.sperf-fig .ring,.sperf-fig .trace{fill:none;stroke:#0c0c0c;vector-effect:non-scaling-stroke}.sperf-fig .track{opacity:.08;stroke-width:1.25}.sperf-fig .ring{opacity:0;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transform:rotate(-90deg);transform-box:fill-box;transform-origin:center;animation:sperf-ring 6s cubic-bezier(.25,.8,.25,1) forwards}.sperf-fig .ring.r96{animation-name:sperf-ring96}.sperf-fig .r2{animation-delay:.12s}.sperf-fig .r3{animation-delay:.24s}.sperf-fig .r4{animation-delay:.36s}.sperf-fig .trace{clip-path:url(#sperf-trace-clip);opacity:0;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;animation:sperf-trace 6s cubic-bezier(.25,.8,.25,1) forwards}.sperf-fig .trace-reveal{transform:scaleX(0);transform-box:fill-box;transform-origin:left center;animation:sperf-reveal 6s cubic-bezier(.25,.8,.25,1) forwards}.sperf-fig .copy,.sperf-fig .meta{font-family:Jost,Arial,sans-serif;fill:#0c0c0c}.sperf-fig .meta{font-size:9px;letter-spacing:2px;opacity:0;animation:sperf-meta 6s ease-out forwards}.sperf-fig .value{font-size:25px;font-weight:500;text-anchor:middle}.sperf-fig .label{font-size:7.5px;letter-spacing:1px;text-anchor:middle}.sperf-fig .metric-value{font-size:13px;font-weight:500;text-anchor:middle}.sperf-fig .metric-label{font-size:6.5px;letter-spacing:.7px;text-anchor:middle}.sperf-fig .copy{opacity:0;animation:sperf-copy 6s cubic-bezier(.2,.8,.2,1) forwards}.sperf-fig .c2{animation-delay:.12s}.sperf-fig .c3{animation-delay:.24s}.sperf-fig .c4{animation-delay:.36s}.sperf-fig .node,.sperf-fig .accent{fill:#ff2e88;opacity:0;transform-box:fill-box;transform-origin:center;animation:sperf-pop 6s cubic-bezier(.2,.8,.2,1) forwards}.sperf-fig .n2{animation-delay:.12s}.sperf-fig .n3{animation-delay:.24s}.sperf-fig .n4{animation-delay:.36s}.sperf-fig .n5{animation-delay:.48s}.sperf-fig .accent{animation-name:sperf-accent}.sperf-fig .a2{animation-delay:.12s}.sperf-fig .a3{animation-delay:.24s}.sperf-fig .a4{animation-delay:.36s}
+    @keyframes sperf-ring{0%,7%{opacity:0;stroke-dashoffset:1}15%{opacity:.2}48%,100%{opacity:.2;stroke-dashoffset:0}}
+    @keyframes sperf-ring96{0%,7%{opacity:0;stroke-dashoffset:1}15%{opacity:.2}48%,100%{opacity:.2;stroke-dashoffset:.04}}
+    @keyframes sperf-trace{0%,27%{opacity:0}34%,100%{opacity:.18}}
+    @keyframes sperf-reveal{0%,27%{transform:scaleX(0)}65%,100%{transform:scaleX(1)}}
+    @keyframes sperf-meta{0%,8%{opacity:0}18%,100%{opacity:.34}}
+    @keyframes sperf-copy{0%,43%{opacity:0;transform:translateY(5px)}58%,100%{opacity:.72;transform:translateY(0)}}
+    @keyframes sperf-pop{0%,49%{opacity:0;transform:scale(.2)}58%{opacity:1;transform:scale(1.5)}66%,100%{opacity:.9;transform:scale(1)}}
+    @keyframes sperf-accent{0%,54%{opacity:0;transform:scale(.2)}64%{opacity:1;transform:scale(1.7)}72%,100%{opacity:1;transform:scale(1)}}
+    @media(prefers-reduced-motion:reduce){.sperf-fig *{animation:none!important}.sperf-fig .ring{opacity:.2;stroke-dashoffset:0}.sperf-fig .ring.r96{stroke-dashoffset:.04}.sperf-fig .trace{opacity:.18}.sperf-fig .trace-reveal{transform:scaleX(1)}.sperf-fig .copy{opacity:.72}.sperf-fig .meta{opacity:.34}.sperf-fig .node{opacity:.9}.sperf-fig .accent{opacity:1}}
+    /* Dark mode follows the SITE toggle (works because this SVG is inlined) */
+    html[data-theme="dark"] .sperf-fig .track,html[data-theme="dark"] .sperf-fig .ring,html[data-theme="dark"] .sperf-fig .trace{stroke:#f3f3f3}
+    html[data-theme="dark"] .sperf-fig .copy,html[data-theme="dark"] .sperf-fig .meta{fill:#f3f3f3}
+    /* Hold the animation until the scroll reveal marks the figure visible */
+    figure.reveal:not(.visible) .sperf-fig *{animation-play-state:paused}
+  </style>
+
+  <defs>
+    <clipPath id="sperf-trace-clip" clipPathUnits="userSpaceOnUse">
+      <rect class="trace-reveal" x="220" y="250" width="388" height="100"/>
+    </clipPath>
+  </defs>
+
+  <g id="sperf-root" transform="translate(-104 0)">
+  <text class="meta" x="216" y="60">BEST RECORDED · MOBILE + DESKTOP · JULY 2026</text>
+
+  <g transform="translate(254 133)">
+    <circle class="track" r="38"/>
+    <circle class="ring" r="38" pathLength="1"/>
+    <text class="copy value" x="0" y="8">100</text>
+    <text class="copy label" x="0" y="61">PERFORMANCE</text>
+    <circle class="accent" cx="0" cy="-38" r="4.2"/>
+  </g>
+  <g transform="translate(367 133)">
+    <circle class="track" r="38"/>
+    <circle class="ring r96 r2" r="38" pathLength="1"/>
+    <text class="copy value c2" x="0" y="8">96</text>
+    <text class="copy label c2" x="0" y="61">ACCESSIBILITY</text>
+    <circle class="accent a2" cx="-9.5" cy="-36.8" r="4.2"/>
+  </g>
+  <g transform="translate(480 133)">
+    <circle class="track" r="38"/>
+    <circle class="ring r3" r="38" pathLength="1"/>
+    <text class="copy value c3" x="0" y="8">100</text>
+    <text class="copy label c3" x="0" y="61">BEST PRACTICES</text>
+    <circle class="accent a3" cx="0" cy="-38" r="4.2"/>
+  </g>
+  <g transform="translate(593 133)">
+    <circle class="track" r="38"/>
+    <circle class="ring r4" r="38" pathLength="1"/>
+    <text class="copy value c4" x="0" y="8">100</text>
+    <text class="copy label c4" x="0" y="61">SEO</text>
+    <circle class="accent a4" cx="0" cy="-38" r="4.2"/>
+  </g>
+
+  <text class="meta" x="216" y="245">FASTEST RECORDED</text>
+  <path class="trace" d="M224 315L310 282 395 318 480 280 602 312"/>
+
+  <g transform="translate(224 315)">
+    <circle class="node" r="4.2"/>
+    <text class="copy metric-value" x="0" y="-19">0.3s</text>
+    <text class="copy metric-label" x="0" y="25">FCP</text>
+  </g>
+  <g transform="translate(310 282)">
+    <circle class="node n2" r="4.2"/>
+    <text class="copy metric-value c2" x="0" y="-19">0.5s</text>
+    <text class="copy metric-label c2" x="0" y="25">LCP</text>
+  </g>
+  <g transform="translate(395 318)">
+    <circle class="node n3" r="4.2"/>
+    <text class="copy metric-value c3" x="0" y="-19">0ms</text>
+    <text class="copy metric-label c3" x="0" y="25">BLOCKING</text>
+  </g>
+  <g transform="translate(480 280)">
+    <circle class="node n4" r="4.2"/>
+    <text class="copy metric-value c4" x="0" y="-19">0</text>
+    <text class="copy metric-label c4" x="0" y="25">LAYOUT SHIFT</text>
+  </g>
+  <g transform="translate(602 312)">
+    <circle class="node n5" r="5.5"/>
+    <text class="copy metric-value c4" x="0" y="-19">0.9s</text>
+    <text class="copy metric-label c4" x="0" y="25">SPEED INDEX</text>
+  </g>
+  </g>
+</svg>

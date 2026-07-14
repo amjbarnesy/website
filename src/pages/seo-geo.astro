@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-// Inlined (not <img>) so the site's dark-mode toggle can reach the SVG's text.
-import seoVsGeoDiagram from '../assets/seo-vs-geo.svg?raw';
+// Inlined (not <img>) so the site's dark-mode toggle can reach the SVG's text,
+// and so the animations can wait for the scroll reveal (.reveal → .visible).
+import seoVsGeoDiagram from '../assets/seo-vs-geo-infographic.svg?raw';
+import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw';
 ---
 <Base
   title="SEO & GEO | Adam Barnes | Getting Found on Google and by AI, Norfolk & Suffolk"
@@ -162,12 +164,11 @@ import seoVsGeoDiagram from '../assets/seo-vs-geo.svg?raw';
           <p>The good news is the two pull in the same direction. A site built properly for AI is usually a better site for Google too. Fast, clean, well structured, easy to understand. Do it right and you don't choose between them. You get both.</p>
         </blockquote>
 
-        <!-- SEO vs GEO explainer. PLACEHOLDER — Adam to supply a simple, on-brand
-             diagram: Google returns a list of links, AI returns one written answer.
-             Ideally an accessible inline SVG with <title> and <desc>. -->
-        <figure class="cs-figure" style="margin:2.5rem 0 0;">
+        <!-- SEO vs GEO explainer: ranked positions converge into a query,
+             source paths resolve into one cited answer. Animates on reveal. -->
+        <figure class="cs-figure reveal" style="margin:2.5rem 0 0;">
           <Fragment set:html={seoVsGeoDiagram} />
-          <figcaption>Two ways of being found: a list of links, or the single answer</figcaption>
+          <figcaption>Found in search. Cited in answers.</figcaption>
         </figure>
 
         <!-- Why it's built in, not bolted on -->
@@ -271,8 +272,8 @@ import seoVsGeoDiagram from '../assets/seo-vs-geo.svg?raw';
     <!-- Proof screenshot. PLACEHOLDER — Adam to supply a real one: a perfect
          Lighthouse / PageSpeed score for adambarnes.biz, or an AI tool citing the site. -->
     <figure class="cs-figure reveal" aria-label="Performance proof">
-      <img src="assets/images/seo-geo-lighthouse.webp" alt="Lighthouse report showing top scores for adambarnes.biz across performance, accessibility, best practices and SEO" width="2005" height="1708" loading="lazy">
-      <figcaption>The proof is measurable</figcaption>
+      <Fragment set:html={seoPerformanceDiagram} />
+      <figcaption>Fast isn't a claim. It's measured.</figcaption>
     </figure>
 
     <!-- FAQ -->

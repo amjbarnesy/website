@@ -1,0 +1,94 @@
+<svg class="svgeo-fig" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="svgeoTitle svgeoDesc">
+  <title id="svgeoTitle">SEO ranked versus GEO cited</title>
+  <desc id="svgeoDesc">Five ranked search positions converge into a query, then source paths resolve into one cited generative answer.</desc>
+  <style>
+    .svgeo-fig .ink,.svgeo-fig .dash,.svgeo-fig .ring{fill:none;stroke:#0c0c0c;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.svgeo-fig .ink{opacity:.22;stroke-width:1.35}.svgeo-fig .dash{opacity:.18;stroke-width:1.1;stroke-dasharray:3 5}.svgeo-fig .ring{opacity:0;stroke-width:1.2;animation:svgeo-halo 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .heading,.svgeo-fig .sub,.svgeo-fig .rank-number{fill:#0c0c0c;font-family:Jost,Arial,sans-serif}.svgeo-fig .heading{font-size:44px;font-weight:500;letter-spacing:2px;opacity:0;animation:svgeo-seoText 6s ease-out forwards}.svgeo-fig .heading.geo{animation-name:svgeo-geoText}.svgeo-fig .sub{font-size:14px;letter-spacing:7px;opacity:0;animation:svgeo-seoText 6s ease-out forwards}.svgeo-fig .sub.geo{animation-name:svgeo-geoText}.svgeo-fig .rank-number{font-size:13px;text-anchor:middle;dominant-baseline:middle;opacity:0;animation:svgeo-rankNode 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .rank-node,.svgeo-fig .source-node{fill:none;stroke:#0c0c0c;stroke-width:1.25;opacity:0;transform-box:fill-box;transform-origin:center;animation:svgeo-rankNode 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .rn2{animation-delay:.09s}.svgeo-fig .rn3{animation-delay:.18s}.svgeo-fig .rn4{animation-delay:.27s}.svgeo-fig .rn5{animation-delay:.36s}.svgeo-fig .source-node{animation-name:svgeo-sourceNode}.svgeo-fig .sn2{animation-delay:.09s}.svgeo-fig .sn3{animation-delay:.18s}.svgeo-fig .sn4{animation-delay:.27s}.svgeo-fig .sn5{animation-delay:.36s}.svgeo-fig .left-reveal,.svgeo-fig .right-reveal,.svgeo-fig .cite-reveal{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}.svgeo-fig .left-reveal{animation:svgeo-leftReveal 6s cubic-bezier(.25,.8,.25,1) forwards}.svgeo-fig .right-reveal{animation:svgeo-rightReveal 6s cubic-bezier(.25,.8,.25,1) forwards}.svgeo-fig .cite-reveal{animation:svgeo-citeReveal 6s cubic-bezier(.25,.8,.25,1) forwards}.svgeo-fig .focus,.svgeo-fig .answer{fill:#ff2e88;opacity:0;transform-box:fill-box;transform-origin:center}.svgeo-fig .focus{animation:svgeo-focusPop 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .query-ring{fill:none;stroke:#0c0c0c;stroke-width:1.3;opacity:0;transform-box:fill-box;transform-origin:center;animation:svgeo-queryPop 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .answer{animation:svgeo-answerPop 6s cubic-bezier(.2,.8,.2,1) forwards}.svgeo-fig .h2{animation-delay:.1s}.svgeo-fig .h3{animation-delay:.2s}.svgeo-fig .h4{animation-delay:.3s}
+    @keyframes svgeo-seoText{0%,7%{opacity:0;transform:translateY(5px)}18%,100%{opacity:.82;transform:translateY(0)}}
+    @keyframes svgeo-geoText{0%,40%{opacity:0;transform:translateY(5px)}53%,100%{opacity:.82;transform:translateY(0)}}
+    @keyframes svgeo-leftReveal{0%,8%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}
+    @keyframes svgeo-rightReveal{0%,36%{transform:scaleX(0)}62%,100%{transform:scaleX(1)}}
+    @keyframes svgeo-citeReveal{0%,51%{transform:scaleX(0)}73%,100%{transform:scaleX(1)}}
+    @keyframes svgeo-rankNode{0%,11%{opacity:0;transform:scale(.25)}23%{opacity:.45;transform:scale(1.2)}31%,100%{opacity:.45;transform:scale(1)}}
+    @keyframes svgeo-sourceNode{0%,45%{opacity:0;transform:scale(.25)}56%{opacity:.55;transform:scale(1.2)}64%,100%{opacity:.55;transform:scale(1)}}
+    @keyframes svgeo-focusPop{0%,29%{opacity:0;transform:scale(.2)}39%{opacity:1;transform:scale(1.55)}47%,100%{opacity:1;transform:scale(1)}}
+    @keyframes svgeo-queryPop{0%,34%{opacity:0;transform:scale(.3)}43%{opacity:.55;transform:scale(1.18)}50%,100%{opacity:.55;transform:scale(1)}}
+    @keyframes svgeo-halo{0%,56%{opacity:0;transform:scale(.35)}69%{opacity:.17;transform:scale(1.06)}78%,100%{opacity:.17;transform:scale(1)}}
+    @keyframes svgeo-answerPop{0%,67%{opacity:0;transform:scale(.2)}76%{opacity:1;transform:scale(1.65)}84%,100%{opacity:1;transform:scale(1)}}
+    @media(prefers-reduced-motion:reduce){.svgeo-fig *{animation:none!important}.svgeo-fig .left-reveal,.svgeo-fig .right-reveal,.svgeo-fig .cite-reveal{transform:scaleX(1)}.svgeo-fig .heading,.svgeo-fig .sub{opacity:.82}.svgeo-fig .rank-number,.svgeo-fig .rank-node{opacity:.45}.svgeo-fig .source-node,.svgeo-fig .query-ring{opacity:.55}.svgeo-fig .ring{opacity:.17}.svgeo-fig .focus,.svgeo-fig .answer{opacity:1}}
+    /* Dark mode follows the SITE toggle (works because this SVG is inlined) */
+    html[data-theme="dark"] .svgeo-fig .ink,html[data-theme="dark"] .svgeo-fig .dash,html[data-theme="dark"] .svgeo-fig .ring,html[data-theme="dark"] .svgeo-fig .rank-node,html[data-theme="dark"] .svgeo-fig .source-node,html[data-theme="dark"] .svgeo-fig .query-ring{stroke:#f3f3f3}
+    html[data-theme="dark"] .svgeo-fig .heading,html[data-theme="dark"] .svgeo-fig .sub,html[data-theme="dark"] .svgeo-fig .rank-number{fill:#f3f3f3}
+    /* Hold the animation until the scroll reveal marks the figure visible */
+    figure.reveal:not(.visible) .svgeo-fig *{animation-play-state:paused}
+  </style>
+
+  <defs>
+    <clipPath id="svgeo-left-clip" clipPathUnits="userSpaceOnUse"><rect class="left-reveal" x="70" y="160" width="510" height="330"/></clipPath>
+    <clipPath id="svgeo-right-clip" clipPathUnits="userSpaceOnUse"><rect class="right-reveal" x="570" y="160" width="280" height="330"/></clipPath>
+    <clipPath id="svgeo-cite-clip" clipPathUnits="userSpaceOnUse"><rect class="cite-reveal" x="825" y="150" width="260" height="350"/></clipPath>
+  </defs>
+
+  <g id="svgeo-root" transform="translate(0 60)">
+  <text class="heading" x="112" y="92">SEO</text>
+  <text class="sub" x="114" y="122">RANKED</text>
+  <text class="heading geo" x="950" y="92">GEO</text>
+  <text class="sub geo" x="957" y="122">CITED</text>
+
+  <g clip-path="url(#svgeo-left-clip)">
+    <path class="ink" d="M126 200H402C475 200 476 320 558 320"/>
+    <path class="ink" d="M126 260H414C481 260 493 320 558 320"/>
+    <path class="ink" d="M126 320H558"/>
+    <path class="ink" d="M126 380H414C481 380 493 320 558 320"/>
+    <path class="ink" d="M126 440H402C475 440 476 320 558 320"/>
+  </g>
+
+  <g>
+    <circle class="rank-node" cx="92" cy="200" r="18"/>
+    <circle class="rank-node rn2" cx="92" cy="260" r="18"/>
+    <circle class="rank-node rn3" cx="92" cy="320" r="18"/>
+    <circle class="rank-node rn4" cx="92" cy="380" r="18"/>
+    <circle class="rank-node rn5" cx="92" cy="440" r="18"/>
+    <text class="rank-number" x="92" y="201">1</text>
+    <text class="rank-number rn2" x="92" y="261">2</text>
+    <text class="rank-number rn3" x="92" y="321">3</text>
+    <text class="rank-number rn4" x="92" y="381">4</text>
+    <text class="rank-number rn5" x="92" y="441">5</text>
+    <circle class="focus" cx="248" cy="200" r="7"/>
+  </g>
+
+  <circle class="query-ring" cx="582" cy="320" r="24"/>
+  <circle class="focus" cx="582" cy="320" r="6"/>
+
+  <g clip-path="url(#svgeo-right-clip)">
+    <path class="ink" d="M606 320C680 320 696 200 822 200"/>
+    <path class="ink" d="M606 320C686 320 712 260 822 260"/>
+    <path class="ink" d="M606 320H822"/>
+    <path class="ink" d="M606 320C686 320 712 380 822 380"/>
+    <path class="ink" d="M606 320C680 320 696 440 822 440"/>
+  </g>
+
+  <g>
+    <circle class="source-node" cx="836" cy="200" r="6"/>
+    <circle class="source-node sn2" cx="836" cy="260" r="6"/>
+    <circle class="source-node sn3" cx="836" cy="320" r="6"/>
+    <circle class="source-node sn4" cx="836" cy="380" r="6"/>
+    <circle class="source-node sn5" cx="836" cy="440" r="6"/>
+  </g>
+
+  <g clip-path="url(#svgeo-cite-clip)">
+    <path class="dash" d="M842 200L1036 320"/>
+    <path class="dash" d="M842 260L1036 320"/>
+    <path class="dash" d="M842 320H1036"/>
+    <path class="dash" d="M842 380L1036 320"/>
+    <path class="dash" d="M842 440L1036 320"/>
+  </g>
+
+  <g>
+    <circle class="ring" cx="1036" cy="320" r="130"/>
+    <circle class="ring h2" cx="1036" cy="320" r="70"/>
+    <circle class="ring h3" cx="1036" cy="320" r="38"/>
+    <circle class="ring h4" cx="1036" cy="320" r="22"/>
+    <circle class="answer" cx="1036" cy="320" r="9"/>
+  </g>
+  </g>
+</svg>
