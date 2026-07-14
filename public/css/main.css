@@ -2538,7 +2538,8 @@ body.page-faq .section-title .accent { color: var(--blue); }
 .about-header .section-intro,
 .photography-header .section-intro,
 .clients-header .section-intro,
-.webdesign-header .section-intro {
+.webdesign-header .section-intro,
+.blog-header .section-intro {
   margin-top: 0.1em !important;
   margin-left: 0.2em;
 }
@@ -2547,14 +2548,16 @@ body.page-faq .section-title .accent { color: var(--blue); }
   .about-header .intro-lead,
   .photography-header .intro-lead,
   .clients-header .intro-lead,
-  .webdesign-header .intro-lead {
+  .webdesign-header .intro-lead,
+  .blog-header .intro-lead {
     margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
     font-size: 1.05rem;
   }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
-  .webdesign-header .section-intro {
+  .webdesign-header .section-intro,
+  .blog-header .section-intro {
     position: static;
     left: auto; right: auto; top: auto;
     max-width: 630px !important;
@@ -2578,18 +2581,21 @@ body.page-faq .section-title .accent { color: var(--blue); }
   .about-header,
   .photography-header,
   .clients-header,
-  .webdesign-header { padding-bottom: 0; }
+  .webdesign-header,
+  .blog-header { padding-bottom: 0; }
   .about-header .section-intro,
   .photography-header .section-intro,
   .clients-header .section-intro,
-  .webdesign-header .section-intro { max-width: 100% !important; padding-bottom: 3rem; }
+  .webdesign-header .section-intro,
+  .blog-header .section-intro { max-width: 100% !important; padding-bottom: 3rem; }
   /* When a hero has more than one intro paragraph (e.g. SEO & GEO), only the
      last should carry the big bottom spacing; earlier ones just need a normal
      paragraph gap so they don't sit too far apart on mobile. */
   .about-header .section-intro:not(:last-of-type),
   .photography-header .section-intro:not(:last-of-type),
   .clients-header .section-intro:not(:last-of-type),
-  .webdesign-header .section-intro:not(:last-of-type) { padding-bottom: 1rem; }
+  .webdesign-header .section-intro:not(:last-of-type),
+  .blog-header .section-intro:not(:last-of-type) { padding-bottom: 1rem; }
 }
 @media (max-width: 600px) {
   .about-body-inner {
@@ -3018,7 +3024,7 @@ body.page-blog .section-title .accent { color: var(--blue); }
 
 /* Blog header stacks the intro UNDER the title (left-aligned), instead of the
    shared section-header's side-by-side layout that pushes it awkwardly right. */
-.blog-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.blog-header { flex-direction: column; align-items: flex-start; gap: 0; }
 .blog-header .section-intro { max-width: 60ch; }
 
 /* ── List ── */
@@ -3199,3 +3205,65 @@ html[data-theme="dark"] .post-card time,
 html[data-theme="dark"] .post-header time { color: rgba(255,255,255,0.4); }
 html[data-theme="dark"] .blog-empty { color: rgba(255,255,255,0.5); }
 html[data-theme="dark"] .post__body :not(pre) > code { background: rgba(255,255,255,0.1); }
+
+/* ── Animated header motion (upper-right, menu pages) ────────────────────
+   One 640x420 looping SVG per page, sitting in the empty space right of the
+   hero text (long headlines may overlap it — accepted). Home is skipped:
+   the portrait + headline swap already provide movement there.
+   body gets isolation:isolate so the z-index:-1 pseudo still paints above
+   the body background in dark mode. */
+body.page-webdesign, body.page-seogeo, body.page-photography,
+body.page-clients, body.page-about, body.page-faq, body.page-blog {
+  position: relative;
+  isolation: isolate;
+}
+body.page-webdesign::before, body.page-seogeo::before, body.page-photography::before,
+body.page-clients::before, body.page-about::before, body.page-faq::before,
+body.page-blog::before {
+  content: "";
+  position: absolute;
+  top: 6rem;
+  right: 2vw;
+  width: clamp(300px, 48vw, 720px);
+  aspect-ratio: 640 / 420;
+  background: top right / contain no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+/* Phones have no empty space beside the hero — hide the motion entirely */
+@media (max-width: 600px) {
+  body.page-webdesign::before, body.page-seogeo::before, body.page-photography::before,
+  body.page-clients::before, body.page-about::before, body.page-faq::before,
+  body.page-blog::before {
+    content: none;
+  }
+}
+/* One artwork per page — swap the file in /assets to change a page's motion */
+body.page-webdesign::before   { background-image: url('/assets/web-design-background.svg'); }
+body.page-seogeo::before      { background-image: url('/assets/seo-geo-background.svg'); }
+body.page-photography::before { background-image: url('/assets/photography-background.svg'); }
+body.page-clients::before     { background-image: url('/assets/clients-background.svg'); }
+body.page-about::before       { background-image: url('/assets/about-background.svg'); }
+body.page-faq::before         { background-image: url('/assets/faq-background.svg'); }
+body.page-blog::before        { background-image: url('/assets/thinking-background.svg'); }
+/* Dark mode: invert flips the near-black ink to cream; hue-rotate brings
+   each page's accent colour back round (bright lime/yellow dull slightly) */
+html[data-theme="dark"] body.page-webdesign::before, html[data-theme="dark"] body.page-seogeo::before,
+html[data-theme="dark"] body.page-photography::before, html[data-theme="dark"] body.page-clients::before,
+html[data-theme="dark"] body.page-about::before, html[data-theme="dark"] body.page-faq::before,
+html[data-theme="dark"] body.page-blog::before {
+  filter: invert(1) hue-rotate(180deg);
+}
+/* Photography's lime and Clients' yellow can't survive the invert (bright
+   hues come back muddy), so dark mode swaps those two pages to pre-adjusted
+   variants instead of filtering */
+html[data-theme="dark"] body.page-photography::before {
+  filter: none;
+  background-image: url('/assets/photography-background-dark.svg');
+}
+html[data-theme="dark"] body.page-clients::before {
+  filter: none;
+  background-image: url('/assets/clients-background-dark.svg');
+}
+/* No shape on case studies (client logo owns that corner) or individual posts */
+body.page-case-study::before, body.page-post::before { content: none; }

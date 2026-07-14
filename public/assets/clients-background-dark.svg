@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Ten relationships converging</title>
+  <desc id="desc">Ten solid gray client points move through depth, intersect, and settle around one yellow point.</desc>
+  <style>
+    svg{--ink:#F3F3F3;--node:#3D3D3D;--accent:#FFD600}.link{fill:none;stroke:var(--ink);stroke-width:1;stroke-linecap:round;opacity:0;stroke-dasharray:1;stroke-dashoffset:1;animation:links 6s ease-in-out forwards}.node{fill:var(--node);opacity:0;transform-box:fill-box;transform-origin:center;animation:converge 6s cubic-bezier(.35,.75,.2,1) forwards}.centre{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;animation:centre 6s cubic-bezier(.2,.8,.2,1) forwards}@keyframes converge{0%,7%{opacity:0;transform:translate(var(--x),var(--y)) scale(1)}15%{opacity:1}55%{opacity:1;transform:translate(var(--mx),var(--my)) scale(.9)}69%{opacity:1;transform:translate(0,0) scale(.55)}80%,100%{opacity:1;transform:translate(var(--fx),var(--fy)) scale(1)}}@keyframes links{0%,72%{opacity:0;stroke-dashoffset:1}79%{opacity:.11}90%,100%{opacity:.11;stroke-dashoffset:0}}@keyframes centre{0%,66%{opacity:0;transform:scale(.2)}73%{opacity:1;transform:scale(1)}79%{transform:scale(1.7)}86%,100%{opacity:1;transform:scale(1)}}@media(prefers-reduced-motion:reduce){*{animation:none!important}.link{opacity:.11;stroke-dashoffset:0}.node{opacity:1;transform:translate(var(--fx),var(--fy)) scale(1)}.centre{opacity:1}}
+  </style>
+  <path class="link" pathLength="1" d="M420 210V130"/><path class="link" pathLength="1" d="M420 210L491 145"/><path class="link" pathLength="1" d="M420 210L534 185"/><path class="link" pathLength="1" d="M420 210L534 235"/><path class="link" pathLength="1" d="M420 210L491 275"/><path class="link" pathLength="1" d="M420 210V290"/><path class="link" pathLength="1" d="M420 210L349 275"/><path class="link" pathLength="1" d="M420 210L306 235"/><path class="link" pathLength="1" d="M420 210L306 185"/><path class="link" pathLength="1" d="M420 210L349 145"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:0px;--y:-135px;--mx:22px;--my:-42px;--fx:0px;--fy:-80px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:109px;--y:-109px;--mx:54px;--my:-25px;--fx:71px;--fy:-65px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:176px;--y:-42px;--mx:65px;--my:2px;--fx:114px;--fy:-25px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:176px;--y:42px;--mx:51px;--my:28px;--fx:114px;--fy:25px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:109px;--y:109px;--mx:18px;--my:43px;--fx:71px;--fy:65px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:0px;--y:135px;--mx:-22px;--my:42px;--fx:0px;--fy:80px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:-109px;--y:109px;--mx:-54px;--my:25px;--fx:-71px;--fy:65px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:-176px;--y:42px;--mx:-65px;--my:-2px;--fx:-114px;--fy:25px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:-176px;--y:-42px;--mx:-51px;--my:-28px;--fx:-114px;--fy:-25px"/>
+  <circle class="node" cx="420" cy="210" r="5" style="--x:-109px;--y:-109px;--mx:-18px;--my:-43px;--fx:-71px;--fy:-65px"/>
+  <circle class="centre" cx="420" cy="210" r="6"/>
+</svg>

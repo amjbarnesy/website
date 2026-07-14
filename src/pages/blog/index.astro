@@ -21,7 +21,7 @@ const blogLd = {
   '@type': 'Blog',
   '@id': 'https://www.adambarnes.biz/blog.html#blog',
   name: 'Notes on design & tech',
-  description: 'Working notes on web design, development, and the craft behind the projects.',
+  description: "Working notes on web design, development, and the craft behind the projects — the thinking that doesn't fit in a case study.",
   url: 'https://www.adambarnes.biz/blog.html',
   author: { '@type': 'Person', '@id': 'https://www.adambarnes.biz/#person', name: 'Adam Barnes' },
   blogPost: posts.map((p: any) => ({
@@ -36,7 +36,7 @@ const blogLd = {
 ---
 <Base
   title="Thinking | Notes on design & tech | Adam Barnes"
-  description="Working notes on web design, development, and the craft behind the projects."
+  description="Working notes on web design, development, and the craft behind the projects — the thinking that doesn't fit in a case study."
   canonical="https://www.adambarnes.biz/blog.html"
   bodyClass="page-blog"
   active="thinking"
@@ -48,8 +48,9 @@ const blogLd = {
 
   <main class="blog-index">
     <header class="section-header blog-header">
-      <h1 class="section-title"><span>Notes on</span> <span class="accent">design &amp; tech</span></h1>
-      <p class="section-intro">Working notes on web design, development, and the craft behind the projects.</p>
+      <h1 class="section-title"><span>Notes on</span> <span class="accent">design &amp; tech</span> <span class="by-line">by Adam</span></h1>
+      <h2 class="intro-lead">Working notes on web design, development, and the craft behind the projects.</h2>
+      <p class="section-intro">This is the thinking that doesn't fit in a case study: why something got built the way it did, what went wrong on the way, and what I'd do differently next time. Written when there's something worth saying, not to feed a schedule.</p>
     </header>
 
     {posts.length === 0 ? (

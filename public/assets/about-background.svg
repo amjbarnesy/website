@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Animated MADE wordmark</title>
+  <desc id="desc">Outlined letters draw into place, followed by a single accent point.</desc>
+  <defs>
+    <style>.cls-1{fill:none;stroke:#0c0c0c;stroke-miterlimit:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:letter 6s cubic-bezier(.3,.75,.25,1) forwards}.l2{animation-delay:.1s}.l3{animation-delay:.2s}.l4{animation-delay:.3s}.l5{animation-delay:.4s}.cls-2{fill:#8833ff;opacity:0;transform-box:fill-box;transform-origin:center;animation:point 6s cubic-bezier(.2,.8,.2,1) forwards}@keyframes letter{0%,7%{opacity:0;stroke-dashoffset:1}16%{opacity:.18}54%,100%{opacity:.18;stroke-dashoffset:0}}@keyframes point{0%,57%{opacity:0;transform:scale(.2)}65%{opacity:1;transform:scale(1)}72%{transform:scale(1.5)}80%,100%{opacity:1;transform:scale(1)}}@media(prefers-reduced-motion:reduce){.cls-1,.cls-2{animation:none}.cls-1{opacity:.18;stroke-dashoffset:0}.cls-2{opacity:1}}</style>
+  </defs>
+  <g id="MADE" transform="translate(197.6682 156.1634) scale(.86)">
+    <polygon class="cls-1 l1" points="70.22 69.09 20.41 3.07 .59 123.48 34.34 123.48 40.73 70.72 70.22 112.83 99.87 70.72 106.26 123.48 140 123.48 120.18 3.07 70.22 69.09" pathLength="1"/>
+    <path class="cls-1 l2" d="M144.75,123.48h36.04l9.37-18.51h33.86l9.68,18.51h36.04L207.17,1.1l-62.42,122.38ZM218.56,81.54h-22.66l11.27-25.72,11.39,25.72Z" pathLength="1"/>
+    <path class="cls-1 l3" d="M357.48,15.76c-9.34-4.64-20.51-6.96-33.5-6.96h-42.92v114.68h42.92c13,0,24.16-2.32,33.5-6.96,9.34-4.64,16.55-11.25,21.62-19.82,5.08-8.57,7.62-18.76,7.62-30.55s-2.54-22.12-7.62-30.64c-5.08-8.52-12.29-15.1-21.62-19.74ZM350.93,80.96c-1.8,3.88-4.18,6.88-7.13,9.01-2.95,2.13-6.25,3.6-9.91,4.42-3.66.82-7.4,1.23-11.22,1.23h-8.68v-58.98h8.68c3.82,0,7.56.41,11.22,1.23,3.66.82,6.96,2.29,9.91,4.42,2.95,2.13,5.32,5.13,7.13,9.01,1.8,3.88,2.7,8.82,2.7,14.83s-.9,10.95-2.7,14.83Z" pathLength="1"/>
+    <polygon class="cls-1 l4" points="483.22 34.52 483.22 8.8 434.23 8.8 425.38 8.8 403.76 8.8 403.76 123.48 425.38 123.48 434.23 123.48 483.22 123.48 483.22 97.76 434.23 97.76 434.23 76.29 479.94 76.29 479.94 51.39 434.23 51.39 434.23 34.52 483.22 34.52" pathLength="1"/>
+    <circle class="cls-2" cx="477.13" cy="149.81" r="11"/>
+  </g>
+</svg>
