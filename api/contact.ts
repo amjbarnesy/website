@@ -31,6 +31,7 @@ export async function POST(request: Request): Promise<Response> {
   const name = val('name');
   const email = val('email');
   const phone = val('phone');
+  const website = val('website');
   const subject = val('subject');
   const message = val('message');
 
@@ -53,6 +54,7 @@ export async function POST(request: Request): Promise<Response> {
     `Name:    ${name}\n` +
     `Email:   ${email}\n` +
     `Phone:   ${phone || '—'}\n` +
+    `Website: ${website || '—'}\n` +
     `Type:    ${subject}\n\n` +
     `${message}\n`;
 
