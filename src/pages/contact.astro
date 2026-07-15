@@ -112,6 +112,12 @@ import Base from '../layouts/Base.astro';
       const form = document.getElementById('contact-form');
       const btn = document.getElementById('btn-submit');
       if (!form || !btn) return;
+
+      // Pages can deep-link the form with the subject prefilled, e.g.
+      // contact.html?subject=SEO%20%26%20GEO%20audit from the SEO page's
+      // audit CTA. The floating label follows via :not(:placeholder-shown).
+      const prefill = new URLSearchParams(location.search).get('subject');
+      if (prefill) form.subject.value = prefill;
       const msgEl = document.createElement('p');
       msgEl.className = 'form-status';
       form.after(msgEl);

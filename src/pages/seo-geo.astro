@@ -345,7 +345,7 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
         <div class="cs-copy">
           <div class="cs-copy-col">
             <h2 class="cs-copy-heading">Where to start</h2>
-            <p>The easiest first step is an audit. I look at your site the way Google and an AI would, and tell you plainly where you stand, what's holding you back, and what's worth fixing first. No obligation to do the work with me afterwards, though most people do.</p>
+            <p>The easiest first step is an audit. I look at your site the way Google and an AI would, and tell you plainly where you stand, what's holding you back, and what's worth fixing first. No obligation to do the work with me afterwards, though most people do. <a href="contact.html?subject=SEO%20%26%20GEO%20audit">Request an audit →</a></p>
           </div>
           <div class="cs-copy-col">
             <h2 class="cs-copy-heading">What happens next</h2>
@@ -355,12 +355,14 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
       </div>
     </section>
 
-    <!-- CTA — same pattern as the Clients page CTA card, on this page's orange accent -->
-    <section class="clients-grid" style="grid-template-columns:1fr;" aria-label="Get in touch">
+    <!-- CTA — same pattern as the Clients page CTA card, on this page's orange accent.
+         Deep-links the contact form with the subject prefilled (contact page reads
+         ?subject= and fills the field), so audit enquiries arrive labelled. -->
+    <section class="clients-grid" style="grid-template-columns:1fr;" aria-label="Request an audit">
       <article class="client-card client-card--cta client-card--cta-wide reveal" style="border:none; margin:0;">
-        <p class="client-cta-text" style="border-top:none; padding-top:0;">Want to be found?</p>
-        <p class="client-cta-support">Let's talk about where you are and where you could be.</p>
-        <a href="contact.html" class="btn-cta" style="margin-top: 1.5rem;">Get in touch</a>
+        <p class="client-cta-text" style="border-top:none; padding-top:0;">Want to know where you stand?</p>
+        <p class="client-cta-support">Start with an audit. I'll look at your site the way Google and an AI would, and tell you plainly what's worth fixing first.</p>
+        <a href="contact.html?subject=SEO%20%26%20GEO%20audit" class="btn-cta" style="margin-top: 1.5rem;">Request an audit</a>
       </article>
     </section>
 
