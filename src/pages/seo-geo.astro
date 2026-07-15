@@ -57,10 +57,18 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
         },
         {
           "@type": "Offer",
+          "price": "225",
+          "priceCurrency": "GBP",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "225",
+            "priceCurrency": "GBP",
+            "valueAddedTaxIncluded": false
+          },
           "itemOffered": {
             "@type": "Service",
             "name": "SEO & GEO Audit",
-            "description": "A plain assessment of where a site stands, what is holding it back, and what is worth fixing first, seen the way Google and an AI would."
+            "description": "A fixed-price assessment of where a site stands, what is holding it back, and what is worth fixing first, seen the way Google and an AI would. Delivered as a written report branded to the client. No report, no charge."
           }
         }
       ]
@@ -96,6 +104,14 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Usually, yes. I start with an audit, tell you what's holding the site back, and fix what's worth fixing. Sometimes that's small tweaks. Sometimes it's a rebuild. I'll be straight with you either way."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does an audit cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "£225 plus VAT, fixed. Everything I find goes into a written report, branded to your business, that's yours to keep whoever ends up doing the work. And if I can't run the audit and there's nothing to report, there's no charge."
         }
       },
       {
@@ -323,6 +339,18 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
 
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">What does an audit cost?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>£225 plus VAT, fixed. Everything I find goes into a written report, branded to your business, that's yours to keep whoever ends up doing the work. And if I can't run the audit and there's nothing to report, there's no charge.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
               <span class="faq-question-text">How long until it works?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
@@ -345,11 +373,11 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
         <div class="cs-copy">
           <div class="cs-copy-col">
             <h2 class="cs-copy-heading">Where to start</h2>
-            <p>The easiest first step is an audit. I look at your site the way Google and an AI would, and tell you plainly where you stand, what's holding you back, and what's worth fixing first. No obligation to do the work with me afterwards, though most people do. <a href="contact.html?subject=SEO%20%26%20GEO%20audit">Request an audit →</a></p>
+            <p>The easiest first step is an audit. I look at your site the way Google and an AI would, and tell you plainly where you stand, what's holding you back, and what's worth fixing first. It's a fixed £225 + VAT, and everything I find goes into a written report, branded to your business, that's yours to keep whoever does the work. If I can't run the audit and there's nothing to report, there's no charge. <a href="contact.html?subject=SEO%20%26%20GEO%20audit">Request an audit →</a></p>
           </div>
           <div class="cs-copy-col">
             <h2 class="cs-copy-heading">What happens next</h2>
-            <p>From there it's either a set of fixes, a rebuild, or an ongoing hand on the tiller. Whatever fits.</p>
+            <p>From there it's either a set of fixes, a rebuild, or an ongoing hand on the tiller. Whatever fits. No obligation to do the work with me afterwards, though most people do.</p>
           </div>
         </div>
       </div>
@@ -361,7 +389,7 @@ import seoPerformanceDiagram from '../assets/seo-performance-infographic.svg?raw
     <section class="clients-grid" style="grid-template-columns:1fr;" aria-label="Request an audit">
       <article class="client-card client-card--cta client-card--cta-wide reveal" style="border:none; margin:0;">
         <p class="client-cta-text" style="border-top:none; padding-top:0;">Want to know where you stand?</p>
-        <p class="client-cta-support">Start with an audit. I'll look at your site the way Google and an AI would, and tell you plainly what's worth fixing first.</p>
+        <p class="client-cta-support">Start with an audit. I'll look at your site the way Google and an AI would, and tell you plainly what's worth fixing first. £225 + VAT, fixed. If there's nothing to report, there's no charge.</p>
         <a href="contact.html?subject=SEO%20%26%20GEO%20audit" class="btn-cta" style="margin-top: 1.5rem;">Request an audit</a>
       </article>
     </section>
