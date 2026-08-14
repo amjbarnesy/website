@@ -103,7 +103,7 @@ const menuLinks = [
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon.png" />
   <script is:inline>!function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme:dark)').matches;if(s==='dark'||(s===null&&p))document.documentElement.setAttribute('data-theme','dark')}()</script>
   <!-- Consent Mode v2 defaults must reach the dataLayer before gtag.js runs. -->
-  <script is:inline src="/js/cookie-consent.js"></script>
+  <script is:inline src={`/js/cookie-consent.js?v=${cssVersion}`}></script>
 </head>
 <body class={bodyClass}>
 
