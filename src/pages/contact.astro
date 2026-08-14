@@ -154,6 +154,7 @@ import Base from '../layouts/Base.astro';
           .then(function (res) { return res.json(); })
           .then(function (data) {
             if (data.ok) {
+              if (window.gtag) window.gtag('event', 'contact_submit', { form_id: 'contact-form' });
               form.reset();
               btn.textContent = 'Sent';
               msgEl.textContent = "Message sent. I'll be in touch soon.";
