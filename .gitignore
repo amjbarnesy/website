@@ -17,3 +17,6 @@ public/assets/adam-portrait-master.mov
 public/assets/adam-portrait.mov
 public/assets/ffmpeg
 public/assets/icon.pxd
+.vercel
+.env*
+!.env.example

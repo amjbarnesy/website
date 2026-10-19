@@ -1,5 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+
+// Public Turnstile site key, baked in at build time (this page is static), so
+// changing it in Vercel needs a redeploy. Not a secret.
+const turnstileSiteKey =
+  import.meta.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 ---
 <Base
   title="Contact | Adam Barnes | Web Design & Photography"
@@ -26,6 +31,9 @@ import Base from '../layouts/Base.astro';
     }
   }
   </script>
+  {turnstileSiteKey && (
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+  )}
   </Fragment>
 
 <main class="contact-page">
@@ -95,13 +103,21 @@ import Base from '../layouts/Base.astro';
           <label for="message">Tell me about it</label>
         </div>
 
-        <!-- Honeypot: hidden from real users, bots fill it in. Named _gotcha so
-             Formspree also discards filled submissions server-side (catches bots
-             that POST straight to the endpoint, bypassing the client-side check). -->
-        <div class="form-group form-hp" aria-hidden="true">
-          <input type="text" id="_gotcha" name="_gotcha" placeholder=" " tabindex="-1" autocomplete="off">
-          <label for="_gotcha">Website</label>
+        <!-- Honeypot: off-screen, inert and aria-hidden, so neither keyboard
+             nor screen-reader users can reach it. Bots fill it in; the server
+             then fakes success and sends nothing. -->
+        <div class="form-group form-hp" aria-hidden="true" inert>
+          <input type="text" id="homepage" name="homepage" placeholder=" " tabindex="-1" autocomplete="off">
+          <label for="homepage">Homepage</label>
         </div>
+
+        <!-- Set by the script below when the page loads; the server rejects
+             submissions sent less than 3 seconds later. -->
+        <input type="hidden" name="started" value="">
+
+        {turnstileSiteKey && (
+          <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-appearance="interaction-only"></div>
+        )}
 
         <div class="form-submit">
           <button type="button" class="btn-submit" id="btn-submit">Send Message</button>
@@ -121,6 +137,8 @@ import Base from '../layouts/Base.astro';
       // Pages can deep-link the form with the subject prefilled, e.g.
       // contact.html?subject=SEO%20%26%20GEO%20audit from the SEO page's
       // audit CTA. The floating label follows via :not(:placeholder-shown).
+      form.started.value = String(Date.now());
+
       const prefill = new URLSearchParams(location.search).get('subject');
       if (prefill) form.subject.value = prefill;
       const msgEl = document.createElement('p');
@@ -128,9 +146,6 @@ import Base from '../layouts/Base.astro';
       form.after(msgEl);
 
       function sendForm() {
-        // Honeypot
-        if (document.getElementById('_gotcha').value) return;
-
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const subject = form.subject.value.trim();
@@ -146,10 +161,13 @@ import Base from '../layouts/Base.astro';
         msgEl.textContent = '';
         msgEl.className = 'form-status';
 
+        const body = new FormData(form);
+        body.append('submitted', String(Date.now()));
+
         fetch('/api/contact', {
           method: 'POST',
           headers: { Accept: 'application/json' },
-          body: new FormData(form),
+          body: body,
         })
           .then(function (res) { return res.json(); })
           .then(function (data) {
@@ -160,6 +178,7 @@ import Base from '../layouts/Base.astro';
               msgEl.textContent = "Message sent. I'll be in touch soon.";
               msgEl.className = 'form-status form-status--success';
             } else {
+              if (window.turnstile) window.turnstile.reset();
               btn.disabled = false;
               btn.textContent = 'Send Message';
               msgEl.textContent = data.error || 'Something went wrong. Please try again.';
@@ -167,6 +186,7 @@ import Base from '../layouts/Base.astro';
             }
           })
           .catch(function () {
+            if (window.turnstile) window.turnstile.reset();
             btn.disabled = false;
             btn.textContent = 'Send Message';
             msgEl.textContent = 'Something went wrong. Please email hello@adambarnes.biz directly.';
