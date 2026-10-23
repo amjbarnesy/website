@@ -17,6 +17,7 @@ const staticPages = [
   { loc: '/faq.html', priority: '0.7', changefreq: 'monthly' },
   { loc: '/case-study-adambarnes-biz.html', priority: '0.7', changefreq: 'yearly' },
   { loc: '/case-study-adambarnesphotos.html', priority: '0.7', changefreq: 'yearly' },
+  { loc: '/case-study-arcangelo.html', priority: '0.7', changefreq: 'yearly' },
   { loc: '/case-study-gardner-denley.html', priority: '0.6', changefreq: 'yearly' },
   { loc: '/case-study-uk-director-magazine.html', priority: '0.6', changefreq: 'yearly' },
   { loc: '/case-study-domarn-group.html', priority: '0.6', changefreq: 'yearly' },

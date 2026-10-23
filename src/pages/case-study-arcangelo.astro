@@ -1,0 +1,233 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Arcangelo | Bespoke Book Companion Microsite Case Study | Adam Barnes"
+  description="How a book of essays and a Wigmore Hall concert series became an interactive companion site: composer lifelines, a timeline, concert films, no cookies, no third-party scripts. Built with Next.js and Sanity."
+  canonical="https://www.adambarnes.biz/case-study-arcangelo.html"
+  ogImage="https://www.adambarnes.biz/assets/og-arcangelo.jpg"
+  ogType="article"
+  bodyClass="page-webdesign"
+  active="web-design"
+>
+  <Fragment slot="head">
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "An English Baroque Journey",
+    "url": "https://baroque.arcangelo.org.uk",
+    "creator": {
+      "@type": "Person",
+      "name": "Adam Barnes",
+      "url": "https://www.adambarnes.biz"
+    },
+    "description": "The online companion to Arcangelo's book and Wigmore Hall concert series, with interactive composer lifelines, a 130-event timeline and a concert companion, built with Next.js and Sanity and running cookie-free with nothing loaded from a third party.",
+    "keywords": [
+      "Next.js",
+      "Sanity",
+      "Headless CMS",
+      "Interactive",
+      "Performance",
+      "Privacy",
+      "Web Design"
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.adambarnes.biz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Web Design",
+        "item": "https://www.adambarnes.biz/web-design.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Arcangelo",
+        "item": "https://www.adambarnes.biz/case-study-arcangelo.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Arcangelo: Bespoke Book Companion Microsite Case Study",
+    "description": "How a book of essays and a Wigmore Hall concert series became an interactive companion site: composer lifelines, a timeline, concert films, no cookies, no third-party scripts. Built with Next.js and Sanity.",
+    "about": {
+        "@type": "Organization",
+        "name": "Arcangelo",
+        "url": "https://baroque.arcangelo.org.uk"
+    },
+    "url": "https://www.adambarnes.biz/case-study-arcangelo.html",
+    "author": {
+        "@type": "Person",
+        "name": "Adam Barnes",
+        "url": "https://www.adambarnes.biz"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Adam Barnes",
+        "url": "https://www.adambarnes.biz"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+}
+  </script>
+  </Fragment>
+
+<main>
+
+    <!-- Page header -->
+    <header class="section-header webdesign-header cs-header">
+      <div class="cs-header-text">
+        <h1 class="section-title">
+          <span>An English</span>
+          <span class="accent">Baroque Journey</span>
+          <span class="by-line">by Adam</span>
+        </h1>
+        <p class="section-intro">
+          <span class="intro-lead">A book, a concert series and a website that had to feel like all three.</span>
+          Built for Arcangelo with Next.js and Sanity. Cookie-free, with nothing loaded from a third party, and handed over so the client can run it themselves.
+        </p>
+      </div>
+      <div class="cs-header-logo cs-header-logo--wide" aria-hidden="true">
+        <img src="assets/logos/arcangelo.png" alt="" class="cs-header-logo-img">
+      </div>
+    </header>
+
+    <!-- Case study body -->
+    <section class="cs-body reveal" aria-label="Case study detail">
+      <div class="cs-body-inner">
+
+        <!-- Meta strip -->
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Project</span>
+            <span class="cs-meta-value">An English Baroque Journey</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Client</span>
+            <span class="cs-meta-value">Arcangelo</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Live site</span>
+            <span class="cs-meta-value"><a href="https://baroque.arcangelo.org.uk" target="_blank" rel="noopener">baroque.arcangelo.org.uk</a></span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Built with</span>
+            <span class="cs-meta-value">Next.js &middot; Sanity &middot; Vercel</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Optimised for</span>
+            <span class="cs-meta-value">Performance &middot; Privacy &middot; Handover</span>
+          </div>
+        </div>
+
+        <!-- Narrative -->
+        <div class="cs-copy">
+          <div class="cs-copy-col">
+
+            <h2 class="cs-copy-heading">The brief</h2>
+            <p>Arcangelo are a period-instrument ensemble. In 2026 they set out on a two-year project: five concert programmes exploring English music from 1660 to 1760, devised with Wigmore Hall, and a book of new essays to go with them.</p>
+            <p>The book would be a limited print edition, sold at concerts. The website had to be its companion. Not a facsimile of the printed page, and not a brochure for the concerts either. Somewhere a reader could get their bearings in the century, read a digest of each essay, hear the music and find the full version in the book.</p>
+            <p>Two things made it unusual. The content would arrive over two years, so the site had to launch unfinished and look finished. And the audience includes scholars who notice when a date is wrong.</p>
+
+            <h2 class="cs-copy-heading">The approach</h2>
+            <p><strong>Foundations before looks.</strong> The first weeks went on plumbing, not design. A content model that mirrors the book: chapters, authors, images with credits, composers, timeline events, concerts. All 73 composers imported from the client's spreadsheet with their awkward dates intact, c.1655 staying c.1655 rather than being rounded into false precision. Pre-built pages, images served from the CMS's own network, a hard spending cap. It is far cheaper to prove the plumbing works before committing to a look.</p>
+            <p><strong>The book sets the tone.</strong> The hero is Zoffany's The Sharp Family, the book's cover painting, fading to black with the title off the canvas. The typefaces are free, self-hosted serifs in the same tradition as the book's Arno Pro, chosen so the site never depends on anyone's Creative Cloud subscription staying active. Every page has the hard edges and generous margins of a well-set book. A Handel scholar's first reaction was that it really is a book.</p>
+            <p><strong>Two instruments for the journey.</strong> The composer lifelines chart 73 composers across two centuries. Inside the 1660 to 1760 focus window everything is in colour. Outside it, sepia. So Beethoven can sit there as an orientation point without pretending to be part of the story, and nothing gets clipped or misrepresented. Click a composer and you can be hearing him on Spotify in three seconds. The timeline runs 130 events down a spine of reigns, with wars stretching across their years and the moments where music and history landed together picked out.</p>
+            <p><strong>Launching unfinished.</strong> Six of the eight parts were not written at launch. Each gets a tile with its own artwork and a forthcoming mark, and the chapter page lights up on its own the moment the digest is published in the CMS. No rebuild, no call to me. Concert pages have a switch the client controls, so each one goes live fully stocked with its films.</p>
+            <p><strong>No cookies, no banner, nothing from a third party.</strong> The site makes zero third-party requests on page load. YouTube films and Spotify albums load only when someone presses play, so nobody is tracked just for visiting. Visitor numbers come from Vercel's cookie-free analytics. There is no consent banner because there is nothing to consent to. For a site that spent three months refusing to behave like a website, this mattered.</p>
+            <p><strong>Never alter supplied data.</strong> Where the client's spreadsheet disagreed with the record, I flagged it rather than fixed it. A birth year, a nationality, a king on the wrong throne in 1760. The authors' own corrections, when they came, were live within a day.</p>
+            <p><strong>Handover built in.</strong> Arcangelo run the site themselves now. Sanity Studio has help text on every field, amber warnings where a credit is missing, and a set of short crib sheets for the jobs they will actually do. Build-time checks report problems without ever blocking a deploy, because an editor fixing a typo should never take the site down.</p>
+
+          </div>
+          <div class="cs-copy-col">
+
+            <h2 class="cs-copy-heading">The result</h2>
+            <p>The site went live in October 2026, ahead of the first Wigmore Hall concert. The client's executive director, after showing it to his team, reported general amazement and an outright delighted "who made this?". The Prologue author called the lifelines a fun resource that will play well with audiences. A Cambridge Handel scholar said the lifelines and timeline pages were wonderful and that the site could be a model for others.</p>
+            <p>Behind the scenes, publishing a new chapter is a job the client does without me. The one line of feedback I will keep: "Sanity is a doddle. Where has it been all my life?"</p>
+
+            <h2 class="cs-copy-heading">Is this for you?</h2>
+            <p>If your content is structured, will grow over time, and has to be right as well as beautiful, this is the approach I'd recommend. See it at <a href="https://baroque.arcangelo.org.uk" target="_blank" rel="noopener">baroque.arcangelo.org.uk</a>.</p>
+            <p>If your project sounds similar, <a href="contact.html">get in touch</a>.</p>
+
+          </div>
+        </div>
+
+        <!-- Technical highlights -->
+        <div class="cs-tech-strip reveal">
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">Stack</span>
+            <span class="cs-tech-value">Next.js &middot; React</span>
+          </div>
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">CMS</span>
+            <span class="cs-tech-value">Sanity (headless), client-run</span>
+          </div>
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">Content</span>
+            <span class="cs-tech-value">8 parts &middot; 73 composers &middot; 130 events &middot; concert companion &middot; Watch &amp; Listen</span>
+          </div>
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">Privacy</span>
+            <span class="cs-tech-value">Zero third-party requests &middot; no cookies &middot; no consent banner</span>
+          </div>
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">Fonts</span>
+            <span class="cs-tech-value">Self-hosted &middot; Cormorant Garamond, EB Garamond, Fontin SmallCaps</span>
+          </div>
+          <div class="cs-tech-item">
+            <span class="cs-tech-label">Hosting</span>
+            <span class="cs-tech-value">Vercel &middot; static generation &middot; spend-capped</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="cs-screenshots reveal" aria-label="Project screenshots">
+      <figure class="cs-screenshot">
+        <img src="assets/images/arcangelo-home-hero.jpg" alt="An English Baroque Journey home page, Zoffany's The Sharp Family fading to black beneath the title" class="cs-screenshot-img" loading="lazy">
+        <figcaption>Home page, Zoffany's The Sharp Family (&copy; The National Gallery, London) fading to black</figcaption>
+      </figure>
+      <figure class="cs-screenshot">
+        <img src="assets/images/arcangelo-lifelines.jpg" alt="Composer lifelines chart, bars in colour inside the 1660 to 1760 focus window and sepia outside it" class="cs-screenshot-img" loading="lazy">
+        <figcaption>Composer lifelines, colour inside the focus window and sepia beyond it</figcaption>
+      </figure>
+      <figure class="cs-screenshot">
+        <img src="assets/images/arcangelo-timeline.jpg" alt="Timeline page showing the 1680s, with reigns running down the spine and events either side" class="cs-screenshot-img" loading="lazy">
+        <figcaption>Timeline, 130 events down a spine of reigns</figcaption>
+      </figure>
+      <figure class="cs-screenshot">
+        <img src="assets/images/arcangelo-chapter.jpg" alt="A chapter page with the essay digest, inline images and author biography" class="cs-screenshot-img" loading="lazy">
+        <figcaption>A chapter page, the digest with its images and author biography</figcaption>
+      </figure>
+      <figure class="cs-screenshot">
+        <img src="assets/images/arcangelo-concert-companion.jpg" alt="Concert companion page with the programme, players and a stack of films from the musicians" class="cs-screenshot-img" loading="lazy">
+        <figcaption>Concert companion, programme, players and films</figcaption>
+      </figure>
+    </section>
+
+    <!-- Back link + CTA -->
+    <div class="cs-footer-nav reveal">
+      <a href="web-design.html" class="cs-back-link">&larr; Back to Web Design</a>
+      <a href="contact.html" class="btn">Start a project</a>
+    </div>
+
+  </main>
+</Base>

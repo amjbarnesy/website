@@ -13,6 +13,7 @@ Adam Barnes offers web design, search optimisation and commercial photography as
 ## Proof
 
 - [Clients](https://www.adambarnes.biz/clients.html): Businesses worked with, in their own words.
+- [Case study: Arcangelo](https://www.adambarnes.biz/case-study-arcangelo.html): Next.js and Sanity companion site for a book of essays and a Wigmore Hall concert series, cookie-free with no third-party requests.
 - [Case study: Tom Appleton](https://www.adambarnes.biz/case-study-tom-appleton.html): Brand, website and photography built as one piece of work.
 - [Case study: Gardner Denley](https://www.adambarnes.biz/case-study-gardner-denley.html): Bespoke WordPress website for a Cambridge property buying agency.
 
@@ -33,4 +34,4 @@ The full photography portfolio, including festivals, architecture and portraits,
 - [Contact page](https://www.adambarnes.biz/contact.html)
 - Based in Lowestoft, Suffolk. Working across Norfolk, Suffolk and the UK.
 
-Updated: 2026-07-06
+Updated: 2026-10-23
